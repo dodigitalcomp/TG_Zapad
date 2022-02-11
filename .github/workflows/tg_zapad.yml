@@ -22,6 +22,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: 
-        npm i
-        npm run dev
+    - run: NODE_GYP_FORCE_PYTHON=python3 npm i
+    - run: NODE_GYP_FORCE_PYTHON=python3 npm run dev
