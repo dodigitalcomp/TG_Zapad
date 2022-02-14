@@ -55,18 +55,21 @@
       </div>
     </div>
     <div class="footer-min">
-      <div class="footer-block-logo">
+      <div class="footer-block-logo img-max">
         <img src="../assets/image/logo_sign.svg" alt="">
       </div>
       <div class="footer-block-info">
-        <div class="footer-block-info-title">
-          <a href="">Афиша</a>
-          <a href="">образование</a>
-          <a href="">о музее</a>
-          <a href="">медиа</a>
-          <a href="">новости</a>
-          <a href="">программа лояльности</a>
-          <a href="">контакты</a>
+        <div class="mini-block">
+          <img class="img-min" src="../assets/image/logo_sign.svg"  alt="">
+          <div class="footer-block-info-title">
+            <a href="">Афиша</a>
+            <a href="">образование</a>
+            <a href="">о музее</a>
+            <a href="">медиа</a>
+            <a href="">новости</a>
+            <a href="">программа лояльности</a>
+            <a href="">контакты</a>
+          </div>
         </div>
         <div class="canvas">
           <canvas id="footer-arrow-min"></canvas>
@@ -102,7 +105,7 @@
               <p>Политика конфиденциальности</p>
             </div>
             <div>
-              <p>(Made by ONY)</p>
+              <p class="made">(Made by ONY)</p>
             </div>
           </div>
         </div>
@@ -143,6 +146,28 @@
 
 <style scoped lang="scss">
 
+  .mini-block {
+    @media (max-width: 500px) {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  .img-min {
+    display: none;
+    
+    @media (max-width: 500px) {
+      display: block;
+      margin-top: 3px;
+    }
+  }
+  .img-max {
+    display: block;
+
+    @media (max-width: 500px) {
+      display: none !important;
+    }
+  }
   .footer-min {
     padding: 40px 20px;
     display: none;
@@ -156,8 +181,9 @@
       }
 
       #footer-arrow-min {
-        width: 90%;
+        width: 100%;
         height: 200px;
+
       }
 
       .footer-block-info-social {
@@ -204,6 +230,11 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      width: 50%;
+        
+        @media (max-width: 800px) {
+            width: 100%;
+        }
 
       &-conditions {
         font-style: normal;
@@ -211,6 +242,32 @@
         font-size: 15px;
         line-height: 20px;
         color: #FFFFFF;
+
+        display: flex;
+        justify-content: space-between;
+
+          @media (max-width: 500px) {
+              flex-direction: column;
+              justify-content: flex-start;
+              border-top: 1px solid white;
+              padding-top: 20px;
+          }
+
+        .made {
+          white-space: nowrap;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 15px;
+          line-height: 20px;
+          text-align: right;
+          text-transform: uppercase;
+          color: #FFFFFF;
+
+            @media (max-width: 500px) {
+               text-align: left;
+                margin-top: 15px;
+            }
+        }
       }
 
       &-input {
@@ -225,12 +282,34 @@
           flex-wrap: nowrap;
           border: 1px solid #FFFFFF;
           padding: 9px;
-          input[type="text"], textarea {
-            background-color : #221F1A;
-          }
+          width: 100%;
           input{
+            background-color : #221F1A;
             width: 70%;
             outline: none;
+          }
+
+          button {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 20px;
+            text-align: right;
+            text-transform: uppercase;
+            white-space: nowrap;
+
+            @media (max-width: 650px) {
+              visibility: hidden;
+              position: relative;
+              &::after {
+                content: url("../assets/image/arrow-r.svg");
+                visibility: visible;
+                display: block;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+              }
+            }
           }
         }
       }
@@ -274,14 +353,20 @@
         font-size: 15px;
         line-height: 20px;
         color: #FFFFFF;
+        margin-bottom: 30px;
       }
       &-social {
-        margin-top: 144px;
-        margin-bottom: 274px;
+        margin-top: 15px;
         display: flex;
+        align-items: center;
         a {
           margin: 10px;
         }
+
+          @media (max-width: 500px) {
+              width: 100%;
+              justify-content: space-between;
+          }
       }
     }
   }

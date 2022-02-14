@@ -1,0 +1,25 @@
+{
+  "entry": "server.js",
+  "files": {
+    "components/footer.js": "components/footer.js",
+    "components/header.js": "components/header.js",
+    "components/main.js": "components/main.js",
+    "components/swiper.js": "components/swiper.js",
+    "pages/errors.js": "pages/errors.js",
+    "pages/events.js": "pages/events.js",
+    "pages/index.js": "pages/index.js",
+    "pages/news.js": "pages/news.js",
+    "server.js": "server.js"
+  },
+  "maps": {
+    "components/footer.js": "components/footer.js.map",
+    "components/header.js": "components/header.js.map",
+    "components/main.js": "components/main.js.map",
+    "components/swiper.js": "components/swiper.js.map",
+    "pages/errors.js": "pages/errors.js.map",
+    "pages/events.js": "pages/events.js.map",
+    "pages/index.js": "pages/index.js.map",
+    "pages/news.js": "pages/news.js.map",
+    "server.js": "server.js.map"
+  }
+}

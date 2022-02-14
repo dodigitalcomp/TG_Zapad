@@ -1,0 +1,30 @@
+[
+  {
+    "name": "errors",
+    "path": "/errors",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\errors.vue",
+    "chunkName": "pages/errors",
+    "_name": "_6e89eecc"
+  },
+  {
+    "name": "events",
+    "path": "/events",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\events.vue",
+    "chunkName": "pages/events",
+    "_name": "_bc3e1970"
+  },
+  {
+    "name": "news",
+    "path": "/news",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\news.vue",
+    "chunkName": "pages/news",
+    "_name": "_6b7d6c7c"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_3e742f73"
+  }
+]

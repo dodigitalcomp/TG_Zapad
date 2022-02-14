@@ -24,7 +24,7 @@
       width: 268px;
       height: 190px;
     }
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
       width: 339px;
       height: 239px;
     }
@@ -44,7 +44,7 @@
   .item3 {
     top: 10px;
     left: 10px;
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
       width: 329px;
       height: 229px;
     }
@@ -53,7 +53,7 @@
     top: 25px;
     left: 25px;
     opacity: 0.5;
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
       width: 309px;
       height: 229px;
     }
@@ -62,7 +62,7 @@
     top: 40px;
     left: 40px;
     opacity: 0.5;
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
       width: 279px;
       height: 229px;
     }

@@ -52,7 +52,7 @@
                  <p>1–21 ДЕК</p>
                  <p>Кинопоказ</p>
                </div>
-               <div class="poster-room-content-block-title-text flex">
+               <div class="poster-room-content-block-title-authnr">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
                  <p>Кинотеатр «Киносфера»
                    Калининград</p>
@@ -61,6 +61,11 @@
              <div class="poster-room-content-block-body">
                <div class="poster-room-content-block-img">
                  <img src="../assets/image/image24.jpg" alt="">
+               </div>
+               <div class="poster-room-content-block-title-authnrMini">
+                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
+                 <p>Кинотеатр «Киносфера»
+                   Калининград</p>
                </div>
                <div class="poster-room-content-block-description">
                  <p>Замки <span>ЛуАры</span></p>
@@ -73,7 +78,7 @@
                  <p>14–28 ДЕК</p>
                  <p>Лекции</p>
                </div>
-               <div class="poster-room-content-block-title-text flex">
+               <div class="poster-room-content-block-title-authnr flex">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
                  <p>Инженерный корпус</p>
                </div>
@@ -85,6 +90,10 @@
                <div class="poster-room-content-block-description">
                  <p>Мифы и легенды в произведениях <span>русских художников</span></p>
                </div>
+               <div class="poster-room-content-block-title-authnrMini">
+                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
+                 <p>Инженерный корпус</p>
+               </div>
              </div>
            </div>
          </div>
@@ -95,7 +104,7 @@
                  <p>1 ДЕК 2020–14 ЯНВ 2021 </p>
                  <p>выставка</p>
                </div>
-               <div class="poster-room-content-block-title-text flex">
+               <div class="poster-room-content-block-title-authnr flex">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
                  <p>галерея A1–one каунас</p>
                </div>
@@ -107,6 +116,10 @@
                <div class="poster-room-content-block-description">
                  <p>Вильямс П.В. <span>история одной работы</span></p>
                </div>
+               <div class="poster-room-content-block-title-authnrMini">
+                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
+                 <p>галерея A1–one каунас</p>
+               </div>
              </div>
            </div>
            <div class="poster-room-content-block pr-5 pl-5 poster-room-content-border-right">
@@ -115,7 +128,7 @@
                  <p>1–31 ЯНВ 2021</p>
                  <p>Лекции</p>
                </div>
-               <div class="poster-room-content-block-title-text flex">
+               <div class="poster-room-content-block-title-authnr flex">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
                  <p>Инженерный корпус</p>
                </div>
@@ -127,6 +140,10 @@
                <div class="poster-room-content-block-description">
                  <p>«Маленький человек» Кабакова<span> и русская живопись XIX века</span></p>
                </div>
+               <div class="poster-room-content-block-title-authnrMini">
+                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
+                 <p>Инженерный корпус</p>
+               </div>
              </div>
            </div>
            <div class="poster-room-content-block pr-5 pl-5">
@@ -135,7 +152,7 @@
                  <p>1 ЯНВ–31 ФЕВ 2021 </p>
                  <p>выставка</p>
                </div>
-               <div class="poster-room-content-block-title-text flex">
+               <div class="poster-room-content-block-title-authnr flex">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
                  <p>Музей Янтаря, Калининград</p>
                </div>
@@ -147,7 +164,14 @@
                <div class="poster-room-content-block-description">
                  <p>фотография во времена <span>самоизоляции</span></p>
                </div>
+               <div class="poster-room-content-block-title-authnrMini">
+                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
+                 <p>Музей Янтаря, Калининград</p>
+               </div>
              </div>
+           </div>
+           <div class="all-events">
+             <p>(все события)</p>
            </div>
          </div>
       </div>
@@ -220,6 +244,9 @@
             </div>
           </div>
         </div>
+        <div class="all-events">
+          <p>(все события)</p>
+        </div>
       </div>
     </div>
 </template>
@@ -235,7 +262,7 @@
           let ctx = canvas.getContext('2d');
           ctx.beginPath();
           ctx.fillStyle = "#FFFFFF";
-          ctx.strokeStyle = '#FFFFFF';;
+          ctx.strokeStyle = '#FFFFFF';
           ctx.moveTo(270,270);
           ctx.lineTo(270,10);
           ctx.lineTo(40,135);
@@ -248,6 +275,32 @@
 </script>
 
 <style scoped lang="scss">
+  .all-events {
+    display: none;
+
+    @media (max-width: 650px) {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+
+      p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 20px;
+        /* identical to box height, or 154% */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+        text-transform: uppercase;
+
+        /* Black brown */
+
+        color: #221F1A;
+      }
+    }
+  }
   .pt-30 {
     padding-top: 110px;
   }
@@ -334,7 +387,7 @@
     align-items: center;
     margin-top: 20px;
 
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
       flex-direction: column;
     }
 
@@ -346,7 +399,7 @@
       justify-content: space-between;
       flex: 1;
 
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         border: none;
         border-bottom: 1px solid;
         padding-bottom: 20px;
@@ -373,6 +426,20 @@
         display: flex;
         justify-content: flex-end;
         margin-right: 20px;
+        p {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 15px;
+          line-height: 20px;
+          /* identical to box height, or 133% */
+
+          text-align: right;
+          text-transform: uppercase;
+
+          /* Black brown */
+
+          color: #221F1A;
+        }
 
         @media (max-width: 500px) {
           justify-content: flex-start;
@@ -496,6 +563,10 @@
         flex-direction: column;
         flex: 1;
 
+        @media (max-width: 800px) {
+          justify-content: space-between;
+        }
+
         @media (max-width: 500px) {
           border: none;
           border-bottom: 1px solid;
@@ -508,7 +579,29 @@
           align-items: center;
           margin-bottom: 88px;
 
-          &-text {
+          &-authnrMini {
+            display: none;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #221F1A;
+
+            img {
+              width: 7px;
+              margin-bottom: 9px;
+            }
+
+            @media (max-width: 800px) {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              margin-bottom: 40px;
+            }
+          }
+
+          &-authnr {
             font-style: normal;
             font-weight: normal;
             font-size: 15px;
@@ -520,6 +613,27 @@
               width: 7px;
               margin-left: 10px;
             }
+
+            @media (max-width: 800px) {
+              display: none;
+            }
+          }
+
+
+          &-text {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #221F1A;
+
+            @media (max-width: 800px) {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+            }
+
           }
         }
 
@@ -528,6 +642,8 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
+
+
         }
 
         &-description {
@@ -605,7 +721,7 @@
         font-size: 30px;
         line-height: 30px;
       }
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         font-size: 25px;
         line-height: 25px;
       }
@@ -618,7 +734,7 @@
     align-items: center;
     margin-bottom: 85px;
 
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
       flex-direction: column-reverse;
     }
 
@@ -644,12 +760,50 @@
     align-items: center;
     padding-top: 20px;
 
+    @media (max-width: 600px) {
+      flex-wrap: wrap;
+    }
+
+    div:nth-child(2) {
+      @media (max-width: 600px) {
+        border-right: 0;
+      }
+    }
+
+    div:nth-child(3) {
+      @media (max-width: 600px) {
+        width: 100%;
+        margin-top: 20px;
+        border-top: 1px solid;
+      }
+    }
+
     div {
       height: 100px;
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 20px;
+        /* identical to box height, or 133% */
+
+        text-align: right;
+        text-transform: uppercase;
+
+        /* Black brown */
+
+        color: #221F1A;
+      }
+
+      @media (max-width: 600px) {
+        width: 50%;
+        flex: none;
+      }
     }
     &-border {
       border-left: 1px solid;
@@ -670,6 +824,7 @@
 
     @media (max-width: 500px) {
       border-bottom: none;
+      border-top: none;
       margin-bottom: 20px;
       flex-direction: column;
     }
@@ -715,12 +870,28 @@
       padding-right: 20px;
 
       @media (max-width: 500px) {
+        border-top: none;
         border-bottom: 1px solid;
       }
 
       &-title{
         display: flex;
         justify-content: space-between;
+
+        p {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 13px;
+          line-height: 15px;
+          /* identical to box height, or 115% */
+
+          text-align: right;
+          text-transform: uppercase;
+
+          /* Black brown */
+
+          color: #221F1A;
+        }
       }
       .title {
         display: flex;
