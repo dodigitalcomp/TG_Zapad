@@ -3,28 +3,60 @@
     "name": "errors",
     "path": "/errors",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\errors.vue",
-    "chunkName": "pages/errors",
-    "_name": "_6e89eecc"
+    "chunkName": "pages/errors"
+  },
+  {
+    "name": "eventPage",
+    "path": "/eventPage",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage.vue",
+    "chunkName": "pages/eventPage"
+  },
+  {
+    "name": "eventPage2",
+    "path": "/eventPage2",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage2.vue",
+    "chunkName": "pages/eventPage2"
+  },
+  {
+    "name": "eventPage3",
+    "path": "/eventPage3",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage3.vue",
+    "chunkName": "pages/eventPage3"
+  },
+  {
+    "name": "eventPage4",
+    "path": "/eventPage4",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage4.vue",
+    "chunkName": "pages/eventPage4"
   },
   {
     "name": "events",
     "path": "/events",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\events.vue",
-    "chunkName": "pages/events",
-    "_name": "_bc3e1970"
+    "chunkName": "pages/events"
+  },
+  {
+    "name": "media",
+    "path": "/media",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\media.vue",
+    "chunkName": "pages/media"
   },
   {
     "name": "news",
     "path": "/news",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\news.vue",
-    "chunkName": "pages/news",
-    "_name": "_6b7d6c7c"
+    "chunkName": "pages/news"
+  },
+  {
+    "name": "newsPage",
+    "path": "/newsPage",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\newsPage.vue",
+    "chunkName": "pages/newsPage"
   },
   {
     "name": "index",
     "path": "/",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_3e742f73"
+    "chunkName": "pages/index"
   }
 ]

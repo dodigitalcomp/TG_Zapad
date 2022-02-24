@@ -5,8 +5,14 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _6e89eecc = () => interopDefault(import('..\\pages\\errors.vue' /* webpackChunkName: "pages/errors" */))
+const _3c3a32ea = () => interopDefault(import('..\\pages\\eventPage.vue' /* webpackChunkName: "pages/eventPage" */))
+const _4b23d3b8 = () => interopDefault(import('..\\pages\\eventPage2.vue' /* webpackChunkName: "pages/eventPage2" */))
+const _4b31eb39 = () => interopDefault(import('..\\pages\\eventPage3.vue' /* webpackChunkName: "pages/eventPage3" */))
+const _4b4002ba = () => interopDefault(import('..\\pages\\eventPage4.vue' /* webpackChunkName: "pages/eventPage4" */))
 const _bc3e1970 = () => interopDefault(import('..\\pages\\events.vue' /* webpackChunkName: "pages/events" */))
+const _23aac4f6 = () => interopDefault(import('..\\pages\\media.vue' /* webpackChunkName: "pages/media" */))
 const _6b7d6c7c = () => interopDefault(import('..\\pages\\news.vue' /* webpackChunkName: "pages/news" */))
+const _2e5a8bf1 = () => interopDefault(import('..\\pages\\newsPage.vue' /* webpackChunkName: "pages/newsPage" */))
 const _3e742f73 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -25,13 +31,37 @@ export const routerOptions = {
     component: _6e89eecc,
     name: "errors"
   }, {
+    path: "/eventPage",
+    component: _3c3a32ea,
+    name: "eventPage"
+  }, {
+    path: "/eventPage2",
+    component: _4b23d3b8,
+    name: "eventPage2"
+  }, {
+    path: "/eventPage3",
+    component: _4b31eb39,
+    name: "eventPage3"
+  }, {
+    path: "/eventPage4",
+    component: _4b4002ba,
+    name: "eventPage4"
+  }, {
     path: "/events",
     component: _bc3e1970,
     name: "events"
   }, {
+    path: "/media",
+    component: _23aac4f6,
+    name: "media"
+  }, {
     path: "/news",
     component: _6b7d6c7c,
     name: "news"
+  }, {
+    path: "/newsPage",
+    component: _2e5a8bf1,
+    name: "newsPage"
   }, {
     path: "/",
     component: _3e742f73,

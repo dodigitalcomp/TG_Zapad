@@ -20,18 +20,23 @@
               <p>Новый музейный комплекс—филиал Третьяковской галереи. Первый художественный музей такого масштаба в Калининградской области. </p>
             </div>
             <div class="more">
-              <p>(подробнее)</p>
+              <p class="flex pb-4"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>подробнее</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
             </div>
           </div>
           <div class="museum-block-content-img">
             <div></div>
             <div>
-              <Swiper/>
+              <Galleria/>
             </div>
-            <div class="flex items-center justify-between w-full">
-              <p class="flex ml-20 pagination">
+            <div class="flex items-center justify-between w-full pb-3">
+              <p class="pagination-max">
                 <span class="page active">1</span>
                 <span class="page">2</span>
+                <span class="page">3</span>
+              </p>
+              <p class="pagination-min">
+                <span class="page active">1</span>
+                <span class="page">/</span>
                 <span class="page">3</span>
               </p>
               <img class="icon" src="../assets/image/Ellipse.svg" alt="">
@@ -40,10 +45,10 @@
         </div>
       </div>
       <div class="poster-room">
-         <div class="poster-room-header">
+         <div class="poster-room-header line-block">
            <p class="poster-room-header-title">афиша событий</p>
-           <hr class="line-dn">
-           <p class="poster-room-header-more">(все события)</p>
+           <div class="line-dn"></div>
+           <p class="poster-room-header-more"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>все события</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
          </div>
          <div class="poster-room-content">
            <div class="poster-room-content-block pr-5 poster-room-content-border-right min-block">
@@ -52,7 +57,7 @@
                  <p>1–21 ДЕК</p>
                  <p>Кинопоказ</p>
                </div>
-               <div class="poster-room-content-block-title-authnr">
+               <div class="poster-room-content-block-title-authnr flex">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
                  <p>Кинотеатр «Киносфера»
                    Калининград</p>
@@ -171,7 +176,11 @@
              </div>
            </div>
            <div class="all-events">
-             <p>(все события)</p>
+             <p class="flex ">
+               <img class="mr-1" src="../assets/image/(.svg" alt="">
+               <span>все события</span>
+               <img class="ml-1" src="../assets/image/).svg" alt="">
+             </p>
            </div>
          </div>
       </div>
@@ -180,7 +189,13 @@
           <p>виртуальный тур по музею</p>
         </div>
         <div class="virtual-tour-content">
-          <canvas height="300" id="virtual-tour-play"></canvas>
+          <div class="img">
+            <p class="flex elem">
+              <img class="mr-1" src="../assets/image/(w.svg" alt="">
+              <span>прогуляться</span>
+              <img class="ml-1" src="../assets/image/)w.svg" alt="">
+            </p>
+          </div>
         </div>
         <div></div>
       </div>
@@ -194,26 +209,30 @@
          </div>
          <div class="education-footer">
            <div>
-             <p>(о программе)</p>
+             <p class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>о программе</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
            </div>
            <div class="education-footer-border">
-             <p>(расписание)</p>
+             <p class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>расписание</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
            </div>
            <div>
-             <p>(материалы)</p>
+             <p class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>материалы</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
            </div>
          </div>
       </div>
       <div class="news">
-        <div class="poster-room-header">
+        <div class="poster-room-header line-block">
           <p class="poster-room-header-title">Новости</p>
-          <hr class="line-dn">
-          <p class="poster-room-header-more">(все новости)</p>
+          <div class="line-dn"></div>
+          <p class="poster-room-header-more"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>все новости</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
         </div>
         <div class="news-content">
-          <span class="left">&#10094;</span>
-          <span class="right">&#10095;</span>
-          <div class="news-content-swiper news-content-swiper-border-r">
+          <span class="left">
+            <img src="../assets/image/left.svg" alt="">
+          </span>
+          <span class="right">
+            <img src="../assets/image/Vector-r.svg" alt="">
+          </span>
+          <div class="news-content-swiper news-content-swiper-border-r pr-5">
             <div class="news-content-swiper-title">
               <p>17 окт</p>
               <p>музей</p>
@@ -228,7 +247,7 @@
               <p>Это многообразие связано и с особенностями каждой отдельной исторической эпохи, и с процессами.</p>
             </div>
           </div>
-          <div class="news-content-swiper">
+          <div class="news-content-swiper pl-5">
             <div class="news-content-swiper-title">
               <p>17 окт</p>
               <p>ход строительства</p>
@@ -245,36 +264,42 @@
           </div>
         </div>
         <div class="all-events">
-          <p>(все события)</p>
+          <p class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>все новости</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
         </div>
       </div>
     </div>
 </template>
 
 <script>
-    import Swiper from "./Swiper";
-    export default {
+  import Galleria from "./Galleria";
+
+  export default {
         name: "Main",
-      components: {Swiper},
-      mounted() {
-        let canvas = document.getElementById('virtual-tour-play');
-        if (canvas.getContext){
-          let ctx = canvas.getContext('2d');
-          ctx.beginPath();
-          ctx.fillStyle = "#FFFFFF";
-          ctx.strokeStyle = '#FFFFFF';
-          ctx.moveTo(270,270);
-          ctx.lineTo(270,10);
-          ctx.lineTo(40,135);
-          ctx.fillText("( прогуляться )",150,140);
-          ctx.closePath();
-          ctx.stroke();
-        }
-      }
+      components: {Galleria},
+      // mounted() {
+      //   let canvas = document.getElementById('virtual-tour-play');
+      //   if (canvas.getContext){
+      //     let ctx = canvas.getContext('2d');
+      //     ctx.beginPath();
+      //     ctx.fillStyle = "#FFFFFF";
+      //     ctx.strokeStyle = '#FFFFFF';
+      //     ctx.moveTo(canvas.width, canvas.hidden);
+      //     ctx.lineTo(canvas.width, 150);
+      //     ctx.lineTo(0,80);
+      //     ctx.fillText("( ПРОГУЛЯТЬСЯ )",150,140);
+      //     ctx.closePath();
+      //     ctx.stroke();
+      //   }
+      // }
     }
 </script>
 
 <style scoped lang="scss">
+
+  #virtual-tour-play {
+    width: 336px;
+    height: 405px;
+  }
   .all-events {
     display: none;
 
@@ -282,6 +307,7 @@
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
+      margin-top: 20px;
 
       p {
         font-style: normal;
@@ -310,7 +336,7 @@
     }
   }
   .image-bock-img{
-    max-width: 70%;
+    max-width: 80%;
     margin-bottom: 40px;
   }
 .image-bock-title {
@@ -328,12 +354,13 @@
       font-size: 40px;
       line-height: 40px;
     }
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
       font-size: 30px;
       line-height: 32px;
     }
   }
   .title-p {
+    max-width: 565px;;
     font-style: italic;
     font-weight: normal;
     font-size: 50px;
@@ -346,7 +373,7 @@
       font-size: 40px;
       line-height: 40px;
     }
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
       font-size: 30px;
       line-height: 32px;
     }
@@ -375,7 +402,7 @@
         font-size: 30px;
         line-height: 30px;
       }
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         font-size: 25px;
         line-height: 25px;
       }
@@ -441,7 +468,7 @@
           color: #221F1A;
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 650px) {
           justify-content: flex-start;
         }
       }
@@ -464,13 +491,33 @@
         cursor: pointer;
 
       }
-      @media (max-width: 500px) {
-        .pagination {
+      @media (max-width: 650px) {
+        .pagination-min {
           margin-top: 60px;
           margin-left: 134px;
         }
         .icon{
           margin-top: 60px;
+        }
+      }
+
+      .pagination-min {
+        display: none;
+        margin-left: 53px;
+        @media (max-width: 850px) {
+          display: flex;
+        }
+
+        @media (max-width: 650px) {
+          margin-left: 44%;
+        }
+      }
+
+      .pagination-max {
+        display: flex;
+        margin-left: 120px;
+        @media (max-width: 850px) {
+          display: none;
         }
       }
 
@@ -490,23 +537,9 @@
       flex-direction: column;
 
 
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         padding-bottom: 20px;
         border-bottom: 1px solid;
-      }
-
-      .line-dn {
-        border-top: 1px solid #000000;
-        transform: rotate(-8deg);
-
-        @media (max-width: 1000px) {
-          transform: rotate(-15deg);
-        }
-
-        @media (max-width: 500px) {
-          transform: rotate(-20deg);
-        }
-
       }
 
       &-title{
@@ -522,7 +555,7 @@
           font-size: 30px;
           line-height: 30px;
         }
-        @media (max-width: 500px) {
+        @media (max-width: 650px) {
           font-size: 25px;
           line-height: 25px;
         }
@@ -531,6 +564,8 @@
 
       }
       &-more{
+        display: flex;
+        justify-content: flex-end;
         margin-top: 85px;
         font-style: normal;
         font-weight: normal;
@@ -543,19 +578,35 @@
     }
 
     &-content {
-      margin-top: 40px;
+      margin-top: 20px;
       padding-top: 20px;
       border-top: 1px solid;
       display: flex;
       justify-content: space-between;
 
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
+        margin-top: 0;
         border: none;
         flex-direction: column;
       }
 
       &-border-right {
         border-right: 1px solid #000000;
+      }
+
+      &-block:nth-child(2){
+        @media (max-width: 850px) {
+          padding-left: 0 !important;
+        }
+      }
+
+      &-block:nth-child(3){
+        @media (max-width: 850px) {
+          padding-right: 0 !important;
+        }
+        @media (max-width: 650px) {
+          padding-top: 20px;
+        }
       }
 
       &-block {
@@ -567,16 +618,17 @@
           justify-content: space-between;
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 650px) {
           border: none;
           border-bottom: 1px solid;
-          margin-bottom: 40px;
+          padding-left: 0;
+          padding-right: 0;
         }
 
         &-title {
           display: flex;
           justify-content: space-between;
-          align-items: center;
+          align-items: flex-start;
           margin-bottom: 88px;
 
           &-authnrMini {
@@ -689,7 +741,7 @@
         font-size: 30px;
         line-height: 30px;
       }
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         font-size: 25px;
         line-height: 25px;
       }
@@ -700,6 +752,42 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .img {
+      height: 405px;
+      width: 336px;
+      background-image: url("../assets/image/Untitled-removebg-preview.png");
+      background-repeat: no-repeat;
+      background-size: 510px 405px;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media (max-width: 950px) {
+        height: 274px;
+        width: 219px;
+        background-size: 332px 274px;
+      }
+
+      .elem {
+        margin-left: 30px;
+        span {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 15px;
+          line-height: 20px;
+          /* identical to box height, or 133% */
+
+          text-align: right;
+          text-transform: uppercase;
+
+          /* White */
+
+          color: #FFFFFF;
+        }
+      }
+    }
   }
 }
 .education {
@@ -707,6 +795,10 @@
   display: flex;
   flex-direction: column;
   padding: 40px 20px;
+
+  @media (max-width: 850px) {
+    padding: 30px 20px;
+  }
 
   &-title {
     p{
@@ -734,12 +826,31 @@
     align-items: center;
     margin-bottom: 85px;
 
+    @media (max-width: 850px) {
+      margin-top: 71px;
+    }
+
     @media (max-width: 650px) {
       flex-direction: column-reverse;
     }
 
     p{
       max-width: 530px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 26px;
+      color: #211F1A;
+
+      @media (max-width: 800px) {
+        font-size: 15px;
+        line-height: 20px;
+      }
+
+      @media (max-width: 650px) {
+        font-size: 18px;
+        line-height: 26px;
+      }
     }
     img {
       width: 529px;
@@ -750,6 +861,11 @@
         width: 294px;
         height: 213px;
         margin: 20px;
+      }
+
+      @media (max-width: 650px) {
+        width: 335px;
+        height: 244px;
       }
     }
   }
@@ -779,11 +895,15 @@
     }
 
     div {
-      height: 100px;
+      height: 110px;
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @media (max-width: 850px) {
+        height: 70px;
+      }
 
       p {
         font-style: normal;
@@ -814,7 +934,7 @@
 .news {
   padding: 40px 20px;
   &-content {
-    margin-top: 40px;
+    margin-top: 20px;
     border-top: 1px solid;
     border-bottom: 1px solid;
     display: flex;
@@ -822,7 +942,7 @@
     margin-bottom: 150px;
     position: relative;
 
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
       border-bottom: none;
       border-top: none;
       margin-bottom: 20px;
@@ -834,9 +954,9 @@
       font-size: 50px;
       position: absolute;
       top: 200px;
-      left: 20px;
+      left: 0;
       cursor: pointer;
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         display: none !important;
       }
     }
@@ -845,16 +965,16 @@
       font-size: 50px;
       position: absolute;
       top: 200px;
-      right: 20px;
+      right: 0;
       cursor: pointer;
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         display: none !important;
       }
     }
 
     .news-content-swiper-border-r {
       border-right: 1px solid;
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         border-right: none;
         }
     }
@@ -866,12 +986,13 @@
       flex-direction: column;
       justify-content: space-around;
       flex: 1;
-      padding-left: 20px;
-      padding-right: 20px;
 
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
+        margin-top: 0;
         border-top: none;
         border-bottom: 1px solid;
+        padding-left: 0;
+        padding-right: 0;
       }
 
       &-title{

@@ -14,6 +14,7 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 import nuxt_plugin_plugin_0a31c51c from 'nuxt_plugin_plugin_0a31c51c' // Source: .\\components\\plugin.js (mode: 'all')
 import nuxt_plugin_vuedatepicker_19e66559 from 'nuxt_plugin_vuedatepicker_19e66559' // Source: ..\\plugins\\vue-datepicker (mode: 'client')
+import nuxt_plugin_vueswiper_0a7132d6 from 'nuxt_plugin_vueswiper_0a7132d6' // Source: ..\\plugins\\vue-swiper (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -183,6 +184,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (process.client && typeof nuxt_plugin_vuedatepicker_19e66559 === 'function') {
     await nuxt_plugin_vuedatepicker_19e66559(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_vueswiper_0a7132d6 === 'function') {
+    await nuxt_plugin_vueswiper_0a7132d6(app.context, inject)
   }
 
   // Lock enablePreview in context

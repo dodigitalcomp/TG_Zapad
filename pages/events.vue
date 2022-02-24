@@ -9,10 +9,10 @@
               <div class="events-header-filter">
                   <div class="events-header-filter-left mini ">
                       <div class="item">
-                          <span>(</span>
+                          <img class="mr-1" src="../assets/image/(.svg" alt="">
                           <p>Фильтр</p>
                           <img src="../assets/image/arrow.svg" alt="">
-                          <span>)</span>
+                          <img class="ml-1" src="../assets/image/).svg" alt="">
                           <div class="item-nav hidden">
                               <p class="item-nav-text">Все события</p>
                               <p class="item-nav-text">Выставки</p>
@@ -28,10 +28,10 @@
                   </div>
                   <div class="events-header-filter-left max ">
                       <div class="item">
-                          <span>(</span>
+                          <img class="mr-1" src="../assets/image/(.svg" alt="">
                           <p class="whitespace-nowrap">Все события</p>
                           <img src="../assets/image/arrow.svg" alt="">
-                          <span>)</span>
+                          <img class="ml-1" src="../assets/image/).svg" alt="">
                           <div class="item-nav hidden">
                               <p class="item-nav-text">Все события</p>
                               <p class="item-nav-text">Выставки</p>
@@ -45,10 +45,10 @@
                           </div>
                       </div>
                       <div class="item">
-                          <span>(</span>
+                          <img class="mr-1" src="../assets/image/(.svg" alt="">
                           <p class="whitespace-nowrap">Аудитория</p>
                           <img src="../assets/image/arrow.svg" alt="">
-                          <span>)</span>
+                          <img class="ml-1" src="../assets/image/).svg" alt="">
                           <div class="item-nav hidden">
                               <p class="item-nav-text">Любая аудитория</p>
                               <p class="item-nav-text">Взрослые</p>
@@ -59,10 +59,10 @@
                           </div>
                       </div>
                       <div class="item">
-                          <span>(</span>
+                          <img class="mr-1" src="../assets/image/(.svg" alt="">
                           <p class="whitespace-nowrap">Все площадки</p>
                           <img src="../assets/image/arrow.svg" alt="">
-                          <span>)</span>
+                          <img class="ml-1" src="../assets/image/).svg" alt="">
                           <div class="item-nav hidden" >
                               <div class="item-nav-filter">
                                   <div class="item-nav-filter-title">
@@ -151,8 +151,8 @@
                           </div>
                       </div>
                       <div class="item">
-                          <span>(</span>
-                          <p class="whitespace-nowrap">data</p>
+                          <img class="mr-1" src="../assets/image/(.svg" alt="">
+                          <p class="whitespace-nowrap">дата</p>
 <!--                          <p>-->
 <!--                           <date-picker-->
 <!--                               input-class="date-picker"-->
@@ -161,21 +161,21 @@
 <!--                               v-model="date_today" />-->
 <!--                          </p>-->
                           <img src="../assets/image/arrow.svg" alt="">
-                          <span>)</span>
+                          <img class="ml-1" src="../assets/image/).svg" alt="">
                       </div>
                   </div>
                   <div class="events-header-filter-right">
-                      <span>(</span>
+                      <img class="mr-1" src="../assets/image/(.svg" alt="">
                       <div class="item">
                           <img src="../assets/image/календарь.svg" alt="">
                           <p>Календарь</p>
                       </div>
-                      <span>/</span>
+                      <span class="slesh">/</span>
                       <div class="item active">
                           <img src="../assets/image/события.svg" alt="">
                           <p>события</p>
                       </div>
-                      <span>)</span>
+                      <img class="ml-1" src="../assets/image/).svg" alt="">
                   </div>
               </div>
             </div>
@@ -198,7 +198,10 @@
                                     </div>
                                     <div class="events-content-block-item-body-text-author">
                                         <img src="../assets/image/pin1.svg" alt="">
-                                        <p>Музей Янтаря, Калининград</p>
+                                        <div>
+                                            <p>Музей Янтаря,</p>
+                                            <p>Калининград</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="events-content-block-item-imageMini">
@@ -210,7 +213,10 @@
                                 <div>
                                     <div class="events-content-block-item-body-text-authorMini">
                                         <img src="../assets/image/pin1.svg" alt="">
-                                        <p>Музей Янтаря, Калининград</p>
+                                        <div>
+                                            <p>Музей Янтаря,</p>
+                                            <p>Калининград</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -227,7 +233,10 @@
                                     </div>
                                     <div class="events-content-block-item-body-text-author">
                                         <img src="../assets/image/pin1.svg" alt="">
-                                        <p>Кинотеатр «Киносфера» Калининград</p>
+                                        <div>
+                                            <p>Музей Янтаря,</p>
+                                            <p>Калининград</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="events-content-block-item-imageMini">
@@ -239,7 +248,10 @@
                                 <div>
                                     <div class="events-content-block-item-body-text-authorMini">
                                         <img src="../assets/image/pin1.svg" alt="">
-                                        <p>Музей Янтаря, Калининград</p>
+                                        <div>
+                                            <p>Музей Янтаря,</p>
+                                            <p>Калининград</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -264,7 +276,10 @@
                                     </div>
                                     <div class="events-content-block-item-body-text-author">
                                         <img src="../assets/image/pin1.svg" alt="">
-                                        <p>Музей Янтаря, Калининград</p>
+                                        <div>
+                                            <p>Музей Янтаря,</p>
+                                            <p>Калининград</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="events-content-block-item-imageMini">
@@ -276,7 +291,10 @@
                                 <div>
                                     <div class="events-content-block-item-body-text-authorMini">
                                         <img src="../assets/image/pin1.svg" alt="">
-                                        <p>Музей Янтаря, Калининград</p>
+                                        <div>
+                                            <p>Музей Янтаря,</p>
+                                            <p>Калининград</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -301,7 +319,10 @@
                                     </div>
                                     <div class="events-content-block-item-body-text-author">
                                         <img src="../assets/image/pin1.svg" alt="">
-                                        <p>Музей Янтаря, Калининград</p>
+                                        <div>
+                                            <p>Музей Янтаря,</p>
+                                            <p>Калининград</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="events-content-block-item-imageMini">
@@ -313,7 +334,10 @@
                                 <div>
                                     <div class="events-content-block-item-body-text-authorMini">
                                         <img src="../assets/image/pin1.svg" alt="">
-                                        <p>Музей Янтаря, Калининград</p>
+                                        <div>
+                                            <p>Музей Янтаря,</p>
+                                            <p>Калининград</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -330,7 +354,10 @@
                                     </div>
                                     <div class="events-content-block-item-body-text-author">
                                         <img src="../assets/image/pin1.svg" alt="">
-                                        <p>Музей Янтаря, Калининград</p>
+                                        <div>
+                                            <p>Музей Янтаря,</p>
+                                            <p>Калининград</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="events-content-block-item-imageMini">
@@ -342,7 +369,10 @@
                                 <div>
                                   <div class="events-content-block-item-body-text-authorMini">
                                     <img src="../assets/image/pin1.svg" alt="">
-                                    <p>Музей Янтаря, Калининград</p>
+                                      <div>
+                                          <p>Музей Янтаря,</p>
+                                          <p>Калининград</p>
+                                      </div>
                                   </div>
                                 </div>
                             </div>
@@ -359,7 +389,10 @@
                                     </div>
                                     <div class="events-content-block-item-body-text-author">
                                         <img src="../assets/image/pin1.svg" alt="">
-                                        <p>Музей Янтаря, Калининград</p>
+                                        <div>
+                                            <p>Музей Янтаря,</p>
+                                            <p>Калининград</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="events-content-block-item-imageMini">
@@ -371,7 +404,10 @@
                                 <div>
                                   <div class="events-content-block-item-body-text-authorMini">
                                       <img src="../assets/image/pin1.svg" alt="">
-                                      <p>Музей Янтаря, Калининград</p>
+                                      <div>
+                                          <p>Музей Янтаря,</p>
+                                          <p>Калининград</p>
+                                      </div>
                                   </div>
                                 </div>
                             </div>
@@ -389,7 +425,10 @@
                        </div>
                        <div class="events-calendar-item-text-author">
                            <img src="../assets/image/pin1.svg" alt="">
-                           <p>Музей Янтаря, Калининград</p>
+                           <div>
+                               <p>Музей Янтаря,</p>
+                               <p>Калининград</p>
+                           </div>
                        </div>
                     </div>
                     <div class="events-calendar-item-image">
@@ -401,7 +440,10 @@
                     <div>
                         <div class="events-calendar-item-text-mini">
                             <img src="../assets/image/pin1.svg" alt="">
-                            <p>Музей Янтаря, Калининград</p>
+                            <div>
+                                <p>Музей Янтаря,</p>
+                                <p>Калининград</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -413,7 +455,10 @@
                         </div>
                         <div class="events-calendar-item-text-author">
                             <img src="../assets/image/pin1.svg" alt="">
-                            <p>Музей Янтаря, Калининград</p>
+                            <div>
+                                <p>Музей Янтаря,</p>
+                                <p>Калининград</p>
+                            </div>
                         </div>
                     </div>
                     <div class="events-calendar-item-image">
@@ -425,7 +470,10 @@
                     <div>
                         <div class="events-calendar-item-text-mini">
                             <img src="../assets/image/pin1.svg" alt="">
-                            <p>Музей Янтаря, Калининград</p>
+                            <div>
+                                <p>Музей Янтаря,</p>
+                                <p>Калининград</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -437,7 +485,10 @@
                         </div>
                         <div class="events-calendar-item-text-author">
                             <img src="../assets/image/pin1.svg" alt="">
-                            <p>Музей Янтаря, Калининград</p>
+                            <div>
+                                <p>Музей Янтаря,</p>
+                                <p>Калининград</p>
+                            </div>
                         </div>
                     </div>
                     <div class="events-calendar-item-image">
@@ -449,7 +500,10 @@
                     <div>
                         <div class="events-calendar-item-text-mini">
                             <img src="../assets/image/pin1.svg" alt="">
-                            <p>Музей Янтаря, Калининград</p>
+                            <div>
+                                <p>Музей Янтаря,</p>
+                                <p>Калининград</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -461,7 +515,10 @@
                         </div>
                         <div class="events-calendar-item-text-author">
                             <img src="../assets/image/pin1.svg" alt="">
-                            <p>Музей Янтаря, Калининград</p>
+                            <div>
+                                <p>Музей Янтаря,</p>
+                                <p>Калининград</p>
+                            </div>
                         </div>
                     </div>
                     <div class="events-calendar-item-image">
@@ -473,7 +530,10 @@
                     <div>
                         <div class="events-calendar-item-text-mini">
                             <img src="../assets/image/pin1.svg" alt="">
-                            <p>Музей Янтаря, Калининград</p>
+                            <div>
+                                <p>Музей Янтаря,</p>
+                                <p>Калининград</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -485,7 +545,10 @@
                         </div>
                         <div class="events-calendar-item-text-author">
                             <img src="../assets/image/pin1.svg" alt="">
-                            <p>Музей Янтаря, Калининград</p>
+                            <div>
+                                <p>Музей Янтаря,</p>
+                                <p>Калининград</p>
+                            </div>
                         </div>
                     </div>
                     <div class="events-calendar-item-image">
@@ -497,7 +560,10 @@
                     <div>
                         <div class="events-calendar-item-text-mini">
                             <img src="../assets/image/pin1.svg" alt="">
-                            <p>Музей Янтаря, Калининград</p>
+                            <div>
+                                <p>Музей Янтаря,</p>
+                                <p>Калининград</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -509,7 +575,10 @@
                         </div>
                         <div class="events-calendar-item-text-author">
                             <img src="../assets/image/pin1.svg" alt="">
-                            <p>Музей Янтаря, Калининград</p>
+                            <div>
+                                <p>Музей Янтаря,</p>
+                                <p>Калининград</p>
+                            </div>
                         </div>
                     </div>
                     <div class="events-calendar-item-image">
@@ -526,7 +595,7 @@
                     </div>
                 </div>
             </div>
-            <div class="events-pagination">
+            <div class="events-pagination line-block">
               <div class="events-pagination-page">
                   <div class="flex">
                      <span>1</span>
@@ -538,7 +607,7 @@
                   </div>
                   <img src="../assets/image/Vector99.svg" alt="">
               </div>
-              <div class="events-pagination-line"></div>
+              <div class="line-dn"></div>
               <div></div>
             </div>
         </div>
@@ -585,6 +654,22 @@ export default {
 
     .border-top {
         border-top: 1px solid;
+        position: relative;
+
+        &::after {
+            @media (min-width: 920px)  {
+              content: '';
+                display: block;
+                position: absolute;
+                top: -2px;
+                left: 0;
+                width: 20px;
+                height: 3px;
+                background: #FFDD7C;
+            }
+        }
+
+
     }
 
     &-header {
@@ -770,10 +855,14 @@ export default {
                     opacity: 0.7;
                 }
 
+                .slesh {
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+
                 .item {
                     display: flex;
                     align-items: center;
-                    margin-right: 20px;
                     font-style: normal;
                     font-weight: normal;
                     font-size: 15px;
@@ -804,7 +893,6 @@ export default {
             &-text {
                 margin-top: 20px;
                 margin-bottom: 20px;
-                padding-left: 20px;
                 flex: 2;
                 border-right: 1px solid;
 
@@ -874,12 +962,15 @@ export default {
 
                 &-body {
                     padding-left: 20px;
-                    padding-right: 20px;
                     flex: 1;
                     display: flex;
                     flex-direction: column;
                     align-content: space-between;
                     justify-content: space-between;
+
+                    @media (max-width: 700px) {
+                        padding-left: 0;
+                    }
                     &-text {
                         display: flex;
                         justify-content:  space-between;
@@ -901,7 +992,7 @@ export default {
                         }
 
                         &-date {
-                            @media (max-width: 920px) {
+                            @media (max-width: 700px) {
                                 display: flex;
                                 justify-content: space-between;
                                 width: 100%;
@@ -916,6 +1007,10 @@ export default {
                                 align-items: center;
                                 margin-bottom: 20px;
                                 margin-top: 30px;
+
+                                img {
+                                    margin-bottom: 9px;
+                                }
                             }
                         }
 
@@ -947,6 +1042,10 @@ export default {
                         text-transform: uppercase;
                         color: #221F1A;
                         justify-content: center;
+
+                        p {
+                            max-width: 480px;
+                        }
 
                         @media (max-width: 700px) {
                             font-size: 22px;
@@ -1119,11 +1218,12 @@ export default {
         margin-right: 20px;
         margin-left: 20px;
         height: 240px;
-        padding: 20px;
+        padding: 20px 0;
         display: flex;
         flex-direction: column;
         align-content: center;
         justify-content: space-between;
+
 
         &-page {
             display: flex;
@@ -1135,35 +1235,26 @@ export default {
             }
 
             span {
-                margin: 12px;
+                margin-right: 12px;
                 font-style: normal;
                 font-weight: normal;
                 font-size: 18px;
                 line-height: 26px;
                 text-align: right;
                 color: #221F1A;
+
+                @media (max-width: 650px) {
+                    font-size: 13px;
+                    line-height: 15px;
+                }
             }
 
             img {
                 margin-left: 12px;
-            }
-        }
 
-        &-line {
-            position: relative;
-            &::after {
-                content: '';
-                width: 100%;
-                border-bottom: solid 1px #000000;
-                position: absolute;
-                left: 0;
-                top: 50%;
-                z-index: 1;
-                transform: rotate(-8deg);
-
-
-                @media (max-width: 800px) {
-                    transform: rotate(-15deg);
+                @media (max-width: 650px) {
+                    width: 9px;
+                    height: 17px;
                 }
             }
         }

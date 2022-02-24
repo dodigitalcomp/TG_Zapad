@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full header-block" :class="openMenu ? 'bg-dark' : bgcolor === 'yellow' ? 'bg-yellow': 'bg-white'">
+  <header class="w-full header-block" :class="openMenu ? 'bg-dark menu' : bgcolor === 'yellow' ? 'bg-yellow': 'bg-white'">
     <nav class="">
       <div class="max-w-7lg mx-auto p-5">
         <div class="relative flex items-center justify-between h-16">
@@ -10,7 +10,7 @@
                   <path d="M32 18L50 0H32V18Z" :fill="openMenu ? '#FFDD7C' : logoColor === 'black' ? '#221F1A' : '#FFDD7C' "/>
                   <path d="M50 55L32 37V55H50Z" :fill="openMenu ? '#FFDD7C' : logoColor === 'black' ? '#221F1A' : '#FFDD7C' "/>
               </svg>
-              <div class="ml-2">
+              <div class="ml-2 min-menu-text">
                 <p class="nav-title-logo">Третьяковская</p>
                 <p class="nav-title-logo">галерея</p>
                 <p class="nav-title-logo-mini">Запад</p>
@@ -27,7 +27,7 @@
             </div>
             <div class="inset-y-0 right-0 flex items-center pr-2sm:ml-6 sm:pr-0">
               <div class="ml-3" v-if="!openMenu">
-                <a class="flex cursor-pointer">
+                <a class="flex cursor-pointer mr-5">
                   <img class="" src="../assets/image/search.svg" alt="">
                 </a>
               </div>
@@ -46,7 +46,7 @@
             </div>
           </div>
           <div class="flex items-center min ml-2">
-            <button type="button" class="nav-button" @click="openMenu = !openMenu">
+            <button type="button" class="nav-button" @click="showMenu">
               <img v-if="!openMenu" src="../assets/image/burger.svg" alt="">
               <img v-else src="../assets/image/Vector.svg" alt="">
             </button>
@@ -54,7 +54,7 @@
         </div>
       </div>
       <div :class="!openMenu ? 'd-none' : ''">
-        <div class="px-2 pt-2 pb-3 space-y-1 min-menu">
+        <div class="px-5 pt-2 pb-3 space-y-1 min-menu">
           <a href="#" class="uppercase nav-title-menu">Афиша</a>
           <a href="#" class="uppercase nav-title-menu">образование</a>
           <a href="#" class="uppercase nav-title-menu">о музее</a>
@@ -63,7 +63,11 @@
           <a href="#" class="uppercase nav-title-menu">ПРОГРАММА ЛОЯЛЬНОСТИ</a>
           <a href="#" class="uppercase nav-title-menu">контакты</a>
           <canvas id="header-arrow"></canvas>
-          <a href="#" class="uppercase nav-title-menu">EN</a>
+          <a href="#" class="uppercase nav-title-menu flex items-center">
+            <img class="mr-1 nav-title-menu-img" src="../assets/image/(w.svg" alt="">
+            <span>EN</span>
+            <img class="ml-1 nav-title-menu-img" src="../assets/image/)w.svg" alt="">
+          </a>
         </div>
       </div>
     </nav>
@@ -84,6 +88,11 @@
       this.addCanvas()
     },
     methods: {
+      showMenu () {
+        this.openMenu = !this.openMenu
+        const body = document.getElementsByTagName('body')
+        body[0].style.overflow = 'hidden'
+      },
       addCanvas () {
         let canvas = document.getElementById('header-arrow');
         if (canvas) {
@@ -104,12 +113,28 @@
 </script>
 <style scoped lang="scss">
 
+  .menu {
+    overflow-y: scroll;
+    height: 100%;
+  }
+
+  .min-menu-text {
+    display: block;
+
+    @media (max-width: 650px) {
+      display: none;
+    }
+  }
   .d-none {
     display: none;
   }
   #header-arrow {
     width: 100%;
-    height: 100px;
+    height: 360px;
+
+    @media (max-width: 650px) {
+      height: 182px;
+    }
   }
   .bg-yellow {
     background: #FFDD7C;
@@ -120,6 +145,7 @@
   .header-block {
     position: fixed;
     z-index: 9999;
+
   }
   .min {
     display: none;
@@ -131,6 +157,7 @@
     display: flex;
     flex-direction: column;
     color: #FFFFFF;
+    overflow-y: auto;
 
     .nav-title-menu {
       color: #FFFFFF;
@@ -170,12 +197,22 @@
     line-height: 25px;
     color: #221F1A;
 
-    @media (max-width: 1220px) {
-      font-size: 18px;
+    @media (max-width: 850px) {
+      font-size: 30px;
+      line-height: 32px;
     }
 
-    @media (max-width: 990px) {
-      font-size: 16px;
+    @media (max-width: 650px) {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    &-img {
+      height: 32px;
+
+      @media (max-width: 650px) {
+        height: 22px;
+      }
     }
 
   }

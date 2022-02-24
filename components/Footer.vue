@@ -49,7 +49,7 @@
             <p>Политика конфиденциальности</p>
           </div>
           <div>
-            <p>(Made by ONY)</p>
+            <p class="made"><span class="mr">(</span>Made by ONY<span class="ml">)</span> </p>
           </div>
         </div>
       </div>
@@ -78,7 +78,11 @@
           <p>Узнавайте больше об искусстве с нашей рассылкой</p>
           <label>
             <input type="text" placeholder="ваш email">
-            <button>(отправить)</button>
+            <button class="flex">
+                <img class="mr-1" src="../assets/image/(w.svg" alt="">
+                <span>отправить</span>
+                <img class="ml-1" src="../assets/image/)w.svg" alt="">
+             </button>
           </label>
         </div>
         <div class="footer-block-info-social">
@@ -96,16 +100,25 @@
           </a>
         </div>
         <div class="footer-block-info-text">
-          <p>2020 © Третьяковская галерея Запад</p>
+          <p class="info-text-max">2020 © Третьяковская галерея Запад</p>
+          <div class="conditions-mini">
+            <p>Правила использования</p>
+            <p>Политика конфиденциальности</p>
+          </div>
         </div>
         <div class="footer-block-about">
           <div class="footer-block-about-conditions">
-            <div>
+            <div class="conditions-max">
               <p>Условия использования материалов сайта</p>
               <p>Политика конфиденциальности</p>
             </div>
+            <p class="info-text-mini">2020 © Третьяковская галерея Запад</p>
             <div>
-              <p class="made">(Made by ONY)</p>
+              <p class="made flex">
+                <img class="mr-1" src="../assets/image/(w.svg" alt="">
+                <span>Made by ONY</span>
+                <img class="ml-1" src="../assets/image/)w.svg" alt="">
+              </p>
             </div>
           </div>
         </div>
@@ -146,6 +159,41 @@
 
 <style scoped lang="scss">
 
+
+  .info-text-mini {
+    display: none;
+
+    @media (max-width: 500px) {
+      display: block;
+      font-size: 13px;
+      line-height: 20px;
+    }
+  }
+
+  .info-text-max {
+    display: block;
+
+    @media (max-width: 500px) {
+      display: none;
+    }
+  }
+
+  .conditions-mini {
+    display: none;
+
+    @media (max-width: 500px) {
+      display: block;
+    }
+  }
+
+  .conditions-max {
+    display: block;
+
+    @media (max-width: 500px) {
+      display: none;
+    }
+  }
+
   .mini-block {
     @media (max-width: 500px) {
       display: flex;
@@ -177,7 +225,7 @@
 
 
       .footer-block-logo {
-        margin-right: 100px;
+        margin-right: 152px;
       }
 
       #footer-arrow-min {
@@ -186,10 +234,6 @@
 
       }
 
-      .footer-block-info-social {
-        margin-top: 20px;
-        margin-bottom: 10px;
-      }
 
       .footer-block-info {
         display: flex;
@@ -246,12 +290,17 @@
         display: flex;
         justify-content: space-between;
 
-          @media (max-width: 500px) {
-              flex-direction: column;
-              justify-content: flex-start;
-              border-top: 1px solid white;
-              padding-top: 20px;
-          }
+        @media (max-width: 800px) {
+           align-items: flex-end;
+        }
+
+        @media (max-width: 500px) {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            border-top: 1px solid white;
+            padding-top: 20px;
+        }
 
         .made {
           white-space: nowrap;
@@ -263,9 +312,19 @@
           text-transform: uppercase;
           color: #FFFFFF;
 
+          .ml {
+            margin-left: 5px;
+          }
+
+          .mr{
+            margin-right: 5px;
+          }
+
             @media (max-width: 500px) {
                text-align: left;
-                margin-top: 15px;
+               margin-top: 15px;
+               font-size: 13px;
+               line-height: 20px;
             }
         }
       }
@@ -274,19 +333,54 @@
         color: #FFFFFF;
         p {
           margin-bottom: 20px;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 18px;
+          line-height: 26px;
+
+          @media (max-width: 850px) {
+            font-size: 15px;
+            line-height: 20px;
+          }
+          @media (max-width: 650px) {
+            font-size: 13px;
+          }
         }
 
         label {
           display: flex;
-          justify-content: space-around;
+          justify-content: space-between;
           flex-wrap: nowrap;
           border: 1px solid #FFFFFF;
-          padding: 9px;
+          padding-left: 20px;
+          padding-right: 20px;
           width: 100%;
+          align-items: center;
           input{
             background-color : #221F1A;
             width: 70%;
+            height: 60px;
             outline: none;
+
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+
+            &::placeholder {
+              color: #FFFFFF;
+              opacity: 1;
+            }
+
+            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+              color: #FFFFFF;
+            }
+
+            &::-ms-input-placeholder { /* Microsoft Edge */
+              color: #FFFFFF;
+            }
           }
 
           button {
@@ -343,7 +437,17 @@
           line-height: 25px;
           text-transform: uppercase;
           color: #FFFFFF;
-          margin-bottom: 10px;
+          margin-bottom: 15px;
+          
+          @media (max-width: 850px) {
+            font-size: 15px;
+            line-height: 20px;
+            margin-bottom: 20px;
+          }
+          @media (max-width: 650px) {
+            font-size: 13px;
+            line-height: 15px;
+          }
         }
       }
 
@@ -353,7 +457,13 @@
         font-size: 15px;
         line-height: 20px;
         color: #FFFFFF;
-        margin-bottom: 30px;
+        margin-bottom: 21px;
+
+        @media (max-width: 650px) {
+          font-size: 13px;
+          line-height: 20px;
+        }
+
       }
       &-social {
         margin-top: 15px;
@@ -361,6 +471,18 @@
         align-items: center;
         a {
           margin: 10px;
+        }
+        @media (max-width: 800px) {
+          margin-top: 20px;
+          margin-bottom: 60px;
+          a{
+            margin-right: 47px;
+
+            img {
+              width: 16px;
+              height: 16px;
+            }
+          }
         }
 
           @media (max-width: 500px) {

@@ -1,5 +1,143 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-container {
+  margin-left: 0px !important;
+  margin-right: 50% !important;
+}
+.pagination {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+  margin-bottom: 60px;
+}
+
+.pagination-number {
+  overflow: inherit !important;
+  margin-left: -36px !important;
+}
+
+.swiper-pagination {
+  position: absolute;
+}
+.swiper-pagination-bullet {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #221F1A;
+  opacity: 0.3;
+  margin-right: 12px;
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0) !important;
+}
+.swiper-pagination-bullet-active {
+  color: #000000;
+  background: rgba(0, 122, 255, 0) !important;
+}
+
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-slide {
+  width: 60% !important;
+}
+
+.swiper-slide-page {
+  width: 30% !important;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #221F1A;
+  opacity: 0.3;
+
+}
+
+.swiper-slide-active {
+  opacity: 1;
+}
+
 .date-picker {
   background: #FFDD7C !important;
   max-width: 90px;
   outline: none;
 }
+.line-block {
+  position: relative;
+
+  .line-dn {
+    width: 101%;
+    border-bottom: solid 1px #000000;
+    position: absolute;
+    left: -7px;
+    top: 50%;
+    z-index: 1;
+    transform: rotate(-6deg);
+
+    @media (max-width: 1800px) {
+      transform: rotate(-8deg);
+    }
+
+    @media (max-width: 1300px) {
+      transform: rotate(-10deg);
+    }
+
+    @media (max-width: 1000px) {
+      transform: rotate(-12deg);
+    }
+    @media (max-width: 900px) {
+      transform: rotate(-13deg);
+    }
+    @media (max-width: 800px) {
+      transform: rotate(-14deg);
+    }
+    @media (max-width: 700px) {
+      left: -15px;
+      transform: rotate(-18deg);
+      width: 106%;
+    }
+    @media (max-width: 600px) {
+      transform: rotate(-19deg);
+    }
+    @media (max-width: 500px) {
+      transform: rotate(-23deg);
+    }
+    @media (max-width: 400px) {
+      left: -25px;
+      width: 115%;
+      transform: rotate(-29deg);
+    }
+  }
+}
+

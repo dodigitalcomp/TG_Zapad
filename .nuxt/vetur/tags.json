@@ -2,13 +2,16 @@
   "Footer": {
     "description": "Auto imported from components/Footer.vue"
   },
+  "Galleria": {
+    "description": "Auto imported from components/Galleria.vue"
+  },
   "Header": {
     "description": "Auto imported from components/Header.vue"
   },
   "Main": {
     "description": "Auto imported from components/Main.vue"
   },
-  "Swiper": {
-    "description": "Auto imported from components/Swiper.vue"
+  "VueSwiper": {
+    "description": "Auto imported from components/VueSwiper.vue"
   }
 }

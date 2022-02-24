@@ -9,10 +9,10 @@
         <div class="news-header-filter">
           <div class="news-header-filter-left ">
             <div class="item">
-              <span>(</span>
+              <img class="mr-1" src="../assets/image/(.svg" alt="">
               <p>все рубрики</p>
               <img src="../assets/image/arrow.svg" alt="">
-              <span>)</span>
+              <img class="ml-1" src="../assets/image/).svg" alt="">
               <div class="item-nav hidden">
                 <p class="item-nav-text">Все события</p>
                 <p class="item-nav-text">Выставки</p>
@@ -26,10 +26,10 @@
               </div>
             </div>
             <div class="item">
-              <span>(</span>
+              <img class="mr-1" src="../assets/image/(.svg" alt="">
               <p>дата</p>
               <img src="../assets/image/arrow.svg" alt="">
-              <span>)</span>
+              <img class="ml-1" src="../assets/image/).svg" alt="">
               <div class="item-nav hidden">
                 <p class="item-nav-text">Все события</p>
                 <p class="item-nav-text">Выставки</p>
@@ -144,11 +144,15 @@
             <div class="news-content-item-input">
               <div class="news-content-item-input-block">
                 <input type="text" value="ваш email" placeholder="ваш email">
-                <button class="text">( подписаться )</button>
+                <button class="text">
+                    <img class="mr-1" src="../assets/image/(.svg" alt="">
+                    <span>подписаться</span>
+                    <img class="ml-1" src="../assets/image/).svg" alt="">
+                </button>
               </div>
             </div>
             <div class="news-content-item-description">
-              <p>Подпишись на рассылку новостей Третьяковской галереи Запад и будь в курсе новых публикаций</p>
+              <p class="input">Подпишись на рассылку новостей Третьяковской галереи Запад и будь в курсе новых публикаций</p>
             </div>
           </div>
         </div>
@@ -228,7 +232,7 @@
           </div>
         </div>
       </div>
-      <div class="news-pagination">
+      <div class="news-pagination line-block">
         <div class="news-pagination-page">
           <div class="flex">
             <span>1</span>
@@ -240,7 +244,7 @@
           </div>
           <img src="../assets/image/Vector99.svg" alt="">
         </div>
-        <div class="news-pagination-line"></div>
+        <div class="line-dn"></div>
         <div></div>
       </div>
     </div>
@@ -506,7 +510,7 @@
         display: block;
         content: '';
         top: 0;
-        right: -5px;
+        right: -4px;
         width: 5px;
         height: 20px;
         position: absolute;
@@ -516,7 +520,7 @@
         display: block;
         content: '';
         bottom: 0;
-        right: -5px;
+        right: -4px;
         width: 5px;
         height: 20px;
         position: absolute;
@@ -534,6 +538,7 @@
       @media (max-width: 900px) {
         width: 96%;
         border-right: 0;
+        padding-right: 0;
       }
     }
 
@@ -547,6 +552,7 @@
         width: 48% ;
         margin-left: 20px;
         padding-right: 20px;
+        padding-left: 0;
         border-right: 1px solid;
         position: relative;
 
@@ -554,7 +560,7 @@
           display: block;
           content: '';
           top: 0;
-          right: -5px;
+          right: -4px;
           width: 5px;
           height: 20px;
           position: absolute;
@@ -564,7 +570,7 @@
           display: block;
           content: '';
           bottom: 0;
-          right: -5px;
+          right: -4px;
           width: 5px;
           height: 20px;
           position: absolute;
@@ -572,6 +578,10 @@
         }
 
       }
+
+        @media (max-width: 650px) {
+            padding-right: 0;
+        }
     }
     &-item:nth-child(3){
       margin-left: 20px;
@@ -584,7 +594,13 @@
         margin-left: 0;
         padding-left: 20px;
         border-right: 0;
+        padding-right: 0;
       }
+
+        @media (max-width: 650px) {
+            margin-left: 20px;
+            padding-left: 0;
+        }
     }
     &-item:nth-child(4) {
       padding-top: 20px;
@@ -595,7 +611,9 @@
       @media (max-width: 900px) {
         width: 48% ;
         margin-left: 20px;
+        padding-left: 0;
       }
+
     }
     &-item:nth-child(5) {
       padding-top: 20px;
@@ -660,6 +678,7 @@
       @media (max-width: 900px) {
         width: 48% ;
         border-right: 0;
+        padding-right: 0;
       }
     }
 
@@ -670,6 +689,8 @@
 
       @media (max-width: 900px) {
         width: 96% ;
+        margin-left: 20px;
+        padding-left: 0;
       }
     }
 
@@ -702,6 +723,13 @@
       height: 516px;
       border-top: 1px solid;
 
+
+        @media (max-width: 650px) {
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+        }
+
+
       &-input {
         display: flex;
         justify-content: center;
@@ -726,10 +754,14 @@
           input {
             height: 60px;
             background: #FFDD7C;
-            color: black;
-            font-weight: 600;
             width: 80%;
             outline: none;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #221F1A;
           }
 
           button {
@@ -741,6 +773,8 @@
             text-transform: uppercase;
             color: #221F1A;
             white-space: nowrap;
+            display: flex;
+              align-items: center;
 
             @media (max-width: 900px) {
               visibility: hidden;
@@ -787,6 +821,12 @@
         text-align: center;
         text-transform: uppercase;
         color: #221F1A;
+        
+        @media (max-width: 850px) {
+          font-size: 22px;
+          line-height: 26px;
+        }
+        
       }
 
       &-description {
@@ -797,6 +837,28 @@
         line-height: 20px;
         text-align: center;
         color: #221F1A;
+        
+        .input {
+          max-width: 520px !important;
+          
+          @media (max-width: 850px) {
+            max-width: 285px !important;
+          }
+        }
+
+        p{
+          max-width: 343px;
+        }
+
+        .input {
+          max-width: 520px;
+
+            @media (max-width: 650px) {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+        }
       }
     }
   }
@@ -806,7 +868,7 @@
     margin-right: 20px;
     margin-left: 20px;
     height: 250px;
-    padding: 20px;
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -822,35 +884,26 @@
       }
 
       span {
-        margin: 12px;
+        margin-right: 12px;
         font-style: normal;
         font-weight: normal;
         font-size: 18px;
         line-height: 26px;
         text-align: right;
         color: #221F1A;
+
+        @media (max-width: 650px) {
+          font-size: 13px;
+          line-height: 15px;
+        }
       }
 
       img {
         margin-left: 12px;
-      }
-    }
 
-    &-line {
-      position: relative;
-      &::after {
-        content: '';
-        width: 100%;
-        border-bottom: solid 1px #000000;
-        position: absolute;
-        left: 0;
-        top: 50%;
-        z-index: 1;
-        transform: rotate(-7deg);
-
-
-        @media (max-width: 800px) {
-          transform: rotate(-15deg);
+        @media (max-width: 650px) {
+          width: 9px;
+          height: 17px;
         }
       }
     }
