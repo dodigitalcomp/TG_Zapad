@@ -392,6 +392,13 @@
       padding-left: 20px;
       display: flex;
 
+      @media (max-width: 850px) {
+        padding-top: 60px;
+      }
+      @media (max-width: 650px) {
+        padding-top: 40px;
+      }
+
       &-buy-ticket {
         margin-right: 138px;
 
@@ -478,7 +485,7 @@
               font-size: 15px;
               line-height: 20px;
               max-width: 100%;
-
+              margin-right: 20px;
             }
           }
         }

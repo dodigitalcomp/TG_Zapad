@@ -80,7 +80,7 @@
              <div class="event-page-content-info-buy-ticket-date">
                <p>17 ноября — 29 декабря</p>
              </div>
-             <div class="event-page-content-buy-ticket-price">
+             <div class="event-page-content-info-buy-ticket-price">
                <p>стоимость: 1500 ₽ </p>
                <button class="button">
                  <img class="mr-1" src="../assets/image/(.svg" alt="">
@@ -805,6 +805,13 @@
       padding-left: 20px;
       display: flex;
 
+      @media (max-width: 850px) {
+        padding-top: 60px;
+      }
+      @media (max-width: 650px) {
+        padding-top: 40px;
+      }
+
       &-buy-ticket {
         margin-right: 138px;
 
@@ -897,7 +904,7 @@
               font-size: 15px;
               line-height: 20px;
               max-width: 100%;
-
+              margin-right: 20px;
             }
           }
         }
@@ -1107,6 +1114,7 @@
             width: 100%;
             padding-right: 20px;
             margin-top: 60px;
+            text-align: center;
 
           &-date, &-author, &-price {
             width: 100%;
@@ -1125,6 +1133,9 @@
           }
 
           &-price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
             .button {
               margin-top: 20px;

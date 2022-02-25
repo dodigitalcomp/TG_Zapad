@@ -2,7 +2,7 @@
   <div>
     <div class="footer">
       <div class="footer-block-logo">
-        <img src="../assets/image/logo_sign.svg" alt="">
+        <img class="footer-block-logo-image" src="../assets/image/logo_sign.svg" alt="">
         <canvas height="632" id="footer-arrow"></canvas>
       </div>
       <div class="footer-block-info">
@@ -40,7 +40,11 @@
           <p>Узнавайте больше об искусстве с нашей рассылкой</p>
           <label>
             <input type="text" placeholder="ваш email">
-            <button>(отправить)</button>
+            <button class="flex items-center">
+              <img class="mr-1" src="../assets/image/(w.svg" alt="">
+              <span>отправить</span>
+              <img class="ml-1" src="../assets/image/)w.svg" alt="">
+            </button>
           </label>
         </div>
         <div class="footer-block-about-conditions">
@@ -49,7 +53,11 @@
             <p>Политика конфиденциальности</p>
           </div>
           <div>
-            <p class="made"><span class="mr">(</span>Made by ONY<span class="ml">)</span> </p>
+            <p class="made flex items-center">
+              <img class="mr-1" src="../assets/image/(w.svg" alt="">
+              <span>Made by ONY</span>
+              <img class="ml-1" src="../assets/image/)w.svg" alt="">
+            </p>
           </div>
         </div>
       </div>
@@ -78,7 +86,7 @@
           <p>Узнавайте больше об искусстве с нашей рассылкой</p>
           <label>
             <input type="text" placeholder="ваш email">
-            <button class="flex">
+            <button class="flex items-center">
                 <img class="mr-1" src="../assets/image/(w.svg" alt="">
                 <span>отправить</span>
                 <img class="ml-1" src="../assets/image/)w.svg" alt="">
@@ -114,7 +122,7 @@
             </div>
             <p class="info-text-mini">2020 © Третьяковская галерея Запад</p>
             <div>
-              <p class="made flex">
+              <p class="made flex items-center">
                 <img class="mr-1" src="../assets/image/(w.svg" alt="">
                 <span>Made by ONY</span>
                 <img class="ml-1" src="../assets/image/)w.svg" alt="">
@@ -224,10 +232,6 @@
       background: #221F1A;
 
 
-      .footer-block-logo {
-        margin-right: 152px;
-      }
-
       #footer-arrow-min {
         width: 100%;
         height: 200px;
@@ -269,6 +273,15 @@
     flex: 1;
   }
   &-block {
+
+    &-logo {
+      position: relative;
+      &-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
 
     &-about {
       display: flex;
@@ -400,8 +413,8 @@
                 visibility: visible;
                 display: block;
                 position: absolute;
-                right: 0px;
-                top: 0px;
+                right: 0;
+                top: 0;
               }
             }
           }
@@ -471,6 +484,7 @@
         align-items: center;
         a {
           margin: 10px;
+          margin-right: 30px;
         }
         @media (max-width: 800px) {
           margin-top: 20px;

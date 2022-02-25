@@ -42,6 +42,12 @@
     "chunkName": "pages/media"
   },
   {
+    "name": "mediaPage",
+    "path": "/mediaPage",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\mediaPage.vue",
+    "chunkName": "pages/mediaPage"
+  },
+  {
     "name": "news",
     "path": "/news",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\news.vue",

@@ -13,6 +13,25 @@
   margin-bottom: 60px;
 }
 
+.num-lin {
+  border-top: 1px solid;
+  height: 1px !important;
+  width: 20px !important;
+  min-width: 20px !important;
+  min-height: 1px !important;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: #000000;
+}
+
+.swiper-pagination-custom {
+  bottom: inherit !important;
+  left: inherit !important;
+  width: inherit !important;
+  display: flex;
+  align-items: center;
+}
+
 .pagination-number {
   overflow: inherit !important;
   margin-left: -36px !important;

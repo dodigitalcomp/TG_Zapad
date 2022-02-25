@@ -369,11 +369,25 @@
 
           }
 
-          div:nth-child(5) {
+          div:nth-child(6) {
             @media (max-width: 850px) {
               order: 5;
               margin-top: 40px;
+              p {
+                margin-top: 9px;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 15px;
+                line-height: 20px;
+                /* or 133% */
 
+                text-align: center;
+                text-transform: uppercase;
+
+                /* Black brown */
+
+                color: #221F1A;
+              }
             }
 
             @media (max-width: 650px) {
@@ -561,7 +575,8 @@
             border-top: 1px solid;
             width: 100%;
             margin-top: 20px;
-            padding-bottom: 20px;
+            padding-top: 30px;
+            padding-bottom: 0;
           }
         }
 
@@ -580,9 +595,18 @@
           text-transform: uppercase;
           color: #211F1A;
 
+          @media (max-width: 850px) {
+            padding-bottom: 20px;
+            padding-top: 20px;
+          }
+
           @media (max-width: 650px) {
+            padding-bottom: 10px;
+            padding-top: 10px;
             width: 50%;
             flex: inherit;
+            font-size: 13px;
+            line-height: 20px;
           }
 
           &-block {
@@ -597,6 +621,13 @@
       padding-top: 80px;
       padding-left: 20px;
       display: flex;
+
+      @media (max-width: 850px) {
+        padding-top: 60px;
+      }
+      @media (max-width: 650px) {
+        padding-top: 40px;
+      }
 
       &-buy-ticket {
         min-width: 345px;
@@ -685,6 +716,7 @@
               font-size: 15px;
               line-height: 20px;
               max-width: 100%;
+              margin-right: 20px;
 
             }
           }
@@ -784,6 +816,7 @@
               font-size: 15px;
               line-height: 20px;
               max-width: 100%;
+              margin-right: 20px;
             }
           }
         }
@@ -1095,7 +1128,26 @@
             }
 
             p {
-              max-width: 120px;
+              max-width: 142px;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 15px;
+              line-height: 20px;
+              /* or 133% */
+
+              text-align: center;
+              text-transform: uppercase;
+
+              /* Black brown */
+
+              color: #221F1A;
+
+              @media (max-width: 650px) {
+                font-size: 13px;
+                line-height: 15px;
+                max-width: 173px;
+              }
+
             }
           }
 

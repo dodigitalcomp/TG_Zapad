@@ -14,6 +14,7 @@
     "pages/events.js": "pages/events.js",
     "pages/index.js": "pages/index.js",
     "pages/media.js": "pages/media.js",
+    "pages/mediaPage.js": "pages/mediaPage.js",
     "pages/news.js": "pages/news.js",
     "pages/newsPage.js": "pages/newsPage.js",
     "server.js": "server.js"
@@ -32,6 +33,7 @@
     "pages/events.js": "pages/events.js.map",
     "pages/index.js": "pages/index.js.map",
     "pages/media.js": "pages/media.js.map",
+    "pages/mediaPage.js": "pages/mediaPage.js.map",
     "pages/news.js": "pages/news.js.map",
     "pages/newsPage.js": "pages/newsPage.js.map",
     "server.js": "server.js.map"

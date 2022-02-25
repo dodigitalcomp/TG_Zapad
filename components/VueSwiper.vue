@@ -1,5 +1,5 @@
 <template>
-  <div class="event-page-content-info-image">
+  <div class="event-page-content-info-image" v-if="loader">
     <swiper v-if="slides.length" ref="swiperThumbs" class="swiper" :options="swiperOption">
       <swiper-slide v-for="(slide, i) in slides" :key="i" class="swiper-slide" :index="i">
         <img src="../assets/image/image32.jpg" alt="">
@@ -13,13 +13,6 @@
          <img class="arrows__btn arrows__btn_next" src="../assets/image/Vector199.svg" alt="">
       </div>
     </div>
-<!--    <div class="event-page-content-info-image-pagMini">-->
-<!--      <div class="event-page-content-info-image-pag-number">-->
-<!--        <span class="active">10</span>-->
-<!--        <span class="active">&#45;&#45;</span>-->
-<!--        <span class="active">15</span>-->
-<!--      </div>-->
-<!--    </div>-->
   </div>
 </template>
 
@@ -29,7 +22,9 @@ export default {
   data () {
     return {
       selected: 'Technologies',
+      loader: false,
       openSelect: false,
+      typePage: 'bullets',
       slides: [1, 1, 1, 1, 1],
       swiperOptionSlider: {
         centeredSlides: true,
@@ -41,11 +36,7 @@ export default {
         slidesPerView :'auto',
         pagination: {
           el: '.swiper-pagination',
-          type: "bullets",
-          clickable: true,
-          renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + "</span>";
-          },
+          clickable: true
         },
         navigation: {
           nextEl: '.arrows__btn_next',
@@ -54,7 +45,21 @@ export default {
       }
     }
   },
-  props: ['text']
+  props: ['text'],
+  mounted() {
+    if (window.innerWidth > 850) {
+      this.swiperOption.pagination.type = 'bullets'
+      this.swiperOption.pagination.renderBullet = function (index, className) {
+        return '<span class="' + className + '">' + (index + 1) + "</span>";
+      }
+    } else {
+      this.swiperOption.pagination.type = 'custom'
+      this.swiperOption.pagination.renderCustom = function (swiper, current, total) {
+          return current + '<div class="num-lin"></div>' + (total - 1);
+        }
+    }
+    this.loader = true
+  }
 }
 </script>
 
@@ -131,6 +136,10 @@ export default {
 
           img {
             margin-left: 22px;
+          }
+
+          @media (max-width: 850px) {
+            display: none;
           }
         }
       }

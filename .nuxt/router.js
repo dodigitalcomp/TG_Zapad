@@ -11,6 +11,7 @@ const _4b31eb39 = () => interopDefault(import('..\\pages\\eventPage3.vue' /* web
 const _4b4002ba = () => interopDefault(import('..\\pages\\eventPage4.vue' /* webpackChunkName: "pages/eventPage4" */))
 const _bc3e1970 = () => interopDefault(import('..\\pages\\events.vue' /* webpackChunkName: "pages/events" */))
 const _23aac4f6 = () => interopDefault(import('..\\pages\\media.vue' /* webpackChunkName: "pages/media" */))
+const _5bc37398 = () => interopDefault(import('..\\pages\\mediaPage.vue' /* webpackChunkName: "pages/mediaPage" */))
 const _6b7d6c7c = () => interopDefault(import('..\\pages\\news.vue' /* webpackChunkName: "pages/news" */))
 const _2e5a8bf1 = () => interopDefault(import('..\\pages\\newsPage.vue' /* webpackChunkName: "pages/newsPage" */))
 const _3e742f73 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
@@ -54,6 +55,10 @@ export const routerOptions = {
     path: "/media",
     component: _23aac4f6,
     name: "media"
+  }, {
+    path: "/mediaPage",
+    component: _5bc37398,
+    name: "mediaPage"
   }, {
     path: "/news",
     component: _6b7d6c7c,
