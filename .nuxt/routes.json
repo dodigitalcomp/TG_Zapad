@@ -1,68 +1,107 @@
 [
   {
+    "name": "contacts",
+    "path": "/contacts",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\contacts.vue",
+    "chunkName": "pages/contacts",
+    "_name": "_0f0b9bc2"
+  },
+  {
+    "name": "education",
+    "path": "/education",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\education.vue",
+    "chunkName": "pages/education",
+    "_name": "_5e65326e"
+  },
+  {
     "name": "errors",
     "path": "/errors",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\errors.vue",
-    "chunkName": "pages/errors"
+    "chunkName": "pages/errors",
+    "_name": "_6e89eecc"
   },
   {
     "name": "eventPage",
     "path": "/eventPage",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage.vue",
-    "chunkName": "pages/eventPage"
+    "chunkName": "pages/eventPage",
+    "_name": "_3c3a32ea"
   },
   {
     "name": "eventPage2",
     "path": "/eventPage2",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage2.vue",
-    "chunkName": "pages/eventPage2"
+    "chunkName": "pages/eventPage2",
+    "_name": "_4b23d3b8"
   },
   {
     "name": "eventPage3",
     "path": "/eventPage3",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage3.vue",
-    "chunkName": "pages/eventPage3"
+    "chunkName": "pages/eventPage3",
+    "_name": "_4b31eb39"
   },
   {
     "name": "eventPage4",
     "path": "/eventPage4",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage4.vue",
-    "chunkName": "pages/eventPage4"
+    "chunkName": "pages/eventPage4",
+    "_name": "_4b4002ba"
   },
   {
     "name": "events",
     "path": "/events",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\events.vue",
-    "chunkName": "pages/events"
+    "chunkName": "pages/events",
+    "_name": "_bc3e1970"
+  },
+  {
+    "name": "friend",
+    "path": "/friend",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\friend.vue",
+    "chunkName": "pages/friend",
+    "_name": "_05165b66"
   },
   {
     "name": "media",
     "path": "/media",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\media.vue",
-    "chunkName": "pages/media"
+    "chunkName": "pages/media",
+    "_name": "_23aac4f6"
   },
   {
     "name": "mediaPage",
     "path": "/mediaPage",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\mediaPage.vue",
-    "chunkName": "pages/mediaPage"
+    "chunkName": "pages/mediaPage",
+    "_name": "_5bc37398"
   },
   {
     "name": "news",
     "path": "/news",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\news.vue",
-    "chunkName": "pages/news"
+    "chunkName": "pages/news",
+    "_name": "_6b7d6c7c"
   },
   {
     "name": "newsPage",
     "path": "/newsPage",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\newsPage.vue",
-    "chunkName": "pages/newsPage"
+    "chunkName": "pages/newsPage",
+    "_name": "_2e5a8bf1"
+  },
+  {
+    "name": "search",
+    "path": "/search",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\search.vue",
+    "chunkName": "pages/search",
+    "_name": "_3bd09857"
   },
   {
     "name": "index",
     "path": "/",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_3e742f73"
   }
 ]

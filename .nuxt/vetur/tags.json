@@ -11,6 +11,9 @@
   "Main": {
     "description": "Auto imported from components/Main.vue"
   },
+  "Teachers": {
+    "description": "Auto imported from components/Teachers.vue"
+  },
   "VueSwiper": {
     "description": "Auto imported from components/VueSwiper.vue"
   }

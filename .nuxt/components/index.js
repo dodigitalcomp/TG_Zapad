@@ -2,6 +2,7 @@ export const Footer = () => import('../..\\components\\Footer.vue' /* webpackChu
 export const Galleria = () => import('../..\\components\\Galleria.vue' /* webpackChunkName: "components/galleria" */).then(c => wrapFunctional(c.default || c))
 export const Header = () => import('../..\\components\\Header.vue' /* webpackChunkName: "components/header" */).then(c => wrapFunctional(c.default || c))
 export const Main = () => import('../..\\components\\Main.vue' /* webpackChunkName: "components/main" */).then(c => wrapFunctional(c.default || c))
+export const Teachers = () => import('../..\\components\\Teachers.vue' /* webpackChunkName: "components/teachers" */).then(c => wrapFunctional(c.default || c))
 export const VueSwiper = () => import('../..\\components\\VueSwiper.vue' /* webpackChunkName: "components/vue-swiper" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607

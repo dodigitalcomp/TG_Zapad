@@ -10,4 +10,5 @@ You can directly use them in pages and other components without the need to impo
 - `<Galleria>` | `<galleria>` (components/Galleria.vue)
 - `<Header>` | `<header>` (components/Header.vue)
 - `<Main>` | `<main>` (components/Main.vue)
+- `<Teachers>` | `<teachers>` (components/Teachers.vue)
 - `<VueSwiper>` | `<vue-swiper>` (components/VueSwiper.vue)

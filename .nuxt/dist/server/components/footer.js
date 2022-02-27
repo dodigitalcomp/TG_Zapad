@@ -4,14 +4,14 @@ exports.modules = {
 /***/ 28:
 /***/ (function(module, exports) {
 
-module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxNyIgdmlld0JveD0iMCAwIDggMTciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0wLjg4ODYxMyAxMC4yMzVDMC44ODg2MTMgMTIuNSAxLjY5ODYxIDE0LjQ2NSAzLjMzMzYxIDE2LjE2QzMuNDA4NjEgMTYuMjM1IDMuNDgzNjEgMTYuMjM1IDMuNTU4NjEgMTYuMTZMMy42NjM2MSAxNi4wN0MzLjczODYxIDE1Ljk5NSAzLjczODYxIDE1LjkzNSAzLjY5MzYxIDE1Ljg2QzIuNDMzNjEgMTQuMjg1IDEuNzg4NjEgMTIuMzIgMS43ODg2MSAxMC4yOTVDMS43ODg2MSA2LjA5NSA0LjI5MzYxIDIuOTc1IDcuMTg4NjEgMS40QzcuMjkzNjEgMS4zNTUgNy4zMjM2MSAxLjI4IDcuMjc4NjEgMS4xNzVMNy4yMTg2MSAxLjA1NUM3LjE3MzYxIDAuOTY0OTk5IDcuMTEzNjEgMC45NDk5OTkgNy4wMDg2MSAwLjk5NUMzLjc2ODYxIDIuNDM1IDAuODg4NjEzIDUuNzIgMC44ODg2MTMgMTAuMjM1WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=="
+module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxNyIgdmlld0JveD0iMCAwIDggMTciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQo8cGF0aCBkPSJNMC44ODg2MTMgMTAuMjM1QzAuODg4NjEzIDEyLjUgMS42OTg2MSAxNC40NjUgMy4zMzM2MSAxNi4xNkMzLjQwODYxIDE2LjIzNSAzLjQ4MzYxIDE2LjIzNSAzLjU1ODYxIDE2LjE2TDMuNjYzNjEgMTYuMDdDMy43Mzg2MSAxNS45OTUgMy43Mzg2MSAxNS45MzUgMy42OTM2MSAxNS44NkMyLjQzMzYxIDE0LjI4NSAxLjc4ODYxIDEyLjMyIDEuNzg4NjEgMTAuMjk1QzEuNzg4NjEgNi4wOTUgNC4yOTM2MSAyLjk3NSA3LjE4ODYxIDEuNEM3LjI5MzYxIDEuMzU1IDcuMzIzNjEgMS4yOCA3LjI3ODYxIDEuMTc1TDcuMjE4NjEgMS4wNTVDNy4xNzM2MSAwLjk2NDk5OSA3LjExMzYxIDAuOTQ5OTk5IDcuMDA4NjEgMC45OTVDMy43Njg2MSAyLjQzNSAwLjg4ODYxMyA1LjcyIDAuODg4NjEzIDEwLjIzNVoiIGZpbGw9IndoaXRlIi8+DQo8L3N2Zz4NCg=="
 
 /***/ }),
 
 /***/ 29:
 /***/ (function(module, exports) {
 
-module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxNyIgdmlld0JveD0iMCAwIDggMTciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik03LjMxNzM0IDYuOTVDNy4zMTczNCA0LjY4NSA2LjUwNzM0IDIuNzIgNC44NzIzNCAxLjAyNUM0Ljc5NzM0IDAuOTQ5OTk5IDQuNzIyMzQgMC45NDk5OTkgNC42NDczNCAxLjAyNUw0LjU0MjM0IDEuMTE1QzQuNDY3MzQgMS4xOSA0LjQ1MjM0IDEuMjUgNC41MjczNCAxLjMyNUM1Ljc3MjM0IDIuOSA2LjQxNzM0IDQuODY1IDYuNDE3MzQgNi45MDVDNi40MTczNCAxMS4xMDUgMy45MTIzNCAxNC4yMjUgMS4wMTczNCAxNS43ODVDMC45MTIzNDQgMTUuODQ1IDAuODgyMzQ0IDE1LjkyIDAuOTI3MzQ0IDE2LjAyNUwwLjk4NzM0NCAxNi4xNDVDMS4wMzIzNCAxNi4yNSAxLjA3NzM0IDE2LjI1IDEuMTk3MzQgMTYuMjA1QzQuNDM3MzQgMTQuNzY1IDcuMzE3MzQgMTEuNDk1IDcuMzE3MzQgNi45NVoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo="
+module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxNyIgdmlld0JveD0iMCAwIDggMTciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQo8cGF0aCBkPSJNNy4zMTczNCA2Ljk1QzcuMzE3MzQgNC42ODUgNi41MDczNCAyLjcyIDQuODcyMzQgMS4wMjVDNC43OTczNCAwLjk0OTk5OSA0LjcyMjM0IDAuOTQ5OTk5IDQuNjQ3MzQgMS4wMjVMNC41NDIzNCAxLjExNUM0LjQ2NzM0IDEuMTkgNC40NTIzNCAxLjI1IDQuNTI3MzQgMS4zMjVDNS43NzIzNCAyLjkgNi40MTczNCA0Ljg2NSA2LjQxNzM0IDYuOTA1QzYuNDE3MzQgMTEuMTA1IDMuOTEyMzQgMTQuMjI1IDEuMDE3MzQgMTUuNzg1QzAuOTEyMzQ0IDE1Ljg0NSAwLjg4MjM0NCAxNS45MiAwLjkyNzM0NCAxNi4wMjVMMC45ODczNDQgMTYuMTQ1QzEuMDMyMzQgMTYuMjUgMS4wNzczNCAxNi4yNSAxLjE5NzM0IDE2LjIwNUM0LjQzNzM0IDE0Ljc2NSA3LjMxNzM0IDExLjQ5NSA3LjMxNzM0IDYuOTVaIiBmaWxsPSJ3aGl0ZSIvPg0KPC9zdmc+DQo="
 
 /***/ }),
 
@@ -22,48 +22,48 @@ module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTUi
 
 /***/ }),
 
-/***/ 32:
+/***/ 33:
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAxNSAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNC43MjI4IDMwVjE0LjY4NEgwLjVWOS44ODQzMkg0LjcyMjhWNi4zNDQ4M0M0LjcyMjggMi4yMzY4NiA3LjI3ODM2IDAgMTEuMDEyNSAwQzEyLjgwMTIgMCAxNC4zMzc1IDAuMTMxMTkgMTQuNzg1NyAwLjE4OTQ5N1Y0LjQ4Mjk5TDEyLjE5NjQgNC40ODQzMkMxMC4xNjYgNC40ODQzMiA5Ljc3MzE2IDUuNDMxOCA5Ljc3MzE2IDYuODIwNTdWOS44ODU2NEgxNC42MTU2TDEzLjk4NTIgMTQuNjg1NEg5Ljc3MzE2VjMwSDQuNzIyOFoiIGZpbGw9IndoaXRlIi8+DQo8L3N2Zz4NCg=="
 
 /***/ }),
 
-/***/ 33:
+/***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/insta.9d37843.svg";
 
 /***/ }),
 
-/***/ 34:
+/***/ 35:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/ok.7bdd5f5.svg";
 
 /***/ }),
 
-/***/ 35:
+/***/ 36:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/vk.8debadd.svg";
 
 /***/ }),
 
-/***/ 36:
+/***/ 37:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(41);
+var content = __webpack_require__(46);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
 var add = __webpack_require__(4).default
 module.exports.__inject__ = function (context) {
-  add("32b5c9a4", content, true, context)
+  add("7def0504", content, true, context)
 };
 
 /***/ }),
@@ -117,7 +117,7 @@ module.exports = function (url, options) {
 __webpack_require__.r(__webpack_exports__);
 
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Footer.vue?vue&type=template&id=dc2943c6&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._ssrNode("<div class=\"footer\" data-v-dc2943c6><div class=\"footer-block-logo\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(30)))+" alt class=\"footer-block-logo-image\" data-v-dc2943c6> <canvas height=\"632\" id=\"footer-arrow\" data-v-dc2943c6></canvas></div> <div class=\"footer-block-info\" data-v-dc2943c6><div class=\"footer-block-info-title\" data-v-dc2943c6><a href data-v-dc2943c6>Афиша</a> <a href data-v-dc2943c6>образование</a> <a href data-v-dc2943c6>о музее</a> <a href data-v-dc2943c6>медиа</a></div> <div class=\"footer-block-info-social\" data-v-dc2943c6><a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(32)))+" alt data-v-dc2943c6></a> <a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(33)))+" alt data-v-dc2943c6></a> <a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(34)))+" alt data-v-dc2943c6></a> <a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(35)))+" alt data-v-dc2943c6></a></div> <div class=\"footer-block-info-text\" data-v-dc2943c6><p data-v-dc2943c6>2020 © Третьяковская галерея Запад</p></div></div> <div class=\"footer-block-about\" data-v-dc2943c6><div class=\"footer-block-about-title\" data-v-dc2943c6><a href data-v-dc2943c6>новости</a> <a href data-v-dc2943c6>программа лояльности</a> <a href data-v-dc2943c6>контакты</a></div> <div class=\"footer-block-about-input\" data-v-dc2943c6><p data-v-dc2943c6>Узнавайте больше об искусстве с нашей рассылкой</p> <label data-v-dc2943c6><input type=\"text\" placeholder=\"ваш email\" data-v-dc2943c6> <button class=\"flex items-center\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(28)))+" alt class=\"mr-1\" data-v-dc2943c6> <span data-v-dc2943c6>отправить</span> <img"+(_vm._ssrAttr("src",__webpack_require__(29)))+" alt class=\"ml-1\" data-v-dc2943c6></button></label></div> <div class=\"footer-block-about-conditions\" data-v-dc2943c6><div data-v-dc2943c6><p data-v-dc2943c6>Условия использования материалов сайта</p> <p data-v-dc2943c6>Политика конфиденциальности</p></div> <div data-v-dc2943c6><p class=\"made flex items-center\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(28)))+" alt class=\"mr-1\" data-v-dc2943c6> <span data-v-dc2943c6>Made by ONY</span> <img"+(_vm._ssrAttr("src",__webpack_require__(29)))+" alt class=\"ml-1\" data-v-dc2943c6></p></div></div></div></div> <div class=\"footer-min\" data-v-dc2943c6><div class=\"footer-block-logo img-max\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(30)))+" alt data-v-dc2943c6></div> <div class=\"footer-block-info\" data-v-dc2943c6><div class=\"mini-block\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(30)))+" alt class=\"img-min\" data-v-dc2943c6> <div class=\"footer-block-info-title\" data-v-dc2943c6><a href data-v-dc2943c6>Афиша</a> <a href data-v-dc2943c6>образование</a> <a href data-v-dc2943c6>о музее</a> <a href data-v-dc2943c6>медиа</a> <a href data-v-dc2943c6>новости</a> <a href data-v-dc2943c6>программа лояльности</a> <a href data-v-dc2943c6>контакты</a></div></div> <div class=\"canvas\" data-v-dc2943c6><canvas id=\"footer-arrow-min\" data-v-dc2943c6></canvas></div> <div class=\"footer-block-about-input\" data-v-dc2943c6><p data-v-dc2943c6>Узнавайте больше об искусстве с нашей рассылкой</p> <label data-v-dc2943c6><input type=\"text\" placeholder=\"ваш email\" data-v-dc2943c6> <button class=\"flex items-center\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(28)))+" alt class=\"mr-1\" data-v-dc2943c6> <span data-v-dc2943c6>отправить</span> <img"+(_vm._ssrAttr("src",__webpack_require__(29)))+" alt class=\"ml-1\" data-v-dc2943c6></button></label></div> <div class=\"footer-block-info-social\" data-v-dc2943c6><a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(32)))+" alt data-v-dc2943c6></a> <a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(33)))+" alt data-v-dc2943c6></a> <a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(34)))+" alt data-v-dc2943c6></a> <a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(35)))+" alt data-v-dc2943c6></a></div> <div class=\"footer-block-info-text\" data-v-dc2943c6><p class=\"info-text-max\" data-v-dc2943c6>2020 © Третьяковская галерея Запад</p> <div class=\"conditions-mini\" data-v-dc2943c6><p data-v-dc2943c6>Правила использования</p> <p data-v-dc2943c6>Политика конфиденциальности</p></div></div> <div class=\"footer-block-about\" data-v-dc2943c6><div class=\"footer-block-about-conditions\" data-v-dc2943c6><div class=\"conditions-max\" data-v-dc2943c6><p data-v-dc2943c6>Условия использования материалов сайта</p> <p data-v-dc2943c6>Политика конфиденциальности</p></div> <p class=\"info-text-mini\" data-v-dc2943c6>2020 © Третьяковская галерея Запад</p> <div data-v-dc2943c6><p class=\"made flex items-center\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(28)))+" alt class=\"mr-1\" data-v-dc2943c6> <span data-v-dc2943c6>Made by ONY</span> <img"+(_vm._ssrAttr("src",__webpack_require__(29)))+" alt class=\"ml-1\" data-v-dc2943c6></p></div></div></div></div></div>")])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._ssrNode("<div class=\"footer\" data-v-dc2943c6><div class=\"footer-block-logo\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(30)))+" alt class=\"footer-block-logo-image\" data-v-dc2943c6> <canvas height=\"632\" id=\"footer-arrow\" data-v-dc2943c6></canvas></div> <div class=\"footer-block-info\" data-v-dc2943c6><div class=\"footer-block-info-title\" data-v-dc2943c6><a href data-v-dc2943c6>Афиша</a> <a href data-v-dc2943c6>образование</a> <a href data-v-dc2943c6>о музее</a> <a href data-v-dc2943c6>медиа</a></div> <div class=\"footer-block-info-social\" data-v-dc2943c6><a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(33)))+" alt data-v-dc2943c6></a> <a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(34)))+" alt data-v-dc2943c6></a> <a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(35)))+" alt data-v-dc2943c6></a> <a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(36)))+" alt data-v-dc2943c6></a></div> <div class=\"footer-block-info-text\" data-v-dc2943c6><p data-v-dc2943c6>2020 © Третьяковская галерея Запад</p></div></div> <div class=\"footer-block-about\" data-v-dc2943c6><div class=\"footer-block-about-title\" data-v-dc2943c6><a href data-v-dc2943c6>новости</a> <a href data-v-dc2943c6>программа лояльности</a> <a href data-v-dc2943c6>контакты</a></div> <div class=\"footer-block-about-input\" data-v-dc2943c6><p data-v-dc2943c6>Узнавайте больше об искусстве с нашей рассылкой</p> <label data-v-dc2943c6><input type=\"text\" placeholder=\"ваш email\" data-v-dc2943c6> <button class=\"flex items-center\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(28)))+" alt class=\"mr-1\" data-v-dc2943c6> <span data-v-dc2943c6>отправить</span> <img"+(_vm._ssrAttr("src",__webpack_require__(29)))+" alt class=\"ml-1\" data-v-dc2943c6></button></label></div> <div class=\"footer-block-about-conditions\" data-v-dc2943c6><div data-v-dc2943c6><p data-v-dc2943c6>Условия использования материалов сайта</p> <p data-v-dc2943c6>Политика конфиденциальности</p></div> <div data-v-dc2943c6><p class=\"made flex items-center\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(28)))+" alt class=\"mr-1\" data-v-dc2943c6> <span data-v-dc2943c6>Made by ONY</span> <img"+(_vm._ssrAttr("src",__webpack_require__(29)))+" alt class=\"ml-1\" data-v-dc2943c6></p></div></div></div></div> <div class=\"footer-min\" data-v-dc2943c6><div class=\"footer-block-logo img-max\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(30)))+" alt data-v-dc2943c6></div> <div class=\"footer-block-info\" data-v-dc2943c6><div class=\"mini-block\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(30)))+" alt class=\"img-min\" data-v-dc2943c6> <div class=\"footer-block-info-title\" data-v-dc2943c6><a href data-v-dc2943c6>Афиша</a> <a href data-v-dc2943c6>образование</a> <a href data-v-dc2943c6>о музее</a> <a href data-v-dc2943c6>медиа</a> <a href data-v-dc2943c6>новости</a> <a href data-v-dc2943c6>программа лояльности</a> <a href data-v-dc2943c6>контакты</a></div></div> <div class=\"canvas\" data-v-dc2943c6><canvas id=\"footer-arrow-min\" data-v-dc2943c6></canvas></div> <div class=\"footer-block-about-input\" data-v-dc2943c6><p data-v-dc2943c6>Узнавайте больше об искусстве с нашей рассылкой</p> <label data-v-dc2943c6><input type=\"text\" placeholder=\"ваш email\" data-v-dc2943c6> <button class=\"flex items-center\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(28)))+" alt class=\"mr-1\" data-v-dc2943c6> <span data-v-dc2943c6>отправить</span> <img"+(_vm._ssrAttr("src",__webpack_require__(29)))+" alt class=\"ml-1\" data-v-dc2943c6></button></label></div> <div class=\"footer-block-info-social\" data-v-dc2943c6><a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(33)))+" alt data-v-dc2943c6></a> <a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(34)))+" alt data-v-dc2943c6></a> <a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(35)))+" alt data-v-dc2943c6></a> <a href data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(36)))+" alt data-v-dc2943c6></a></div> <div class=\"footer-block-info-text\" data-v-dc2943c6><p class=\"info-text-max\" data-v-dc2943c6>2020 © Третьяковская галерея Запад</p> <div class=\"conditions-mini\" data-v-dc2943c6><p data-v-dc2943c6>Правила использования</p> <p data-v-dc2943c6>Политика конфиденциальности</p></div></div> <div class=\"footer-block-about\" data-v-dc2943c6><div class=\"footer-block-about-conditions\" data-v-dc2943c6><div class=\"conditions-max\" data-v-dc2943c6><p data-v-dc2943c6>Условия использования материалов сайта</p> <p data-v-dc2943c6>Политика конфиденциальности</p></div> <p class=\"info-text-mini\" data-v-dc2943c6>2020 © Третьяковская галерея Запад</p> <div data-v-dc2943c6><p class=\"made flex items-center\" data-v-dc2943c6><img"+(_vm._ssrAttr("src",__webpack_require__(28)))+" alt class=\"mr-1\" data-v-dc2943c6> <span data-v-dc2943c6>Made by ONY</span> <img"+(_vm._ssrAttr("src",__webpack_require__(29)))+" alt class=\"ml-1\" data-v-dc2943c6></p></div></div></div></div></div>")])}
 var staticRenderFns = []
 
 
@@ -304,7 +304,7 @@ var componentNormalizer = __webpack_require__(2);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(40)
+  var style0 = __webpack_require__(45)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -326,25 +326,25 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /***/ }),
 
-/***/ 40:
+/***/ 45:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_dc2943c6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(36);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_dc2943c6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_dc2943c6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_dc2943c6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_dc2943c6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_dc2943c6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(37);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_dc2943c6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_dc2943c6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_dc2943c6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_id_dc2943c6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
 
-/***/ 41:
+/***/ 46:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(3);
 var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(38);
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(42);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(47);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
@@ -356,10 +356,10 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 42:
+/***/ 47:
 /***/ (function(module, exports) {
 
-module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAxNiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEgMjFMMTQuMzMzMyAxMUwxIDAuOTk5OTk5IiBzdHJva2U9IndoaXRlIi8+Cjwvc3ZnPgo="
+module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAxNiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xIDIxTDE0LjMzMzMgMTFMMSAwLjk5OTk5OSIgc3Ryb2tlPSJ3aGl0ZSIvPg0KPC9zdmc+DQo="
 
 /***/ })
 
