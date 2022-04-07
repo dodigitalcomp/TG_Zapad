@@ -1,5 +1,12 @@
 [
   {
+    "name": "about",
+    "path": "/about",
+    "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\about.vue",
+    "chunkName": "pages/about",
+    "_name": "_1ebc54ae"
+  },
+  {
     "name": "contacts",
     "path": "/contacts",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\contacts.vue",

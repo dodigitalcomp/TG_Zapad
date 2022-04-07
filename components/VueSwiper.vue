@@ -1,8 +1,8 @@
 <template>
   <div class="event-page-content-info-image" v-if="loader">
-    <swiper v-if="slides.length" ref="swiperThumbs" class="swiper" :options="swiperOption">
-      <swiper-slide v-for="(slide, i) in slides" :key="i" class="swiper-slide" :index="i">
-        <img src="../assets/image/image32.jpg" alt="">
+    <swiper v-if="images.length" ref="swiperThumbs" class="swiper" :options="swiperOption">
+      <swiper-slide v-for="(slide, i) in images" :key="i" class="swiper-slide" :index="i">
+        <img class="image" @click="zoomImage(i)" :src="slide.src" alt="">
       </swiper-slide>
     </swiper>
     <div v-if="text"><p class="text">{{text}}</p></div>
@@ -13,19 +13,50 @@
          <img class="arrows__btn arrows__btn_next" src="../assets/image/Vector199.svg" alt="">
       </div>
     </div>
+    <VueGalleria v-if="zoom" :index="zoomIndex" :images="images"/>
   </div>
 </template>
 
 <script >
+import VueGalleria from "./VueGalleria";
 export default {
   name: 'VueSwiper',
+  components: {VueGalleria},
   data () {
     return {
+      zoomIndex: null,
+      zoom: false,
+      images: [
+        {
+          'name': 'image1',
+          'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
+          'src': require('../assets/image/image32.jpg'),
+        },
+        {
+          'name': 'image1',
+          'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
+          'src': require('../assets/image/photos/pic5.png'),
+        },
+        {
+          'name': 'image1',
+          'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
+          'src': require('../assets/image/photos/pic4.png'),
+        },
+        {
+          'name': 'image1',
+          'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
+          'src': require('../assets/image/photos/pic3.png'),
+        },
+        {
+          'name': 'image1',
+          'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
+          'src': require('../assets/image/photos/pic1.png'),
+        },
+      ],
       selected: 'Technologies',
       loader: false,
       openSelect: false,
       typePage: 'bullets',
-      slides: [1, 1, 1, 1, 1],
       swiperOptionSlider: {
         centeredSlides: true,
         spaceBetween: 10,
@@ -45,7 +76,14 @@ export default {
       }
     }
   },
-  props: ['text'],
+  props: ['text', 'simvol'],
+  created() {
+    this.$nuxt.$on('closeGalleria', () => {
+      document.getElementsByTagName('body')[0].style.overflow = 'auto'
+      this.zoomIndex = null
+      this.zoom = false
+    })
+  },
   mounted() {
     if (window.innerWidth > 850) {
       this.swiperOption.pagination.type = 'bullets'
@@ -53,17 +91,37 @@ export default {
         return '<span class="' + className + '">' + (index + 1) + "</span>";
       }
     } else {
-      this.swiperOption.pagination.type = 'custom'
-      this.swiperOption.pagination.renderCustom = function (swiper, current, total) {
+      if (this.simvol === '/') {
+        this.swiperOption.pagination.type = 'custom'
+        this.swiperOption.pagination.renderCustom = function (swiper, current, total) {
+          return current + ' / ' + (total - 1);
+        }
+      } else {
+        this.swiperOption.pagination.type = 'custom'
+        this.swiperOption.pagination.renderCustom = function (swiper, current, total) {
           return current + '<div class="num-lin"></div>' + (total - 1);
         }
+      }
+
     }
     this.loader = true
+  },
+  methods: {
+    zoomImage (index) {
+      document.getElementsByTagName('body')[0].style.overflow = 'hidden'
+      this.zoomIndex = index
+      this.zoom = true
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
+  .image {
+    height: 558px;
+    cursor: pointer;
+  }
+
   .event-page-content-info {
     position: relative;
     overflow: hidden;
@@ -74,7 +132,7 @@ export default {
       font-size: 15px;
       line-height: 20px;
       color: #221F1A;
-      max-width: 453px;
+      /*max-width: 453px;*/
     }
     &-image {
       &-img {

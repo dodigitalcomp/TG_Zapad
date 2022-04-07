@@ -8,61 +8,10 @@
           </div>
           <div class="contacts-header-content">
             <div class="contacts-header-content-item">
-              <div class="contacts-header-content-item-text">
-                <p>Колл-центр</p>
-              </div>
-              <div class="contacts-header-content-item-info">
-                <div class="contacts-header-content-item-info-phone">
-                  <p>+7 (495) 957 07 27</p>
-                </div>
-                <div class="contacts-header-content-item-info-email">
-                  <img class="mr-1" src="../assets/image/(.svg" alt="">
-                  <span>tretyakov@tretyakov.ru</span>
-                  <img class="ml-1" src="../assets/image/).svg" alt="">
-                </div>
-              </div>
-              <div class="contacts-header-content-item-date">
-                <p>xx xx xxxxx xxxx xxxx</p>
-                <p> xxx xxxx xxx xxxx xxx xxx</p>
-              </div>
-            </div>
-            <div class="contacts-header-content-item">
-              <div class="contacts-header-content-item-text">
-                <p>Колл-центр</p>
-              </div>
-              <div class="contacts-header-content-item-info">
-                <div class="contacts-header-content-item-info-phone">
-                  <p>+7 (495) 957 07 27</p>
-                </div>
-                <div class="contacts-header-content-item-info-email">
-                  <img class="mr-1" src="../assets/image/(.svg" alt="">
-                  <span>tretyakov@tretyakov.ru</span>
-                  <img class="ml-1" src="../assets/image/).svg" alt="">
-                </div>
-              </div>
-              <div class="contacts-header-content-item-date">
-                <p>xxx xxxxxx xxxx xxx x</p>
-                <p> xxx xxxxx xxxxxxx xxxxx</p>
-              </div>
-            </div>
-            <div class="contacts-header-content-item">
-              <div class="contacts-header-content-item-text">
-                <p>Колл-центр</p>
-              </div>
-              <div class="contacts-header-content-item-info">
-                <div class="contacts-header-content-item-info-phone">
-                  <p>+7 (495) 957 07 27</p>
-                </div>
-                <div class="contacts-header-content-item-info-email">
-                  <img class="mr-1" src="../assets/image/(.svg" alt="">
-                  <span>tretyakov@tretyakov.ru</span>
-                  <img class="ml-1" src="../assets/image/).svg" alt="">
-                </div>
-              </div>
-              <div class="contacts-header-content-item-date">
-                <p>xxxxx xxxxxx xxxxxx</p>
-                <p> xxxxx  xxxxxx xxxxx xxxx</p>
-              </div>
+               <p>+7 (495) 957 07 27</p>
+              <p>г. Калининград, Октябрьский остров, улица</p>
+              <p>Октябрьская, д. 67 Б</p>
+              <p><span>●</span> в стадии строительства</p>
             </div>
           </div>
           <div class="contacts-header-footer">
@@ -88,9 +37,29 @@
                   <img v-else class="line" src="../assets/image/plus.svg" alt="">
                   <p>Арт Ворота</p>
                 </div>
-                <div v-if="openText" class="contacts-maps-list-item-description">
-                  <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
-                </div>
+                  <div v-if="openText" class="contacts-maps-block-modal">
+                    <div class="contacts-maps-block-modal-text">
+                      <p>г. Калининград, Лаврушинский переулок, 10</p>
+                    </div>
+                    <div class="contacts-maps-block-modal-text">
+                      <p>Вход со стороны Малого Толмачевского пер., 9</p>
+                    </div>
+                    <div  class="contacts-maps-block-modal-date">
+                      <p>xxx xxxxxx xxxx xxx x</p>
+                      <p> xxx xxxxx xxxxxxx xxxxx</p>
+                    </div>
+                    <div class="contacts-maps-block-modal-phone">
+                      <p>+7 (495) 957 07 27</p>
+                    </div>
+                    <div class="contacts-maps-block-modal-email">
+                      <img class="mr-1" src="../assets/image/(.svg" alt="">
+                      <span>tretyakov@tretyakov.ru</span>
+                      <img class="ml-1" src="../assets/image/).svg" alt="">
+                    </div>
+                    <div>
+                      <img src="../assets/image/pic133.jpg" alt="">
+                    </div>
+                  </div>
               </div>
               <div class="contacts-maps-list-item">
                 <div class="contacts-maps-list-item-title" @click="openText = !openText">
@@ -98,8 +67,28 @@
                   <img v-else class="line" src="../assets/image/plus.svg" alt="">
                   <p>ГЦСИ </p>
                 </div>
-                <div v-if="openText" class="contacts-maps-list-item-description">
-                  <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
+                <div v-if="openText" class="contacts-maps-block-modal">
+                  <div class="contacts-maps-block-modal-text">
+                    <p>г. Калининград, Лаврушинский переулок, 10</p>
+                  </div>
+                  <div class="contacts-maps-block-modal-text">
+                    <p>Вход со стороны Малого Толмачевского пер., 9</p>
+                  </div>
+                  <div  class="contacts-maps-block-modal-date">
+                    <p>xxx xxxxxx xxxx xxx x</p>
+                    <p> xxx xxxxx xxxxxxx xxxxx</p>
+                  </div>
+                  <div class="contacts-maps-block-modal-phone">
+                    <p>+7 (495) 957 07 27</p>
+                  </div>
+                  <div class="contacts-maps-block-modal-email">
+                    <img class="mr-1" src="../assets/image/(.svg" alt="">
+                    <span>tretyakov@tretyakov.ru</span>
+                    <img class="ml-1" src="../assets/image/).svg" alt="">
+                  </div>
+                  <div>
+                    <img src="../assets/image/pic133.jpg" alt="">
+                  </div>
                 </div>
               </div>
               <div class="contacts-maps-list-item">
@@ -108,8 +97,28 @@
                   <img v-else class="line" src="../assets/image/plus.svg" alt="">
                   <p>Калининградский музей изобразительных искусств </p>
                 </div>
-                <div v-if="openText" class="contacts-maps-list-item-description">
-                  <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
+                <div v-if="openText" class="contacts-maps-block-modal">
+                  <div class="contacts-maps-block-modal-text">
+                    <p>г. Калининград, Лаврушинский переулок, 10</p>
+                  </div>
+                  <div class="contacts-maps-block-modal-text">
+                    <p>Вход со стороны Малого Толмачевского пер., 9</p>
+                  </div>
+                  <div  class="contacts-maps-block-modal-date">
+                    <p>xxx xxxxxx xxxx xxx x</p>
+                    <p> xxx xxxxx xxxxxxx xxxxx</p>
+                  </div>
+                  <div class="contacts-maps-block-modal-phone">
+                    <p>+7 (495) 957 07 27</p>
+                  </div>
+                  <div class="contacts-maps-block-modal-email">
+                    <img class="mr-1" src="../assets/image/(.svg" alt="">
+                    <span>tretyakov@tretyakov.ru</span>
+                    <img class="ml-1" src="../assets/image/).svg" alt="">
+                  </div>
+                  <div>
+                    <img src="../assets/image/pic133.jpg" alt="">
+                  </div>
                 </div>
               </div>
               <div class="contacts-maps-list-item">
@@ -118,8 +127,28 @@
                   <img v-else class="line" src="../assets/image/plus.svg" alt="">
                   <p>Арт Ворота</p>
                 </div>
-                <div v-if="openText" class="contacts-maps-list-item-description">
-                  <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
+                <div v-if="openText" class="contacts-maps-block-modal">
+                  <div class="contacts-maps-block-modal-text">
+                    <p>г. Калининград, Лаврушинский переулок, 10</p>
+                  </div>
+                  <div class="contacts-maps-block-modal-text">
+                    <p>Вход со стороны Малого Толмачевского пер., 9</p>
+                  </div>
+                  <div  class="contacts-maps-block-modal-date">
+                    <p>xxx xxxxxx xxxx xxx x</p>
+                    <p> xxx xxxxx xxxxxxx xxxxx</p>
+                  </div>
+                  <div class="contacts-maps-block-modal-phone">
+                    <p>+7 (495) 957 07 27</p>
+                  </div>
+                  <div class="contacts-maps-block-modal-email">
+                    <img class="mr-1" src="../assets/image/(.svg" alt="">
+                    <span>tretyakov@tretyakov.ru</span>
+                    <img class="ml-1" src="../assets/image/).svg" alt="">
+                  </div>
+                  <div>
+                    <img src="../assets/image/pic133.jpg" alt="">
+                  </div>
                 </div>
               </div>
               <div class="contacts-maps-list-item">
@@ -128,19 +157,80 @@
                   <img v-else class="line" src="../assets/image/plus.svg" alt="">
                   <p>ГЦСИ </p>
                 </div>
-                <div v-if="openText" class="contacts-maps-list-item-description">
-                  <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
+                <div v-if="openText" class="contacts-maps-block-modal">
+                  <div class="contacts-maps-block-modal-text">
+                    <p>г. Калининград, Лаврушинский переулок, 10</p>
+                  </div>
+                  <div class="contacts-maps-block-modal-text">
+                    <p>Вход со стороны Малого Толмачевского пер., 9</p>
+                  </div>
+                  <div  class="contacts-maps-block-modal-date">
+                    <p>xxx xxxxxx xxxx xxx x</p>
+                    <p> xxx xxxxx xxxxxxx xxxxx</p>
+                  </div>
+                  <div class="contacts-maps-block-modal-phone">
+                    <p>+7 (495) 957 07 27</p>
+                  </div>
+                  <div class="contacts-maps-block-modal-email">
+                    <img class="mr-1" src="../assets/image/(.svg" alt="">
+                    <span>tretyakov@tretyakov.ru</span>
+                    <img class="ml-1" src="../assets/image/).svg" alt="">
+                  </div>
+                  <div>
+                    <img src="../assets/image/pic133.jpg" alt="">
+                  </div>
                 </div>
               </div>
             </div>
           <div class="contacts-maps-block" v-if="activeTab === 'map'">
             <div class="contacts-maps-block-info">
-              <p>Арт Ворота</p>
-              <p>ГЦСИ </p>
-              <p>Калининградский музей изобразительных искусств </p>
-              <p>Арт Ворота</p>
-              <p>ГЦСИ </p>
+              <div class="contacts-maps-block-info-item">
+                <img v-if="openModal" class="icon" src="../assets/image/Rectangle1108.svg" alt="">
+                <p @click="openModal = true">Арт Ворота</p>
+              </div>
+              <div class="contacts-maps-block-info-item">
+                <img v-if="openModal" class="icon" src="../assets/image/Rectangle1108.svg" alt="">
+                <p @click="openModal = true">ГЦСИ</p>
+              </div>
+              <div class="contacts-maps-block-info-item">
+                <img v-if="openModal" class="icon" src="../assets/image/Rectangle1108.svg" alt="">
+                <p @click="openModal = true">Калининградский музей изобразительных искусств</p>
+              </div>
+              <div class="contacts-maps-block-info-item">
+                <img v-if="openModal" class="icon" src="../assets/image/Rectangle1108.svg" alt="">
+                <p @click="openModal = true">Арт Ворота</p>
+              </div>
+              <div class="contacts-maps-block-info-item">
+                <img v-if="openModal" class="icon" src="../assets/image/Rectangle1108.svg" alt="">
+                <p @click="openModal = true">ГЦСИ</p>
+              </div>
             </div>
+            <div v-if="openModal" class="contacts-maps-block-modal">
+               <div class="contacts-maps-block-modal-close" @click="openModal = false">
+                 <img src="../assets/image/x.svg" alt="">
+               </div>
+                <div class="contacts-maps-block-modal-text">
+                  <p>г. Калининград, Лаврушинский переулок, 10</p>
+                </div>
+                <div class="contacts-maps-block-modal-text">
+                  <p>Вход со стороны Малого Толмачевского пер., 9</p>
+                </div>
+                <div  class="contacts-maps-block-modal-date">
+                  <p>xxx xxxxxx xxxx xxx x</p>
+                  <p> xxx xxxxx xxxxxxx xxxxx</p>
+                </div>
+                <div class="contacts-maps-block-modal-phone">
+                  <p>+7 (495) 957 07 27</p>
+                </div>
+                <div class="contacts-maps-block-modal-email">
+                  <img class="mr-1" src="../assets/image/(.svg" alt="">
+                  <span>tretyakov@tretyakov.ru</span>
+                  <img class="ml-1" src="../assets/image/).svg" alt="">
+                </div>
+                <div>
+                  <img src="../assets/image/pic133.jpg" alt="">
+                </div>
+              </div>
             <div class="contacts-maps-block-map">
               <div class="mapouter">
                 <div class="gmap_canvas">
@@ -153,7 +243,7 @@
         </div>
         <div class="contacts-faq">
           <div class="contacts-faq-title">
-            <p>Частые вопросы</p>
+            <p>ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</p>
           </div>
           <div class="contacts-faq-content">
             <div class="contacts-faq-content-block">
@@ -161,50 +251,76 @@
                 <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
                   <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
                   <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Кто такие друзья Третьяковки?</p>
+                  <p>Где можно посетить выставки филиала?</p>
                 </div>
                 <div v-if="openText" class="contacts-faq-content-block-item-description">
-                  <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
+                  <p >Здание филиала Третьяковской галереи строится на Октябрьском острове и до завершения строительства в 2023 году все выставки и мероприятия филиала проходят на площадках партнеров музея в Калининграде и области. Выбрать выставку можно в разделе Афиша.
+                    Важно: у каждого из наших партнеров могут быть свои требования к посетителям в период пандемии, советуем ознакомиться с правилами заранее.
+                  </p>
                 </div>
               </div>
               <div class="contacts-faq-content-block-item">
                 <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
                   <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
                   <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Кто такие друзья Третьяковки?</p>
+                  <p>Какие выставки открыты после карантина?</p>
                 </div>
                 <div v-if="openText" class="contacts-faq-content-block-item-description">
-                  <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
+                  <p >Филиал открыт и работает по временным правилам, просим вас прочесть их перед визитом. Мы ежедневно проводим полную санитарную обработку музея и ждем вас на выставках. </p>
+                  <p>Правила для посетителей простые: измерить температуру на входе (безопасно и бесконтактно), носить маску, соблюдать дистанцию и двигаться по указателям на полу.
+                    Важно: антисептические средства мы просим оставить в камере хранения, так как при неаккуратном использовании спиртовые растворы могут нанести непоправимый вред ценным экспонатам.
+                  </p>
                 </div>
               </div>
               <div class="contacts-faq-content-block-item">
                 <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
                   <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
                   <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Кто такие друзья Третьяковки?</p>
+                  <p>Как купить билет?</p>
                 </div>
                 <div v-if="openText" class="contacts-faq-content-block-item-description">
-                  <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
+                  <p >Билеты можно приобрести в кассах музея или на сайте через форму «Купить билет» (ссылка на нужное окно). </p>
                 </div>
               </div>
               <div class="contacts-faq-content-block-item">
                 <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
                   <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
                   <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Кто такие друзья Третьяковки?</p>
+                  <p>Что такое «сеанс»?</p>
                 </div>
                 <div v-if="openText" class="contacts-faq-content-block-item-description">
-                  <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
+                  <p >Сеанс — получасовой интервал, во время которого вы можете зайти в музей. Эта мера безопасности позволяет обеспечить равномерный поток посетителей и избежать большого скопления людей. </p>
                 </div>
               </div>
               <div class="contacts-faq-content-block-item">
                 <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
                   <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
                   <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Кто такие друзья Третьяковки?</p>
+                  <p>Как сдать билет?</p>
                 </div>
                 <div v-if="openText" class="contacts-faq-content-block-item-description">
-                  <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
+                  <p >Подайте заявление на возврат в кассах музея не позднее, чем за сутки до оплаченного визита, в заявлении укажите счет для возврата средств (обратите внимание, не номер карты, а именно счет, который состоит из двадцати цифр). Возврат денег производится на карту, которая использовалась при оплате, в течение десяти рабочих дней. </p>
+                </div>
+              </div>
+              <div class="contacts-faq-content-block-item">
+                <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
+                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
+                  <img v-else class="line" src="../assets/image/plus.svg" alt="">
+                  <p>Кто такие друзья Третьяковки? (пока на сайте будет скрыт)</p>
+                </div>
+                <div v-if="openText" class="contacts-faq-content-block-item-description">
+                  <p >Это постоянные посетители музея, участники программы лояльности и меценаты, которые оказывают поддержку галерее и ее проектам. За участие друзья Третьяковки получают эксклюзивные бонусы.
+                  </p>
+                </div>
+              </div>
+              <div class="contacts-faq-content-block-item">
+                <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
+                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
+                  <img v-else class="line" src="../assets/image/plus.svg" alt="">
+                  <p>Экскурсии (пока на сайте будет скрыт)</p>
+                </div>
+                <div v-if="openText" class="contacts-faq-content-block-item-description">
+                  <p >Вы можете купить билеты на сайте, в кассах филиала и забронировать её в экскурсионном бюро по телефону УКАЗАТЬ ТЕЛЕФОН</p>
                 </div>
               </div>
               <div class="contacts-faq-content-block-text">
@@ -235,7 +351,9 @@
         components: {Footer, Header},
       data () {
           return {
-            activeTab: 'map'
+            activeTab: 'map',
+            openModal: false,
+            openText: false
           }
       }
     }
@@ -286,112 +404,17 @@
 
       &-content {
         display: flex;
-        justify-content: space-between;
-        border-top: 1px solid;
-        border-bottom: 1px solid;
-
-        @media (max-width: 720px) {
-          flex-direction: column;
-        }
-
-        &-item:nth-child(1) {
-          border-right: 1px solid;
-          padding-right: 20px;
-
-          @media (max-width: 720px) {
-            border-bottom: 1px solid;
-            border-right: 0;
-            padding-right: 0;
-            padding-bottom: 20px;
-          }
-        }
-
-        &-item:nth-child(2) {
-          padding-right: 20px;
-          padding-left: 20px;
-          @media (max-width: 720px) {
-            padding-left: 0;
-            padding-right: 0;
-            border-bottom: 1px solid;
-            padding-bottom: 20px;
-          }
-        }
-
-        &-item:nth-child(3) {
-          border-left: 1px solid;
-          padding-left: 20px;
-
-          @media (max-width: 720px) {
-            padding-left: 0;
-            border-left: 0;
-
-          }
-        }
+        justify-content: flex-start;
 
         &-item {
-          margin-top: 20px;
-          margin-bottom: 20px;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
+          margin-left: 20px;
+          font-size: 17px;
+          line-height: 20px;
+          p {
+            margin-top: 10px;
 
-          &-text {
-            font-style: normal;
-            font-weight: normal;
-            font-size: 15px;
-            line-height: 20px;
-            text-transform: uppercase;
-            color: #221F1A;
-            margin-bottom: 100px;
-          }
-
-          &-info {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-
-            &-phone {
-              font-style: normal;
-              font-weight: normal;
-              font-size: 22px;
-              line-height: 25px;
-              text-transform: uppercase;
-              color: #221F1A;
-              margin-bottom: 5px;
-            }
-            &-email {
-              font-style: normal;
-              font-weight: normal;
-              font-size: 15px;
-              line-height: 20px;
-              text-align: center;
-              text-transform: uppercase;
-              color: #221F1A;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              margin-bottom: 100px;
-            }
-          }
-
-          &-date {
-            display: flex;
-
-            p {
-              max-width: 71px;
-              margin-right: 20px;
-              font-style: normal;
-              font-weight: normal;
-              font-size: 15px;
-              line-height: 20px;
-              /* or 133% */
-
-              text-transform: uppercase;
-
-              /* Black brown */
-
-              color: #221F1A;
+            span {
+              margin-top: 2px;
             }
           }
         }
@@ -476,6 +499,7 @@
       &-list {
         display: flex;
         flex-direction: column;
+        border-top: 1px solid;
 
         &-item {
           padding-top: 20px;
@@ -542,24 +566,107 @@
         padding-bottom: 20px;
 
         &-info {
-          padding-top: 50px;
+          padding-top: 30px;
           border-right: 1px solid;
           padding-right: 60px;
+          width: 40%;
 
           @media (max-width: 850px) {
             display: none;
           }
 
-          p {
-            font-style: normal;
-            font-weight: normal;
-            font-size: 18px;
-            line-height: 26px;
-            color: #221F1A;
-            margin-bottom: 20px;
-            max-width: 289px;
+          &-item {
+            display: flex;
+            align-items: start;
+
+            .icon {
+              margin-right: 20px;
+              margin-top: 11px;
+            }
+
+            p {
+              cursor: pointer;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 18px;
+              line-height: 26px;
+              color: #221F1A;
+              margin-bottom: 20px;
+              max-width: 289px;
+            }
           }
         }
+
+        &-modal {
+          padding-left: 20px;
+          width: 50%;
+          border-right: 1px solid;
+          padding-right: 20px;
+
+          @media (max-width: 850px) {
+            width: 96%;
+            padding-left: 0;
+            border-right: 0;
+          }
+
+          &-close {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 11px;
+
+            img {
+              cursor: pointer;
+              width: 18px;
+              height: 18px;
+            }
+          }
+
+          &-text {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 20px;
+            color: #221F1A;
+            margin-bottom: 20px;
+          }
+
+          &-phone {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #221F1A;
+          }
+
+          &-date {
+            display: flex;
+            margin-bottom: 20px;
+            p {
+              margin-right: 20px;
+              max-width: 71px;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 15px;
+              line-height: 20px;
+              text-transform: uppercase;
+              color: #221F1A;
+            }
+          }
+
+          &-email {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            line-height: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #221F1A;
+            margin-bottom: 40px;
+          }
+
+        }
+
         &-map {
           width: 100%;
           padding-left: 20px;

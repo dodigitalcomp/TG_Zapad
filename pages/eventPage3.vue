@@ -23,7 +23,7 @@
                <img src="../assets/image/Pic-fit33.jpg" alt="">
              </div>
              <div class="event-page-header-content-block-title">
-               <p>Мечты о свободе <span>Романтизм в России и германии</span></p>
+               <p>Мечты о свободе <span class="william">Романтизм в России и германии</span></p>
              </div>
              <div class="event-page-header-content-block-description">
                <p>Для взрослых слушателей</p>
@@ -93,7 +93,6 @@
        </div>
        <div>
          <div class="events-content">
-           <p class="events-content-title">Расписание</p>
            <div class="events-content-block">
              <div class="events-content-block-text">
                <p class="events-content-block-text-day">четверг, сегодня</p>
@@ -119,7 +118,7 @@
                      <img src="../assets/image/Pic-fit3.jpg" alt="">
                    </div>
                    <div class="events-content-block-item-body-description">
-                     <p>Истоки мира</p>
+                     <p>Истоки <span class="william"> мира</span></p>
                    </div>
                    <div>
                      <div class="events-content-block-item-body-text-authorMini">
@@ -148,7 +147,7 @@
                      <img src="../assets/image/Pic-fit3.jpg" alt="">
                    </div>
                    <div class="events-content-block-item-body-description">
-                     <p>Мифы и легенды в произведениях <span> русских художников</span></p>
+                     <p>Мифы и легенды в произведениях <span class="william"> русских художников</span></p>
                    </div>
                    <div>
                      <div class="events-content-block-item-body-text-authorMini">
@@ -185,7 +184,7 @@
                      <img src="../assets/image/Pic-fit3.jpg" alt="">
                    </div>
                    <div class="events-content-block-item-body-description">
-                     <p>«Маленький человек» <span>и русская живопись XIX века</span></p>
+                     <p>«Маленький человек» <span class="william">и русская живопись XIX века</span></p>
                    </div>
                    <div>
                      <div class="events-content-block-item-body-text-authorMini">
@@ -222,7 +221,7 @@
                      <img src="../assets/image/Pic-fit3.jpg" alt="">
                    </div>
                    <div class="events-content-block-item-body-description">
-                     <p>Замки <span>ЛуАры</span></p>
+                     <p>Замки <span class="william">ЛуАры</span></p>
                    </div>
                    <div>
                      <div class="events-content-block-item-body-text-authorMini">
@@ -251,7 +250,7 @@
                      <img src="../assets/image/Pic-fit3.jpg" alt="">
                    </div>
                    <div class="events-content-block-item-body-description">
-                     <p>Истоки<span> мира</span></p>
+                     <p>Истоки<span class="william"> мира</span></p>
                    </div>
                    <div>
                      <div class="events-content-block-item-body-text-authorMini">
@@ -280,7 +279,7 @@
                      <img src="../assets/image/Pic-fit3.jpg" alt="">
                    </div>
                    <div class="events-content-block-item-body-description">
-                     <p>Мифы и легенд в произведениях <span>русских художников</span></p>
+                     <p>Мифы и легенд в произведениях <span class="william">русских художников</span></p>
                    </div>
                    <div>
                      <div class="events-content-block-item-body-text-authorMini">
@@ -294,8 +293,7 @@
            </div>
          </div>
          <div class="events-content">
-           <p class="events-content-title">Расписание, группа 2</p>
-           <div class="events-content-block">
+           <div class="events-content-block bt-none">
              <div class="events-content-block-text">
                <p class="events-content-block-text-day">четверг, сегодня</p>
                <p class="events-content-block-text-date">7 октября</p>
@@ -320,7 +318,7 @@
                      <img src="../assets/image/Pic-fit3.jpg" alt="">
                    </div>
                    <div class="events-content-block-item-body-description">
-                     <p>Истоки мира</p>
+                     <p>Истоки <span class="william"> мира</span></p>
                    </div>
                    <div>
                      <div class="events-content-block-item-body-text-authorMini">
@@ -349,7 +347,7 @@
                      <img src="../assets/image/Pic-fit3.jpg" alt="">
                    </div>
                    <div class="events-content-block-item-body-description">
-                     <p>Мифы и легенды в произведениях <span> русских художников</span></p>
+                     <p>Мифы и легенды в произведениях <span class="william"> русских художников</span></p>
                    </div>
                    <div>
                      <div class="events-content-block-item-body-text-authorMini">
@@ -386,7 +384,7 @@
                      <img src="../assets/image/Pic-fit3.jpg" alt="">
                    </div>
                    <div class="events-content-block-item-body-description">
-                     <p>«Маленький человек» <span>и русская живопись XIX века</span></p>
+                     <p>«Маленький человек» <span class="william">и русская живопись XIX века</span></p>
                    </div>
                    <div>
                      <div class="events-content-block-item-body-text-authorMini">
@@ -423,7 +421,7 @@
                      <img src="../assets/image/Pic-fit3.jpg" alt="">
                    </div>
                    <div class="events-content-block-item-body-description">
-                     <p>Замки <span>ЛуАры</span></p>
+                     <p>Замки <span class="william">ЛуАры</span></p>
                    </div>
                    <div>
                      <div class="events-content-block-item-body-text-authorMini">
@@ -452,7 +450,7 @@
                      <img src="../assets/image/Pic-fit3.jpg" alt="">
                    </div>
                    <div class="events-content-block-item-body-description">
-                     <p>Истоки<span> мира</span></p>
+                     <p>Истоки<span class="william"> мира</span></p>
                    </div>
                    <div>
                      <div class="events-content-block-item-body-text-authorMini">
@@ -481,7 +479,7 @@
                      <img src="../assets/image/Pic-fit3.jpg" alt="">
                    </div>
                    <div class="events-content-block-item-body-description">
-                     <p>Мифы и легенд в произведениях <span>русских художников</span></p>
+                     <p>Мифы и легенд в произведениях <span class="william">русских художников</span></p>
                    </div>
                    <div>
                      <div class="events-content-block-item-body-text-authorMini">
@@ -495,6 +493,7 @@
            </div>
          </div>
        </div>
+       <Partners/>
      </div>
     <Footer/>
   </div>
@@ -503,13 +502,18 @@
 <script>
   import Header from "../components/Header";
   import Footer from "../components/Footer";
+  import Partners from "../components/Partniors";
   export default {
     name: "eventPage",
-    components: {Footer, Header}
+    components: {Partners, Footer, Header}
   }
 </script>
 
 <style scoped lang="scss">
+
+  .bt-none {
+    border-top: 0 !important;
+  }
 
   .border-top {
     border-top: 1px solid;
@@ -578,7 +582,7 @@
 
           div:nth-child(4) {
             order: 4;
-            margin-top: 40px;
+            margin-top: 20px;
           }
 
           div:nth-child(5) {
@@ -642,7 +646,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 120px;
+            margin-bottom: 60px;
             font-style: normal;
             font-weight: normal;
             font-size: 15px;

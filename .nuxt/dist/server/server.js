@@ -43,7 +43,7 @@ module.exports =
 /******/
 /******/ 		// "0" is the signal for "already loaded"
 /******/ 		if(installedChunks[chunkId] !== 0) {
-/******/ 			var chunk = require("./" + ({"1":"components/footer","2":"components/galleria","3":"components/header","4":"components/main","5":"components/teachers","6":"components/vue-swiper","7":"pages/contacts","8":"pages/education","9":"pages/errors","10":"pages/eventPage","11":"pages/eventPage2","12":"pages/eventPage3","13":"pages/eventPage4","14":"pages/events","15":"pages/friend","16":"pages/index","17":"pages/media","18":"pages/mediaPage","19":"pages/news","20":"pages/newsPage","21":"pages/search"}[chunkId]||chunkId) + ".js");
+/******/ 			var chunk = require("./" + ({"1":"components/footer","2":"components/galleria","3":"components/header","4":"components/main","5":"components/partniors","6":"components/teachers","7":"components/vue-galleria","8":"components/vue-swiper","9":"pages/about","10":"pages/contacts","11":"pages/education","12":"pages/errors","13":"pages/eventPage","14":"pages/eventPage2","15":"pages/eventPage3","16":"pages/eventPage4","17":"pages/events","18":"pages/friend","19":"pages/index","20":"pages/media","21":"pages/mediaPage","22":"pages/news","23":"pages/newsPage","24":"pages/search"}[chunkId]||chunkId) + ".js");
 /******/ 			var moreModules = chunk.modules, chunkIds = chunk.ids;
 /******/ 			for(var moduleId in moreModules) {
 /******/ 				modules[moduleId] = moreModules[moduleId];
@@ -115,7 +115,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -441,22 +441,68 @@ module.exports = require("vue-no-ssr");
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = require("vue-client-only");
+// This file is intentionally left empty for noop aliases
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = require("vue-router");
+module.exports = require("vue-client-only");
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports) {
+
+module.exports = require("vue-router");
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    // eslint-disable-next-line no-param-reassign
+    options = {};
+  } // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+
+
+  url = url && url.__esModule ? url.default : url;
+
+  if (typeof url !== "string") {
+    return url;
+  } // If url is already wrapped in quotes, remove them
+
+
+  if (/^['"].*['"]$/.test(url)) {
+    // eslint-disable-next-line no-param-reassign
+    url = url.slice(1, -1);
+  }
+
+  if (options.hash) {
+    // eslint-disable-next-line no-param-reassign
+    url += options.hash;
+  } // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+
+
+  if (/["'() \t\n]/.test(url) || options.needQuotes) {
+    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, "\\n"), "\"");
+  }
+
+  return url;
+};
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(16);
+var content = __webpack_require__(17);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -467,13 +513,13 @@ module.exports.__inject__ = function (context) {
 };
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(18);
+var content = __webpack_require__(19);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -484,33 +530,27 @@ module.exports.__inject__ = function (context) {
 };
 
 /***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-// This file is intentionally left empty for noop aliases
-
-/***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = require("node-fetch");
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("vue-meta");
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(14);
-module.exports = __webpack_require__(23);
+__webpack_require__(15);
+module.exports = __webpack_require__(41);
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 global.installComponents = function (component, components) {
@@ -554,18 +594,18 @@ function provideFunctionalComponents(component, components) {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_error_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_error_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 /* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_error_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_error_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_error_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_error_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -579,18 +619,18 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
 /* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_nuxt_postcss8_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -604,61 +644,210 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(20);
+var content = __webpack_require__(21);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(4).default("54b08540", content, true)
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(3);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, "/*! tailwindcss v2.2.17 | MIT License | https://tailwindcss.com*/\n\n/*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */\n\n/*\nDocument\n========\n*/\n\n/**\nUse a better box model (opinionated).\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box;\n}\n\n/**\nUse a more readable tab size (opinionated).\n*/\n\nhtml {\n  -moz-tab-size: 4;\n  -o-tab-size: 4;\n     tab-size: 4;\n}\n\n/**\n1. Correct the line height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n*/\n\nhtml {\n  line-height: 1.15; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n}\n\n/*\nSections\n========\n*/\n\n/**\nRemove the margin in all browsers.\n*/\n\nbody {\n  margin: 0;\n}\n\n/**\nImprove consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)\n*/\n\nbody {\n  font-family:\n\t\tsystem-ui,\n\t\t-apple-system, /* Firefox supports this but not yet `system-ui` */\n\t\t'Segoe UI',\n\t\tRoboto,\n\t\tHelvetica,\n\t\tArial,\n\t\tsans-serif,\n\t\t'Apple Color Emoji',\n\t\t'Segoe UI Emoji';\n}\n\n/*\nGrouping content\n================\n*/\n\n/**\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n}\n\n/*\nText-level semantics\n====================\n*/\n\n/**\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr[title] {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/**\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/**\n1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)\n2. Correct the odd 'em' font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family:\n\t\tui-monospace,\n\t\tSFMono-Regular,\n\t\tConsolas,\n\t\t'Liberation Mono',\n\t\tMenlo,\n\t\tmonospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/**\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/**\nPrevent 'sub' and 'sup' elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\nTabular data\n============\n*/\n\n/**\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n}\n\n/*\nForms\n=====\n*/\n\n/**\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  line-height: 1.15; /* 1 */\n  margin: 0; /* 2 */\n}\n\n/**\nRemove the inheritance of text transform in Edge and Firefox.\n1. Remove the inheritance of text transform in Firefox.\n*/\n\nbutton,\nselect { /* 1 */\n  text-transform: none;\n}\n\n/**\nCorrect the inability to style clickable types in iOS and Safari.\n*/\n\nbutton,\n[type='button'] {\n  -webkit-appearance: button;\n}\n\n/**\nRemove the inner border and padding in Firefox.\n*/\n\n::-moz-focus-inner {\n  border-style: none;\n  padding: 0;\n}\n\n/**\nRestore the focus styles unset by the previous rule.\n*/\n\n/**\nRemove the additional ':invalid' styles in Firefox.\nSee: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737\n*/\n\n/**\nRemove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.\n*/\n\nlegend {\n  padding: 0;\n}\n\n/**\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/**\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/**\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/**\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/**\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to 'inherit' in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nInteractive\n===========\n*/\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/**\n * Manually forked from SUIT CSS Base: https://github.com/suitcss/base\n * A thin layer on top of normalize.css that provides a starting point more\n * suitable for web applications.\n */\n\n/**\n * Removes the default spacing and border for appropriate elements.\n */\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nbutton {\n  background-color: transparent;\n  background-image: none;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nol,\nul {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/**\n * Tailwind custom reset styles\n */\n\n/**\n * 1. Use the user's configured `sans` font-family (with Tailwind's default\n *    sans-serif font stack as a fallback) as a sane default.\n * 2. Use Tailwind's default \"normal\" line-height so the user isn't forced\n *    to override it to ensure consistency even when using the default theme.\n */\n\nhtml {\n  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 1 */\n  line-height: 1.5; /* 2 */\n}\n\n/**\n * Inherit font-family and line-height from `html` so users can set them as\n * a class directly on the `html` element.\n */\n\nbody {\n  font-family: inherit;\n  line-height: inherit;\n}\n\n/**\n * 1. Prevent padding and border from affecting element width.\n *\n *    We used to set this in the html element and inherit from\n *    the parent element for everything else. This caused issues\n *    in shadow-dom-enhanced elements like <details> where the content\n *    is wrapped by a div with box-sizing set to `content-box`.\n *\n *    https://github.com/mozdevs/cssremedy/issues/4\n *\n *\n * 2. Allow adding a border to an element by just adding a border-width.\n *\n *    By default, the way the browser specifies that an element should have no\n *    border is by setting it's border-style to `none` in the user-agent\n *    stylesheet.\n *\n *    In order to easily add borders to elements by just setting the `border-width`\n *    property, we change the default border-style for all elements to `solid`, and\n *    use border-width to hide them instead. This way our `border` utilities only\n *    need to set the `border-width` property instead of the entire `border`\n *    shorthand, making our border utilities much more straightforward to compose.\n *\n *    https://github.com/tailwindcss/tailwindcss/pull/116\n */\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: currentColor; /* 2 */\n}\n\n/*\n * Ensure horizontal rules are visible by default\n */\n\nhr {\n  border-top-width: 1px;\n}\n\n/**\n * Undo the `border-style: none` reset that Normalize applies to images so that\n * our `border-{width}` utilities have the expected effect.\n *\n * The Normalize reset is unnecessary for us since we default the border-width\n * to 0 on all elements.\n *\n * https://github.com/tailwindcss/tailwindcss/issues/362\n */\n\nimg {\n  border-style: solid;\n}\n\ntextarea {\n  resize: vertical;\n}\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1;\n  color: #9ca3af;\n}\n\ninput:-ms-input-placeholder, textarea:-ms-input-placeholder {\n  opacity: 1;\n  color: #9ca3af;\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1;\n  color: #9ca3af;\n}\n\nbutton {\n  cursor: pointer;\n}\n\n/**\n * Override legacy focus reset from Normalize with modern Firefox focus styles.\n *\n * This is actually an improvement over the new defaults in Firefox in our testing,\n * as it triggers the better focus styles even for links, which still use a dotted\n * outline in Firefox by default.\n */\n\ntable {\n  border-collapse: collapse;\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/**\n * Reset links to optimize for opt-in styling instead of\n * opt-out.\n */\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/**\n * Reset form element properties that are easy to forget to\n * style explicitly so you don't inadvertently introduce\n * styles that deviate from your design system. These styles\n * supplement a partial reset that is already applied by\n * normalize.css.\n */\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  padding: 0;\n  line-height: inherit;\n  color: inherit;\n}\n\n/**\n * Use the configured 'mono' font family for elements that\n * are expected to be rendered with a monospace font, falling\n * back to the system monospace stack if there is no configured\n * 'mono' font family.\n */\n\npre,\ncode,\nkbd,\nsamp {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace;\n}\n\n/**\n * 1. Make replaced elements `display: block` by default as that's\n *    the behavior you want almost all of the time. Inspired by\n *    CSS Remedy, with `svg` added as well.\n *\n *    https://github.com/mozdevs/cssremedy/issues/14\n * \n * 2. Add `vertical-align: middle` to align replaced elements more\n *    sensibly by default when overriding `display` by adding a\n *    utility like `inline`.\n *\n *    This can trigger a poorly considered linting error in some\n *    tools but is included by design.\n * \n *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210\n */\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/**\n * Constrain images and videos to the parent width and preserve\n * their intrinsic aspect ratio.\n *\n * https://github.com/mozdevs/cssremedy/issues/14\n */\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/**\n * Ensure the default browser behavior of the `hidden` attribute.\n */\n\n[hidden] {\n  display: none;\n}\n\n*, ::before, ::after{\n  --tw-border-opacity:1;\n  border-color:rgba(229, 231, 235, var(--tw-border-opacity));\n}\n\n.fixed{\n  position:fixed;\n}\n\n.absolute{\n  position:absolute;\n}\n\n.relative{\n  position:relative;\n}\n\n.inset-y-0{\n  top:0px;\n  bottom:0px;\n}\n\n.right-0{\n  right:0px;\n}\n\n.m-4{\n  margin:1rem;\n}\n\n.mx-auto{\n  margin-left:auto;\n  margin-right:auto;\n}\n\n.mt-4{\n  margin-top:1rem;\n}\n\n.mr-1{\n  margin-right:0.25rem;\n}\n\n.mr-2{\n  margin-right:0.5rem;\n}\n\n.mr-3{\n  margin-right:0.75rem;\n}\n\n.mr-5{\n  margin-right:1.25rem;\n}\n\n.mr-20{\n  margin-right:5rem;\n}\n\n.mb-4{\n  margin-bottom:1rem;\n}\n\n.mb-28{\n  margin-bottom:7rem;\n}\n\n.ml-1{\n  margin-left:0.25rem;\n}\n\n.ml-2{\n  margin-left:0.5rem;\n}\n\n.ml-3{\n  margin-left:0.75rem;\n}\n\n.ml-5{\n  margin-left:1.25rem;\n}\n\n.block{\n  display:block;\n}\n\n.flex{\n  display:flex;\n}\n\n.table{\n  display:table;\n}\n\n.hidden{\n  display:none;\n}\n\n.h-16{\n  height:4rem;\n}\n\n.w-full{\n  width:100%;\n}\n\n.flex-1{\n  flex:1 1 0%;\n}\n\n.flex-shrink-0{\n  flex-shrink:0;\n}\n\n.flex-grow{\n  flex-grow:1;\n}\n\n.transform{\n  --tw-translate-x:0;\n  --tw-translate-y:0;\n  --tw-rotate:0;\n  --tw-skew-x:0;\n  --tw-skew-y:0;\n  --tw-scale-x:1;\n  --tw-scale-y:1;\n  transform:translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));\n}\n\n@-webkit-keyframes spin{\n  to{\n    transform:rotate(360deg);\n  }\n}\n\n@keyframes spin{\n  to{\n    transform:rotate(360deg);\n  }\n}\n\n@-webkit-keyframes ping{\n  75%, 100%{\n    transform:scale(2);\n    opacity:0;\n  }\n}\n\n@keyframes ping{\n  75%, 100%{\n    transform:scale(2);\n    opacity:0;\n  }\n}\n\n@-webkit-keyframes pulse{\n  50%{\n    opacity:.5;\n  }\n}\n\n@keyframes pulse{\n  50%{\n    opacity:.5;\n  }\n}\n\n@-webkit-keyframes bounce{\n  0%, 100%{\n    transform:translateY(-25%);\n    -webkit-animation-timing-function:cubic-bezier(0.8,0,1,1);\n            animation-timing-function:cubic-bezier(0.8,0,1,1);\n  }\n\n  50%{\n    transform:none;\n    -webkit-animation-timing-function:cubic-bezier(0,0,0.2,1);\n            animation-timing-function:cubic-bezier(0,0,0.2,1);\n  }\n}\n\n@keyframes bounce{\n  0%, 100%{\n    transform:translateY(-25%);\n    -webkit-animation-timing-function:cubic-bezier(0.8,0,1,1);\n            animation-timing-function:cubic-bezier(0.8,0,1,1);\n  }\n\n  50%{\n    transform:none;\n    -webkit-animation-timing-function:cubic-bezier(0,0,0.2,1);\n            animation-timing-function:cubic-bezier(0,0,0.2,1);\n  }\n}\n\n.cursor-pointer{\n  cursor:pointer;\n}\n\n.flex-col{\n  flex-direction:column;\n}\n\n.flex-wrap{\n  flex-wrap:wrap;\n}\n\n.items-start{\n  align-items:flex-start;\n}\n\n.items-center{\n  align-items:center;\n}\n\n.justify-center{\n  justify-content:center;\n}\n\n.justify-between{\n  justify-content:space-between;\n}\n\n.space-x-4 > :not([hidden]) ~ :not([hidden]){\n  --tw-space-x-reverse:0;\n  margin-right:calc(1rem * var(--tw-space-x-reverse));\n  margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)));\n}\n\n.space-y-1 > :not([hidden]) ~ :not([hidden]){\n  --tw-space-y-reverse:0;\n  margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));\n  margin-bottom:calc(0.25rem * var(--tw-space-y-reverse));\n}\n\n.whitespace-nowrap{\n  white-space:nowrap;\n}\n\n.border{\n  border-width:1px;\n}\n\n.border-b{\n  border-bottom-width:1px;\n}\n\n.border-current{\n  border-color:currentColor;\n}\n\n.bg-white{\n  --tw-bg-opacity:1;\n  background-color:rgba(255, 255, 255, var(--tw-bg-opacity));\n}\n\n.p-5{\n  padding:1.25rem;\n}\n\n.px-5{\n  padding-left:1.25rem;\n  padding-right:1.25rem;\n}\n\n.pt-2{\n  padding-top:0.5rem;\n}\n\n.pr-5{\n  padding-right:1.25rem;\n}\n\n.pb-0{\n  padding-bottom:0px;\n}\n\n.pb-3{\n  padding-bottom:0.75rem;\n}\n\n.pb-4{\n  padding-bottom:1rem;\n}\n\n.pl-5{\n  padding-left:1.25rem;\n}\n\n.uppercase{\n  text-transform:uppercase;\n}\n\n.normal-case{\n  text-transform:none;\n}\n\n*, ::before, ::after{\n  --tw-shadow:0 0 #0000;\n}\n\n*, ::before, ::after{\n  --tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);\n  --tw-ring-offset-width:0px;\n  --tw-ring-offset-color:#fff;\n  --tw-ring-color:rgba(59, 130, 246, 0.5);\n  --tw-ring-offset-shadow:0 0 #0000;\n  --tw-ring-shadow:0 0 #0000;\n}\n\n.filter{\n  --tw-blur:var(--tw-empty,/*!*/ /*!*/);\n  --tw-brightness:var(--tw-empty,/*!*/ /*!*/);\n  --tw-contrast:var(--tw-empty,/*!*/ /*!*/);\n  --tw-grayscale:var(--tw-empty,/*!*/ /*!*/);\n  --tw-hue-rotate:var(--tw-empty,/*!*/ /*!*/);\n  --tw-invert:var(--tw-empty,/*!*/ /*!*/);\n  --tw-saturate:var(--tw-empty,/*!*/ /*!*/);\n  --tw-sepia:var(--tw-empty,/*!*/ /*!*/);\n  --tw-drop-shadow:var(--tw-empty,/*!*/ /*!*/);\n  filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);\n}\n\n.transition{\n  transition-property:background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;\n  transition-property:background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;\n  transition-property:background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;\n  transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration:150ms;\n}\n\n@media (min-width: 640px){\n  .sm\\:ml-6{\n    margin-left:1.5rem;\n  }\n\n  .sm\\:block{\n    display:block;\n  }\n\n  .sm\\:pr-0{\n    padding-right:0px;\n  }\n}\n\n@media (min-width: 768px){\n}\n\n@media (min-width: 1024px){\n}\n\n@media (min-width: 1280px){\n}\n\n@media (min-width: 1536px){\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, "/*! tailwindcss v2.2.17 | MIT License | https://tailwindcss.com*/\n\n/*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */\n\n/*\nDocument\n========\n*/\n\n/**\nUse a better box model (opinionated).\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box;\n}\n\n/**\nUse a more readable tab size (opinionated).\n*/\n\nhtml {\n  -moz-tab-size: 4;\n  -o-tab-size: 4;\n     tab-size: 4;\n}\n\n/**\n1. Correct the line height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n*/\n\nhtml {\n  line-height: 1.15; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n}\n\n/*\nSections\n========\n*/\n\n/**\nRemove the margin in all browsers.\n*/\n\nbody {\n  margin: 0;\n}\n\n/**\nImprove consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)\n*/\n\nbody {\n  font-family:\n\t\tsystem-ui,\n\t\t-apple-system, /* Firefox supports this but not yet `system-ui` */\n\t\t'Segoe UI',\n\t\tRoboto,\n\t\tHelvetica,\n\t\tArial,\n\t\tsans-serif,\n\t\t'Apple Color Emoji',\n\t\t'Segoe UI Emoji';\n}\n\n/*\nGrouping content\n================\n*/\n\n/**\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n}\n\n/*\nText-level semantics\n====================\n*/\n\n/**\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr[title] {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/**\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/**\n1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)\n2. Correct the odd 'em' font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family:\n\t\tui-monospace,\n\t\tSFMono-Regular,\n\t\tConsolas,\n\t\t'Liberation Mono',\n\t\tMenlo,\n\t\tmonospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/**\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/**\nPrevent 'sub' and 'sup' elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\nTabular data\n============\n*/\n\n/**\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n}\n\n/*\nForms\n=====\n*/\n\n/**\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  line-height: 1.15; /* 1 */\n  margin: 0; /* 2 */\n}\n\n/**\nRemove the inheritance of text transform in Edge and Firefox.\n1. Remove the inheritance of text transform in Firefox.\n*/\n\nbutton,\nselect { /* 1 */\n  text-transform: none;\n}\n\n/**\nCorrect the inability to style clickable types in iOS and Safari.\n*/\n\nbutton,\n[type='button'] {\n  -webkit-appearance: button;\n}\n\n/**\nRemove the inner border and padding in Firefox.\n*/\n\n::-moz-focus-inner {\n  border-style: none;\n  padding: 0;\n}\n\n/**\nRestore the focus styles unset by the previous rule.\n*/\n\n/**\nRemove the additional ':invalid' styles in Firefox.\nSee: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737\n*/\n\n/**\nRemove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.\n*/\n\nlegend {\n  padding: 0;\n}\n\n/**\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/**\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/**\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/**\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/**\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to 'inherit' in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nInteractive\n===========\n*/\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/**\n * Manually forked from SUIT CSS Base: https://github.com/suitcss/base\n * A thin layer on top of normalize.css that provides a starting point more\n * suitable for web applications.\n */\n\n/**\n * Removes the default spacing and border for appropriate elements.\n */\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nbutton {\n  background-color: transparent;\n  background-image: none;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nol,\nul {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/**\n * Tailwind custom reset styles\n */\n\n/**\n * 1. Use the user's configured `sans` font-family (with Tailwind's default\n *    sans-serif font stack as a fallback) as a sane default.\n * 2. Use Tailwind's default \"normal\" line-height so the user isn't forced\n *    to override it to ensure consistency even when using the default theme.\n */\n\nhtml {\n  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 1 */\n  line-height: 1.5; /* 2 */\n}\n\n/**\n * Inherit font-family and line-height from `html` so users can set them as\n * a class directly on the `html` element.\n */\n\nbody {\n  font-family: inherit;\n  line-height: inherit;\n}\n\n/**\n * 1. Prevent padding and border from affecting element width.\n *\n *    We used to set this in the html element and inherit from\n *    the parent element for everything else. This caused issues\n *    in shadow-dom-enhanced elements like <details> where the content\n *    is wrapped by a div with box-sizing set to `content-box`.\n *\n *    https://github.com/mozdevs/cssremedy/issues/4\n *\n *\n * 2. Allow adding a border to an element by just adding a border-width.\n *\n *    By default, the way the browser specifies that an element should have no\n *    border is by setting it's border-style to `none` in the user-agent\n *    stylesheet.\n *\n *    In order to easily add borders to elements by just setting the `border-width`\n *    property, we change the default border-style for all elements to `solid`, and\n *    use border-width to hide them instead. This way our `border` utilities only\n *    need to set the `border-width` property instead of the entire `border`\n *    shorthand, making our border utilities much more straightforward to compose.\n *\n *    https://github.com/tailwindcss/tailwindcss/pull/116\n */\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: currentColor; /* 2 */\n}\n\n/*\n * Ensure horizontal rules are visible by default\n */\n\nhr {\n  border-top-width: 1px;\n}\n\n/**\n * Undo the `border-style: none` reset that Normalize applies to images so that\n * our `border-{width}` utilities have the expected effect.\n *\n * The Normalize reset is unnecessary for us since we default the border-width\n * to 0 on all elements.\n *\n * https://github.com/tailwindcss/tailwindcss/issues/362\n */\n\nimg {\n  border-style: solid;\n}\n\ntextarea {\n  resize: vertical;\n}\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1;\n  color: #9ca3af;\n}\n\ninput:-ms-input-placeholder, textarea:-ms-input-placeholder {\n  opacity: 1;\n  color: #9ca3af;\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1;\n  color: #9ca3af;\n}\n\nbutton {\n  cursor: pointer;\n}\n\n/**\n * Override legacy focus reset from Normalize with modern Firefox focus styles.\n *\n * This is actually an improvement over the new defaults in Firefox in our testing,\n * as it triggers the better focus styles even for links, which still use a dotted\n * outline in Firefox by default.\n */\n\ntable {\n  border-collapse: collapse;\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/**\n * Reset links to optimize for opt-in styling instead of\n * opt-out.\n */\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/**\n * Reset form element properties that are easy to forget to\n * style explicitly so you don't inadvertently introduce\n * styles that deviate from your design system. These styles\n * supplement a partial reset that is already applied by\n * normalize.css.\n */\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  padding: 0;\n  line-height: inherit;\n  color: inherit;\n}\n\n/**\n * Use the configured 'mono' font family for elements that\n * are expected to be rendered with a monospace font, falling\n * back to the system monospace stack if there is no configured\n * 'mono' font family.\n */\n\npre,\ncode,\nkbd,\nsamp {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace;\n}\n\n/**\n * 1. Make replaced elements `display: block` by default as that's\n *    the behavior you want almost all of the time. Inspired by\n *    CSS Remedy, with `svg` added as well.\n *\n *    https://github.com/mozdevs/cssremedy/issues/14\n * \n * 2. Add `vertical-align: middle` to align replaced elements more\n *    sensibly by default when overriding `display` by adding a\n *    utility like `inline`.\n *\n *    This can trigger a poorly considered linting error in some\n *    tools but is included by design.\n * \n *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210\n */\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/**\n * Constrain images and videos to the parent width and preserve\n * their intrinsic aspect ratio.\n *\n * https://github.com/mozdevs/cssremedy/issues/14\n */\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/**\n * Ensure the default browser behavior of the `hidden` attribute.\n */\n\n[hidden] {\n  display: none;\n}\n\n*, ::before, ::after{\n  --tw-border-opacity:1;\n  border-color:rgba(229, 231, 235, var(--tw-border-opacity));\n}\n\n.fixed{\n  position:fixed;\n}\n\n.absolute{\n  position:absolute;\n}\n\n.relative{\n  position:relative;\n}\n\n.inset-y-0{\n  top:0px;\n  bottom:0px;\n}\n\n.right-0{\n  right:0px;\n}\n\n.m-4{\n  margin:1rem;\n}\n\n.mx-auto{\n  margin-left:auto;\n  margin-right:auto;\n}\n\n.mt-4{\n  margin-top:1rem;\n}\n\n.mt-20{\n  margin-top:5rem;\n}\n\n.mt-60{\n  margin-top:15rem;\n}\n\n.mr-1{\n  margin-right:0.25rem;\n}\n\n.mr-2{\n  margin-right:0.5rem;\n}\n\n.mr-3{\n  margin-right:0.75rem;\n}\n\n.mr-5{\n  margin-right:1.25rem;\n}\n\n.mr-20{\n  margin-right:5rem;\n}\n\n.mb-4{\n  margin-bottom:1rem;\n}\n\n.mb-28{\n  margin-bottom:7rem;\n}\n\n.ml-1{\n  margin-left:0.25rem;\n}\n\n.ml-2{\n  margin-left:0.5rem;\n}\n\n.ml-3{\n  margin-left:0.75rem;\n}\n\n.ml-5{\n  margin-left:1.25rem;\n}\n\n.ml-20{\n  margin-left:5rem;\n}\n\n.block{\n  display:block;\n}\n\n.flex{\n  display:flex;\n}\n\n.table{\n  display:table;\n}\n\n.hidden{\n  display:none;\n}\n\n.h-16{\n  height:4rem;\n}\n\n.w-full{\n  width:100%;\n}\n\n.flex-1{\n  flex:1 1 0%;\n}\n\n.flex-shrink-0{\n  flex-shrink:0;\n}\n\n.flex-grow{\n  flex-grow:1;\n}\n\n.transform{\n  --tw-translate-x:0;\n  --tw-translate-y:0;\n  --tw-rotate:0;\n  --tw-skew-x:0;\n  --tw-skew-y:0;\n  --tw-scale-x:1;\n  --tw-scale-y:1;\n  transform:translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));\n}\n\n@-webkit-keyframes spin{\n  to{\n    transform:rotate(360deg);\n  }\n}\n\n@keyframes spin{\n  to{\n    transform:rotate(360deg);\n  }\n}\n\n@-webkit-keyframes ping{\n  75%, 100%{\n    transform:scale(2);\n    opacity:0;\n  }\n}\n\n@keyframes ping{\n  75%, 100%{\n    transform:scale(2);\n    opacity:0;\n  }\n}\n\n@-webkit-keyframes pulse{\n  50%{\n    opacity:.5;\n  }\n}\n\n@keyframes pulse{\n  50%{\n    opacity:.5;\n  }\n}\n\n@-webkit-keyframes bounce{\n  0%, 100%{\n    transform:translateY(-25%);\n    -webkit-animation-timing-function:cubic-bezier(0.8,0,1,1);\n            animation-timing-function:cubic-bezier(0.8,0,1,1);\n  }\n\n  50%{\n    transform:none;\n    -webkit-animation-timing-function:cubic-bezier(0,0,0.2,1);\n            animation-timing-function:cubic-bezier(0,0,0.2,1);\n  }\n}\n\n@keyframes bounce{\n  0%, 100%{\n    transform:translateY(-25%);\n    -webkit-animation-timing-function:cubic-bezier(0.8,0,1,1);\n            animation-timing-function:cubic-bezier(0.8,0,1,1);\n  }\n\n  50%{\n    transform:none;\n    -webkit-animation-timing-function:cubic-bezier(0,0,0.2,1);\n            animation-timing-function:cubic-bezier(0,0,0.2,1);\n  }\n}\n\n.cursor-pointer{\n  cursor:pointer;\n}\n\n.flex-col{\n  flex-direction:column;\n}\n\n.flex-wrap{\n  flex-wrap:wrap;\n}\n\n.items-start{\n  align-items:flex-start;\n}\n\n.items-center{\n  align-items:center;\n}\n\n.justify-end{\n  justify-content:flex-end;\n}\n\n.justify-center{\n  justify-content:center;\n}\n\n.justify-between{\n  justify-content:space-between;\n}\n\n.space-x-4 > :not([hidden]) ~ :not([hidden]){\n  --tw-space-x-reverse:0;\n  margin-right:calc(1rem * var(--tw-space-x-reverse));\n  margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)));\n}\n\n.space-y-1 > :not([hidden]) ~ :not([hidden]){\n  --tw-space-y-reverse:0;\n  margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));\n  margin-bottom:calc(0.25rem * var(--tw-space-y-reverse));\n}\n\n.whitespace-nowrap{\n  white-space:nowrap;\n}\n\n.border{\n  border-width:1px;\n}\n\n.border-b{\n  border-bottom-width:1px;\n}\n\n.border-current{\n  border-color:currentColor;\n}\n\n.bg-white{\n  --tw-bg-opacity:1;\n  background-color:rgba(255, 255, 255, var(--tw-bg-opacity));\n}\n\n.p-5{\n  padding:1.25rem;\n}\n\n.px-5{\n  padding-left:1.25rem;\n  padding-right:1.25rem;\n}\n\n.pt-2{\n  padding-top:0.5rem;\n}\n\n.pr-5{\n  padding-right:1.25rem;\n}\n\n.pb-0{\n  padding-bottom:0px;\n}\n\n.pb-3{\n  padding-bottom:0.75rem;\n}\n\n.pb-4{\n  padding-bottom:1rem;\n}\n\n.pl-5{\n  padding-left:1.25rem;\n}\n\n.uppercase{\n  text-transform:uppercase;\n}\n\n.normal-case{\n  text-transform:none;\n}\n\n*, ::before, ::after{\n  --tw-shadow:0 0 #0000;\n}\n\n*, ::before, ::after{\n  --tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);\n  --tw-ring-offset-width:0px;\n  --tw-ring-offset-color:#fff;\n  --tw-ring-color:rgba(59, 130, 246, 0.5);\n  --tw-ring-offset-shadow:0 0 #0000;\n  --tw-ring-shadow:0 0 #0000;\n}\n\n.filter{\n  --tw-blur:var(--tw-empty,/*!*/ /*!*/);\n  --tw-brightness:var(--tw-empty,/*!*/ /*!*/);\n  --tw-contrast:var(--tw-empty,/*!*/ /*!*/);\n  --tw-grayscale:var(--tw-empty,/*!*/ /*!*/);\n  --tw-hue-rotate:var(--tw-empty,/*!*/ /*!*/);\n  --tw-invert:var(--tw-empty,/*!*/ /*!*/);\n  --tw-saturate:var(--tw-empty,/*!*/ /*!*/);\n  --tw-sepia:var(--tw-empty,/*!*/ /*!*/);\n  --tw-drop-shadow:var(--tw-empty,/*!*/ /*!*/);\n  filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);\n}\n\n.transition{\n  transition-property:background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;\n  transition-property:background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;\n  transition-property:background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;\n  transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);\n  transition-duration:150ms;\n}\n\n@media (min-width: 640px){\n  .sm\\:ml-6{\n    margin-left:1.5rem;\n  }\n\n  .sm\\:block{\n    display:block;\n  }\n\n  .sm\\:pr-0{\n    padding-right:0px;\n  }\n}\n\n@media (min-width: 768px){\n}\n\n@media (min-width: 1024px){\n}\n\n@media (min-width: 1280px){\n}\n\n@media (min-width: 1536px){\n}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {};
 module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(22);
+var content = __webpack_require__(23);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(4).default("581dbee3", content, true)
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(3);
+var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(9);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(24);
+var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(25);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, "/*purgecss start ignore*/\n\n.swiper{\n  width:100%;\n  height:100%\n}\n\n.swiper-container{\n  margin-left:0!important;\n  margin-right:50%!important\n}\n\n.pagination{\n  display:flex;\n  justify-content:flex-start;\n  margin-top:15px;\n  margin-bottom:60px\n}\n\n.num-lin{\n  border-top:1px solid;\n  height:1px!important;\n  width:20px!important;\n  min-width:20px!important;\n  min-height:1px!important;\n  margin-left:10px;\n  margin-right:10px;\n  background:#000\n}\n\n.swiper-pagination-custom{\n  bottom:inherit!important;\n  left:inherit!important;\n  width:inherit!important;\n  display:flex;\n  align-items:center\n}\n\n.pagination-number{\n  overflow:inherit!important;\n  margin-left:-36px!important\n}\n\n.swiper-pagination{\n  position:absolute\n}\n\n.swiper-pagination-bullet{\n  font-style:normal;\n  font-weight:400;\n  font-size:15px;\n  line-height:20px;\n  text-transform:uppercase;\n  color:#221f1a;\n  opacity:.3;\n  margin-right:12px;\n  width:30px;\n  height:30px;\n  background:transparent!important\n}\n\n.swiper-pagination-bullet-active{\n  color:#000;\n  background:rgba(0,122,255,0)!important\n}\n\n.swiper-slide{\n  text-align:center;\n  font-size:18px;\n  background:#fff;\n  display:flex;\n  justify-content:center;\n  align-items:center\n}\n\n.swiper-slide img{\n  display:block;\n  width:100%;\n  height:100%;\n  -o-object-fit:cover;\n     object-fit:cover\n}\n\n.swiper-slide{\n  width:60%!important\n}\n\n.swiper-slide-page{\n  width:30%!important;\n  font-style:normal;\n  font-weight:400;\n  font-size:15px;\n  line-height:20px;\n  text-transform:uppercase;\n  color:#221f1a;\n  opacity:.3\n}\n\n.swiper-slide-active{\n  opacity:1\n}\n\n.date-picker{\n  background:#ffdd7c!important;\n  max-width:90px;\n  outline:none\n}\n\n.line-block{\n  position:relative\n}\n\n.line-block .line-dn{\n  width:101%;\n  border-bottom:1px solid #000;\n  position:absolute;\n  left:-7px;\n  top:50%;\n  z-index:1;\n  transform:rotate(-6deg)\n}\n\n@media(max-width:1800px){\n  .line-block .line-dn{\n    transform:rotate(-8deg)\n  }\n}\n\n@media(max-width:1300px){\n  .line-block .line-dn{\n    transform:rotate(-10deg)\n  }\n}\n\n@media(max-width:1000px){\n  .line-block .line-dn{\n    transform:rotate(-12deg)\n  }\n}\n\n@media(max-width:900px){\n  .line-block .line-dn{\n    transform:rotate(-13deg)\n  }\n}\n\n@media(max-width:800px){\n  .line-block .line-dn{\n    transform:rotate(-14deg)\n  }\n}\n\n@media(max-width:700px){\n  .line-block .line-dn{\n    left:-15px;\n    transform:rotate(-18deg);\n    width:106%\n  }\n}\n\n@media(max-width:600px){\n  .line-block .line-dn{\n    transform:rotate(-19deg)\n  }\n}\n\n@media(max-width:500px){\n  .line-block .line-dn{\n    transform:rotate(-23deg)\n  }\n}\n\n@media(max-width:400px){\n  .line-block .line-dn{\n    left:-25px;\n    width:115%;\n    transform:rotate(-29deg)\n  }\n}\n\n/*purgecss end ignore*/", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, "/*purgecss start ignore*/\n\n.swiper{\n  width:100%;\n  height:100%\n}\n\n.mra-9{\n  margin-right:9px\n}\n\n.mra-5{\n  margin-left:5px\n}\n\n.my-gallery{\n  display:flex;\n  flex-wrap:wrap;\n  position:relative\n}\n\n@media(max-width:760px){\n  .my-gallery{\n    justify-content:center;\n    margin-top:25px\n  }\n}\n\n@media(max-width:460px){\n  .my-gallery{\n    margin-right:20px\n  }\n}\n\n@media(max-width:850px){\n  .my-gallery .gallery-thumbnail img{\n    max-width:172px\n  }\n}\n\n@media(max-width:760px){\n  .my-gallery .gallery-thumbnail img{\n    max-width:314px;\n    width:314px\n  }\n}\n\n.my-gallery .gallery-thumbnail:nth-child(2){\n  position:absolute;\n  left:0;\n  top:152px\n}\n\n@media(max-width:850px){\n  .my-gallery .gallery-thumbnail:nth-child(2){\n    top:126px\n  }\n}\n\n@media(max-width:760px){\n  .my-gallery .gallery-thumbnail:nth-child(2){\n    position:inherit;\n    top:inherit;\n    left:inherit\n  }\n}\n\n.my-gallery .gallery-thumbnail:nth-child(3){\n  position:relative\n}\n\n.my-gallery .gallery-thumbnail:nth-child(3):after{\n  content:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  position:absolute;\n  bottom:5px;\n  right:50px\n}\n\n.my-gallery .gallery-thumbnail:nth-child(3):after img{\n  margin-bottom:0\n}\n\n@media(max-width:850px){\n  .my-gallery .gallery-thumbnail:nth-child(3):after{\n    display:none\n  }\n}\n\n.my-gallery .gallery-thumbnail:nth-child(3):before{\n  content:url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  position:absolute;\n  bottom:10px;\n  right:10px;\n  border:1px solid #fff;\n  width:30px;\n  height:30px;\n  display:flex;\n  justify-content:center;\n  align-items:center\n}\n\n.my-gallery .gallery-thumbnail:nth-child(3):before img{\n  margin-bottom:0\n}\n\n@media(max-width:850px){\n  .my-gallery .gallery-thumbnail:nth-child(3):before{\n    display:none\n  }\n}\n\n.my-gallery .gallery-thumbnail:nth-child(5){\n  position:absolute;\n  left:454px;\n  top:152px\n}\n\n@media(max-width:850px){\n  .my-gallery .gallery-thumbnail:nth-child(5){\n    left:364px;\n    top:126px\n  }\n}\n\n@media(max-width:760px){\n  .my-gallery .gallery-thumbnail:nth-child(5){\n    position:inherit;\n    top:inherit;\n    left:inherit\n  }\n}\n\n@media(max-width:1200px){\n  .my-gallery .gallery-thumbnail:nth-child(6){\n    display:none\n  }\n}\n\n.swiper-container{\n  margin-left:0!important;\n  margin-right:50%!important\n}\n\n.pagination{\n  display:flex;\n  justify-content:flex-start;\n  margin-top:15px;\n  margin-bottom:60px\n}\n\n.num-lin{\n  border-top:1px solid;\n  height:1px!important;\n  width:20px!important;\n  min-width:20px!important;\n  min-height:1px!important;\n  margin-left:10px;\n  margin-right:10px;\n  background:#000\n}\n\n.swiper-pagination-custom{\n  bottom:inherit!important;\n  left:inherit!important;\n  width:inherit!important;\n  display:flex;\n  align-items:center\n}\n\n.pagination-number{\n  overflow:inherit!important;\n  margin-left:-36px!important\n}\n\n.swiper-pagination{\n  position:absolute\n}\n\n.swiper-pagination-bullet{\n  font-style:normal;\n  font-weight:400;\n  font-size:15px;\n  line-height:20px;\n  text-transform:uppercase;\n  color:#221f1a;\n  opacity:.3;\n  margin-right:12px;\n  width:30px;\n  height:30px;\n  background:transparent!important\n}\n\n.swiper-pagination-bullet-active{\n  color:#000;\n  background:rgba(0,122,255,0)!important\n}\n\n.swiper-slide{\n  text-align:center;\n  font-size:18px;\n  background:#fff;\n  display:flex;\n  justify-content:center;\n  align-items:center\n}\n\n.swiper-slide img{\n  display:block;\n  width:100%;\n  height:100%;\n  -o-object-fit:cover;\n     object-fit:cover\n}\n\n.swiper-slide{\n  width:60%!important\n}\n\n.swiper-slide-page{\n  width:30%!important;\n  font-style:normal;\n  font-weight:400;\n  font-size:15px;\n  line-height:20px;\n  text-transform:uppercase;\n  color:#221f1a;\n  opacity:.3\n}\n\n.swiper-slide-active{\n  opacity:1\n}\n\n.date-picker{\n  background:#ffdd7c!important;\n  max-width:90px;\n  outline:none\n}\n\n.line-block{\n  position:relative\n}\n\n.line-block .line-dn{\n  width:101%;\n  border-bottom:1px solid #000;\n  position:absolute;\n  left:-7px;\n  top:50%;\n  z-index:1;\n  transform:rotate(-6deg)\n}\n\n@media(max-width:1800px){\n  .line-block .line-dn{\n    transform:rotate(-8deg)\n  }\n}\n\n@media(max-width:1300px){\n  .line-block .line-dn{\n    transform:rotate(-10deg)\n  }\n}\n\n@media(max-width:1000px){\n  .line-block .line-dn{\n    transform:rotate(-12deg)\n  }\n}\n\n@media(max-width:900px){\n  .line-block .line-dn{\n    transform:rotate(-13deg)\n  }\n}\n\n@media(max-width:800px){\n  .line-block .line-dn{\n    transform:rotate(-14deg)\n  }\n}\n\n@media(max-width:700px){\n  .line-block .line-dn{\n    left:-15px;\n    transform:rotate(-18deg);\n    width:106%\n  }\n}\n\n@media(max-width:600px){\n  .line-block .line-dn{\n    transform:rotate(-19deg)\n  }\n}\n\n@media(max-width:500px){\n  .line-block .line-dn{\n    transform:rotate(-23deg)\n  }\n}\n\n@media(max-width:400px){\n  .line-block .line-dn{\n    left:-25px;\n    width:115%;\n    transform:rotate(-29deg)\n  }\n}\n\n/*purgecss end ignore*/", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {};
 module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTkuODEzMSAxMC4xNDg5TDIwLjMwNTUgOUwxOS4xNTY2IDkuNDkyNEwxMi4xNTY2IDEyLjQ5MjRMMTEuNDc3OCAxMi43ODMzTDEyIDEzLjMwNTVMMTMuNjQ2NCAxNC45NTJMOSAxOS41OTg0TDkuNzA3MTEgMjAuMzA1NUwxNC4zNTM2IDE1LjY1OTFMMTYgMTcuMzA1NUwxNi41MjIyIDE3LjgyNzdMMTYuODEzMSAxNy4xNDg5TDE5LjgxMzEgMTAuMTQ4OVoiIGZpbGw9IiNGMkYyRjIiLz4NCjxyZWN0IHg9IjAuNSIgeT0iMC41IiB3aWR0aD0iMjkiIGhlaWdodD0iMjkiIHN0cm9rZT0id2hpdGUiLz4NCjwvc3ZnPg0K"
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xMCAxNkw1IDlMMTUgOUwxMCAxNloiIGZpbGw9IiNGMkYyRjIiLz4NCjxyZWN0IHg9IjMiIHk9IjE3IiB3aWR0aD0iMTQiIGhlaWdodD0iMSIgZmlsbD0iI0YyRjJGMiIvPg0KPHJlY3QgeD0iOS41IiB5PSIyIiB3aWR0aD0iMSIgaGVpZ2h0PSI3IiBmaWxsPSIjRjJGMkYyIi8+DQo8L3N2Zz4NCg=="
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(27);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+__webpack_require__(4).default("ff830ea8", content, true)
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(3);
+var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(9);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(28);
+var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(29);
+var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__(30);
+var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__(31);
+var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__(32);
+var ___CSS_LOADER_URL_IMPORT_5___ = __webpack_require__(33);
+var ___CSS_LOADER_URL_IMPORT_6___ = __webpack_require__(34);
+var ___CSS_LOADER_URL_IMPORT_7___ = __webpack_require__(35);
+var ___CSS_LOADER_URL_IMPORT_8___ = __webpack_require__(36);
+var ___CSS_LOADER_URL_IMPORT_9___ = __webpack_require__(37);
+var ___CSS_LOADER_URL_IMPORT_10___ = __webpack_require__(38);
+var ___CSS_LOADER_URL_IMPORT_11___ = __webpack_require__(39);
+var ___CSS_LOADER_URL_IMPORT_12___ = __webpack_require__(40);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_2___);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_3___);
+var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___);
+var ___CSS_LOADER_URL_REPLACEMENT_6___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_6___);
+var ___CSS_LOADER_URL_REPLACEMENT_7___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_7___);
+var ___CSS_LOADER_URL_REPLACEMENT_8___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_8___);
+var ___CSS_LOADER_URL_REPLACEMENT_9___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_9___);
+var ___CSS_LOADER_URL_REPLACEMENT_10___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_10___);
+var ___CSS_LOADER_URL_REPLACEMENT_11___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_11___);
+var ___CSS_LOADER_URL_REPLACEMENT_12___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_12___);
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, "/*purgecss start ignore*/\n\n@font-face{\n  font-family:\"Gerbera\";\n\n  src:local(\"Gerbera\");\n\n  src:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n\n  src:url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") format(\"woff2\");\n\n  src:url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ") format(\"woff\");\n\n  src:url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ") format(\"truetype\")\n}\n\n@font-face{\n  font-family:\"Gerbera\";\n\n  src:url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ") format(\"woff2\");\n\n  src:url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ") format(\"woff\");\n\n  src:url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ") format(\"truetype\");\n\n  font-weight:700\n}\n\n@font-face{\n  font-family:\"Gerbera\";\n\n  src:url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ") format(\"woff2\");\n\n  src:url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ") format(\"woff\");\n\n  src:url(" + ___CSS_LOADER_URL_REPLACEMENT_9___ + ") format(\"truetype\");\n\n  font-weight:500\n}\n\n@font-face{\n  font-family:\"William\";\n\n  src:url(" + ___CSS_LOADER_URL_REPLACEMENT_10___ + ") format(\"woff2\");\n\n  src:url(" + ___CSS_LOADER_URL_REPLACEMENT_11___ + ") format(\"woff\");\n\n  src:url(" + ___CSS_LOADER_URL_REPLACEMENT_12___ + ") format(\"truetype\");\n\n  font-weight:500\n}\n\nbody{\n  font-family:\"Gerbera\"\n}\n\n.william{\n  font-style:italic!important;\n  font-family:William\n}\n\n/*purgecss end ignore*/", ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {};
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/FontAwesome.8b43027.eot";
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/Gerbera.821c087.woff2";
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/Gerbera.b381fba.woff";
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/Gerbera.20ebf4c.ttf";
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/Gerbera-Light.540a5fd.woff2";
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/Gerbera-Light.0b1b36a.woff";
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/Gerbera-Light.29a88cd.ttf";
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/Gerbera-Medium.beacf1a.woff2";
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/Gerbera-Medium.12da3cd.woff";
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/Gerbera-Medium.abd61ac.ttf";
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/William.c5c84f9.woff2";
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/William.63b3153.woff";
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/William.e9c8163.ttf";
+
+/***/ }),
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -672,7 +861,9 @@ __webpack_require__.d(components_namespaceObject, "Footer", function() { return 
 __webpack_require__.d(components_namespaceObject, "Galleria", function() { return Galleria; });
 __webpack_require__.d(components_namespaceObject, "Header", function() { return Header; });
 __webpack_require__.d(components_namespaceObject, "Main", function() { return Main; });
+__webpack_require__.d(components_namespaceObject, "Partniors", function() { return Partniors; });
 __webpack_require__.d(components_namespaceObject, "Teachers", function() { return Teachers; });
+__webpack_require__.d(components_namespaceObject, "VueGalleria", function() { return VueGalleria; });
 __webpack_require__.d(components_namespaceObject, "VueSwiper", function() { return VueSwiper; });
 
 // EXTERNAL MODULE: external "vue"
@@ -683,7 +874,7 @@ var external_vue_default = /*#__PURE__*/__webpack_require__.n(external_vue_);
 var external_ufo_ = __webpack_require__(1);
 
 // EXTERNAL MODULE: external "node-fetch"
-var external_node_fetch_ = __webpack_require__(11);
+var external_node_fetch_ = __webpack_require__(12);
 var external_node_fetch_default = /*#__PURE__*/__webpack_require__.n(external_node_fetch_);
 
 // CONCATENATED MODULE: ./.nuxt/middleware.js
@@ -1370,11 +1561,11 @@ async function serverPrefetch() {
 
 });
 // EXTERNAL MODULE: external "vue-meta"
-var external_vue_meta_ = __webpack_require__(12);
+var external_vue_meta_ = __webpack_require__(13);
 var external_vue_meta_default = /*#__PURE__*/__webpack_require__.n(external_vue_meta_);
 
 // EXTERNAL MODULE: external "vue-client-only"
-var external_vue_client_only_ = __webpack_require__(6);
+var external_vue_client_only_ = __webpack_require__(7);
 var external_vue_client_only_default = /*#__PURE__*/__webpack_require__.n(external_vue_client_only_);
 
 // EXTERNAL MODULE: external "vue-no-ssr"
@@ -1382,7 +1573,7 @@ var external_vue_no_ssr_ = __webpack_require__(5);
 var external_vue_no_ssr_default = /*#__PURE__*/__webpack_require__.n(external_vue_no_ssr_);
 
 // EXTERNAL MODULE: external "vue-router"
-var external_vue_router_ = __webpack_require__(7);
+var external_vue_router_ = __webpack_require__(8);
 var external_vue_router_default = /*#__PURE__*/__webpack_require__.n(external_vue_router_);
 
 // CONCATENATED MODULE: ./.nuxt/router.scrollBehavior.js
@@ -1462,35 +1653,37 @@ function shouldScrollToTop(route) {
 
 
 
-const _0f0b9bc2 = () => interopDefault(__webpack_require__.e(/* import() | pages/contacts */ 7).then(__webpack_require__.bind(null, 156)));
+const _1ebc54ae = () => interopDefault(__webpack_require__.e(/* import() | pages/about */ 9).then(__webpack_require__.bind(null, 199)));
 
-const _5e65326e = () => interopDefault(__webpack_require__.e(/* import() | pages/education */ 8).then(__webpack_require__.bind(null, 157)));
+const _0f0b9bc2 = () => interopDefault(__webpack_require__.e(/* import() | pages/contacts */ 10).then(__webpack_require__.bind(null, 200)));
 
-const _6e89eecc = () => interopDefault(__webpack_require__.e(/* import() | pages/errors */ 9).then(__webpack_require__.bind(null, 158)));
+const _5e65326e = () => interopDefault(__webpack_require__.e(/* import() | pages/education */ 11).then(__webpack_require__.bind(null, 201)));
 
-const _3c3a32ea = () => interopDefault(__webpack_require__.e(/* import() | pages/eventPage */ 10).then(__webpack_require__.bind(null, 159)));
+const _6e89eecc = () => interopDefault(__webpack_require__.e(/* import() | pages/errors */ 12).then(__webpack_require__.bind(null, 202)));
 
-const _4b23d3b8 = () => interopDefault(__webpack_require__.e(/* import() | pages/eventPage2 */ 11).then(__webpack_require__.bind(null, 160)));
+const _3c3a32ea = () => interopDefault(__webpack_require__.e(/* import() | pages/eventPage */ 13).then(__webpack_require__.bind(null, 203)));
 
-const _4b31eb39 = () => interopDefault(__webpack_require__.e(/* import() | pages/eventPage3 */ 12).then(__webpack_require__.bind(null, 161)));
+const _4b23d3b8 = () => interopDefault(__webpack_require__.e(/* import() | pages/eventPage2 */ 14).then(__webpack_require__.bind(null, 204)));
 
-const _4b4002ba = () => interopDefault(__webpack_require__.e(/* import() | pages/eventPage4 */ 13).then(__webpack_require__.bind(null, 162)));
+const _4b31eb39 = () => interopDefault(__webpack_require__.e(/* import() | pages/eventPage3 */ 15).then(__webpack_require__.bind(null, 205)));
 
-const _bc3e1970 = () => interopDefault(__webpack_require__.e(/* import() | pages/events */ 14).then(__webpack_require__.bind(null, 163)));
+const _4b4002ba = () => interopDefault(__webpack_require__.e(/* import() | pages/eventPage4 */ 16).then(__webpack_require__.bind(null, 206)));
 
-const _05165b66 = () => interopDefault(__webpack_require__.e(/* import() | pages/friend */ 15).then(__webpack_require__.bind(null, 164)));
+const _bc3e1970 = () => interopDefault(__webpack_require__.e(/* import() | pages/events */ 17).then(__webpack_require__.bind(null, 207)));
 
-const _23aac4f6 = () => interopDefault(__webpack_require__.e(/* import() | pages/media */ 17).then(__webpack_require__.bind(null, 165)));
+const _05165b66 = () => interopDefault(__webpack_require__.e(/* import() | pages/friend */ 18).then(__webpack_require__.bind(null, 208)));
 
-const _5bc37398 = () => interopDefault(__webpack_require__.e(/* import() | pages/mediaPage */ 18).then(__webpack_require__.bind(null, 166)));
+const _23aac4f6 = () => interopDefault(__webpack_require__.e(/* import() | pages/media */ 20).then(__webpack_require__.bind(null, 209)));
 
-const _6b7d6c7c = () => interopDefault(__webpack_require__.e(/* import() | pages/news */ 19).then(__webpack_require__.bind(null, 167)));
+const _5bc37398 = () => interopDefault(__webpack_require__.e(/* import() | pages/mediaPage */ 21).then(__webpack_require__.bind(null, 210)));
 
-const _2e5a8bf1 = () => interopDefault(__webpack_require__.e(/* import() | pages/newsPage */ 20).then(__webpack_require__.bind(null, 168)));
+const _6b7d6c7c = () => interopDefault(__webpack_require__.e(/* import() | pages/news */ 22).then(__webpack_require__.bind(null, 211)));
 
-const _3bd09857 = () => interopDefault(__webpack_require__.e(/* import() | pages/search */ 21).then(__webpack_require__.bind(null, 169)));
+const _2e5a8bf1 = () => interopDefault(__webpack_require__.e(/* import() | pages/newsPage */ 23).then(__webpack_require__.bind(null, 212)));
 
-const _3e742f73 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 16).then(__webpack_require__.bind(null, 170)));
+const _3bd09857 = () => interopDefault(__webpack_require__.e(/* import() | pages/search */ 24).then(__webpack_require__.bind(null, 213)));
+
+const _3e742f73 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 19).then(__webpack_require__.bind(null, 214)));
 
 const emptyFn = () => {};
 
@@ -1502,6 +1695,10 @@ const routerOptions = {
   linkExactActiveClass: 'nuxt-link-exact-active',
   scrollBehavior: router_scrollBehavior,
   routes: [{
+    path: "/about",
+    component: _1ebc54ae,
+    name: "about"
+  }, {
     path: "/contacts",
     component: _0f0b9bc2,
     name: "contacts"
@@ -1743,7 +1940,7 @@ var componentNormalizer = __webpack_require__(2);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(15)
+  var style0 = __webpack_require__(16)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -2047,7 +2244,7 @@ var nuxt_loading_render, nuxt_loading_staticRenderFns
 
 function nuxt_loading_injectStyles (context) {
   
-  var style0 = __webpack_require__(17)
+  var style0 = __webpack_require__(18)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -2067,10 +2264,13 @@ var nuxt_loading_component = Object(componentNormalizer["a" /* default */])(
 
 /* harmony default export */ var nuxt_loading = (nuxt_loading_component.exports);
 // EXTERNAL MODULE: ./node_modules/@nuxtjs/tailwindcss/dist/runtime/tailwind.css
-var tailwind = __webpack_require__(19);
+var tailwind = __webpack_require__(20);
 
 // EXTERNAL MODULE: ./assets/css/main.scss
-var main = __webpack_require__(21);
+var main = __webpack_require__(22);
+
+// EXTERNAL MODULE: ./assets/css/fonts.css
+var fonts = __webpack_require__(26);
 
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./.nuxt/layouts/default.vue?vue&type=template&id=0040005c&
 var defaultvue_type_template_id_0040005c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('Nuxt')}
@@ -2099,6 +2299,7 @@ var default_component = Object(componentNormalizer["a" /* default */])(
 
 /* harmony default export */ var layouts_default = (default_component.exports);
 // CONCATENATED MODULE: ./.nuxt/App.js
+
 
 
 
@@ -2285,12 +2486,14 @@ const layouts = {
   }
 });
 // CONCATENATED MODULE: ./.nuxt/components/index.js
-const Footer = () => __webpack_require__.e(/* import() | components/footer */ 1).then(__webpack_require__.bind(null, 39)).then(c => wrapFunctional(c.default || c));
-const Galleria = () => __webpack_require__.e(/* import() | components/galleria */ 2).then(__webpack_require__.bind(null, 75)).then(c => wrapFunctional(c.default || c));
-const Header = () => __webpack_require__.e(/* import() | components/header */ 3).then(__webpack_require__.bind(null, 31)).then(c => wrapFunctional(c.default || c));
-const Main = () => __webpack_require__.e(/* import() | components/main */ 4).then(__webpack_require__.bind(null, 102)).then(c => wrapFunctional(c.default || c));
-const Teachers = () => __webpack_require__.e(/* import() | components/teachers */ 5).then(__webpack_require__.bind(null, 101)).then(c => wrapFunctional(c.default || c));
-const VueSwiper = () => __webpack_require__.e(/* import() | components/vue-swiper */ 6).then(__webpack_require__.bind(null, 61)).then(c => wrapFunctional(c.default || c)); // nuxt/nuxt.js#8607
+const Footer = () => __webpack_require__.e(/* import() | components/footer */ 1).then(__webpack_require__.bind(null, 58)).then(c => wrapFunctional(c.default || c));
+const Galleria = () => __webpack_require__.e(/* import() | components/galleria */ 2).then(__webpack_require__.bind(null, 111)).then(c => wrapFunctional(c.default || c));
+const Header = () => __webpack_require__.e(/* import() | components/header */ 3).then(__webpack_require__.bind(null, 49)).then(c => wrapFunctional(c.default || c));
+const Main = () => __webpack_require__.e(/* import() | components/main */ 4).then(__webpack_require__.bind(null, 142)).then(c => wrapFunctional(c.default || c));
+const Partniors = () => __webpack_require__.e(/* import() | components/partniors */ 5).then(__webpack_require__.bind(null, 114)).then(c => wrapFunctional(c.default || c));
+const Teachers = () => __webpack_require__.e(/* import() | components/teachers */ 6).then(__webpack_require__.bind(null, 119)).then(c => wrapFunctional(c.default || c));
+const VueGalleria = () => __webpack_require__.e(/* import() | components/vue-galleria */ 7).then(__webpack_require__.bind(null, 74)).then(c => wrapFunctional(c.default || c));
+const VueSwiper = () => __webpack_require__.e(/* import() | components/vue-swiper */ 8).then(__webpack_require__.bind(null, 87)).then(c => wrapFunctional(c.default || c)); // nuxt/nuxt.js#8607
 
 function wrapFunctional(options) {
   if (!options || !options.functional) {
@@ -2330,7 +2533,7 @@ for (const name in components_namespaceObject) {
   external_vue_default.a.component('Lazy' + name, components_namespaceObject[name]);
 }
 // EXTERNAL MODULE: ./.nuxt/empty.js
-var _nuxt_empty = __webpack_require__(10);
+var _nuxt_empty = __webpack_require__(6);
 
 // CONCATENATED MODULE: ./.nuxt/index.js
 
@@ -2350,6 +2553,8 @@ var _nuxt_empty = __webpack_require__(10);
  // Source: ..\\plugins\\vue-datepicker (mode: 'client')
 
  // Source: ..\\plugins\\vue-swiper (mode: 'client')
+
+ // Source: ..\\plugins\\vue-picture-swipe (mode: 'client')
 // Component: <ClientOnly>
 
 external_vue_default.a.component(external_vue_client_only_default.a.name, external_vue_client_only_default.a); // TODO: Remove in Nuxt 3: <NoSsr>
@@ -2550,6 +2755,8 @@ async function createApp(ssrContext, config = {}) {
   if (typeof /* Cannot get final name for export "default" in "./.nuxt/components/plugin.js" (known exports: , known reexports: ) */ undefined === 'function') {
     await /* Cannot get final name for export "default" in "./.nuxt/components/plugin.js" (known exports: , known reexports: ) */ undefined(app.context, inject);
   }
+
+  if (false) {}
 
   if (false) {}
 

@@ -5,10 +5,10 @@
        <div class="media-page-header">
          <div class="media-page-header-title">
            <p>
-             <img class="mr-1" src="../assets/image/(.svg" alt="">
-             <img class="mr-1 arow" src="../assets/image/Vector135.svg" alt="">
+             <img class="mra-9" src="../assets/image/(.svg" alt="">
+             <img class="mra-9 arow" src="../assets/image/Vector135.svg" alt="">
              <span>все медиа материалы</span>
-             <img class="ml-1" src="../assets/image/).svg" alt="">
+             <img class="mra-5" src="../assets/image/).svg" alt="">
            </p>
          </div>
          <div class="media-page-header-content">
@@ -18,14 +18,14 @@
                  <p>312 окт</p>
                  <div class="flex">
                    <div class="flex mr-3">
-                     <img src="../assets/image/gallery.svg" alt="">
+                     <img  class="mra-8" src="../assets/image/gallery.svg" alt="">
                      <p>
                        <span>40</span>
                        <span>фото</span>
                      </p>
                    </div>
                    <div class="flex">
-                     <img src="../assets/image/video.svg" alt="">
+                     <img class="mra-8" src="../assets/image/video.svg" alt="">
                      <p>
                        <span>2</span>
                        <span>видео</span>
@@ -44,14 +44,14 @@
              <div class="media-page-header-footer-item-block">
                <img class="mr-1" src="../assets/image/(.svg" alt="">
                <img class="mr-2" src="../assets/image/Group591.svg" alt="">
-               <span>поделиться</span>
+               <span>Скачать все</span>
                <img class="ml-2" src="../assets/image/).svg" alt="">
              </div>
            </div>
            <div class="media-page-header-footer-item">
              <div class="media-page-header-footer-item-block">
                <img class="mr-1" src="../assets/image/(.svg" alt="">
-               <span>Скачать все</span>
+               <span>поделиться</span>
                <img class="ml-2" src="../assets/image/shareArrowIcon.svg" alt="">
                <img class="ml-2" src="../assets/image/).svg" alt="">
              </div>
@@ -65,38 +65,7 @@
          <div class="media-page-images-title">
            <p>Фотографии</p>
          </div>
-         <div class="media-page-images-image">
-           <div>
-             <img src="../assets/image/pic133.jpg" alt="">
-           </div>
-           <div>
-             <img src="../assets/image/pic111.jpg" alt="">
-           </div>
-         </div>
-         <div class="media-page-images-image">
-           <div class="image-position">
-             <img src="../assets/image/pic61.jpg" alt="">
-             <div class="image-position-left">
-               <img src="../assets/image/Group359.svg" alt="">
-             </div>
-             <div class="image-position-right">
-               <img src="../assets/image/dl.svg" alt="">
-             </div>
-           </div>
-         </div>
-         <div class="media-page-images-image item3-mini">
-           <div>
-             <img src="../assets/image/pic133.jpg" alt="">
-           </div>
-           <div>
-             <img src="../assets/image/pic1111.jpg" alt="">
-           </div>
-         </div>
-         <div class="media-page-images-image-last">
-           <div >
-             <img class="max" src="../assets/image/pic111.jpg" alt="">
-           </div>
-         </div>
+         <vue-picture-swipe  ref="pictureSwipe" :items="items"></vue-picture-swipe>
          <div class="media-page-images-allButton">
            <div class="media-page-images-allButton-text">
              <img class="mr-1" src="../assets/image/(.svg" alt="">
@@ -179,14 +148,14 @@
              </div>
              <div class="flex">
                <div class="flex mr-3">
-                 <img src="../assets/image/gallery.svg" alt="">
+                 <img class="mra-8" src="../assets/image/gallery.svg" alt="">
                  <p>
                    <span>40</span>
                    <span>фото</span>
                  </p>
                </div>
                <div class="flex">
-                 <img src="../assets/image/video.svg" alt="">
+                 <img class="mra-8" src="../assets/image/video.svg" alt="">
                  <p>
                    <span>2</span>
                    <span>видео</span>
@@ -198,13 +167,8 @@
              <img src="../assets/image/Pic-fit3.jpg" alt="">
            </div>
            <div class="media-page-block-item-title">
-             <p>Вильямс П.В. <span>история одной работы</span></p>
+             <p>Вильямс П.В. <span class="william">история одной работы</span></p>
            </div>
-           <div class="media-page-block-item-authorMini">
-             <img src="../assets/image/pin1.svg" alt="">
-             <p>галерея A1–one каунас</p>
-           </div>
-           <div class="media-page-block-item-description"></div>
          </div>
          <div class="media-page-block-item">
            <div class="media-page-block-item-text">
@@ -213,14 +177,14 @@
              </div>
              <div class="flex">
                <div class="flex mr-3">
-                 <img src="../assets/image/gallery.svg" alt="">
+                 <img class="mra-8" src="../assets/image/gallery.svg" alt="">
                  <p>
                    <span>40</span>
                    <span>фото</span>
                  </p>
                </div>
                <div class="flex">
-                 <img src="../assets/image/video.svg" alt="">
+                 <img class="mra-8" src="../assets/image/video.svg" alt="">
                  <p>
                    <span>2</span>
                    <span>видео</span>
@@ -232,13 +196,8 @@
              <img src="../assets/image/Pic-fit3.jpg" alt="">
            </div>
            <div class="media-page-block-item-title">
-             <p>«Маленький человек» Кабакова <span>и русская живопись XIX века</span></p>
+             <p>«Маленький человек» Кабакова <span class="william">и русская живопись XIX века</span></p>
            </div>
-           <div class="media-page-block-item-authorMini">
-             <img src="../assets/image/pin1.svg" alt="">
-             <p>галерея A1–one каунас</p>
-           </div>
-           <div class="media-page-block-item-description"></div>
          </div>
          <div class="media-page-block-item">
            <div class="media-page-block-item-text">
@@ -247,14 +206,14 @@
              </div>
              <div class="flex">
                <div class="flex mr-3">
-                 <img src="../assets/image/gallery.svg" alt="">
+                 <img class="mra-8" src="../assets/image/gallery.svg" alt="">
                  <p>
                    <span>40</span>
                    <span>фото</span>
                  </p>
                </div>
                <div class="flex">
-                 <img src="../assets/image/video.svg" alt="">
+                 <img class="mra-8" src="../assets/image/video.svg" alt="">
                  <p>
                    <span>2</span>
                    <span>видео</span>
@@ -266,13 +225,8 @@
              <img src="../assets/image/Pic-fit3.jpg" alt="">
            </div>
            <div class="media-page-block-item-title">
-             <p>фотография во времена <span>самоизоляции</span></p>
+             <p>фотография во времена <span class="william">самоизоляции</span></p>
            </div>
-           <div class="media-page-block-item-authorMini">
-             <img src="../assets/image/pin1.svg" alt="">
-             <p>галерея A1–one каунас</p>
-           </div>
-           <div class="media-page-block-item-description"></div>
          </div>
        </div>
      </div>
@@ -287,10 +241,61 @@
   export default {
     name: "mediaPage",
     components: {VueSwiper, Footer, Header},
+    data() {
+      return {
+        items: [{
+          src:  require('../assets/image/photos/pic5.png'),
+          thumbnail: require('../assets/image/pic133.jpg'),
+          w: 1100,
+          h: 820,
+          pid: 'image-one',
+          alt: 'some numbers on a grey background'
+        },
+          {
+            src: require('../assets/image/photos/pic4.png'),
+            thumbnail: require('../assets/image/pic111.jpg'),
+            w: 1100,
+            h: 820,
+            pid: 'image-two'
+          },
+          {
+            src: require('../assets/image/photos/pic3.png'),
+            thumbnail: require('../assets/image/pic61.jpg'),
+            w: 1100,
+            h: 820
+          },
+          {
+            src: require('../assets/image/photos/pic5.png'),
+            thumbnail: require('../assets/image/pic133.jpg'),
+            w: 1100,
+            h: 820
+          },
+          {
+            src: require('../assets/image/photos/pic4.png'),
+            thumbnail: require('../assets/image/pic1111.jpg'),
+            w: 1100,
+            h: 820
+          },
+          {
+            src: require('../assets/image/photos/pic1.png'),
+            thumbnail: require('../assets/image/photos/pic11.png'),
+            w: 1100,
+            h: 820
+          }
+        ]};
+    }
   }
 </script>
 
 <style scoped lang="scss">
+
+  .galleria {
+    z-index: 99999;
+  }
+
+  .mra-8 {
+    margin-right: 8px;
+  }
 
   .media-page {
     &-header {
@@ -438,8 +443,15 @@
           color: #211F1A;
 
           @media (max-width: 650px) {
+            padding-bottom: 20px;
+            padding-top: 20px;
+          }
+
+          @media (max-width: 650px) {
             width: 50%;
             flex: inherit;
+            padding-bottom: 12px;
+            padding-top: 12px;
           }
 
           &-block {
@@ -507,7 +519,7 @@
         height: 430px;
       }
 
-      @media (max-width: 650px) {
+      @media (max-width: 760px) {
         flex-direction: column;
         height: auto;
       }
@@ -574,44 +586,6 @@
 
       &-image {
         margin-right: 20px;
-
-
-        .image-position {
-          position: relative;
-
-          &-left {
-            position: absolute;
-            bottom: 10px;
-            right: 50px;
-            img {
-              margin-bottom: 0;
-            }
-            @media (max-width: 850px) {
-             display: none;
-            }
-
-          }
-
-          &-right {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            border: 1px solid #ffffff;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            img {
-              margin-bottom: 0;
-            }
-
-            @media (max-width: 850px) {
-              display: none;
-            }
-          }
-
-        }
 
         img {
           margin-bottom: 20px;
@@ -1033,6 +1007,7 @@
           text-align: center;
           text-transform: uppercase;
           color: #221F1A;
+          margin-bottom: 30px;
 
           @media (max-width: 850px) {
             font-size: 22px;

@@ -37,7 +37,7 @@
         <div class="search-body-content">
           <div class="search-body-content-left">
             <div class="search-body-content-left-item">
-              <input class="search-body-content-left-item-radio" name="filter" type="radio">
+              <input class="search-body-content-left-item-radio" checked="true" name="filter" type="radio">
               <p  class="search-body-content-left-item-type">Все</p>
               <div class="search-body-content-left-item-count">
                 <img class="mr-1" src="../assets/image/(.svg" alt="">

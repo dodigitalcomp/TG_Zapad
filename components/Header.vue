@@ -15,6 +15,11 @@
                 <p class="nav-title-logo">галерея</p>
                 <p class="nav-title-logo-mini">Запад</p>
               </div>
+              <div class="flex-shrink-0 flex items-center t-logo">
+                <img v-if="openMenu" src="../assets/image/partniors/T__T_gold.svg" alt="">
+                <img v-else-if="logoColor === 'black'" src="../assets/image/partniors/T__T_black.svg" alt="">
+                <img v-else src="../assets/image/partniors/T__T_gold.svg" alt="">
+              </div>
             </div>
             <div class="hidden sm:block sm:ml-6">
               <div class="flex space-x-4">
@@ -91,7 +96,11 @@
       showMenu () {
         this.openMenu = !this.openMenu
         const body = document.getElementsByTagName('body')
-        body[0].style.overflow = 'hidden'
+        if (this.openMenu) {
+          body[0].style.overflow = 'hidden'
+        } else {
+          body[0].style.overflow = 'auto'
+        }
       },
       addCanvas () {
         let canvas = document.getElementById('header-arrow');
@@ -144,7 +153,7 @@
   }
   .header-block {
     position: fixed;
-    z-index: 9999;
+    z-index: 99;
 
   }
   .min {
@@ -161,7 +170,7 @@
 
     .nav-title-menu {
       color: #FFFFFF;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
 
       @media (max-width: 650px) {
         margin-bottom: 20px;
@@ -232,17 +241,25 @@
     }
   }
   .nav-title-logo {
-    font-weight: bold;
+    font-weight: 500;
+    font-style: normal;
     font-size: 18px;
-    line-height: 15px;
+    line-height: 18px;
     color: #221F1A;
   }
   .nav-title-logo-mini {
-    margin: 0;
     padding: 0;
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 15px;
     line-height: 20px;
     color: #221F1A;
+  }
+
+  .t-logo {
+    margin-left: 50px;
+    img {
+      width: 92px;
+      height: 92px;
+    }
   }
 </style>

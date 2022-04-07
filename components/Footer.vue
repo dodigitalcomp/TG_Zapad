@@ -12,19 +12,29 @@
           <a href="">о музее</a>
           <a href="">медиа</a>
         </div>
-        <div class="footer-block-info-social">
-          <a href="">
-            <img src="../assets/image/fb.svg" alt="">
-          </a>
-          <a href="">
-            <img src="../assets/image/insta.svg" alt="">
-          </a>
-          <a href="">
-            <img src="../assets/image/ok.svg" alt="">
-          </a>
-          <a href="">
-            <img src="../assets/image/vk.svg" alt="">
-          </a>
+        <div>
+          <div class="footer-block-info-social">
+            <!--          <a href="">-->
+            <!--            <img src="../assets/image/fb.svg" alt="">-->
+            <!--          </a>-->
+            <!--          <a href="">-->
+            <!--            <img src="../assets/image/insta.svg" alt="">-->
+            <!--          </a>-->
+            <a href="">
+              <img src="../assets/image/ok.svg" alt="">
+            </a>
+            <a href="">
+              <img src="../assets/image/vk.svg" alt="">
+            </a>
+          </div>
+          <div class="footer-block-info-partnior">
+            <a href="">
+              <img src="../assets/image/partniors/T__logo_white_RU.svg" alt="">
+            </a>
+            <a class="ml-20" href="">
+              <img src="../assets/image/partniors/T__lavrus_white.svg" alt="">
+            </a>
+          </div>
         </div>
         <div class="footer-block-info-text">
           <p>2020 © Третьяковская галерея Запад</p>
@@ -46,6 +56,11 @@
               <img class="ml-1" src="../assets/image/)w.svg" alt="">
             </button>
           </label>
+          <div class="footer-block-info-partnior partnior-item">
+            <a href="">
+              <img src="../assets/image/partniors/T__MT_logo_white.svg" alt="">
+            </a>
+          </div>
         </div>
         <div class="footer-block-about-conditions">
           <div>
@@ -53,11 +68,16 @@
             <p>Политика конфиденциальности</p>
           </div>
           <div>
-            <p class="made flex items-center">
+            <a target="_blank" href="https://www.dodigital.ru/" class="made flex items-center justify-end">
               <img class="mr-1" src="../assets/image/(w.svg" alt="">
               <span>Made by ONY</span>
               <img class="ml-1" src="../assets/image/)w.svg" alt="">
-            </p>
+            </a>
+            <a target="_blank" href="https://www.dodigital.ru/" class="made flex items-center justify-end mt-20">
+              <img class="mr-1" src="../assets/image/(w.svg" alt="">
+              <span>Made by DO DIGITAL</span>
+              <img class="ml-1" src="../assets/image/)w.svg" alt="">
+            </a>
           </div>
         </div>
       </div>
@@ -93,19 +113,32 @@
              </button>
           </label>
         </div>
-        <div class="footer-block-info-social">
-          <a href="">
-            <img src="../assets/image/fb.svg" alt="">
-          </a>
-          <a href="">
-            <img src="../assets/image/insta.svg" alt="">
-          </a>
-          <a href="">
-            <img src="../assets/image/ok.svg" alt="">
-          </a>
-          <a href="">
-            <img src="../assets/image/vk.svg" alt="">
-          </a>
+        <div>
+          <div class="footer-block-info-social">
+            <!--          <a href="">-->
+            <!--            <img src="../assets/image/fb.svg" alt="">-->
+            <!--          </a>-->
+            <!--          <a href="">-->
+            <!--            <img src="../assets/image/insta.svg" alt="">-->
+            <!--          </a>-->
+            <a href="">
+              <img src="../assets/image/ok.svg" alt="">
+            </a>
+            <a href="">
+              <img src="../assets/image/vk.svg" alt="">
+            </a>
+          </div>
+          <div class="footer-block-info-partnior">
+            <a href="">
+              <img src="../assets/image/partniors/T__logo_white_RU.svg" alt="">
+            </a>
+            <a href="">
+              <img src="../assets/image/partniors/T__lavrus_white.svg" alt="">
+            </a>
+            <a href="">
+              <img src="../assets/image/partniors/T__MT_logo_white.svg" alt="">
+            </a>
+          </div>
         </div>
         <div class="footer-block-info-text">
           <p class="info-text-max">2020 © Третьяковская галерея Запад</p>
@@ -122,11 +155,16 @@
             </div>
             <p class="info-text-mini">2020 © Третьяковская галерея Запад</p>
             <div>
-              <p class="made flex items-center">
+              <a target="_blank" href="https://www.dodigital.ru/" class="made flex items-center">
                 <img class="mr-1" src="../assets/image/(w.svg" alt="">
                 <span>Made by ONY</span>
                 <img class="ml-1" src="../assets/image/)w.svg" alt="">
-              </p>
+              </a>
+              <a target="_blank" href="https://www.dodigital.ru/" class="made flex items-center">
+                <img class="mr-1" src="../assets/image/(w.svg" alt="">
+                <span>Made by DO DIGITAL</span>
+                <img class="ml-1" src="../assets/image/)w.svg" alt="">
+              </a>
             </div>
           </div>
         </div>
@@ -167,6 +205,21 @@
 
 <style scoped lang="scss">
 
+
+  .dodigital {
+    margin-top: 20px;
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: right;
+    text-transform: uppercase;
+  }
+
+  .mt-20 {
+    margin-top: 10px;
+  }
 
   .info-text-mini {
     display: none;
@@ -260,6 +313,15 @@
     }
   }
 
+  .partnior-item {
+    margin-top: 90px !important;
+    margin-left: 60px;
+    img {
+      height: 70px !important;
+    }
+
+  }
+
 .footer {
   @media (max-width: 800px) {
     display: none !important;
@@ -270,12 +332,14 @@
   justify-content: space-between;
 
   #footer-arrow {
-    flex: 1;
+    width: 100%;
   }
   &-block {
 
     &-logo {
       position: relative;
+      padding-right: 20px;
+      width: 25%;
       &-image {
         position: absolute;
         top: 0;
@@ -343,6 +407,7 @@
       }
 
       &-input {
+        margin-top: 20px;
         color: #FFFFFF;
         p {
           margin-bottom: 20px;
@@ -440,6 +505,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      width: 25%;
+
       &-title {
         display: flex;
         flex-direction: column;
@@ -478,8 +545,38 @@
         }
 
       }
+      &-partnior {
+        margin-top: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .ml-20 {
+          margin-left: 23%;
+
+          @media (max-width: 1500px) {
+            margin-left: 18%;
+          }
+        }
+
+        a {
+
+          img {
+            width: 100%;
+            height: 50px;
+          }
+        }
+        @media (max-width: 800px) {
+          margin-top: 60px;
+          margin-bottom: 60px;
+          width: 100%;
+          justify-content: space-between;
+        }
+      }
+
       &-social {
-        margin-top: 15px;
+        /*margin-bottom: 50px;*/
+        /*margin-top: 80px;*/
         display: flex;
         align-items: center;
         a {
@@ -501,7 +598,7 @@
 
           @media (max-width: 500px) {
               width: 100%;
-              justify-content: space-between;
+              justify-content: flex-start;
           }
       }
     }

@@ -23,7 +23,7 @@
                <img src="../assets/image/Pic-fit33.jpg" alt="">
              </div>
              <div class="event-page-header-content-block-title">
-               <p>Мечты о свободе <span>Романтизм в России и германии</span></p>
+               <p>Мечты о свободе <span class="william">Романтизм в России и германии</span></p>
              </div>
              <div class="event-page-header-content-block-description">
                <p>Для взрослых слушателей</p>
@@ -76,7 +76,7 @@
              <p>В Санкт-Петербурге основана Императорская Академия художеств.
                На русской почве неповторимое своеобразие приобретают барокко, рококо, классицизм, сентиментализм. Искусство классицизма воплотило идеалы эпохи Просвещения, стремившейся к познанию мира силами просвещенного разума и чувства. В иерархии академических жанров главная роль принадлежала исторической картине. Неоспоримы художественные достоинства портретов, созданных Фёдором Рокотовым, Дмитрием Левицким, Владимиром Боровиковским. </p>
            </div>
-           <VueSwiper/>
+           <VueSwiper text="Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств. "/>
            <div class="event-page-content-info-text">
              <p class="event-page-content-info-text-description">В Санкт-Петербурге основана Императорская Академия художеств.
                На русской почве неповторимое своеобразие приобретают барокко, рококо, классицизм, сентиментализм. Искусство классицизма воплотило идеалы эпохи Просвещения, стремившейся к познанию мира силами просвещенного разума и чувства. В иерархии академических жанров главная роль принадлежала исторической картине. Неоспоримы художественные достоинства портретов, созданных Фёдором Рокотовым, Дмитрием Левицким, Владимиром Боровиковским. </p>
@@ -101,6 +101,7 @@
            </div>
          </div>
        </div>
+       <Partners/>
      </div>
     <Footer/>
   </div>
@@ -110,9 +111,10 @@
   import Header from "../components/Header";
   import Footer from "../components/Footer";
   import VueSwiper from "../components/VueSwiper";
+  import Partners from "../components/Partniors";
   export default {
     name: "eventPage",
-    components: {VueSwiper, Footer, Header}
+    components: {Partners, VueSwiper, Footer, Header}
   }
 </script>
 
@@ -159,13 +161,20 @@
           border-right: 1px solid;
 
           div:nth-child(3) {
-            order: 4;
-            margin-top: 30px;
+            @media (max-width: 850px) {
+              order: 4;
+              margin-top: 30px;
+            }
+
           }
 
           div:nth-child(4) {
-            order: 3;
-            margin-top: 40px;
+            @media (max-width: 850px) {
+              order: 3;
+              margin-top: 40px;
+
+            }
+
           }
 
           div:nth-child(5) {
@@ -229,7 +238,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 120px;
+            margin-bottom: 90px;
             font-style: normal;
             font-weight: normal;
             font-size: 15px;

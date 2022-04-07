@@ -15,7 +15,7 @@
            <div class="news-page-header-content-block">
              <div class="news-page-header-content-block-text">
                <div class="news-page-header-content-block-text-date">
-                 <p>312 окт</p>
+                 <p>12 окт</p>
                  <p>Встречи</p>
                </div>
              </div>
@@ -56,7 +56,7 @@
              <p class="news-page-content-info-text-title">Заголовок 2 уровня</p>
              <p class="news-page-content-info-text-description">По-разному бывает: иногда приходит в голову идея одной буквы, иногда желание передать ощущение от текста, которое ты подсмотрел, например, в каких-то исторических источниках. Но ключевое при создании шрифта — это ответы на вопросы, зачем нужен ещё один шрифт, почему именно такой, какие задачи этот шрифт будет решать.</p>
            </div>
-           <VueSwiper text="Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств. "/>
+           <VueSwiper simvol="/" text="Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств. "/>
            <div class="news-page-content-info-description">
              <p>В Санкт-Петербурге основана Императорская Академия художеств.
                На русской почве неповторимое своеобразие приобретают барокко, рококо, классицизм, сентиментализм. Искусство классицизма воплотило идеалы эпохи Просвещения, стремившейся к познанию мира силами просвещенного разума и чувства. В иерархии академических жанров главная роль принадлежала исторической картине. Неоспоримы художественные достоинства портретов, созданных Фёдором Рокотовым, Дмитрием Левицким, Владимиром Боровиковским.  </p>
@@ -128,7 +128,7 @@
                <p>04:33</p>
              </div>
            </div>
-           <div class="news-page-content-info-description">
+           <div class="news-page-content-info-description mt-60">
              <p>По-разному бывает: иногда приходит в голову идея одной буквы, иногда желание передать ощущение от текста, которое ты подсмотрел, например, в каких-то исторических источниках. Но ключевое при создании шрифта — это ответы на вопросы, зачем нужен ещё один шрифт, почему именно такой, какие задачи этот шрифт будет решать.</p>
            </div>
            <div class="news-page-content-info-description">
@@ -268,22 +268,17 @@
                <p>18–31 ДЕК</p>
                <p>выставка</p>
              </div>
-             <div class="news-page-block-item-text-author">
-               <img src="../assets/image/pin1.svg" alt="">
-               <p>галерея A1–one каунас</p>
-             </div>
            </div>
            <div class="news-page-block-item-img">
              <img src="../assets/image/Pic-fit3.jpg" alt="">
            </div>
            <div class="news-page-block-item-title">
-             <p>Вильямс П.В. <span>история одной работы</span></p>
+             <p>Вильямс П.В. <span class="william">история одной работы</span></p>
            </div>
-           <div class="news-page-block-item-authorMini">
-             <img src="../assets/image/pin1.svg" alt="">
-             <p>галерея A1–one каунас</p>
+           <div class="news-page-block-item-description">
+             <p>Это многообразие связано и с особенностями каждой отдельной исторической эпохи,
+               и с процессами.</p>
            </div>
-           <div class="news-page-block-item-description"></div>
          </div>
          <div class="news-page-block-item">
            <div class="news-page-block-item-text">
@@ -291,22 +286,16 @@
                <p>18–31 ДЕК</p>
                <p>выставка</p>
              </div>
-             <div class="news-page-block-item-text-author">
-               <img src="../assets/image/pin1.svg" alt="">
-               <p>галерея A1–one каунас</p>
-             </div>
            </div>
            <div class="news-page-block-item-img">
              <img src="../assets/image/Pic-fit3.jpg" alt="">
            </div>
            <div class="news-page-block-item-title">
-             <p>«Маленький человек» Кабакова <span>и русская живопись XIX века</span></p>
+             <p>«Маленький человек» Кабакова <span class="william">и русская живопись XIX века</span></p>
            </div>
-           <div class="news-page-block-item-authorMini">
-             <img src="../assets/image/pin1.svg" alt="">
-             <p>галерея A1–one каунас</p>
+           <div class="news-page-block-item-description">
+             <p>20 ноября состоится встреча с губернатором Калининградской области Антоном Алихановым по вопросам …</p>
            </div>
-           <div class="news-page-block-item-description"></div>
          </div>
          <div class="news-page-block-item">
            <div class="news-page-block-item-text">
@@ -314,22 +303,16 @@
                <p>18–31 ДЕК</p>
                <p>выставка</p>
              </div>
-             <div class="news-page-block-item-text-author">
-               <img src="../assets/image/pin1.svg" alt="">
-               <p>галерея A1–one каунас</p>
-             </div>
            </div>
            <div class="news-page-block-item-img">
              <img src="../assets/image/Pic-fit3.jpg" alt="">
            </div>
            <div class="news-page-block-item-title">
-             <p>фотография во времена <span>самоизоляции</span></p>
+             <p>фотография во времена <span class="william">самоизоляции</span></p>
            </div>
-           <div class="news-page-block-item-authorMini">
-             <img src="../assets/image/pin1.svg" alt="">
-             <p>галерея A1–one каунас</p>
+           <div class="news-page-block-item-description">
+             <p>20 ноября состоится встреча с губернатором Калининградской области Антоном Алихановым по вопросам …</p>
            </div>
-           <div class="news-page-block-item-description"></div>
          </div>
        </div>
      </div>
@@ -348,7 +331,9 @@
 </script>
 
 <style scoped lang="scss">
-
+.mt-60 {
+  margin-top: 60px;
+}
   .news-page {
     &-header {
       padding: 140px 20px 30px 20px;
@@ -604,9 +589,16 @@
           text-transform: uppercase;
           color: #211F1A;
 
+          @media (max-width: 850px) {
+            padding-top: 20px;
+            padding-bottom: 20px;
+          }
+
           @media (max-width: 650px) {
             width: 50%;
             flex: inherit;
+            padding-top: 12px;
+            padding-bottom: 12px;
           }
 
           &-block {
@@ -671,6 +663,7 @@
       }
 
       &-body {
+        white-space: nowrap;
         display: flex;
         font-style: normal;
         font-weight: normal;
@@ -949,6 +942,12 @@
           color: #221F1A;
           margin-bottom: 40px;
 
+          @media (max-width: 650px) {
+            font-size: 15px;
+            line-height: 20px;
+            margin-right: 20px;
+          }
+
           p {
             max-width: 60%;
 
@@ -1114,8 +1113,9 @@
         }
 
         &-virtual-tour {
+          margin-right: 20px;
           background-image: url("../assets/image/bg2.jpg");
-          background-size: 100% 600px;
+          background-size: 99% 600px;
           background-repeat: no-repeat;
           height: 600px;
           width: 100%;
@@ -1404,36 +1404,6 @@
         flex-direction: column;
         justify-content: space-between;
         flex: 1;
-        height: 430px;
-
-        @media (max-width: 650px) {
-          height: auto;
-        }
-
-        &-authorMini {
-          display: none;
-
-          @media (max-width: 850px) {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-
-            img {
-              margin-bottom: 9px;
-            }
-
-            p {
-              max-width: 120px;
-            }
-          }
-
-          @media (max-width: 650px) {
-            margin-top: 40px;
-            margin-bottom: 65px;
-          }
-        }
 
         &-text {
           display: flex;
@@ -1452,29 +1422,9 @@
           }
 
           &-date {
-            @media (max-width: 850px) {
-              display: flex;
-              justify-content: space-between;
-              flex: 1;
-            }
-          }
-
-          &-author {
             display: flex;
-            align-items: flex-start;
-
-            img {
-              margin-top: 5px;
-              margin-right: 15px;
-            }
-
-            p {
-              max-width: 120px;
-            }
-
-            @media (max-width: 850px) {
-              display: none;
-            }
+            justify-content: space-between;
+            flex: 1;
           }
         }
 
@@ -1485,6 +1435,14 @@
         &-img, &-title, &-description {
           display: flex;
           justify-content: center;
+          p {
+            max-width: 80%;
+            text-align: center;
+          }
+        }
+
+        &-description {
+          margin-bottom: 100px;
         }
 
         &-title {
@@ -1495,6 +1453,7 @@
           text-align: center;
           text-transform: uppercase;
           color: #221F1A;
+          margin-bottom: 30px;
 
           @media (max-width: 850px) {
             font-size: 22px;

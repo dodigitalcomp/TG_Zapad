@@ -5,8 +5,9 @@
           <img src="../assets/image/pic.jpg" alt="">
         </div>
         <div class="image-bock-title">
-          <p class="title">новое культурное</p>
-          <p class="title-p">пространство для горожан</p>
+          <p class="title">Культурное городское пространство</p>
+          <p class="title">Третьяковская галерея – Запад</p>
+          <p class="title william">Россия и Европа. Искусство и общение. Творчество и развитие.</p>
         </div>
       </div>
       <div class="museum-block">
@@ -17,7 +18,7 @@
           <div class="museum-block-content-text">
             <div></div>
             <div class="description">
-              <p>Новый музейный комплекс—филиал Третьяковской галереи. Первый художественный музей такого масштаба в Калининградской области. </p>
+              <p>Филиал Государственной Третьяковской галереи —  новый центр притяжения в Калининграде. Это крупнейшая музейная площадка на западе России и комфортное городское пространство. Приходите на выставки и лекции, встречайтесь с друзьями и с искусством.</p>
             </div>
             <div class="more">
               <p class="flex pb-4"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>подробнее</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
@@ -59,8 +60,8 @@
                </div>
                <div class="poster-room-content-block-title-authnr flex">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Кинотеатр «Киносфера»
-                   Калининград</p>
+                 <p>Кинотеатр «Киносфера»</p>
+                 <p>Калининград</p>
                </div>
              </div>
              <div class="poster-room-content-block-body">
@@ -69,11 +70,11 @@
                </div>
                <div class="poster-room-content-block-title-authnrMini">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Кинотеатр «Киносфера»
-                   Калининград</p>
+                 <p>Кинотеатр «Киносфера» </p>
+                 <p>Калининград</p>
                </div>
                <div class="poster-room-content-block-description">
-                 <p>Замки <span>ЛуАры</span></p>
+                 <p>Замки <span class="william">ЛуАры</span></p>
                </div>
              </div>
            </div>
@@ -93,7 +94,7 @@
                  <img src="../assets/image/image31.jpg" alt="">
                </div>
                <div class="poster-room-content-block-description">
-                 <p>Мифы и легенды в произведениях <span>русских художников</span></p>
+                 <p>Мифы и легенды в произведениях <span class="william">русских художников</span></p>
                </div>
                <div class="poster-room-content-block-title-authnrMini">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
@@ -119,7 +120,7 @@
                  <img src="../assets/image/Pic-fit.jpg" alt="">
                </div>
                <div class="poster-room-content-block-description">
-                 <p>Вильямс П.В. <span>история одной работы</span></p>
+                 <p>Вильямс П.В. <span class="william">история одной работы</span></p>
                </div>
                <div class="poster-room-content-block-title-authnrMini">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
@@ -143,7 +144,7 @@
                  <img src="../assets/image/image30.jpg" alt="">
                </div>
                <div class="poster-room-content-block-description">
-                 <p>«Маленький человек» Кабакова<span> и русская живопись XIX века</span></p>
+                 <p>«Маленький человек» Кабакова<span class="william"> и русская живопись XIX века</span></p>
                </div>
                <div class="poster-room-content-block-title-authnrMini">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
@@ -167,7 +168,7 @@
                  <img src="../assets/image/Pic-fit1.jpg" alt="">
                </div>
                <div class="poster-room-content-block-description">
-                 <p>фотография во времена <span>самоизоляции</span></p>
+                 <p>фотография во времена <span class="william">самоизоляции</span></p>
                </div>
                <div class="poster-room-content-block-title-authnrMini">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
@@ -201,10 +202,13 @@
       </div>
       <div class="education">
          <div class="education-title">
-           <p>Обучение</p>
+           <p>ОБУЧЕНИЕ</p>
          </div>
          <div class="education-content">
-           <p>Мы готовим специалистов в области искусства и музейного дела для работы в качестве кураторов и арт-менеджеров. Выпускники программы будут свободно ориентироваться в мире актуального искусства и современных музейных практик, обладать широкой теоретической подготовкой в сфере искусства и музейной деятельности.</p>
+           <div>
+             <p>Приходите учиться!</p>
+             <p>Подготовка кураторов и арт-менеджеров — часть нашей миссии по культурному развитию региона. Программа подходит для новичков и для тех, кто хочет вырасти в профессии. <span>Дадим сильную теорию</span> отработаем ее на практике в лучших музеях страны и глубоко погрузимся в специфику работы в сфере искусства.</p>
+           </div>
            <img src="../assets/image/Rectangle976.jpg" alt="">
          </div>
          <div class="education-footer">
@@ -340,7 +344,10 @@
     margin-bottom: 40px;
   }
 .image-bock-title {
-  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   .title {
     font-style: normal;
     font-weight: normal;
@@ -349,6 +356,7 @@
     text-align: center;
     text-transform: uppercase;
     color: #221F1A;
+    max-width: 80%;
 
     @media (max-width: 1000px) {
       font-size: 40px;
@@ -359,6 +367,7 @@
       line-height: 32px;
     }
   }
+
   .title-p {
     max-width: 565px;;
     font-style: italic;
@@ -426,6 +435,10 @@
       justify-content: space-between;
       flex: 1;
 
+      @media (max-width: 850px) {
+        height: 407px;
+      }
+
       @media (max-width: 650px) {
         border: none;
         border-bottom: 1px solid;
@@ -480,6 +493,10 @@
       justify-content: space-between;
       align-items: center;
       flex: 1;
+
+      @media (max-width: 850px) {
+        height: 407px;
+      }
 
       .page{
         font-size: 15px;
@@ -850,6 +867,10 @@
       @media (max-width: 650px) {
         font-size: 18px;
         line-height: 26px;
+      }
+
+      span {
+        color: red;
       }
     }
     img {

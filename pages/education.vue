@@ -9,7 +9,7 @@
                <img src="../assets/image/Pic-fit33.jpg" alt="">
              </div>
              <div class="education-page-header-content-block-title">
-               <p>Образование</p>
+               <p>Обучение</p>
              </div>
              <div class="education-page-header-content-block-description">
                <p>Третьяковская галерея ежегодно реализует многие выставочные, исследовательские и образовательные программы, проекты по развитию музея.  Поддержка Друзей Третьяковской галереи помогает в осуществлении значительной части этих проектов. </p>
@@ -24,24 +24,22 @@
            </div>
          </div>
          <div class="education-page-header-footer">
-           <div @click="activeTab = 'info'" :class="activeTab === 'info' ? 'active' : ''" class="education-page-header-footer-item ">
+           <div @click="activeTab = 'info'" :class="activeTab === 'info1' ? 'active' : ''" class="education-page-header-footer-item ">
              <p>О программе</p>
            </div>
-           <div @click="activeTab = 'block'" :class="activeTab === 'block' ? 'active' : ''" class="education-page-header-footer-item">
-             <p>Полезные материалы</p>
-           </div>
+<!--           <div @click="activeTab = 'block'" :class="activeTab === 'block' ? 'active' : ''" class="education-page-header-footer-item">-->
+<!--             <p>Полезные материалы</p>-->
+<!--           </div>-->
          </div>
        </div>
        <div v-if="activeTab === 'info'" class="education-page-content">
          <div class="education-page-content-buy-ticket">
              <div class="fixed-info" id="fixed-info">
                <div class="education-page-content-buy-ticket-date">
-                 <p class="item">ЦЕли</p>
-                 <p class="item">Описание</p>
-                 <p class="item">преподователи</p>
-                 <p class="item">отзывы</p>
-                 <p class="item">частые вопросы</p>
-                 <p class="item">контакты</p>
+                 <p class="item">Магистерская программа</p>
+                 <p class="item">Цель программы</p>
+                 <p class="item">Узнать больше</p>
+                 <p class="item">Как поступить?</p>
                </div>
              </div>
          </div>
@@ -65,28 +63,49 @@
              </div>
            </div>
            <div class="education-page-content-info-description">
-             <p>В сентябре 2020 года Государственная Третьяковская галерея и Балтийский федеральный университет им. И. Канта при поддержке проекта «Россия – Моя история» (Фонд Гуманитарных Проектов) запустили магистерскую программу «Кураторство и продюсирование музейных проектов». </p>
+             <p>Музейный куратор — одна из самых востребованных профессий в сфере культуры. Отрасли нужны специалисты, которые хотят сделать искусство понятным для широкой публики, готовы реализовывать интересные выставки и разрабатывать просветительские проекты. </p>
            </div>
            <div class="education-page-content-info-description">
-             <p>Это первый проект в рамках сотрудничества БФУ им. И. Канта и Третьяковской галереи в сфере новых компетенций в области культуры, искусства и музейного дела. Программа направлена на подготовку кадров как для строящегося в Калининграде филиала Третьяковской галереи, так и для музеев региона. Филиал Третьяковской галереи, открытие которого запланировано на декабрь 2023 года, станет частью Культурно-образовательного и музейного комплекса на Октябрьском острове, строительство которого осуществляется в рамках нацпроекта «Культура». </p>
+             <p>Всему этому можно научиться, став участником магистерской программы «Кураторство и продюсирование музейных проектов», которая проводится совместно с БФУ им. И. Канта при поддержке проекта «Россия — моя история».</p>
+           </div>
+           <div class="education-page-content-info-title">
+             <p>Магистерская программа «Кураторство и продюсирование музейных проектов»</p>
+           </div>
+           <div class="education-page-content-info-description">
+             <p>Современная и масштабная магистерская программа подготовки музейных работников  — совместный проект БФУ им. И. Канта и Третьяковской галереи. Программа разработана при участии специалистов из Москвы, Петербурга и Калининграда, и состоит из двух больших модулей: историко-культурного и практического. Об искусстве, культуре и специфике музейного дела вы узнаете от сотрудников ГТГ и их коллег из ведущих музеев России.</p>
            </div>
            <div class="education-page-content-info-title">
              <p>Цель программы</p>
            </div>
            <div class="education-page-content-info-description">
-             <p>Подготовить уникальных специалистов в области организации музейной деятельности, менеджмента и продюсирования музейных проектов, арт-критики, обладающих профильными теоретическими знаниями и практическими навыками подготовки и реализации проектов в сфере культуры и искусства.</p>
+             <p>Наша задача — обогатить регион культурными событиями как для публики, так и для музейных сотрудников, подготовить специалистов для работы в западном филиале Третьяковской галереи. За два года обучения вы станете грамотным экспертом, готовым к трудоустройству в Калининграде и любом другом культурном центре России</p>
+           </div>
+           <div class="education-page-content-info-description">
+             <p>Вы освоите профессию куратора и арт-менеджера, получите широкую теоретическую базу и все необходимые навыки для работы.</p>
+           </div>
+           <div class="education-page-content-info-description">
+             <p>Мы научим свободно ориентироваться в мире актуального искусства и современных музейных практик, понимать логику культурных проектов, видеть тренды и реализовывать сложные творческие и технические задачи. </p>
+           </div>
+           <div class="education-page-content-info-description">
+             <p>История искусств, теория искусства и эстетики, PR и маркетинг в сфере культуры — три главных направления теории, а в рамках практической части вы изучите менеджмент и продюсирование музейных мероприятий, основы фандрайзинга, экспозиционно-выставочной и кураторской деятельности. Также в обучение входит обязательная практика в Третьяковской галерее и музеях Калининграда.</p>
            </div>
            <div class="education-page-content-info-title">
-             <p>Описание программы</p>
+             <p>ДЛЯ ТЕХ, КТО ХОЧЕТ ПОПРОБОВАТЬ</p>
            </div>
            <div class="education-page-content-info-description">
-             <p>Программа готовит специалистов в области искусства и музейного дела для работы в качестве кураторов и арт-менеджеров.</p>
+             <p>Где узнать все подробности?</p>
+             <p>- Кнопка <a target="_blank" href="https://kantiana.ru/obrazovatelnye-programmy/magistratura/kuratorstvo-i-prodjusirovanie-muzejnyh-proektov/ ">«Узнать больше»</a> - при клике переход на соответствующую страницу на сайте БФУ им. И. Канта:</p>
+           </div>
+           <div class="education-page-content-info-title">
+             <p>Как поступить</p>
            </div>
            <div class="education-page-content-info-description">
-             <p>Выпускники программы будут свободно ориентироваться в мире актуального искусства и современных музейных практик, обладать широкой теоретической подготовкой в сфере искусства и музейной деятельности, а также необходимыми практическими навыками для работы в области кураторства и продюсирования музейных проектов.</p>
-           </div>
-           <div class="education-page-content-info-description">
-             <p>Историко-теоретические и прикладные дисциплины в рамках магистерской программы реализуются при активном участии профильных специалистов Государственной Третьяковской галереи.</p>
+             <p>Для участия во вступительном конкурсе нужны:</p>
+             <p>- мотивационное эссе</p>
+             <p>- копия диплома о высшем образовании</p>
+             <p>- дипломы об участии в конкурсах и олимпиадах</p>
+             <p>- сертификаты участника или докладчика на научных мероприятиях</p>
+             <p>Вопросы для эссе и полный список документов находятся <a class="link" href="">здесь</a> (активная ссылка на соответствующую страницу сайта БФУ им. И.Канта)</p>
            </div>
            <div class="education-page-content-info-services">
              <div class="education-page-content-info-services-left">
@@ -243,272 +262,272 @@
            </div>
          </div>
        </div>
-       <div v-if="activeTab === 'block'">
-         <div class="education-page-headerBlock">
-           <div class="education-page-headerBlock-title">
-             <p>Полезные материалы</p>
-           </div>
-           <div class="education-page-headerBlock-footer">
-             <div class="education-page-headerBlock-footer-item">
-               <img class="mr-1" src="../assets/image/(.svg" alt="">
-               <span>все рубрики</span>
-               <img class="ml-1" src="../assets/image/arrow.svg" alt="">
-               <img class="ml-1" src="../assets/image/).svg" alt="">
-             </div>
-             <div class="education-page-headerBlock-footer-item">
-               <img class="mr-1" src="../assets/image/(.svg" alt="">
-               <span>дата</span>
-               <img class="ml-1" src="../assets/image/arrow.svg" alt="">
-               <img class="ml-1" src="../assets/image/).svg" alt="">
-             </div>
-           </div>
-         </div>
-         <div class="education-page-block">
-           <div class="education-page-block-item">
-             <div class="education-page-block-item-text">
-               <div class="education-page-block-item-text-date">
-                 <p>18–31 ДЕК</p>
-               </div>
-               <div class="education-page-block-item-text-author">
-                 <p>Ход строительства</p>
-               </div>
-             </div>
-             <div class="education-page-block-item-img">
-               <img src="../assets/image/Pic-fit3.jpg" alt="">
-             </div>
-             <div class="education-page-block-item-title">
-               <p>экспозицию в здании на Крымском Валу</p>
-             </div>
-             <div class="education-page-block-item-description">
-               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>
-             </div>
-           </div>
-           <div class="education-page-block-item">
-             <div class="education-page-block-item-text">
-               <div class="education-page-block-item-text-date">
-                 <p>18–31 ДЕК</p>
-               </div>
-               <div class="education-page-block-item-text-author">
-                 <p>Ход строительства</p>
-               </div>
-             </div>
-             <div class="education-page-block-item-img">
-               <img src="../assets/image/Pic-fit3.jpg" alt="">
-             </div>
-             <div class="education-page-block-item-title">
-               <p>экспозицию в здании на Крымском Валу</p>
-             </div>
-             <div class="education-page-block-item-description">
-               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>
-             </div>
-           </div>
-           <div class="education-page-block-item">
-             <div class="education-page-block-item-text">
-               <div class="education-page-block-item-text-date">
-                 <p>18–31 ДЕК</p>
-               </div>
-               <div class="education-page-block-item-text-author">
-                 <p>Ход строительства</p>
-               </div>
-             </div>
-             <div class="education-page-block-item-img">
-               <img src="../assets/image/Pic-fit3.jpg" alt="">
-             </div>
-             <div class="education-page-block-item-title">
-               <p>экспозицию в здании на Крымском Валу</p>
-             </div>
-             <div class="education-page-block-item-description">
-               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>
-             </div>
-           </div>
-           <div class="education-page-block-item">
-             <div class="education-page-block-item-text">
-               <div class="education-page-block-item-text-date">
-                 <p>18–31 ДЕК</p>
-               </div>
-               <div class="education-page-block-item-text-author">
-                 <p>Ход строительства</p>
-               </div>
-             </div>
-             <div class="education-page-block-item-img">
-               <img src="../assets/image/Pic-fit3.jpg" alt="">
-             </div>
-             <div class="education-page-block-item-title">
-               <p>экспозицию в здании на Крымском Валу</p>
-             </div>
-             <div class="education-page-block-item-description">
-               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>
-             </div>
-           </div>
-           <div class="education-page-block-item">
-             <div class="education-page-block-item-text">
-               <div class="education-page-block-item-text-date">
-                 <p>18–31 ДЕК</p>
-               </div>
-               <div class="education-page-block-item-text-author">
-                 <p>Ход строительства</p>
-               </div>
-             </div>
-             <div class="education-page-block-item-img">
-               <img src="../assets/image/Pic-fit3.jpg" alt="">
-             </div>
-             <div class="education-page-block-item-title">
-               <p>экспозицию в здании на Крымском Валу</p>
-             </div>
-             <div class="education-page-block-item-description">
-               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>
-             </div>
-           </div>
-           <div class="education-page-block-item">
-             <div class="education-page-block-item-text">
-               <div class="education-page-block-item-text-date">
-                 <p>18–31 ДЕК</p>
-               </div>
-               <div class="education-page-block-item-text-author">
-                 <p>Ход строительства</p>
-               </div>
-             </div>
-             <div class="education-page-block-item-img">
-               <img src="../assets/image/Pic-fit3.jpg" alt="">
-             </div>
-             <div class="education-page-block-item-title">
-               <p>экспозицию в здании на Крымском Валу</p>
-             </div>
-             <div class="education-page-block-item-description">
-               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>
-             </div>
-           </div>
-           <div class="education-page-block-item">
-             <div class="education-page-block-item-text">
-               <div class="education-page-block-item-text-date">
-                 <p>18–31 ДЕК</p>
-               </div>
-               <div class="education-page-block-item-text-author">
-                 <p>Ход строительства</p>
-               </div>
-             </div>
-             <div class="education-page-block-item-img">
-               <img src="../assets/image/Pic-fit3.jpg" alt="">
-             </div>
-             <div class="education-page-block-item-title">
-               <p>экспозицию в здании на Крымском Валу</p>
-             </div>
-             <div class="education-page-block-item-description">
-               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>
-             </div>
-           </div>
-           <div class="education-page-block-item">
-             <div class="education-page-block-item-text">
-               <div class="education-page-block-item-text-date">
-                 <p>18–31 ДЕК</p>
-               </div>
-               <div class="education-page-block-item-text-author">
-                 <p>Ход строительства</p>
-               </div>
-             </div>
-             <div class="education-page-block-item-img">
-               <img src="../assets/image/Pic-fit3.jpg" alt="">
-             </div>
-             <div class="education-page-block-item-title">
-               <p>экспозицию в здании на Крымском Валу</p>
-             </div>
-             <div class="education-page-block-item-description">
-               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>
-             </div>
-           </div>
-           <div class="education-page-block-item">
-             <div class="education-page-block-item-text">
-               <div class="education-page-block-item-text-date">
-                 <p>18–31 ДЕК</p>
-               </div>
-               <div class="education-page-block-item-text-author">
-                 <p>Ход строительства</p>
-               </div>
-             </div>
-             <div class="education-page-block-item-img">
-               <img src="../assets/image/Pic-fit3.jpg" alt="">
-             </div>
-             <div class="education-page-block-item-title">
-               <p>экспозицию в здании на Крымском Валу</p>
-             </div>
-             <div class="education-page-block-item-description">
-               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>
-             </div>
-           </div>
-           <div class="education-page-block-item">
-             <div class="education-page-block-item-text">
-               <div class="education-page-block-item-text-date">
-                 <p>18–31 ДЕК</p>
-               </div>
-               <div class="education-page-block-item-text-author">
-                 <p>Ход строительства</p>
-               </div>
-             </div>
-             <div class="education-page-block-item-img">
-               <img src="../assets/image/Pic-fit3.jpg" alt="">
-             </div>
-             <div class="education-page-block-item-title">
-               <p>экспозицию в здании на Крымском Валу</p>
-             </div>
-             <div class="education-page-block-item-description">
-               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>
-             </div>
-           </div>
-           <div class="education-page-block-item">
-             <div class="education-page-block-item-text">
-               <div class="education-page-block-item-text-date">
-                 <p>18–31 ДЕК</p>
-               </div>
-               <div class="education-page-block-item-text-author">
-                 <p>Ход строительства</p>
-               </div>
-             </div>
-             <div class="education-page-block-item-img">
-               <img src="../assets/image/Pic-fit3.jpg" alt="">
-             </div>
-             <div class="education-page-block-item-title">
-               <p>экспозицию в здании на Крымском Валу</p>
-             </div>
-             <div class="education-page-block-item-description">
-               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>
-             </div>
-           </div>
-           <div class="education-page-block-item">
-             <div class="education-page-block-item-text">
-               <div class="education-page-block-item-text-date">
-                 <p>18–31 ДЕК</p>
-               </div>
-               <div class="education-page-block-item-text-author">
-                 <p>Ход строительства</p>
-               </div>
-             </div>
-             <div class="education-page-block-item-img">
-               <img src="../assets/image/Pic-fit3.jpg" alt="">
-             </div>
-             <div class="education-page-block-item-title">
-               <p>экспозицию в здании на Крымском Валу</p>
-             </div>
-             <div class="education-page-block-item-description">
-               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>
-             </div>
-           </div>
-         </div>
-         <div class="education-page-pagination line-block">
-           <div class="education-page-pagination-page">
-             <div class="flex">
-               <span>1</span>
-               <span class="active">2</span>
-               <span>3</span>
-               <span>4</span>
-               <span>...</span>
-               <span>10</span>
-             </div>
-             <img src="../assets/image/Vector99.svg" alt="">
-           </div>
-           <div class="line-dn"></div>
-           <div class="education-page-pagination-footer"></div>
-         </div>
-       </div>
+<!--       <div v-if="activeTab === 'block'">-->
+<!--         <div class="education-page-headerBlock">-->
+<!--           <div class="education-page-headerBlock-title">-->
+<!--             <p>Полезные материалы</p>-->
+<!--           </div>-->
+<!--           <div class="education-page-headerBlock-footer">-->
+<!--             <div class="education-page-headerBlock-footer-item">-->
+<!--               <img class="mr-1" src="../assets/image/(.svg" alt="">-->
+<!--               <span>все рубрики</span>-->
+<!--               <img class="ml-1" src="../assets/image/arrow.svg" alt="">-->
+<!--               <img class="ml-1" src="../assets/image/).svg" alt="">-->
+<!--             </div>-->
+<!--             <div class="education-page-headerBlock-footer-item">-->
+<!--               <img class="mr-1" src="../assets/image/(.svg" alt="">-->
+<!--               <span>дата</span>-->
+<!--               <img class="ml-1" src="../assets/image/arrow.svg" alt="">-->
+<!--               <img class="ml-1" src="../assets/image/).svg" alt="">-->
+<!--             </div>-->
+<!--           </div>-->
+<!--         </div>-->
+<!--         <div class="education-page-block">-->
+<!--           <div class="education-page-block-item">-->
+<!--             <div class="education-page-block-item-text">-->
+<!--               <div class="education-page-block-item-text-date">-->
+<!--                 <p>18–31 ДЕК</p>-->
+<!--               </div>-->
+<!--               <div class="education-page-block-item-text-author">-->
+<!--                 <p>Ход строительства</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-img">-->
+<!--               <img src="../assets/image/Pic-fit3.jpg" alt="">-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-title">-->
+<!--               <p>экспозицию в здании на Крымском Валу</p>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-description">-->
+<!--               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="education-page-block-item">-->
+<!--             <div class="education-page-block-item-text">-->
+<!--               <div class="education-page-block-item-text-date">-->
+<!--                 <p>18–31 ДЕК</p>-->
+<!--               </div>-->
+<!--               <div class="education-page-block-item-text-author">-->
+<!--                 <p>Ход строительства</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-img">-->
+<!--               <img src="../assets/image/Pic-fit3.jpg" alt="">-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-title">-->
+<!--               <p>экспозицию в здании на Крымском Валу</p>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-description">-->
+<!--               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="education-page-block-item">-->
+<!--             <div class="education-page-block-item-text">-->
+<!--               <div class="education-page-block-item-text-date">-->
+<!--                 <p>18–31 ДЕК</p>-->
+<!--               </div>-->
+<!--               <div class="education-page-block-item-text-author">-->
+<!--                 <p>Ход строительства</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-img">-->
+<!--               <img src="../assets/image/Pic-fit3.jpg" alt="">-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-title">-->
+<!--               <p>экспозицию в здании на Крымском Валу</p>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-description">-->
+<!--               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="education-page-block-item">-->
+<!--             <div class="education-page-block-item-text">-->
+<!--               <div class="education-page-block-item-text-date">-->
+<!--                 <p>18–31 ДЕК</p>-->
+<!--               </div>-->
+<!--               <div class="education-page-block-item-text-author">-->
+<!--                 <p>Ход строительства</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-img">-->
+<!--               <img src="../assets/image/Pic-fit3.jpg" alt="">-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-title">-->
+<!--               <p>экспозицию в здании на Крымском Валу</p>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-description">-->
+<!--               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="education-page-block-item">-->
+<!--             <div class="education-page-block-item-text">-->
+<!--               <div class="education-page-block-item-text-date">-->
+<!--                 <p>18–31 ДЕК</p>-->
+<!--               </div>-->
+<!--               <div class="education-page-block-item-text-author">-->
+<!--                 <p>Ход строительства</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-img">-->
+<!--               <img src="../assets/image/Pic-fit3.jpg" alt="">-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-title">-->
+<!--               <p>экспозицию в здании на Крымском Валу</p>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-description">-->
+<!--               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="education-page-block-item">-->
+<!--             <div class="education-page-block-item-text">-->
+<!--               <div class="education-page-block-item-text-date">-->
+<!--                 <p>18–31 ДЕК</p>-->
+<!--               </div>-->
+<!--               <div class="education-page-block-item-text-author">-->
+<!--                 <p>Ход строительства</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-img">-->
+<!--               <img src="../assets/image/Pic-fit3.jpg" alt="">-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-title">-->
+<!--               <p>экспозицию в здании на Крымском Валу</p>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-description">-->
+<!--               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="education-page-block-item">-->
+<!--             <div class="education-page-block-item-text">-->
+<!--               <div class="education-page-block-item-text-date">-->
+<!--                 <p>18–31 ДЕК</p>-->
+<!--               </div>-->
+<!--               <div class="education-page-block-item-text-author">-->
+<!--                 <p>Ход строительства</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-img">-->
+<!--               <img src="../assets/image/Pic-fit3.jpg" alt="">-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-title">-->
+<!--               <p>экспозицию в здании на Крымском Валу</p>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-description">-->
+<!--               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="education-page-block-item">-->
+<!--             <div class="education-page-block-item-text">-->
+<!--               <div class="education-page-block-item-text-date">-->
+<!--                 <p>18–31 ДЕК</p>-->
+<!--               </div>-->
+<!--               <div class="education-page-block-item-text-author">-->
+<!--                 <p>Ход строительства</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-img">-->
+<!--               <img src="../assets/image/Pic-fit3.jpg" alt="">-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-title">-->
+<!--               <p>экспозицию в здании на Крымском Валу</p>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-description">-->
+<!--               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="education-page-block-item">-->
+<!--             <div class="education-page-block-item-text">-->
+<!--               <div class="education-page-block-item-text-date">-->
+<!--                 <p>18–31 ДЕК</p>-->
+<!--               </div>-->
+<!--               <div class="education-page-block-item-text-author">-->
+<!--                 <p>Ход строительства</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-img">-->
+<!--               <img src="../assets/image/Pic-fit3.jpg" alt="">-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-title">-->
+<!--               <p>экспозицию в здании на Крымском Валу</p>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-description">-->
+<!--               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="education-page-block-item">-->
+<!--             <div class="education-page-block-item-text">-->
+<!--               <div class="education-page-block-item-text-date">-->
+<!--                 <p>18–31 ДЕК</p>-->
+<!--               </div>-->
+<!--               <div class="education-page-block-item-text-author">-->
+<!--                 <p>Ход строительства</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-img">-->
+<!--               <img src="../assets/image/Pic-fit3.jpg" alt="">-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-title">-->
+<!--               <p>экспозицию в здании на Крымском Валу</p>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-description">-->
+<!--               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="education-page-block-item">-->
+<!--             <div class="education-page-block-item-text">-->
+<!--               <div class="education-page-block-item-text-date">-->
+<!--                 <p>18–31 ДЕК</p>-->
+<!--               </div>-->
+<!--               <div class="education-page-block-item-text-author">-->
+<!--                 <p>Ход строительства</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-img">-->
+<!--               <img src="../assets/image/Pic-fit3.jpg" alt="">-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-title">-->
+<!--               <p>экспозицию в здании на Крымском Валу</p>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-description">-->
+<!--               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="education-page-block-item">-->
+<!--             <div class="education-page-block-item-text">-->
+<!--               <div class="education-page-block-item-text-date">-->
+<!--                 <p>18–31 ДЕК</p>-->
+<!--               </div>-->
+<!--               <div class="education-page-block-item-text-author">-->
+<!--                 <p>Ход строительства</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-img">-->
+<!--               <img src="../assets/image/Pic-fit3.jpg" alt="">-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-title">-->
+<!--               <p>экспозицию в здании на Крымском Валу</p>-->
+<!--             </div>-->
+<!--             <div class="education-page-block-item-description">-->
+<!--               <p>C самого начала войны советские художники приняли в ней участие: кто-то как фронтовой художник-корреспондент</p>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--         </div>-->
+<!--         <div class="education-page-pagination line-block">-->
+<!--           <div class="education-page-pagination-page">-->
+<!--             <div class="flex">-->
+<!--               <span>1</span>-->
+<!--               <span class="active">2</span>-->
+<!--               <span>3</span>-->
+<!--               <span>4</span>-->
+<!--               <span>...</span>-->
+<!--               <span>10</span>-->
+<!--             </div>-->
+<!--             <img src="../assets/image/Vector99.svg" alt="">-->
+<!--           </div>-->
+<!--           <div class="line-dn"></div>-->
+<!--           <div class="education-page-pagination-footer"></div>-->
+<!--         </div>-->
+<!--       </div>-->
      </div>
     <Footer/>
   </div>
@@ -1099,6 +1118,8 @@ export default {
           padding-bottom: 40px;
           border-bottom: 1px solid;
           position: relative;
+          margin-right: 20px;
+
 
           &::after {
             content: '';
@@ -1231,8 +1252,8 @@ export default {
           color: #221F1A;
           margin-bottom: 40px;
 
-          @media (max-width: 850px) {
-            font-size: 22px;
+          @media (max-width: 650px) {
+            font-size: 25px;
             line-height: 25px;
           }
 
@@ -1255,6 +1276,11 @@ export default {
           line-height: 26px;
           color: #221F1A;
           margin-bottom: 25px;
+
+          .link {
+            color: blue;
+            border-bottom: 2px solid;
+          }
 
           @media (max-width: 850px) {
             margin-bottom: 20px;
@@ -1637,11 +1663,14 @@ export default {
               color: #221F1A;
             }
             &-email {
+              border-bottom: 1px solid;
+              padding-bottom: 2px;
               font-style: normal;
               font-weight: normal;
               font-size: 15px;
               line-height: 20px;
               color: #000000;
+              width: fit-content;
             }
           }
         }

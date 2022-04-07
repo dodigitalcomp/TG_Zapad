@@ -22,18 +22,39 @@
         <p>ректор БФУ им. И. Канта</p>
       </div>
     </div>
+    <div v-if="count == 3" class="teachers-item border-left">
+      <div class="teachers-item-image">
+        <img  src="../assets/image/photos/image44.jpg" alt="">
+      </div>
+      <div class="teachers-item-name">
+        <p>Александр Федоров</p>
+      </div>
+      <div class="teachers-item-specialization">
+        <p>ректор БФУ им. И. Канта</p>
+      </div>
+    </div>
     <img class="teachers-arrow-left" src="../assets/image/Vector999.svg">
     <img class="teachers-arrow-right" src="../assets/image/Vector199.svg">
   </div>
 </template>
 
 <script>
-    export default {
-        name: "Teachers"
-    }
+export default {
+  name: "Teachers",
+  props: ['count']
+}
 </script>
 
 <style scoped lang="scss">
+
+  .border-left {
+    border-left: 1px solid;
+
+    @media (max-width: 650px) {
+      display: none !important;
+    }
+  }
+
  .teachers {
      border-bottom: 1px solid;
      border-top: 1px solid;

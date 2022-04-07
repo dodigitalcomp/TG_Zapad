@@ -30,7 +30,7 @@
                <img src="../assets/image/Pic-fit33.jpg" alt="">
              </div>
              <div class="event-page-header-content-block-title">
-               <p>Мечты о свободе <span>Романтизм в России и германии</span></p>
+               <p>Мечты о свободе <span class="william">Романтизм в России и германии</span></p>
              </div>
              <div class="event-page-header-content-block-description">
                <p>Для взрослых слушателей</p>
@@ -106,7 +106,7 @@
              <p>В Санкт-Петербурге основана Императорская Академия художеств.
                На русской почве неповторимое своеобразие приобретают барокко, рококо, классицизм, сентиментализм. Искусство классицизма воплотило идеалы эпохи Просвещения, стремившейся к познанию мира силами просвещенного разума и чувства. В иерархии академических жанров главная роль принадлежала исторической картине. Неоспоримы художественные достоинства портретов, созданных Фёдором Рокотовым, Дмитрием Левицким, Владимиром Боровиковским. </p>
            </div>
-           <VueSwiper/>
+           <VueSwiper text="Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств. "/>
            <div class="event-page-content-info-text">
              <p class="event-page-content-info-text-title">Отношение к русской культуре</p>
              <p class="event-page-content-info-text-description">В Санкт-Петербурге основана Императорская Академия художеств.
@@ -177,7 +177,8 @@
            </div>
          </div>
        </div>
-       <div class="event-page-pagination line-block">
+       <Partners/>
+       <div class="event-page-pagination line-block mt-20">
          <div class="event-page-pagination-title">
            <p>похожие события</p>
          </div>
@@ -206,7 +207,7 @@
              <img src="../assets/image/Pic-fit3.jpg" alt="">
            </div>
            <div class="event-page-block-item-title">
-             <p>Вильямс П.В. <span>история одной работы</span></p>
+             <p>Вильямс П.В. <span class="william">история одной работы</span></p>
            </div>
            <div class="event-page-block-item-authorMini">
              <img src="../assets/image/pin1.svg" alt="">
@@ -229,7 +230,7 @@
              <img src="../assets/image/Pic-fit3.jpg" alt="">
            </div>
            <div class="event-page-block-item-title">
-             <p>«Маленький человек» Кабакова <span>и русская живопись XIX века</span></p>
+             <p>«Маленький человек» Кабакова <span class="william">и русская живопись XIX века</span></p>
            </div>
            <div class="event-page-block-item-authorMini">
              <img src="../assets/image/pin1.svg" alt="">
@@ -252,7 +253,7 @@
              <img src="../assets/image/Pic-fit3.jpg" alt="">
            </div>
            <div class="event-page-block-item-title">
-             <p>фотография во времена <span>самоизоляции</span></p>
+             <p>фотография во времена <span class="william">самоизоляции</span></p>
            </div>
            <div class="event-page-block-item-authorMini">
              <img src="../assets/image/pin1.svg" alt="">
@@ -270,9 +271,10 @@
   import Header from "../components/Header";
   import Footer from "../components/Footer";
   import VueSwiper from "../components/VueSwiper";
+  import Partners from "../components/Partniors";
   export default {
     name: "eventPage",
-    components: {VueSwiper, Footer, Header},
+    components: {Partners, VueSwiper, Footer, Header},
     mounted() {
       const info = document.getElementById('fixed-info')
       addEventListener('scroll', function () {
@@ -305,6 +307,10 @@
 
 <style scoped lang="scss">
 
+
+  .mt-20 {
+    margin-top: 40px;
+  }
 
 
   .event-page {
