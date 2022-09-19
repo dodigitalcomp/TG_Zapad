@@ -1,31 +1,31 @@
 <template>
   <div>
     <Header bgcolor="yellow" logoColor="black"/>
-     <div class="education-page">
+     <div class="education-page" v-if="education">
        <div class="education-page-header">
          <div class="education-page-header-content">
            <div class="education-page-header-content-block">
              <div class="education-page-header-content-block-imgMini">
-               <img src="../assets/image/Pic-fit33.jpg" alt="">
+               <img :src="education.previewPicture" alt="">
              </div>
              <div class="education-page-header-content-block-title">
-               <p>Обучение</p>
+               <p v-if="education">{{education.name}}</p>
              </div>
              <div class="education-page-header-content-block-description">
-               <p>Третьяковская галерея ежегодно реализует многие выставочные, исследовательские и образовательные программы, проекты по развитию музея.  Поддержка Друзей Третьяковской галереи помогает в осуществлении значительной части этих проектов. </p>
+               <p v-if="education">{{education.previewText}}</p>
              </div>
              <div class="education-page-header-content-block-info">
                <img src="../assets/image/infoOutline.svg" alt="">
-               <p>Как поступить</p>
+               <p v-if="langPhrase">{{langPhrase.how}}</p>
              </div>
            </div>
            <div class="education-page-header-content-img">
-             <img src="../assets/image/Pic-fit001.jpg" alt="">
+             <img :src="education.previewPicture" alt="">
            </div>
          </div>
          <div class="education-page-header-footer">
            <div @click="activeTab = 'info'" :class="activeTab === 'info1' ? 'active' : ''" class="education-page-header-footer-item ">
-             <p>О программе</p>
+             <p v-if="langPhrase">{{langPhrase.about}}</p>
            </div>
 <!--           <div @click="activeTab = 'block'" :class="activeTab === 'block' ? 'active' : ''" class="education-page-header-footer-item">-->
 <!--             <p>Полезные материалы</p>-->
@@ -35,194 +35,106 @@
        <div v-if="activeTab === 'info'" class="education-page-content">
          <div class="education-page-content-buy-ticket">
              <div class="fixed-info" id="fixed-info">
-               <div class="education-page-content-buy-ticket-date">
-                 <p class="item">Магистерская программа</p>
-                 <p class="item">Цель программы</p>
-                 <p class="item">Узнать больше</p>
-                 <p class="item">Как поступить?</p>
+               <div class="education-page-content-buy-ticket-date" v-if="education && education.anchor && education.anchor.title">
+                 <p class="item" v-for="(item, i) in education.anchor.title" :key="i">{{item}}</p>
                </div>
              </div>
          </div>
          <div class="education-page-content-info">
            <div class="education-page-content-info-type">
              <div class="education-page-content-info-type-item">
-               <p class="education-page-content-info-type-item-description">язык обучения</p>
-               <p class="education-page-content-info-type-item-title">русский</p>
+               <p class="education-page-content-info-type-item-description" v-if="langPhrase">{{langPhrase.lang}}</p>
+               <p class="education-page-content-info-type-item-title" v-if="education">{{education.lang}}</p>
              </div>
              <div class="education-page-content-info-type-item">
-               <p class="education-page-content-info-type-item-description">продолжительность</p>
-               <p class="education-page-content-info-type-item-title">2 года</p>
+               <p class="education-page-content-info-type-item-description" v-if="langPhrase">{{langPhrase.duration}}</p>
+               <p class="education-page-content-info-type-item-title" v-if="education">{{education.duration}}</p>
              </div>
              <div class="education-page-content-info-type-item">
-               <p class="education-page-content-info-type-item-description">форма обучения</p>
-               <p class="education-page-content-info-type-item-title">очная</p>
+               <p class="education-page-content-info-type-item-description" v-if="langPhrase">{{langPhrase.formTraining}}</p>
+               <p class="education-page-content-info-type-item-title" v-if="education">{{education.formTraining}}</p>
              </div>
              <div class="education-page-content-info-type-item">
-               <p class="education-page-content-info-type-item-description">возможности</p>
-               <p class="education-page-content-info-type-item-title">бюджет/контракт</p>
+               <p class="education-page-content-info-type-item-description" v-if="langPhrase">{{langPhrase.opportunities}}</p>
+               <p class="education-page-content-info-type-item-title" v-if="education">{{education.opportunities}}</p>
              </div>
            </div>
-           <div class="education-page-content-info-description">
-             <p>Музейный куратор — одна из самых востребованных профессий в сфере культуры. Отрасли нужны специалисты, которые хотят сделать искусство понятным для широкой публики, готовы реализовывать интересные выставки и разрабатывать просветительские проекты. </p>
-           </div>
-           <div class="education-page-content-info-description">
-             <p>Всему этому можно научиться, став участником магистерской программы «Кураторство и продюсирование музейных проектов», которая проводится совместно с БФУ им. И. Канта при поддержке проекта «Россия — моя история».</p>
-           </div>
-           <div class="education-page-content-info-title">
-             <p>Магистерская программа «Кураторство и продюсирование музейных проектов»</p>
-           </div>
-           <div class="education-page-content-info-description">
-             <p>Современная и масштабная магистерская программа подготовки музейных работников  — совместный проект БФУ им. И. Канта и Третьяковской галереи. Программа разработана при участии специалистов из Москвы, Петербурга и Калининграда, и состоит из двух больших модулей: историко-культурного и практического. Об искусстве, культуре и специфике музейного дела вы узнаете от сотрудников ГТГ и их коллег из ведущих музеев России.</p>
-           </div>
-           <div class="education-page-content-info-title">
-             <p>Цель программы</p>
-           </div>
-           <div class="education-page-content-info-description">
-             <p>Наша задача — обогатить регион культурными событиями как для публики, так и для музейных сотрудников, подготовить специалистов для работы в западном филиале Третьяковской галереи. За два года обучения вы станете грамотным экспертом, готовым к трудоустройству в Калининграде и любом другом культурном центре России</p>
-           </div>
-           <div class="education-page-content-info-description">
-             <p>Вы освоите профессию куратора и арт-менеджера, получите широкую теоретическую базу и все необходимые навыки для работы.</p>
-           </div>
-           <div class="education-page-content-info-description">
-             <p>Мы научим свободно ориентироваться в мире актуального искусства и современных музейных практик, понимать логику культурных проектов, видеть тренды и реализовывать сложные творческие и технические задачи. </p>
-           </div>
-           <div class="education-page-content-info-description">
-             <p>История искусств, теория искусства и эстетики, PR и маркетинг в сфере культуры — три главных направления теории, а в рамках практической части вы изучите менеджмент и продюсирование музейных мероприятий, основы фандрайзинга, экспозиционно-выставочной и кураторской деятельности. Также в обучение входит обязательная практика в Третьяковской галерее и музеях Калининграда.</p>
-           </div>
-           <div class="education-page-content-info-title">
-             <p>ДЛЯ ТЕХ, КТО ХОЧЕТ ПОПРОБОВАТЬ</p>
-           </div>
-           <div class="education-page-content-info-description">
-             <p>Где узнать все подробности?</p>
-             <p>- Кнопка <a target="_blank" href="https://kantiana.ru/obrazovatelnye-programmy/magistratura/kuratorstvo-i-prodjusirovanie-muzejnyh-proektov/ ">«Узнать больше»</a> - при клике переход на соответствующую страницу на сайте БФУ им. И. Канта:</p>
-           </div>
-           <div class="education-page-content-info-title">
-             <p>Как поступить</p>
-           </div>
-           <div class="education-page-content-info-description">
-             <p>Для участия во вступительном конкурсе нужны:</p>
-             <p>- мотивационное эссе</p>
-             <p>- копия диплома о высшем образовании</p>
-             <p>- дипломы об участии в конкурсах и олимпиадах</p>
-             <p>- сертификаты участника или докладчика на научных мероприятиях</p>
-             <p>Вопросы для эссе и полный список документов находятся <a class="link" href="">здесь</a> (активная ссылка на соответствующую страницу сайта БФУ им. И.Канта)</p>
-           </div>
+           <div class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[0]"></div>
+           <div class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[1]"></div>
+           <div class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[2]"></div>
+           <div class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[3]"></div>
            <div class="education-page-content-info-services">
-             <div class="education-page-content-info-services-left">
-                <p class="education-page-content-info-services-left-title">
-                  Специализации
+             <div class="education-page-content-info-services-left" v-if="education && education.specializations">
+                <p class="education-page-content-info-services-left-title" v-if="langPhrase">
+                  {{langPhrase.specializations}}
                 </p>
-                <div class="education-page-content-info-services-left-item">
+                <div class="education-page-content-info-services-left-item" v-for="(item, i) in education.specializations">
                   <img src="../assets/image/Rectangle1108.svg" alt="">
-                  <p>Международное право</p>
-                </div>
-                <div class="education-page-content-info-services-left-item">
-                  <img src="../assets/image/Rectangle1108.svg" alt="">
-                  <p>Международное право</p>
+                  <p>{{item}}</p>
                 </div>
              </div>
              <div class="education-page-content-info-services-left">
-               <p class="education-page-content-info-services-left-title">
-                 Программа курса
+               <p class="education-page-content-info-services-left-title" v-if="langPhrase">
+                 {{langPhrase.courseProgram}}
                </p>
                <div class="education-page-content-info-services-left-item">
                  <img src="../assets/image/Group591.svg" alt="">
-                 <div>
-                   <p>Программа курса</p>
+                 <div v-if="langPhrase">
+                   <p>{{langPhrase.courseProgram}}</p>
                    <p>PDF, 390 КБ</p>
                  </div>
                </div>
              </div>
            </div>
            <div class="education-page-content-info-title title-border">
-             <p>Это очень волнующее и ответственное событие для филиала Третьяковской галереи в Калининграде: запуск первой магистерской программы с Балтийским федеральным университетом.</p>
+             <p v-if="education && education.quote">{{education.quote}}</p>
            </div>
            <div class="education-page-content-info-held">
              <div class="education-page-content-info-held-items">
-               <div class="flex items-center">
-                 <img src="../assets/image/image300.jpg" alt="">
+               <div class="flex items-center" v-if="education.quoteAuthor">
+                 <img :src="education.quoteAuthor.img" alt="">
                  <div class="m-4">
-                   <p>Любовь Головина</p>
-                   <p class="city">ректор БФУ им. И. Канта</p>
+                   <p>{{education.quoteAuthor.name}}</p>
+                   <p class="city">{{education.quoteAuthor.staffPost}}</p>
                  </div>
                </div>
              </div>
            </div>
-           <VueSwiper text="Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств. "/>
-           <div class="education-page-content-info-title">
-             <p>преподаватели</p>
+           <VueSwiper :images="education.photos" v-if="education" :text="education.sliderName"/>
+           <div class="education-page-content-info-title" v-if="langPhrase">
+             <p>{{langPhrase.teacher}}</p>
            </div>
-           <Teachers/>
-           <div class="education-page-content-info-title">
-             <p>Частые вопросы</p>
+           <Teachers v-if="education && education.teachers" :data="education.teachers"/>
+           <div class="education-page-content-info-title" v-if="langPhrase">
+             <p>{{langPhrase.faq}}</p>
            </div>
-           <div class="education-page-content-info-block">
-             <div class="education-page-content-info-block-item">
-               <div class="education-page-content-info-block-item-title" @click="openText = !openText">
-                 <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
+           <div class="education-page-content-info-block" v-if="faqList">
+             <div class="education-page-content-info-block-item" v-for="(item, i) in faqList" :key="i">
+               <div class="education-page-content-info-block-item-title" :data-active="faqList[i].active" @click="toggleFaq(i)">
+                 <img v-if="item.active" class="line" src="../assets/image/minus.svg" alt="">
                  <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                 <p>Кто такие друзья Третьяковки?</p>
+                 <p>{{item.question}}</p>
                </div>
-               <div v-if="openText" class="education-page-content-info-block-item-description">
-                 <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
+               <div v-if="item.active" class="education-page-content-info-block-item-description">
+                 <p >{{item.answer}}</p>
                </div>
              </div>
-             <div class="education-page-content-info-block-item">
-               <div class="education-page-content-info-block-item-title" @click="openText = !openText">
-                 <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                 <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                 <p>Кто такие друзья Третьяковки?</p>
-               </div>
-               <div v-if="openText" class="education-page-content-info-block-item-description">
-                 <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
-               </div>
-             </div>
-             <div class="education-page-content-info-block-item">
-               <div class="education-page-content-info-block-item-title" @click="openText = !openText">
-                 <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                 <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                 <p>Кто такие друзья Третьяковки?</p>
-               </div>
-               <div v-if="openText" class="education-page-content-info-block-item-description">
-                 <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
-               </div>
-             </div>
-             <div class="education-page-content-info-block-item">
-               <div class="education-page-content-info-block-item-title" @click="openText = !openText">
-                 <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                 <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                 <p>Кто такие друзья Третьяковки?</p>
-               </div>
-               <div v-if="openText" class="education-page-content-info-block-item-description">
-                 <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
-               </div>
-             </div>
-             <div class="education-page-content-info-block-item">
-               <div class="education-page-content-info-block-item-title" @click="openText = !openText">
-                 <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                 <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                 <p>Кто такие друзья Третьяковки?</p>
-               </div>
-               <div v-if="openText" class="education-page-content-info-block-item-description">
-                 <p >Друзья Третьяковки — это постоянные посетители музея, вступившие в одноименную программу лояльности для оказания финансовой поддержки Галереи и ее проектов. За внимание и помощь Галерея предлагает своим друзьям эксклюзивные бонусы. </p>
-               </div>
-             </div>
-             <div class="education-page-content-info-block-button">
+             <div class="education-page-content-info-block-button" v-if="langPhrase">
                <img class="mr-1" src="../assets/image/(.svg" alt="">
-               <span>задать вопрос</span>
+               <span>{{langPhrase.makeQuestion}}</span>
                <img class="ml-1" src="../assets/image/).svg" alt="">
              </div>
            </div>
-           <div class="education-page-content-info-title">
-             <p>Партнер программы</p>
+           <div class="education-page-content-info-title" v-if="langPhrase">
+             <p>{{langPhrase.partner}}</p>
            </div>
            <div class="education-page-content-info-partner">
              <div class="education-page-content-info-partner-image">
                <img src="../assets/image/Group607.svg" alt="">
              </div>
              <div class="education-page-content-info-partner-text">
-               <p class="education-page-content-info-partner-text-name">Фонд Гуманитарных Проектов</p>
-               <p class="education-page-content-info-partner-text-email">expohistory.ru </p>
+               <p class="education-page-content-info-partner-text-name">{{education.partnerText}}</p>
+<!--               <p class="education-page-content-info-partner-text-email">expohistory.ru </p>-->
              </div>
            </div>
            <div class="education-page-content-info-title">
@@ -538,44 +450,72 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import VueSwiper from "../components/VueSwiper";
 import Teachers from "../components/Teachers";
+import { mapActions, mapState} from 'vuex'
+
 export default {
   name: "education",
   components: {Teachers, VueSwiper, Footer, Header},
-    data () {
-      return {
-        activeTab: 'info',
-        openText: false
-      }
-    },
-    mounted() {
-        const info = document.getElementById('fixed-info')
-        addEventListener('scroll', function () {
-            let scroll = 648
-            let scrollEnd = 4746
-            let scrollEnd2 = 5100
-            let top = '94%'
-            if (window.innerWidth < 850) {
-                scroll = 881
-                scrollEnd = 4940
-                scrollEnd2 = 5200
-                top = '94%'
-            }
-            console.log(window.scrollY)
-            if (window.scrollY > scroll && window.scrollY < scrollEnd) {
-                info.style.position = 'fixed'
-                info.style.top = '120px'
-                info.style.left = '20px'
-            }  else if (window.scrollY >= scrollEnd && window.scrollY < scrollEnd2) {
-                info.style.position = 'absolute'
-                info.style.top = top
-                info.style.left = '0'
-            } else {
-                info.style.position = 'relative'
-                info.style.top = '0'
-                info.style.left = '0'
-            }
-        })
+  data() {
+    return {
+      activeTab: 'info',
+      faqList: [],
+      openText: false
     }
+  },
+  computed: {
+    ...mapState({
+      education: (state) => state.education.education,
+      langPhrase: (state) => state.education.langPhrase,
+      faq: (state) => state.education.faq,
+      head: (state) => state.education.head
+    })
+  },
+  mounted() {
+    this.getData().then((res) => {
+      if (res.content.faq.listItem && res.content.faq.listItem.length) {
+        const arr = JSON.parse(JSON.stringify(res.content.faq.listItem))
+        this.faqList = arr.map((item) => {
+          item.active = false
+          return item
+        })
+      }
+
+    })
+    const info = document.getElementById('fixed-info')
+    addEventListener('scroll', function () {
+      let scroll = 648
+      let scrollEnd = 4746
+      let scrollEnd2 = 5100
+      let top = '94%'
+      if (window.innerWidth < 850) {
+        scroll = 881
+        scrollEnd = 4940
+        scrollEnd2 = 5200
+        top = '94%'
+      }
+      if (window.scrollY > scroll && window.scrollY < scrollEnd) {
+        info.style.position = 'fixed'
+        info.style.top = '120px'
+        info.style.left = '20px'
+      } else if (window.scrollY >= scrollEnd && window.scrollY < scrollEnd2) {
+        info.style.position = 'absolute'
+        info.style.top = top
+        info.style.left = '0'
+      } else {
+        info.style.position = 'relative'
+        info.style.top = '0'
+        info.style.left = '0'
+      }
+    })
+  },
+  methods: {
+    ...mapActions({
+      getData: 'education/getData',
+    }),
+    toggleFaq (i) {
+      this.faqList[i].active = !this.faqList[i].active
+    }
+  }
 }
 </script>
 

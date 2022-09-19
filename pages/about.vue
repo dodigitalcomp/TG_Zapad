@@ -3,20 +3,20 @@
     <Header bgcolor="yellow" logoColor="black"/>
     <div class="about">
       <div class="about-hider">
-        <div class="about-hider-img">
-          <img src="../assets/image/photos/image59.jpg" alt="">
+        <div class="about-hider-img" >
+          <img v-if="property" :src="property.main_img" alt="">
         </div>
         <div class="about-hider-title">
-          <p>Искусство России <span class="william">в контексте Европы</span>
+          <p v-if="head">{{head.h1}}<span class="william" v-if="property"> {{property.cursiveTitle}}</span>
           </p>
         </div>
         <div class="about-hider-footer">
           <div  class="about-hider-footer-title">
-            <p>Наша миссия</p>
+            <p v-if="property">{{property.h2}}</p>
           </div>
           <div class="about-hider-footer-content">
             <div class="about-hider-footer-content-left">
-              <p>Среда задает свои правила: в российском городе, пропитанном европейской культурой, мы создали площадку, которая отражает органичное взаимодействие разных культур и показывает их диалог через искусство. </p>
+              <p v-if="property">{{property.text}}</p>
             </div>
             <div class="about-hider-footer-content-right">
               <div class="about-hider-footer-content-right-line"></div>
@@ -26,118 +26,56 @@
       </div>
       <div class="about-content">
         <div class="about-content-galleria">
-          <Galleria/>
+          <Galleria :images="slider" :index="selectPage"/>
         </div>
         <div class="about-content-pagination">
           <p class="about-content-pagination-max">
-            <span class="page active">1</span>
-            <span class="page">2</span>
-            <span class="page">3</span>
+            <span class="page " :class="selectPage === i ? 'active' : ''" v-for="(item, i) in slider" @click="selectPage = i" :key="i">{{i + 1}}</span>
           </p>
           <p class="about-content-pagination-min">
-            <span class="page active">1</span>
-            <span class="page">/</span>
-            <span class="page">3</span>
+            <span class="page " :class="selectPage === i ? 'active' : ''" v-for="(item, i) in slider" @click="selectPage = i" :key="i">{{i + 1}}</span>
           </p>
           <div class="icon">
             <img  src="../assets/image/Ellipse.svg" alt="">
           </div>
         </div>
       </div>
-      <div class="about-block">
+      <div class="about-block" v-if="aboutListItems && aboutListItems.length">
         <div class="about-block-title">
         </div>
-        <div class="about-block-item">
+        <div class="about-block-item" v-for="(item, i) in aboutListItems" :key="i">
           <div  class="about-block-item-img">
-            <img src="../assets/image/photos/Rectangle976.jpg" alt="">
+            <img :src="item.img" alt="">
           </div>
           <div  class="about-block-item-info">
             <div class="about-block-item-info-title">
-              <p>Инициативы музея</p>
+              <p>{{item.name}}</p>
             </div>
             <div class="about-block-item-info-description">
-              <p>Как русское искусство живет в контексте искусства европейского и мирового? Как оно отражает время и его смыслы? Каждая выставка будет давать новые ответы на эти вопросы. С помощью собраний лучших музеев страны вы сможете <span>рассмотреть</span> уникальный сплав культурных традиций, который <span>веками отражался в творчестве</span> русских художников.</p>
+              <p>{{item.text}}</p>
             </div>
-            <div class="about-block-item-info-button">
+            <NuxtLink tag="div" :to="item.link" class="about-block-item-info-button">
               <img class="mr-1" src="../assets/image/(.svg" alt="">
-              <span>Афиша событий</span>
+              <span>{{item.link_name}}</span>
               <img class="ml-1" src="../assets/image/).svg" alt="">
-            </div>
-          </div>
-        </div>
-        <div class="about-block-item">
-          <div  class="about-block-item-img">
-            <img src="../assets/image/photos/Rectangle976.jpg" alt="">
-          </div>
-          <div  class="about-block-item-info">
-            <div class="about-block-item-info-title">
-              <p>Выставочная программа</p>
-            </div>
-            <div class="about-block-item-info-description">
-              <p>В рамках кросс-культурной выставочной программы мы проведем ряд масштабных выставок. Вы увидите легендарные и редкие произведения из коллекций Третьяковской галереи, Эрмитажа и Русского музея, познакомитесь с авангардом, соцреализмом и другими ключевыми <span>направлениями и значимыми движениями отечественного искусства</span></p>
-            </div>
-            <div class="about-block-item-info-button">
-              <img class="mr-1" src="../assets/image/(.svg" alt="">
-              <span>Афиша событий</span>
-              <img class="ml-1" src="../assets/image/).svg" alt="">
-            </div>
-          </div>
-        </div>
-        <div class="about-block-item">
-          <div  class="about-block-item-img">
-            <img src="../assets/image/photos/Rectangle976.jpg" alt="">
-          </div>
-          <div  class="about-block-item-info">
-            <div class="about-block-item-info-title">
-              <p>Обучение</p>
-            </div>
-            <div class="about-block-item-info-description">
-              <p>Музейный куратор — одна из самых востребованных профессий в сфере культуры. Отрасли нужны специалисты, которые хотят сделать искусство понятным для широкой публики, готовы реализовывать интересные выставки и разрабатывать просветительские проекты. </p>
-              <p>Всему этому можно научиться, став участником магистерской программы «Кураторство и продюсирование музейных проектов», которая проводится совместно с БФУ им. И. Канта при поддержке проекта «Россия — моя история».</p>
-            </div>
-            <div class="about-block-item-info-button">
-              <img class="mr-1" src="../assets/image/(.svg" alt="">
-              <span>Афиша событий</span>
-              <img class="ml-1" src="../assets/image/).svg" alt="">
-            </div>
+            </NuxtLink>
           </div>
         </div>
       </div>
-      <div class="about-title">
-        <p>Люди и лица</p>
+      <div class="about-title" v-if="people && people.langPhrase">
+        <p>{{people.langPhrase.title}}</p>
       </div>
-      <div class="p-left-20">
-        <Teachers count="3"/>
+      <div class="p-left-20" v-if="people && people.listItems">
+        <Teachers :data="people.listItems"/>
       </div>
       <div class="about-partners">
-        <div  class="about-partners-title">
-          <p>Партнёры</p>
+        <div  class="about-partners-title" v-if="partners && partners.langPhrase">
+          <p>{{partners.langPhrase.title}}</p>
         </div>
-        <div class="about-partners-block">
-          <div  class="about-partners-block-item">
-            <img src="../assets/image/photos/image46.svg" alt="">
-          </div>
-          <div  class="about-partners-block-item">
-            <img src="../assets/image/photos/image46.svg" alt="">
-          </div>
-          <div  class="about-partners-block-item">
-            <img src="../assets/image/photos/image47.svg" alt="">
-          </div>
-          <div  class="about-partners-block-item">
-            <img src="../assets/image/photos/image48.svg" alt="">
-          </div>
-          <div  class="about-partners-block-item">
-            <img src="../assets/image/photos/image46.svg" alt="">
-          </div>
-          <div  class="about-partners-block-item">
-            <img src="../assets/image/photos/image47.svg" alt="">
-          </div>
-          <div  class="about-partners-block-item">
-            <img src="../assets/image/photos/image48.svg" alt="">
-          </div>
-          <div  class="about-partners-block-item">
-            <img src="../assets/image/photos/image46.svg" alt="">
-          </div>
+        <div class="about-partners-block" v-if="partners && partners.listItem">
+          <a :href="item.link" class="about-partners-block-item" v-for="(item, i) in partners.listItem" :key="i">
+            <img :src="item.logo" :alt="item.name">
+          </a>
         </div>
 <!--        <div class="about-partners-footer">-->
 <!--          <div class="about-partners-footer-content">-->
@@ -188,9 +126,34 @@
   import Footer from "../components/Footer";
   import Galleria from "../components/Galleria";
   import Teachers from "../components/Teachers";
+  import { mapActions, mapState} from 'vuex'
   export default {
     name: "about",
-    components: {Teachers, Galleria, Footer, Header}
+    components: {Teachers, Galleria, Footer, Header},
+    data () {
+      return {
+        selectPage: 0
+      }
+    },
+    computed: {
+      ...mapState({
+        aboutListItems: (state) => state.about.aboutListItems,
+        partners: (state) => state.about.partners,
+        people: (state) => state.about.people,
+        property: (state) => state.about.property,
+        slider: (state) => state.about.slider,
+        head: (state) => state.about.head
+      })
+    },
+    mounted() {
+      this.getAbout().then(() => {
+      })
+    },
+    methods: {
+      ...mapActions({
+        getAbout: 'about/getAbout',
+      }),
+    }
   }
 </script>
 

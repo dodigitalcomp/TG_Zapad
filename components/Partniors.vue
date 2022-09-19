@@ -4,37 +4,17 @@
       <p>Партнёры</p>
     </div>
     <div class="event-page-partners-block">
-      <div  class="event-page-partners-block-item">
-        <img src="../assets/image/photos/image46.svg" alt="">
-      </div>
-      <div  class="event-page-partners-block-item">
-        <img src="../assets/image/photos/image46.svg" alt="">
-      </div>
-      <div  class="event-page-partners-block-item">
-        <img src="../assets/image/photos/image47.svg" alt="">
-      </div>
-      <div  class="event-page-partners-block-item">
-        <img src="../assets/image/photos/image48.svg" alt="">
-      </div>
-      <div  class="event-page-partners-block-item">
-        <img src="../assets/image/photos/image46.svg" alt="">
-      </div>
-      <div  class="event-page-partners-block-item">
-        <img src="../assets/image/photos/image47.svg" alt="">
-      </div>
-      <div  class="event-page-partners-block-item">
-        <img src="../assets/image/photos/image48.svg" alt="">
-      </div>
-      <div  class="event-page-partners-block-item">
-        <img src="../assets/image/photos/image46.svg" alt="">
-      </div>
+      <a target="_blank" :href="item.link"  class="event-page-partners-block-item" v-for="(item, i) in items" :key="i">
+        <img :src="item.logo" :alt="item.name">
+      </a>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: "Partners"
+    name: "Partners",
+    props: ['items']
   }
 </script>
 

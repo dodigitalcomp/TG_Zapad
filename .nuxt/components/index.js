@@ -5,6 +5,7 @@ export const Main = () => import('../..\\components\\Main.vue' /* webpackChunkNa
 export const Partniors = () => import('../..\\components\\Partniors.vue' /* webpackChunkName: "components/partniors" */).then(c => wrapFunctional(c.default || c))
 export const Teachers = () => import('../..\\components\\Teachers.vue' /* webpackChunkName: "components/teachers" */).then(c => wrapFunctional(c.default || c))
 export const VueGalleria = () => import('../..\\components\\VueGalleria.vue' /* webpackChunkName: "components/vue-galleria" */).then(c => wrapFunctional(c.default || c))
+export const VueNewsSwiper = () => import('../..\\components\\VueNewsSwiper.vue' /* webpackChunkName: "components/vue-news-swiper" */).then(c => wrapFunctional(c.default || c))
 export const VueSwiper = () => import('../..\\components\\VueSwiper.vue' /* webpackChunkName: "components/vue-swiper" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607

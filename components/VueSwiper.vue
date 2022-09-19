@@ -1,11 +1,13 @@
 <template>
   <div class="event-page-content-info-image" v-if="loader">
-    <swiper v-if="images.length" ref="swiperThumbs" class="swiper" :options="swiperOption">
+    <swiper v-if="images && images.length" ref="swiperThumbs" class="swiper" :options="swiperOption">
       <swiper-slide v-for="(slide, i) in images" :key="i" class="swiper-slide" :index="i">
-        <img class="image" @click="zoomImage(i)" :src="slide.src" alt="">
+        <div>
+          <img class="image" @click="zoomImage(i)" :src="slide.src" alt="">
+          <div v-if="text"><p class="text">{{slide.description}}</p></div>
+        </div>
       </swiper-slide>
     </swiper>
-    <div v-if="text"><p class="text">{{text}}</p></div>
     <div class="pagination">
       <div class="swiper-pagination" slot="pagination"></div>
       <div class="event-page-content-info-image-pag-img">
@@ -26,33 +28,33 @@ export default {
     return {
       zoomIndex: null,
       zoom: false,
-      images: [
-        {
-          'name': 'image1',
-          'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
-          'src': require('../assets/image/image32.jpg'),
-        },
-        {
-          'name': 'image1',
-          'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
-          'src': require('../assets/image/photos/pic5.png'),
-        },
-        {
-          'name': 'image1',
-          'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
-          'src': require('../assets/image/photos/pic4.png'),
-        },
-        {
-          'name': 'image1',
-          'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
-          'src': require('../assets/image/photos/pic3.png'),
-        },
-        {
-          'name': 'image1',
-          'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
-          'src': require('../assets/image/photos/pic1.png'),
-        },
-      ],
+      // images: [
+      //   {
+      //     'name': 'image1',
+      //     'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
+      //     'src': require('../assets/image/image32.jpg'),
+      //   },
+      //   {
+      //     'name': 'image1',
+      //     'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
+      //     'src': require('../assets/image/photos/pic5.png'),
+      //   },
+      //   {
+      //     'name': 'image1',
+      //     'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
+      //     'src': require('../assets/image/photos/pic4.png'),
+      //   },
+      //   {
+      //     'name': 'image1',
+      //     'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
+      //     'src': require('../assets/image/photos/pic3.png'),
+      //   },
+      //   {
+      //     'name': 'image1',
+      //     'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
+      //     'src': require('../assets/image/photos/pic1.png'),
+      //   },
+      // ],
       selected: 'Technologies',
       loader: false,
       openSelect: false,
@@ -76,7 +78,7 @@ export default {
       }
     }
   },
-  props: ['text', 'simvol'],
+  props: ['text', 'simvol', 'images'],
   created() {
     this.$nuxt.$on('closeGalleria', () => {
       document.getElementsByTagName('body')[0].style.overflow = 'auto'

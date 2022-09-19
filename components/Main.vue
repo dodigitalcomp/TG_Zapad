@@ -1,301 +1,272 @@
 <template>
     <div class="main pt-30">
-      <div class="image-bock flex items-center justify-center flex-col ">
+      <div class="image-bock flex items-center justify-center flex-col " v-if="homeData && homeData.property">
         <div class="image-bock-img">
-          <img src="../assets/image/pic.jpg" alt="">
+          <img :src="homeData.property.main_img" alt="">
         </div>
         <div class="image-bock-title">
-          <p class="title">Культурное городское пространство</p>
-          <p class="title">Третьяковская галерея – Запад</p>
-          <p class="title william">Россия и Европа. Искусство и общение. Творчество и развитие.</p>
+          <p class="title">{{homeData.property.firstScreenTitle}}</p>
+          <p class="title william" >{{homeData.property.cursiveTitle}}</p>
         </div>
       </div>
-      <div class="museum-block">
+      <div class="museum-block" v-if="homeData && homeData.property">
         <div class="museum-block-title">
-          <p>о музее</p>
+          <p>{{homeData.property.h2}}</p>
         </div>
         <div class="museum-block-content">
           <div class="museum-block-content-text">
             <div></div>
             <div class="description">
-              <p>Филиал Государственной Третьяковской галереи —  новый центр притяжения в Калининграде. Это крупнейшая музейная площадка на западе России и комфортное городское пространство. Приходите на выставки и лекции, встречайтесь с друзьями и с искусством.</p>
+              <p>{{homeData.property.text}}</p>
             </div>
             <div class="more">
-              <p class="flex pb-4"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>подробнее</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
+              <NuxtLink tag="p" :to="homeData.property.show_more_link" class="flex pb-4 cursor-pointer"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.property.show_more}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></NuxtLink>
             </div>
           </div>
           <div class="museum-block-content-img">
             <div></div>
-            <div>
-              <Galleria/>
+            <div v-if="homeData.slider && homeData.slider.listItems">
+              <Galleria :index="selectPage" :images="homeData.slider.listItems"/>
             </div>
             <div class="flex items-center justify-between w-full pb-3">
               <p class="pagination-max">
-                <span class="page active">1</span>
-                <span class="page">2</span>
-                <span class="page">3</span>
+                <span class="page " :class="selectPage === i ? 'active' : ''" v-for="(item, i) in homeData.slider.listItems" @click="selectPage = i" :key="i">{{i + 1}}</span>
               </p>
               <p class="pagination-min">
-                <span class="page active">1</span>
-                <span class="page">/</span>
-                <span class="page">3</span>
+                <span class="page " :class="selectPage === i ? 'active' : ''" v-for="(item, i) in homeData.slider.listItems" @click="selectPage = i" :key="i">{{i + 1}}</span>
               </p>
               <img class="icon" src="../assets/image/Ellipse.svg" alt="">
             </div>
           </div>
         </div>
       </div>
-      <div class="poster-room">
-         <div class="poster-room-header line-block">
-           <p class="poster-room-header-title">афиша событий</p>
+      <div class="poster-room" v-if="homeData && homeData.events">
+         <div class="poster-room-header line-block" v-if="homeData.events.langPhrase">
+           <p class="poster-room-header-title">{{homeData.events.langPhrase.title_block}}</p>
            <div class="line-dn"></div>
-           <p class="poster-room-header-more"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>все события</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
+           <NuxtLink :to="localePath('/events')" tag="p" class="poster-room-header-more cursor-pointer"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.events.langPhrase.all}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></NuxtLink>
          </div>
+<!--         <div class="poster-room-content">-->
+<!--           <div class="poster-room-content-block pr-5 poster-room-content-border-right min-block" v-for="(item, i) in homeData.events.listItemsByDate">-->
+<!--             <div class="poster-room-content-block-title">-->
+<!--               <div class="poster-room-content-block-title-text">-->
+<!--                 <p>1–21 ДЕК</p>-->
+<!--                 <p>Кинопоказ</p>-->
+<!--               </div>-->
+<!--               <div class="poster-room-content-block-title-authnr flex">-->
+<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
+<!--                 <p>Кинотеатр «Киносфера»</p>-->
+<!--                 <p>Калининград</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="poster-room-content-block-body">-->
+<!--               <div class="poster-room-content-block-img">-->
+<!--                 <img src="../assets/image/image24.jpg" alt="">-->
+<!--               </div>-->
+<!--               <div class="poster-room-content-block-title-authnrMini">-->
+<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
+<!--                 <p>Кинотеатр «Киносфера» </p>-->
+<!--                 <p>Калининград</p>-->
+<!--               </div>-->
+<!--               <div class="poster-room-content-block-description">-->
+<!--                 <p>Замки <span class="william">ЛуАры</span></p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="poster-room-content-block pl-5">-->
+<!--             <div class="poster-room-content-block-title">-->
+<!--               <div class="poster-room-content-block-title-text">-->
+<!--                 <p>14–28 ДЕК</p>-->
+<!--                 <p>Лекции</p>-->
+<!--               </div>-->
+<!--               <div class="poster-room-content-block-title-authnr flex">-->
+<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
+<!--                 <p>Инженерный корпус</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="poster-room-content-block-body">-->
+<!--               <div class="poster-room-content-block-img">-->
+<!--                 <img src="../assets/image/image31.jpg" alt="">-->
+<!--               </div>-->
+<!--               <div class="poster-room-content-block-description">-->
+<!--                 <p>Мифы и легенды в произведениях <span class="william">русских художников</span></p>-->
+<!--               </div>-->
+<!--               <div class="poster-room-content-block-title-authnrMini">-->
+<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
+<!--                 <p>Инженерный корпус</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--         </div>-->
          <div class="poster-room-content">
-           <div class="poster-room-content-block pr-5 poster-room-content-border-right min-block">
+           <a :href="item.url" class="poster-room-content-block pr-5  min-block" v-for="(item, i) in homeData.events.listItems">
              <div class="poster-room-content-block-title">
                <div class="poster-room-content-block-title-text">
-                 <p>1–21 ДЕК</p>
-                 <p>Кинопоказ</p>
+                 <p>{{item.time}}</p>
+                 <p>{{item.type}}</p>
                </div>
                <div class="poster-room-content-block-title-authnr flex">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Кинотеатр «Киносфера»</p>
-                 <p>Калининград</p>
+                 <p>{{item.name}}</p>
                </div>
              </div>
              <div class="poster-room-content-block-body">
                <div class="poster-room-content-block-img">
-                 <img src="../assets/image/image24.jpg" alt="">
+                 <img :src="item.picture" alt="">
+               </div>
+               <div class="poster-room-content-block-description">
+                 <p>{{item.place}}</p>
                </div>
                <div class="poster-room-content-block-title-authnrMini">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Кинотеатр «Киносфера» </p>
-                 <p>Калининград</p>
-               </div>
-               <div class="poster-room-content-block-description">
-                 <p>Замки <span class="william">ЛуАры</span></p>
+                 <p>{{item.name_cursive}}</p>
                </div>
              </div>
-           </div>
-           <div class="poster-room-content-block pl-5">
-             <div class="poster-room-content-block-title">
-               <div class="poster-room-content-block-title-text">
-                 <p>14–28 ДЕК</p>
-                 <p>Лекции</p>
-               </div>
-               <div class="poster-room-content-block-title-authnr flex">
-                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Инженерный корпус</p>
-               </div>
-             </div>
-             <div class="poster-room-content-block-body">
-               <div class="poster-room-content-block-img">
-                 <img src="../assets/image/image31.jpg" alt="">
-               </div>
-               <div class="poster-room-content-block-description">
-                 <p>Мифы и легенды в произведениях <span class="william">русских художников</span></p>
-               </div>
-               <div class="poster-room-content-block-title-authnrMini">
-                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Инженерный корпус</p>
-               </div>
-             </div>
-           </div>
-         </div>
-         <div class="poster-room-content">
-           <div class="poster-room-content-block pr-5 poster-room-content-border-right min-block">
-             <div class="poster-room-content-block-title">
-               <div class="poster-room-content-block-title-text">
-                 <p>1 ДЕК 2020–14 ЯНВ 2021 </p>
-                 <p>выставка</p>
-               </div>
-               <div class="poster-room-content-block-title-authnr flex">
-                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>галерея A1–one каунас</p>
-               </div>
-             </div>
-             <div class="poster-room-content-block-body">
-               <div class="poster-room-content-block-img">
-                 <img src="../assets/image/Pic-fit.jpg" alt="">
-               </div>
-               <div class="poster-room-content-block-description">
-                 <p>Вильямс П.В. <span class="william">история одной работы</span></p>
-               </div>
-               <div class="poster-room-content-block-title-authnrMini">
-                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>галерея A1–one каунас</p>
-               </div>
-             </div>
-           </div>
-           <div class="poster-room-content-block pr-5 pl-5 poster-room-content-border-right">
-             <div class="poster-room-content-block-title">
-               <div class="poster-room-content-block-title-text">
-                 <p>1–31 ЯНВ 2021</p>
-                 <p>Лекции</p>
-               </div>
-               <div class="poster-room-content-block-title-authnr flex">
-                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Инженерный корпус</p>
-               </div>
-             </div>
-             <div class="poster-room-content-block-body">
-               <div class="poster-room-content-block-img">
-                 <img src="../assets/image/image30.jpg" alt="">
-               </div>
-               <div class="poster-room-content-block-description">
-                 <p>«Маленький человек» Кабакова<span class="william"> и русская живопись XIX века</span></p>
-               </div>
-               <div class="poster-room-content-block-title-authnrMini">
-                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Инженерный корпус</p>
-               </div>
-             </div>
-           </div>
-           <div class="poster-room-content-block pr-5 pl-5">
-             <div class="poster-room-content-block-title">
-               <div class="poster-room-content-block-title-text">
-                 <p>1 ЯНВ–31 ФЕВ 2021 </p>
-                 <p>выставка</p>
-               </div>
-               <div class="poster-room-content-block-title-authnr flex">
-                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Музей Янтаря, Калининград</p>
-               </div>
-             </div>
-             <div class="poster-room-content-block-body">
-               <div class="poster-room-content-block-img">
-                 <img src="../assets/image/Pic-fit1.jpg" alt="">
-               </div>
-               <div class="poster-room-content-block-description">
-                 <p>фотография во времена <span class="william">самоизоляции</span></p>
-               </div>
-               <div class="poster-room-content-block-title-authnrMini">
-                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Музей Янтаря, Калининград</p>
-               </div>
-             </div>
-           </div>
+           </a>
+<!--           <div class="poster-room-content-block pr-5 pl-5 poster-room-content-border-right">-->
+<!--             <div class="poster-room-content-block-title">-->
+<!--               <div class="poster-room-content-block-title-text">-->
+<!--                 <p>1–31 ЯНВ 2021</p>-->
+<!--                 <p>Лекции</p>-->
+<!--               </div>-->
+<!--               <div class="poster-room-content-block-title-authnr flex">-->
+<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
+<!--                 <p>Инженерный корпус</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="poster-room-content-block-body">-->
+<!--               <div class="poster-room-content-block-img">-->
+<!--                 <img src="../assets/image/image30.jpg" alt="">-->
+<!--               </div>-->
+<!--               <div class="poster-room-content-block-description">-->
+<!--                 <p>«Маленький человек» Кабакова<span class="william"> и русская живопись XIX века</span></p>-->
+<!--               </div>-->
+<!--               <div class="poster-room-content-block-title-authnrMini">-->
+<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
+<!--                 <p>Инженерный корпус</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="poster-room-content-block pr-5 pl-5">-->
+<!--             <div class="poster-room-content-block-title">-->
+<!--               <div class="poster-room-content-block-title-text">-->
+<!--                 <p>1 ЯНВ–31 ФЕВ 2021 </p>-->
+<!--                 <p>выставка</p>-->
+<!--               </div>-->
+<!--               <div class="poster-room-content-block-title-authnr flex">-->
+<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
+<!--                 <p>Музей Янтаря, Калининград</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="poster-room-content-block-body">-->
+<!--               <div class="poster-room-content-block-img">-->
+<!--                 <img src="../assets/image/Pic-fit1.jpg" alt="">-->
+<!--               </div>-->
+<!--               <div class="poster-room-content-block-description">-->
+<!--                 <p>фотография во времена <span class="william">самоизоляции</span></p>-->
+<!--               </div>-->
+<!--               <div class="poster-room-content-block-title-authnrMini">-->
+<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
+<!--                 <p>Музей Янтаря, Калининград</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--           </div>-->
            <div class="all-events">
-             <p class="flex ">
+             <NuxtLink tag="p" :to="localePath('/events')" class="flex cursor-pointer">
                <img class="mr-1" src="../assets/image/(.svg" alt="">
-               <span>все события</span>
+               <span>{{homeData.events.langPhrase.all}}</span>
                <img class="ml-1" src="../assets/image/).svg" alt="">
-             </p>
+             </NuxtLink>
            </div>
          </div>
       </div>
-      <div class="virtual-tour">
-        <div class="virtual-tour-title">
-          <p>виртуальный тур по музею</p>
-        </div>
-        <div class="virtual-tour-content">
-          <div class="img">
-            <p class="flex elem">
-              <img class="mr-1" src="../assets/image/(w.svg" alt="">
-              <span>прогуляться</span>
-              <img class="ml-1" src="../assets/image/)w.svg" alt="">
-            </p>
-          </div>
-        </div>
-        <div></div>
+      <div class="virtual-tour" v-if="homeData && homeData.property" v-html="homeData.property.video">
+<!--        <div class="virtual-tour-title">-->
+<!--          <p>виртуальный тур по музею</p>-->
+<!--        </div>-->
+<!--        <div class="virtual-tour-content">-->
+<!--          <div class="img">-->
+<!--            <p class="flex elem">-->
+<!--              <img class="mr-1" src="../assets/image/(w.svg" alt="">-->
+<!--              <span>прогуляться</span>-->
+<!--              <img class="ml-1" src="../assets/image/)w.svg" alt="">-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div></div>-->
       </div>
-      <div class="education">
+      <div class="education" v-if="homeData && homeData.education && homeData.education.educationBlock">
          <div class="education-title">
-           <p>ОБУЧЕНИЕ</p>
+           <p>{{homeData.education.educationBlock.name}}</p>
          </div>
          <div class="education-content">
            <div>
-             <p>Приходите учиться!</p>
-             <p>Подготовка кураторов и арт-менеджеров — часть нашей миссии по культурному развитию региона. Программа подходит для новичков и для тех, кто хочет вырасти в профессии. <span>Дадим сильную теорию</span> отработаем ее на практике в лучших музеях страны и глубоко погрузимся в специфику работы в сфере искусства.</p>
+             <p>{{homeData.education.educationBlock.previewText}}</p>
            </div>
-           <img src="../assets/image/Rectangle976.jpg" alt="">
+           <img :src="homeData.education.educationBlock.previewPicture" alt="">
          </div>
-         <div class="education-footer">
+         <div class="education-footer" v-if="homeData.education.langPhrase">
            <div>
-             <p class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>о программе</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
+             <a :href="homeData.education.educationBlock.program" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.about}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>
            </div>
            <div class="education-footer-border">
-             <p class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>расписание</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
+             <a :href="homeData.education.educationBlock.schedule" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.schedule}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>
            </div>
            <div>
-             <p class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>материалы</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
+             <a :href="homeData.education.educationBlock.materials" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.material}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>
            </div>
          </div>
       </div>
-      <div class="news">
-        <div class="poster-room-header line-block">
-          <p class="poster-room-header-title">Новости</p>
+      <div class="news" v-if="homeData && homeData.news">
+        <div class="poster-room-header line-block" v-if="homeData.news.langPhrase">
+          <p class="poster-room-header-title">{{homeData.news.langPhrase.title_block}}</p>
           <div class="line-dn"></div>
-          <p class="poster-room-header-more"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>все новости</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
+          <NuxtLink :to="localePath('/news')" tag="a" class="poster-room-header-more">
+            <img class="mr-1" src="../assets/image/(.svg" alt="">
+            <span>{{homeData.news.langPhrase.all}}</span>
+            <img class="ml-1" src="../assets/image/).svg" alt="">
+          </NuxtLink>
         </div>
-        <div class="news-content">
-          <span class="left">
-            <img src="../assets/image/left.svg" alt="">
-          </span>
-          <span class="right">
-            <img src="../assets/image/Vector-r.svg" alt="">
-          </span>
-          <div class="news-content-swiper news-content-swiper-border-r pr-5">
-            <div class="news-content-swiper-title">
-              <p>17 окт</p>
-              <p>музей</p>
-            </div>
-            <div  class="news-content-swiper-content">
-              <img src="../assets/image/Pic-fit3.jpg" alt="">
-            </div>
-            <div class="title">
-              <p>ДОМ-МУЗЕЙ ВИКТОРА ВАСНЕЦОВА</p>
-            </div>
-            <div class="text">
-              <p>Это многообразие связано и с особенностями каждой отдельной исторической эпохи, и с процессами.</p>
-            </div>
-          </div>
-          <div class="news-content-swiper pl-5">
-            <div class="news-content-swiper-title">
-              <p>17 окт</p>
-              <p>ход строительства</p>
-            </div>
-            <div class="news-content-swiper-content">
-              <img src="../assets/image/image-museum.jpg" alt="">
-            </div>
-            <div class="title">
-              <p>ЗАЛОЖЕН ФУНДАМЕНТ ЗДАНИЯ МУЗЕЯ</p>
-            </div>
-            <div class="text">
-              <p>Лекция посвящена эволюции понимания задач цвета в живописи и многообразию подходов к колориту.</p>
-            </div>
-          </div>
-        </div>
+        <VueNewsSwiper :items="homeData.news.listItems"/>
         <div class="all-events">
-          <p class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>все новости</span><img class="ml-1" src="../assets/image/).svg" alt=""></p>
+          <NuxtLink :to="localePath('/news')" tag="p" class="flex cursor-pointer">
+            <img class="mr-1" src="../assets/image/(.svg" alt="">
+            <span>{{homeData.news.langPhrase.all}}</span>
+            <img class="ml-1" src="../assets/image/).svg" alt="">
+          </NuxtLink>
         </div>
       </div>
     </div>
 </template>
 
 <script>
-  import Galleria from "./Galleria";
-
-  export default {
-        name: "Main",
-      components: {Galleria},
-      // mounted() {
-      //   let canvas = document.getElementById('virtual-tour-play');
-      //   if (canvas.getContext){
-      //     let ctx = canvas.getContext('2d');
-      //     ctx.beginPath();
-      //     ctx.fillStyle = "#FFFFFF";
-      //     ctx.strokeStyle = '#FFFFFF';
-      //     ctx.moveTo(canvas.width, canvas.hidden);
-      //     ctx.lineTo(canvas.width, 150);
-      //     ctx.lineTo(0,80);
-      //     ctx.fillText("( ПРОГУЛЯТЬСЯ )",150,140);
-      //     ctx.closePath();
-      //     ctx.stroke();
-      //   }
-      // }
+import Galleria from "./Galleria";
+import { mapActions, mapState} from 'vuex'
+import VueNewsSwiper from "./VueNewsSwiper";
+export default {
+  name: "Main",
+  components: {VueNewsSwiper, Galleria},
+  data () {
+    return {
+      selectPage: 0
     }
+  },
+  computed: {
+    ...mapState({
+      homeData: (state) => state.language.homeData,
+      head: (state) => state.language.head,
+    })
+  },
+  created() {
+    this.getHomeData().then(() => {
+    })
+  },
+  methods: {
+    ...mapActions({
+      getHomeData: 'language/getHomeData',
+    }),
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -596,10 +567,11 @@
 
     &-content {
       margin-top: 20px;
-      padding-top: 20px;
+      /*padding-top: 20px;*/
       border-top: 1px solid;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
 
       @media (max-width: 650px) {
         margin-top: 0;
@@ -612,6 +584,16 @@
       }
 
       &-block:nth-child(2){
+        border-right: 1px solid #000000;
+        border-left: 1px solid #000000;
+        @media (max-width: 850px) {
+          padding-left: 0 !important;
+        }
+      }
+
+      &-block:nth-child(5){
+        border-right: 1px solid #000000;
+        border-left: 1px solid #000000;
         @media (max-width: 850px) {
           padding-left: 0 !important;
         }
@@ -630,6 +612,9 @@
         display: flex;
         flex-direction: column;
         flex: 1;
+        min-width: 33.3%;
+        border-bottom: 1px solid;
+        padding: 20px;
 
         @media (max-width: 800px) {
           justify-content: space-between;
@@ -735,78 +720,6 @@
       }
     }
   }
-.virtual-tour {
-  background-image: url("../assets/image/bg.jpg");
-  height: 700px;
-  padding-top: 40px;
-  padding-left: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  &-title {
-    p {
-      font-style: normal;
-      font-weight: normal;
-      font-size: 40px;
-      line-height: 40px;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      max-width: 365px;
-
-      @media (max-width: 1000px) {
-        font-size: 30px;
-        line-height: 30px;
-      }
-      @media (max-width: 650px) {
-        font-size: 25px;
-        line-height: 25px;
-      }
-    }
-  }
-
-  &-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .img {
-      height: 405px;
-      width: 336px;
-      background-image: url("../assets/image/Untitled-removebg-preview.png");
-      background-repeat: no-repeat;
-      background-size: 510px 405px;
-      background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      @media (max-width: 950px) {
-        height: 274px;
-        width: 219px;
-        background-size: 332px 274px;
-      }
-
-      .elem {
-        margin-left: 30px;
-        span {
-          font-style: normal;
-          font-weight: normal;
-          font-size: 15px;
-          line-height: 20px;
-          /* identical to box height, or 133% */
-
-          text-align: right;
-          text-transform: uppercase;
-
-          /* White */
-
-          color: #FFFFFF;
-        }
-      }
-    }
-  }
-}
 .education {
   background: #FFDD7C;
   display: flex;

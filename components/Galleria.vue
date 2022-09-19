@@ -1,17 +1,35 @@
 <template>
   <div >
     <div class="block">
-      <img class="item item1" src="../assets/image/pic.jpg" alt="">
-      <img class="item item2" src="../assets/image/image24.jpg" alt="">
-      <img class="item item3" src="../assets/image/image-museum.jpg" alt="">
+      <img class="item" :src="item" alt="" :class="'item' + (i + 1)"  v-for="(item, i) in newImages" :key="i">
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: "Galleria"
+export default {
+  name: "Galleria",
+  props: ['images', 'index'],
+  data () {
+    return {
+        newImages: []
+    }
+  },
+  created() {
+    this.newImages = this.images
+  },
+  watch: {
+    index(newValue) {
+        this.newImages.splice(newValue, 1)
+        console.log(this.images)
+        this.newImages.unshift(this.images[newValue])
+        console.log(this.newImages)
+    },
+    images(newValue) {
+       this.newImages = JSON.parse(JSON.stringify(newValue))
+    }
   }
+}
 </script>
 
 <style scoped lang="scss">
@@ -42,8 +60,9 @@
   }
 
   .item3 {
-    top: 10px;
-    left: 10px;
+    top: 40px;
+    left: 40px;
+    opacity: 0.5;
     @media (max-width: 650px) {
       width: 329px;
       height: 229px;
@@ -59,9 +78,9 @@
     }
   }
   .item1 {
-    top: 40px;
-    left: 40px;
-    opacity: 0.5;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
     @media (max-width: 650px) {
       width: 279px;
       height: 229px;

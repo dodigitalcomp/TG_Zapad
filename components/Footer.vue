@@ -6,45 +6,34 @@
         <canvas height="632" id="footer-arrow"></canvas>
       </div>
       <div class="footer-block-info">
-        <div class="footer-block-info-title">
-          <a href="">Афиша</a>
-          <a href="">образование</a>
-          <a href="">о музее</a>
-          <a href="">медиа</a>
+        <div class="footer-block-info-title" v-if="menuData && menuData.footerLeft">
+          <NuxtLink v-for="(item, index) in menuData.footerLeft" :key="index" :to="item.link" tag="a">{{item.name}}</NuxtLink>
         </div>
         <div>
-          <div class="footer-block-info-social">
-            <!--          <a href="">-->
-            <!--            <img src="../assets/image/fb.svg" alt="">-->
-            <!--          </a>-->
-            <!--          <a href="">-->
-            <!--            <img src="../assets/image/insta.svg" alt="">-->
-            <!--          </a>-->
-            <a href="">
-              <img src="../assets/image/ok.svg" alt="">
-            </a>
-            <a href="">
-              <img src="../assets/image/vk.svg" alt="">
+          <div class="footer-block-info-social" v-if="menuData && menuData.iconLinks && menuData.iconLinks.social_link">
+            <a :href="item.link" v-for="(item ,index) in menuData.iconLinks.social_link" :key="index">
+              <img :src="item.img" alt="">
             </a>
           </div>
-          <div class="footer-block-info-partnior">
-            <a href="">
-              <img src="../assets/image/partniors/T__logo_white_RU.svg" alt="">
+          <div class="footer-block-info-partnior" v-if="menuData && menuData.iconLinks && menuData.iconLinks.partners">
+            <a :href="item.link" v-for="(item ,index) in menuData.iconLinks.partners" :key="index">
+              <img :src="item.img" alt="">
             </a>
-            <a class="ml-20" href="">
-              <img src="../assets/image/partniors/T__lavrus_white.svg" alt="">
-            </a>
+<!--            <a href="">-->
+<!--              <img src="../assets/image/partniors/T__logo_white_RU.svg" alt="">-->
+<!--            </a>-->
+<!--            <a class="ml-20" href="">-->
+<!--              <img src="../assets/image/partniors/T__lavrus_white.svg" alt="">-->
+<!--            </a>-->
           </div>
         </div>
-        <div class="footer-block-info-text">
-          <p>2020 © Третьяковская галерея Запад</p>
+        <div class="footer-block-info-text" v-if="menuData && menuData.langPhrase">
+          <p>{{ menuData.langPhrase.copyright }}</p>
         </div>
       </div>
       <div class="footer-block-about">
-        <div class="footer-block-about-title">
-          <a href="">новости</a>
-          <a href="">программа лояльности</a>
-          <a href="">контакты</a>
+        <div class="footer-block-about-title" v-if="menuData && menuData.footerRight">
+          <NuxtLink v-for="(item, index) in menuData.footerRight" :key="index" :to="item.link" tag="a">{{item.name}}</NuxtLink>
         </div>
         <div class="footer-block-about-input">
           <p>Узнавайте больше об искусстве с нашей рассылкой</p>
@@ -63,9 +52,9 @@
           </div>
         </div>
         <div class="footer-block-about-conditions">
-          <div>
-            <p>Условия использования материалов сайта</p>
-            <p>Политика конфиденциальности</p>
+          <div v-if="menuData && menuData.langPhrase">
+            <p>{{ menuData.langPhrase.conditions }}</p>
+            <p>{{ menuData.langPhrase.politica }}</p>
           </div>
           <div>
             <a target="_blank" href="https://www.dodigital.ru/" class="made flex items-center justify-end">
@@ -174,8 +163,14 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   export default {
     name: "Footer",
+      computed: {
+        ...mapState({
+          menuData: (state) => state.language.menuData
+        })
+      },
       mounted() {
           let canvas = document.getElementById('footer-arrow');
           if (canvas.getContext){

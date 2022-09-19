@@ -20,6 +20,9 @@
   "VueGalleria": {
     "description": "Auto imported from components/VueGalleria.vue"
   },
+  "VueNewsSwiper": {
+    "description": "Auto imported from components/VueNewsSwiper.vue"
+  },
   "VueSwiper": {
     "description": "Auto imported from components/VueSwiper.vue"
   }

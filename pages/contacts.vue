@@ -3,232 +3,90 @@
     <Header/>
       <div class="contacts">
         <div class="contacts-header">
-          <div class="contacts-header-title">
-            <p>Контакты</p>
+          <div class="contacts-header-title" v-if="head">
+            <p>{{head.h1}}</p>
           </div>
           <div class="contacts-header-content">
-            <div class="contacts-header-content-item">
-               <p>+7 (495) 957 07 27</p>
-              <p>г. Калининград, Октябрьский остров, улица</p>
-              <p>Октябрьская, д. 67 Б</p>
-              <p><span>●</span> в стадии строительства</p>
+            <div class="contacts-header-content-item" v-if="contactsData">
+              <p>{{contactsData.phone}}</p>
+              <p>{{contactsData.address}}</p>
+              <p><span>●</span>{{contactsData.status}}</p>
             </div>
           </div>
-          <div class="contacts-header-footer">
+          <div class="contacts-header-footer" v-if="contactsData && contactsData.langPhrase">
             <div class="contacts-header-footer-item">
               <img class="mr-1" src="../assets/image/(.svg" alt="">
-              <span>Обратная связь</span>
+              <span>{{contactsData.langPhrase.callback}}</span>
               <img class="ml-1" src="../assets/image/).svg" alt="">
             </div>
           </div>
         </div>
-        <div class="contacts-maps">
-          <div class="contacts-maps-title">
-            <p>Площадки мероприятий</p>
+        <div class="contacts-maps" v-if="places">
+          <div class="contacts-maps-title" v-if="places.langPhrase">
+            <p>{{places.langPhrase.title}}</p>
           </div>
           <div class="contacts-maps-tab">
             <p :class="activeTab === 'map' ? 'active' : ''" @click="activeTab = 'map'">НА карте</p>
             <p :class="activeTab === 'list' ? 'active' : ''" @click="activeTab = 'list'">СПИСКОМ</p>
           </div>
-          <div v-if="activeTab === 'list'" class="contacts-maps-list">
-              <div class="contacts-maps-list-item">
+          <div v-if="activeTab === 'list' && placesList && placesList.length" class="contacts-maps-list">
+              <div class="contacts-maps-list-item" v-for="(item, i) in placesList" :key="i">
                 <div class="contacts-maps-list-item-title" @click="openText = !openText">
-                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
+                  <img v-if="item.active" class="line" src="../assets/image/minus.svg" alt="">
                   <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Арт Ворота</p>
+                  <p>{{item.name}}</p>
                 </div>
                   <div v-if="openText" class="contacts-maps-block-modal">
                     <div class="contacts-maps-block-modal-text">
-                      <p>г. Калининград, Лаврушинский переулок, 10</p>
+                      <p>{{item.text}}</p>
                     </div>
-                    <div class="contacts-maps-block-modal-text">
-                      <p>Вход со стороны Малого Толмачевского пер., 9</p>
-                    </div>
+<!--                    <div class="contacts-maps-block-modal-text">-->
+<!--                      <p>Вход со стороны Малого Толмачевского пер., 9</p>-->
+<!--                    </div>-->
                     <div  class="contacts-maps-block-modal-date">
-                      <p>xxx xxxxxx xxxx xxx x</p>
-                      <p> xxx xxxxx xxxxxxx xxxxx</p>
+                      <p>{{item.mapCenter}}</p>
                     </div>
                     <div class="contacts-maps-block-modal-phone">
-                      <p>+7 (495) 957 07 27</p>
+                      <p>{{item.phone}}</p>
                     </div>
                     <div class="contacts-maps-block-modal-email">
                       <img class="mr-1" src="../assets/image/(.svg" alt="">
-                      <span>tretyakov@tretyakov.ru</span>
+                      <span>{{item.email}}</span>
                       <img class="ml-1" src="../assets/image/).svg" alt="">
                     </div>
                     <div>
-                      <img src="../assets/image/pic133.jpg" alt="">
+                      <img :src="item.picture" alt="">
                     </div>
                   </div>
-              </div>
-              <div class="contacts-maps-list-item">
-                <div class="contacts-maps-list-item-title" @click="openText = !openText">
-                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                  <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>ГЦСИ </p>
-                </div>
-                <div v-if="openText" class="contacts-maps-block-modal">
-                  <div class="contacts-maps-block-modal-text">
-                    <p>г. Калининград, Лаврушинский переулок, 10</p>
-                  </div>
-                  <div class="contacts-maps-block-modal-text">
-                    <p>Вход со стороны Малого Толмачевского пер., 9</p>
-                  </div>
-                  <div  class="contacts-maps-block-modal-date">
-                    <p>xxx xxxxxx xxxx xxx x</p>
-                    <p> xxx xxxxx xxxxxxx xxxxx</p>
-                  </div>
-                  <div class="contacts-maps-block-modal-phone">
-                    <p>+7 (495) 957 07 27</p>
-                  </div>
-                  <div class="contacts-maps-block-modal-email">
-                    <img class="mr-1" src="../assets/image/(.svg" alt="">
-                    <span>tretyakov@tretyakov.ru</span>
-                    <img class="ml-1" src="../assets/image/).svg" alt="">
-                  </div>
-                  <div>
-                    <img src="../assets/image/pic133.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-              <div class="contacts-maps-list-item">
-                <div class="contacts-maps-list-item-title" @click="openText = !openText">
-                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                  <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Калининградский музей изобразительных искусств </p>
-                </div>
-                <div v-if="openText" class="contacts-maps-block-modal">
-                  <div class="contacts-maps-block-modal-text">
-                    <p>г. Калининград, Лаврушинский переулок, 10</p>
-                  </div>
-                  <div class="contacts-maps-block-modal-text">
-                    <p>Вход со стороны Малого Толмачевского пер., 9</p>
-                  </div>
-                  <div  class="contacts-maps-block-modal-date">
-                    <p>xxx xxxxxx xxxx xxx x</p>
-                    <p> xxx xxxxx xxxxxxx xxxxx</p>
-                  </div>
-                  <div class="contacts-maps-block-modal-phone">
-                    <p>+7 (495) 957 07 27</p>
-                  </div>
-                  <div class="contacts-maps-block-modal-email">
-                    <img class="mr-1" src="../assets/image/(.svg" alt="">
-                    <span>tretyakov@tretyakov.ru</span>
-                    <img class="ml-1" src="../assets/image/).svg" alt="">
-                  </div>
-                  <div>
-                    <img src="../assets/image/pic133.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-              <div class="contacts-maps-list-item">
-                <div class="contacts-maps-list-item-title" @click="openText = !openText">
-                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                  <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Арт Ворота</p>
-                </div>
-                <div v-if="openText" class="contacts-maps-block-modal">
-                  <div class="contacts-maps-block-modal-text">
-                    <p>г. Калининград, Лаврушинский переулок, 10</p>
-                  </div>
-                  <div class="contacts-maps-block-modal-text">
-                    <p>Вход со стороны Малого Толмачевского пер., 9</p>
-                  </div>
-                  <div  class="contacts-maps-block-modal-date">
-                    <p>xxx xxxxxx xxxx xxx x</p>
-                    <p> xxx xxxxx xxxxxxx xxxxx</p>
-                  </div>
-                  <div class="contacts-maps-block-modal-phone">
-                    <p>+7 (495) 957 07 27</p>
-                  </div>
-                  <div class="contacts-maps-block-modal-email">
-                    <img class="mr-1" src="../assets/image/(.svg" alt="">
-                    <span>tretyakov@tretyakov.ru</span>
-                    <img class="ml-1" src="../assets/image/).svg" alt="">
-                  </div>
-                  <div>
-                    <img src="../assets/image/pic133.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-              <div class="contacts-maps-list-item">
-                <div class="contacts-maps-list-item-title" @click="openText = !openText">
-                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                  <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>ГЦСИ </p>
-                </div>
-                <div v-if="openText" class="contacts-maps-block-modal">
-                  <div class="contacts-maps-block-modal-text">
-                    <p>г. Калининград, Лаврушинский переулок, 10</p>
-                  </div>
-                  <div class="contacts-maps-block-modal-text">
-                    <p>Вход со стороны Малого Толмачевского пер., 9</p>
-                  </div>
-                  <div  class="contacts-maps-block-modal-date">
-                    <p>xxx xxxxxx xxxx xxx x</p>
-                    <p> xxx xxxxx xxxxxxx xxxxx</p>
-                  </div>
-                  <div class="contacts-maps-block-modal-phone">
-                    <p>+7 (495) 957 07 27</p>
-                  </div>
-                  <div class="contacts-maps-block-modal-email">
-                    <img class="mr-1" src="../assets/image/(.svg" alt="">
-                    <span>tretyakov@tretyakov.ru</span>
-                    <img class="ml-1" src="../assets/image/).svg" alt="">
-                  </div>
-                  <div>
-                    <img src="../assets/image/pic133.jpg" alt="">
-                  </div>
-                </div>
-              </div>
+              </div >
             </div>
-          <div class="contacts-maps-block" v-if="activeTab === 'map'">
+          <div class="contacts-maps-block" v-if="activeTab === 'map' && placesList && placesList.length">
             <div class="contacts-maps-block-info">
-              <div class="contacts-maps-block-info-item">
-                <img v-if="openModal" class="icon" src="../assets/image/Rectangle1108.svg" alt="">
-                <p @click="openModal = true">Арт Ворота</p>
-              </div>
-              <div class="contacts-maps-block-info-item">
-                <img v-if="openModal" class="icon" src="../assets/image/Rectangle1108.svg" alt="">
-                <p @click="openModal = true">ГЦСИ</p>
-              </div>
-              <div class="contacts-maps-block-info-item">
-                <img v-if="openModal" class="icon" src="../assets/image/Rectangle1108.svg" alt="">
-                <p @click="openModal = true">Калининградский музей изобразительных искусств</p>
-              </div>
-              <div class="contacts-maps-block-info-item">
-                <img v-if="openModal" class="icon" src="../assets/image/Rectangle1108.svg" alt="">
-                <p @click="openModal = true">Арт Ворота</p>
-              </div>
-              <div class="contacts-maps-block-info-item">
-                <img v-if="openModal" class="icon" src="../assets/image/Rectangle1108.svg" alt="">
-                <p @click="openModal = true">ГЦСИ</p>
+              <div class="contacts-maps-block-info-item" v-for="(item, i) in placesList" :key="i">
+                <img v-if="item.active" class="icon" src="../assets/image/Rectangle1108.svg" alt="">
+                <p @click="activeIndex = i">{{item.name}}</p>
               </div>
             </div>
-            <div v-if="openModal" class="contacts-maps-block-modal">
-               <div class="contacts-maps-block-modal-close" @click="openModal = false">
+            <div v-if="placesList[activeIndex]" class="contacts-maps-block-modal">
+               <div class="contacts-maps-block-modal-close" @click="activeIndex = null">
                  <img src="../assets/image/x.svg" alt="">
                </div>
                 <div class="contacts-maps-block-modal-text">
-                  <p>г. Калининград, Лаврушинский переулок, 10</p>
-                </div>
-                <div class="contacts-maps-block-modal-text">
-                  <p>Вход со стороны Малого Толмачевского пер., 9</p>
+                  <p>{{placesList[activeIndex].text}}</p>
                 </div>
                 <div  class="contacts-maps-block-modal-date">
-                  <p>xxx xxxxxx xxxx xxx x</p>
-                  <p> xxx xxxxx xxxxxxx xxxxx</p>
+                  <p>{{placesList[activeIndex].mapCenter}}</p>
                 </div>
                 <div class="contacts-maps-block-modal-phone">
-                  <p>+7 (495) 957 07 27</p>
+                  <p>{{placesList[activeIndex].phone}}</p>
                 </div>
                 <div class="contacts-maps-block-modal-email">
                   <img class="mr-1" src="../assets/image/(.svg" alt="">
-                  <span>tretyakov@tretyakov.ru</span>
+                  <span>{{placesList[activeIndex].email}}</span>
                   <img class="ml-1" src="../assets/image/).svg" alt="">
                 </div>
                 <div>
-                  <img src="../assets/image/pic133.jpg" alt="">
+                  <img :src="placesList[activeIndex].picture" alt="">
                 </div>
               </div>
             <div class="contacts-maps-block-map">
@@ -242,97 +100,31 @@
           </div>
         </div>
         <div class="contacts-faq">
-          <div class="contacts-faq-title">
-            <p>ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</p>
+          <div class="contacts-faq-title" v-if="faq && faq.langPhrase">
+            <p>{{faq.langPhrase.title}}</p>
           </div>
-          <div class="contacts-faq-content">
+          <div class="contacts-faq-content" v-if="faqList && faqList.length">
             <div class="contacts-faq-content-block">
-              <div class="contacts-faq-content-block-item">
-                <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
-                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
+              <div class="contacts-faq-content-block-item" v-for="(item, i) in faqList" :key="i">
+                <div class="contacts-faq-content-block-item-title" @click="faqList[i].active = !faqList[i].active">
+                  <img v-if="item.active" class="line" src="../assets/image/minus.svg" alt="">
                   <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Где можно посетить выставки филиала?</p>
+                  <p>{{item.question}}</p>
                 </div>
-                <div v-if="openText" class="contacts-faq-content-block-item-description">
-                  <p >Здание филиала Третьяковской галереи строится на Октябрьском острове и до завершения строительства в 2023 году все выставки и мероприятия филиала проходят на площадках партнеров музея в Калининграде и области. Выбрать выставку можно в разделе Афиша.
-                    Важно: у каждого из наших партнеров могут быть свои требования к посетителям в период пандемии, советуем ознакомиться с правилами заранее.
-                  </p>
+                <div v-if="item.active" class="contacts-faq-content-block-item-description">
+                  <p>{{item.answer}}</p>
                 </div>
               </div>
-              <div class="contacts-faq-content-block-item">
-                <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
-                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                  <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Какие выставки открыты после карантина?</p>
-                </div>
-                <div v-if="openText" class="contacts-faq-content-block-item-description">
-                  <p >Филиал открыт и работает по временным правилам, просим вас прочесть их перед визитом. Мы ежедневно проводим полную санитарную обработку музея и ждем вас на выставках. </p>
-                  <p>Правила для посетителей простые: измерить температуру на входе (безопасно и бесконтактно), носить маску, соблюдать дистанцию и двигаться по указателям на полу.
-                    Важно: антисептические средства мы просим оставить в камере хранения, так как при неаккуратном использовании спиртовые растворы могут нанести непоправимый вред ценным экспонатам.
-                  </p>
-                </div>
-              </div>
-              <div class="contacts-faq-content-block-item">
-                <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
-                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                  <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Как купить билет?</p>
-                </div>
-                <div v-if="openText" class="contacts-faq-content-block-item-description">
-                  <p >Билеты можно приобрести в кассах музея или на сайте через форму «Купить билет» (ссылка на нужное окно). </p>
-                </div>
-              </div>
-              <div class="contacts-faq-content-block-item">
-                <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
-                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                  <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Что такое «сеанс»?</p>
-                </div>
-                <div v-if="openText" class="contacts-faq-content-block-item-description">
-                  <p >Сеанс — получасовой интервал, во время которого вы можете зайти в музей. Эта мера безопасности позволяет обеспечить равномерный поток посетителей и избежать большого скопления людей. </p>
-                </div>
-              </div>
-              <div class="contacts-faq-content-block-item">
-                <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
-                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                  <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Как сдать билет?</p>
-                </div>
-                <div v-if="openText" class="contacts-faq-content-block-item-description">
-                  <p >Подайте заявление на возврат в кассах музея не позднее, чем за сутки до оплаченного визита, в заявлении укажите счет для возврата средств (обратите внимание, не номер карты, а именно счет, который состоит из двадцати цифр). Возврат денег производится на карту, которая использовалась при оплате, в течение десяти рабочих дней. </p>
-                </div>
-              </div>
-              <div class="contacts-faq-content-block-item">
-                <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
-                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                  <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Кто такие друзья Третьяковки? (пока на сайте будет скрыт)</p>
-                </div>
-                <div v-if="openText" class="contacts-faq-content-block-item-description">
-                  <p >Это постоянные посетители музея, участники программы лояльности и меценаты, которые оказывают поддержку галерее и ее проектам. За участие друзья Третьяковки получают эксклюзивные бонусы.
-                  </p>
-                </div>
-              </div>
-              <div class="contacts-faq-content-block-item">
-                <div class="contacts-faq-content-block-item-title" @click="openText = !openText">
-                  <img v-if="openText" class="line" src="../assets/image/minus.svg" alt="">
-                  <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                  <p>Экскурсии (пока на сайте будет скрыт)</p>
-                </div>
-                <div v-if="openText" class="contacts-faq-content-block-item-description">
-                  <p >Вы можете купить билеты на сайте, в кассах филиала и забронировать её в экскурсионном бюро по телефону УКАЗАТЬ ТЕЛЕФОН</p>
-                </div>
-              </div>
-              <div class="contacts-faq-content-block-text">
+              <div class="contacts-faq-content-block-text" v-if="faqList.length > 10">
                 <img class="mr-1" src="../assets/image/(.svg" alt="">
                 <span>показать ещё</span>
                 <img class="ml-1" src="../assets/image/).svg" alt="">
               </div>
             </div>
             <div class="contacts-faq-content-right">
-              <div class="contacts-faq-content-right-block">
+              <div class="contacts-faq-content-right-block" v-if="contactsData && contactsData.langPhrase">
                 <img class="mr-1" src="../assets/image/(.svg" alt="">
-                <span>задать вопрос</span>
+                <span>{{contactsData.langPhrase.makeQuestion}}</span>
                 <img class="ml-1" src="../assets/image/).svg" alt="">
               </div>
             </div>
@@ -344,19 +136,54 @@
 </template>
 
 <script>
-    import Header from "../components/Header";
-    import Footer from "../components/Footer";
-    export default {
-        name: "contacts",
-        components: {Footer, Header},
-      data () {
-          return {
-            activeTab: 'map',
-            openModal: false,
-            openText: false
-          }
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { mapActions, mapState} from 'vuex'
+export default {
+    name: "contacts",
+    components: {Footer, Header},
+  data () {
+      return {
+        activeTab: 'map',
+        faqList: [],
+        placesList: [],
+        openModal: false,
+        activeIndex: null,
+        openText: false
       }
-    }
+  },
+  computed: {
+    ...mapState({
+      contactsData: (state) => state.contacts.contactsData,
+      places: (state) => state.contacts.places,
+      head: (state) => state.contacts.head,
+      faq: (state) => state.contacts.faq,
+    })
+  },
+  mounted() {
+    this.getData().then(() => {
+      if (this.faq.listItem && this.faq.listItem.length) {
+        const arr = JSON.parse(JSON.stringify(this.faq.listItem))
+        this.faqList = arr.map((item) => {
+          item.active = false
+          return item
+        })
+      }
+      if (this.places.listItems && this.places.listItems.length) {
+        const arr = JSON.parse(JSON.stringify(this.places.listItems))
+        this.placesList = arr.map((item) => {
+          item.active = false
+          return item
+        })
+      }
+    })
+  },
+  methods: {
+    ...mapActions({
+      getData: 'contacts/getData',
+    }),
+  }
+}
 </script>
 
 <style scoped lang="scss">
