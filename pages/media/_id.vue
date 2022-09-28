@@ -40,16 +40,16 @@
            </div>
          </div>
          <div class="media-page-header-footer">
-           <div class="media-page-header-footer-item border-right">
-             <div class="media-page-header-footer-item-block">
-               <img class="mr-1" src="../../assets/image/(.svg" alt="">
-               <img class="mr-2" src="../../assets/image/Group591.svg" alt="">
-               <span>Скачать все</span>
-               <img class="ml-2" src="../../assets/image/).svg" alt="">
-             </div>
-           </div>
+<!--           <div class="media-page-header-footer-item border-right">-->
+<!--             <div class="media-page-header-footer-item-block">-->
+<!--               <img class="mr-1" src="../../assets/image/(.svg" alt="">-->
+<!--               <img class="mr-2" src="../../assets/image/Group591.svg" alt="">-->
+<!--               <span>Скачать все</span>-->
+<!--               <img class="ml-2" src="../../assets/image/).svg" alt="">-->
+<!--             </div>-->
+<!--           </div>-->
            <div class="media-page-header-footer-item">
-             <div class="media-page-header-footer-item-block">
+             <div @click="share" class="media-page-header-footer-item-block cursor-pointer">
                <img class="mr-1" src="../../assets/image/(.svg" alt="">
                <span>поделиться</span>
                <img class="ml-2" src="../../assets/image/shareArrowIcon.svg" alt="">
@@ -256,7 +256,19 @@
     methods: {
       ...mapActions({
         getMediaData: 'media/getMediaData'
-      })
+      }),
+      async share () {
+        const shareData = {
+          title: this.head.h1,
+          text: this.head.text,
+          url: window.location.href
+        }
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          console.log(err)
+        }
+      }
     }
   }
 </script>

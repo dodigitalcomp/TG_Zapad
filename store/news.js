@@ -31,6 +31,7 @@ export const actions = {
 export const mutations = {
     setNew (state, data) {
         state.newData = data.content.news.item
+        state.head = data.head
     },
     setNews(state, data) {
         state.head = data.head

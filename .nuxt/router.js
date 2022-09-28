@@ -13,7 +13,7 @@ const _4b23d3b8 = () => interopDefault(import('..\\pages\\eventPage2.vue' /* web
 const _4b31eb39 = () => interopDefault(import('..\\pages\\eventPage3.vue' /* webpackChunkName: "pages/eventPage3" */))
 const _4b4002ba = () => interopDefault(import('..\\pages\\eventPage4.vue' /* webpackChunkName: "pages/eventPage4" */))
 const _795ea03a = () => interopDefault(import('..\\pages\\events\\index.vue' /* webpackChunkName: "pages/events/index" */))
-const _05165b66 = () => interopDefault(import('..\\pages\\friend.vue' /* webpackChunkName: "pages/friend" */))
+const _a82e5ab2 = () => interopDefault(import('..\\pages\\loyalty.vue' /* webpackChunkName: "pages/loyalty" */))
 const _7d2d3146 = () => interopDefault(import('..\\pages\\media\\index.vue' /* webpackChunkName: "pages/media/index" */))
 const _4b60ec80 = () => interopDefault(import('..\\pages\\news\\index.vue' /* webpackChunkName: "pages/news/index" */))
 const _3bd09857 = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages/search" */))
@@ -73,9 +73,9 @@ export const routerOptions = {
     component: _795ea03a,
     name: "events___en"
   }, {
-    path: "/en/friend",
-    component: _05165b66,
-    name: "friend___en"
+    path: "/en/loyalty",
+    component: _a82e5ab2,
+    name: "loyalty___en"
   }, {
     path: "/en/media",
     component: _7d2d3146,
@@ -121,9 +121,9 @@ export const routerOptions = {
     component: _795ea03a,
     name: "events___ru"
   }, {
-    path: "/ru/friend",
-    component: _05165b66,
-    name: "friend___ru"
+    path: "/ru/loyalty",
+    component: _a82e5ab2,
+    name: "loyalty___ru"
   }, {
     path: "/ru/media",
     component: _7d2d3146,

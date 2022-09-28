@@ -1,5 +1,3 @@
-
-
 .swiper {
   width: 100%;
   height: 100%;
@@ -44,95 +42,95 @@
   }
 
 
-  .gallery-thumbnail:nth-child(2) {
-     position: absolute;
-    left: 0;
-    top: 152px;
-
-    @media (max-width: 850px) {
-      top: 126px;
-    }
-
-    @media (max-width: 760px) {
-      position: inherit;
-      top: inherit;
-      left: inherit;
-    }
-  }  .gallery-thumbnail:nth-child(2) {
-     position: absolute;
-    left: 0;
-    top: 152px;
-
-    @media (max-width: 850px) {
-      top: 126px;
-    }
-
-    @media (max-width: 760px) {
-      position: inherit;
-      top: inherit;
-      left: inherit;
-    }
-  }
-
-
-  .gallery-thumbnail:nth-child(3) {
-    position: relative;
-
-    &::after {
-      content: url("../image/Group359.svg");
-      position: absolute;
-      bottom: 5px;
-      right: 50px;
-      img {
-        margin-bottom: 0;
-      }
-      @media (max-width: 850px) {
-        display: none;
-      }
-    }
-
-    &::before {
-      content: url("../image/dl.svg");
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      border: 1px solid #ffffff;
-      width: 30px;
-      height: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      img {
-        margin-bottom: 0;
-      }
-
-      @media (max-width: 850px) {
-        display: none;
-      }
-    }
-  }
-
-  .gallery-thumbnail:nth-child(5) {
-    position: absolute;
-    left: 454px;
-    top: 152px;
-    @media (max-width: 850px) {
-      left: 364px;
-      top: 126px;
-    }
-
-    @media (max-width: 760px) {
-      position: inherit;
-      top: inherit;
-      left: inherit;
-    }
-  }
-
-  .gallery-thumbnail:nth-child(6) {
-    @media (max-width: 1200px) {
-      display: none;
-    }
-  }
+  //.gallery-thumbnail:nth-child(2) {
+  //   position: absolute;
+  //  left: 0;
+  //  top: 152px;
+  //
+  //  @media (max-width: 850px) {
+  //    top: 126px;
+  //  }
+  //
+  //  @media (max-width: 760px) {
+  //    position: inherit;
+  //    top: inherit;
+  //    left: inherit;
+  //  }
+  //}  .gallery-thumbnail:nth-child(2) {
+  //   position: absolute;
+  //  left: 0;
+  //  top: 152px;
+  //
+  //  @media (max-width: 850px) {
+  //    top: 126px;
+  //  }
+  //
+  //  @media (max-width: 760px) {
+  //    position: inherit;
+  //    top: inherit;
+  //    left: inherit;
+  //  }
+  //}
+  //
+  //
+  //.gallery-thumbnail:nth-child(3) {
+  //  position: relative;
+  //
+  //  &::after {
+  //    content: url("../image/Group359.svg");
+  //    position: absolute;
+  //    bottom: 5px;
+  //    right: 50px;
+  //    img {
+  //      margin-bottom: 0;
+  //    }
+  //    @media (max-width: 850px) {
+  //      display: none;
+  //    }
+  //  }
+  //
+  //  &::before {
+  //    content: url("../image/dl.svg");
+  //    position: absolute;
+  //    bottom: 10px;
+  //    right: 10px;
+  //    border: 1px solid #ffffff;
+  //    width: 30px;
+  //    height: 30px;
+  //    display: flex;
+  //    justify-content: center;
+  //    align-items: center;
+  //    img {
+  //      margin-bottom: 0;
+  //    }
+  //
+  //    @media (max-width: 850px) {
+  //      display: none;
+  //    }
+  //  }
+  //}
+  //
+  //.gallery-thumbnail:nth-child(5) {
+  //  position: absolute;
+  //  left: 454px;
+  //  top: 152px;
+  //  @media (max-width: 850px) {
+  //    left: 364px;
+  //    top: 126px;
+  //  }
+  //
+  //  @media (max-width: 760px) {
+  //    position: inherit;
+  //    top: inherit;
+  //    left: inherit;
+  //  }
+  //}
+  //
+  //.gallery-thumbnail:nth-child(6) {
+  //  @media (max-width: 1200px) {
+  //    display: none;
+  //  }
+  //}
 
 
 }
@@ -1124,9 +1122,28 @@
 
         &-title {
           display: flex;
+          flex-direction: column;
           justify-content: center;
+          align-items: center;
           margin-bottom: 20px;
           p {
+            max-width: 639px;
+            margin-top: 20px;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #221F1A;
+            text-align: center;
+
+            @media (max-width: 650px) {
+              font-size: 13px;
+              line-height: 15px;
+            }
+          }
+
+          h2 {
             font-style: normal;
             font-weight: normal;
             font-size: 50px;
@@ -2195,5 +2212,12 @@
 .iframe-height-100 {
   iframe {
     height: 100%;
+  }
+}
+
+
+.swiper-slide:last-child {
+  .teachers-item {
+    border-right: 0 !important;
   }
 }
