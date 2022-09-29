@@ -46,8 +46,8 @@
        </div>
        <div class="news-page-content">
          <div class="news-page-content-buy-ticket"></div>
-         <div class="news-page-content-info" v-html="newData.text"></div>
          <div class="news-page-content-info">
+           <p v-html="newData.text"></p>
 <!--           <div class="news-page-content-info-title">-->
 <!--             <p>Заголовок 1 уровня. состоится встреча-->
 <!--               с губернатором Калининградской области Антоном Алихановым по вопросам формирования повестки</p>-->
@@ -253,71 +253,35 @@
 <!--         </div>-->
 <!--       </div>-->
        <div class="news-page-pagination line-block">
-         <div class="news-page-pagination-title">
-           <p>похожие события</p>
+         <div class="news-page-pagination-title" v-if="same_news && same_news.langPhrase">
+           <p>{{same_news.langPhrase.title}}</p>
          </div>
          <div class="line-dn"></div>
          <div class="news-page-pagination-footer">
-           <div class="flex">
+           <NuxtLink tag="div" :to="localePath('/news')" class="flex cursor-pointer">
              <img class="mr-1" src="../../assets/image/(.svg" alt="">
              <span>все события</span>
              <img class="ml-2" src="../../assets/image/).svg" alt="">
-           </div>
+           </NuxtLink>
          </div>
        </div>
-       <div class="news-page-block">
-         <div class="news-page-block-item">
+       <div class="news-page-block" v-if="same_news && same_news.listItems">
+         <NuxtLink :to="item.url" tag="div" class="news-page-block-item" v-for="(item, i) in same_news.listItems" :key="i">
            <div class="news-page-block-item-text">
              <div class="news-page-block-item-text-date">
-               <p>18–31 ДЕК</p>
-               <p>выставка</p>
+               <p>{{item.date}}</p>
+               <p>{{item.rubric}}</p>
              </div>
            </div>
            <div class="news-page-block-item-img">
-             <img src="../../assets/image/Pic-fit3.jpg" alt="">
+             <img :src="item.picture" alt="">
            </div>
            <div class="news-page-block-item-title">
-             <p>Вильямс П.В. <span class="william">история одной работы</span></p>
+             <p>{{item.name}}</p>
            </div>
-           <div class="news-page-block-item-description">
-             <p>Это многообразие связано и с особенностями каждой отдельной исторической эпохи,
-               и с процессами.</p>
+           <div class="news-page-block-item-description" v-html="item.text">
            </div>
-         </div>
-         <div class="news-page-block-item">
-           <div class="news-page-block-item-text">
-             <div class="news-page-block-item-text-date">
-               <p>18–31 ДЕК</p>
-               <p>выставка</p>
-             </div>
-           </div>
-           <div class="news-page-block-item-img">
-             <img src="../../assets/image/Pic-fit3.jpg" alt="">
-           </div>
-           <div class="news-page-block-item-title">
-             <p>«Маленький человек» Кабакова <span class="william">и русская живопись XIX века</span></p>
-           </div>
-           <div class="news-page-block-item-description">
-             <p>20 ноября состоится встреча с губернатором Калининградской области Антоном Алихановым по вопросам …</p>
-           </div>
-         </div>
-         <div class="news-page-block-item">
-           <div class="news-page-block-item-text">
-             <div class="news-page-block-item-text-date">
-               <p>18–31 ДЕК</p>
-               <p>выставка</p>
-             </div>
-           </div>
-           <div class="news-page-block-item-img">
-             <img src="../../assets/image/Pic-fit3.jpg" alt="">
-           </div>
-           <div class="news-page-block-item-title">
-             <p>фотография во времена <span class="william">самоизоляции</span></p>
-           </div>
-           <div class="news-page-block-item-description">
-             <p>20 ноября состоится встреча с губернатором Калининградской области Антоном Алихановым по вопросам …</p>
-           </div>
-         </div>
+         </NuxtLink>
        </div>
      </div>
     <Footer/>
@@ -335,6 +299,7 @@
     computed: {
       ...mapState({
         newData: (state) => state.news.newData,
+        same_news: (state) => state.news.same_news,
         head: (state) => state.news.head
       })
     },

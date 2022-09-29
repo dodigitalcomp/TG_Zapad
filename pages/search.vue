@@ -1,4 +1,4 @@
-<template>
+<template v-if="loading">
   <div>
     <Header/>
     <div class="search">
@@ -34,9 +34,9 @@
             <img class="ml-1" src="../assets/image/).svg" alt="">
           </div>
         </div>
-        <div class="search-body-content">
-          <div class="search-body-content-left">
-            <div class="search-body-content-left-item">
+        <div class="search-body-content" >
+          <div class="search-body-content-left" v-if="blocks">
+            <label class="search-body-content-left-item cursor-pointer" @click="searchData()">
               <input class="search-body-content-left-item-radio" checked="true" name="filter" type="radio">
               <p  class="search-body-content-left-item-type">Все</p>
               <div class="search-body-content-left-item-count">
@@ -44,63 +44,36 @@
                 <span>30</span>
                 <img class="ml-1" src="../assets/image/).svg" alt="">
               </div>
-            </div>
-            <div class="search-body-content-left-item">
+            </label>
+            <label class="search-body-content-left-item cursor-pointer" @click="filter(item.url)" v-for="(item, i) in blocks" :key="i">
               <input class="search-body-content-left-item-radio" name="filter" type="radio">
-              <p  class="search-body-content-left-item-type">события</p>
+              <p  class="search-body-content-left-item-type">{{item.name}}</p>
               <div class="search-body-content-left-item-count">
                 <img class="mr-1" src="../assets/image/(.svg" alt="">
                 <span>30</span>
                 <img class="ml-1" src="../assets/image/).svg" alt="">
               </div>
-            </div>
-            <div class="search-body-content-left-item">
-              <input class="search-body-content-left-item-radio" name="filter" type="radio">
-              <p  class="search-body-content-left-item-type">новости</p>
-              <div class="search-body-content-left-item-count">
-                <img class="mr-1" src="../assets/image/(.svg" alt="">
-                <span>30</span>
-                <img class="ml-1" src="../assets/image/).svg" alt="">
-              </div>
-            </div>
-            <div class="search-body-content-left-item">
-              <input class="search-body-content-left-item-radio" name="filter" type="radio">
-              <p  class="search-body-content-left-item-type">образование</p>
-              <div class="search-body-content-left-item-count">
-                <img class="mr-1" src="../assets/image/(.svg" alt="">
-                <span>30</span>
-                <img class="ml-1" src="../assets/image/).svg" alt="">
-              </div>
-            </div>
-            <div class="search-body-content-left-item">
-              <input class="search-body-content-left-item-radio" name="filter" type="radio">
-              <p  class="search-body-content-left-item-type">информация</p>
-              <div class="search-body-content-left-item-count">
-                <img class="mr-1" src="../assets/image/(.svg" alt="">
-                <span>30</span>
-                <img class="ml-1" src="../assets/image/).svg" alt="">
-              </div>
-            </div>
+            </label>
           </div>
           <div class="search-body-content-right" v-if="listItem && listItem.length">
             <NuxtLink tag="div" :to="item.url" class="search-body-content-right-item" v-for="(item, i) in listItem" :key="i">
               <div class="search-body-content-right-item-info">
                  <div class="search-body-content-right-item-info-date">
-                   <p>выставка</p>
-                   <p>12 окт — 24 отк</p>
+                   <p>{{item.type}}</p>
+                   <p>{{item.date}}</p>
                  </div>
                 <div class="search-body-content-right-item-info-imageMini">
                   <img src="../assets/image/pic111.jpg" alt="">
                 </div>
-                <div class="search-body-content-right-item-info-title">
-                  <p>{{item.name}}</p>
+                <div class="search-body-content-right-item-info-title search-text">
+                  <p v-html="item.name"></p>
                 </div>
                 <div class="search-body-content-right-item-info-description">
                   <p>{{item.text}}</p>
                 </div>
               </div>
               <div class="search-body-content-right-item-image">
-                <img src="../assets/image/pic111.jpg" alt="">
+                <img :src="item.picture" alt="">
               </div>
             </NuxtLink>
 <!--            <div class="search-body-content-right-item">-->
@@ -186,17 +159,13 @@
           </div>
         </div>
       </div>
-      <div class="search-pagination line-block">
+      <div class="search-pagination line-block" v-if="pagination && pagination.current_page">
         <div class="search-pagination-page">
-          <div class="flex">
-            <span>1</span>
-            <span class="active">2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>...</span>
-            <span>10</span>
-          </div>
-          <img src="../assets/image/Vector99.svg" alt="">
+          <vs-pagination
+              :total-pages="pagination.max_page"
+              :current-page="+pagination.current_page ? +pagination.current_page : 1"
+              @change="changePage"
+          ></vs-pagination>
         </div>
         <div class="line-dn"></div>
         <div class="search-pagination-footer"></div>
@@ -210,12 +179,14 @@
   import Header from "../components/Header";
   import Footer from "../components/Footer";
   import { mapActions, mapState} from 'vuex'
+  import VsPagination from '@vuesimple/vs-pagination';
   export default {
     name: "search",
-    components: {Footer, Header},
+    components: {Footer, Header, VsPagination},
     data() {
       return {
         searchContent: false,
+        loading: false,
         searchText: '',
       }
     },
@@ -223,18 +194,29 @@
       ...mapState({
         listItem: (state) => state.search.listItem,
         head: (state) => state.search.head,
+        blocks: (state) => state.search.blocks,
+        pagination: (state) => state.search.pagination
       })
     },
-    mounted() {
-      this.search().then(() => {
-      })
-    },
+    // created() {
+    //   this.search().then(() => {
+    //     this.loading = true
+    //   })
+    // },
     methods: {
       ...mapActions({
         search: 'search/search',
+        searchByUrl: 'search/searchByUrl',
       }),
+      changePage(page) {
+        let text = this.searchText + '&PAGEN_1=' + page
+        this.search(text)
+      },
       searchData() {
         this.search(this.searchText).then(() => {})
+      },
+      filter(url) {
+        this.searchByUrl(url)
       }
     }
   }
@@ -410,12 +392,14 @@
           &-item {
             display: flex;
             border-bottom: 1px solid;
+            justify-content: space-around;
 
             &-info {
               padding-right: 20px;
               border-right: 1px solid;
               margin-bottom: 20px;
               margin-top: 20px;
+              width: 65%;
 
               @media (max-width: 850px) {
                 max-width: 70%;
@@ -484,7 +468,7 @@
                     line-height: 25px;
                   }
 
-                  span {
+                  b {
                     background: #FFDD7C;
                   }
                 }

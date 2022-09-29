@@ -7,7 +7,7 @@
            <NuxtLink :to="localePath('/media')" tag="p" class="cursor-pointer">
              <img class="mra-9" src="../../assets/image/(.svg" alt="">
              <img class="mra-9 arow" src="../../assets/image/Vector135.svg" alt="">
-             <span>все медиа материалы</span>
+             <span>{{langPhrase.allMedia}}</span>
              <img class="mra-5" src="../../assets/image/).svg" alt="">
            </NuxtLink>
          </div>
@@ -21,14 +21,14 @@
                      <img class="mra-8" src="../../assets/image/gallery.svg" alt="">
                      <p>
                        <span v-if="media.photoList">{{media.photoList.length}}</span>
-                       <span>фото</span>
+                       <span>{{langPhrase.photo}}</span>
                      </p>
                    </div>
                    <div class="flex">
                      <img class="mra-8" src="../../assets/image/video.svg" alt="">
                      <p>
                        <span v-if="media.videoList">{{media.videoList.length}}</span>
-                       <span>видео</span>
+                       <span>{{langPhrase.video}}</span>
                      </p>
                    </div>
                  </div>
@@ -51,7 +51,7 @@
            <div class="media-page-header-footer-item">
              <div @click="share" class="media-page-header-footer-item-block cursor-pointer">
                <img class="mr-1" src="../../assets/image/(.svg" alt="">
-               <span>поделиться</span>
+               <span>{{langPhrase.share}}</span>
                <img class="ml-2" src="../../assets/image/shareArrowIcon.svg" alt="">
                <img class="ml-2" src="../../assets/image/).svg" alt="">
              </div>
@@ -63,10 +63,10 @@
        </div>
        <div class="media-page-images">
          <div class="media-page-images-title">
-           <p>Фотографии</p>
+           <p>{{langPhrase.photo}}</p>
          </div>
          <vue-picture-swipe  ref="pictureSwipe" :items="items"></vue-picture-swipe>
-         <div class="media-page-images-allButton">
+         <div class="media-page-images-allButton" v-if="items.length > 10">
            <div class="media-page-images-allButton-text">
              <img class="mr-1" src="../../assets/image/(.svg" alt="">
              <span>ещё {{items.length}} фото</span>
@@ -76,7 +76,7 @@
        </div>
        <div class="media-page-video">
          <div class="media-page-video-title">
-           <p>видео</p>
+           <p>{{langPhrase.video}}</p>
          </div>
          <div class="media-page-video-items">
            <div class="media-page-video-items-virtual-tour iframe-height-100" v-for="(item, i) in media.videoList" :key="i" v-html="item.iframe"></div>
@@ -111,106 +111,48 @@
          </div>
        </div>
        <div class="media-page-pagination line-block">
-         <div class="media-page-pagination-title">
-           <p>Другие материалы</p>
+         <div class="media-page-pagination-title" v-if="same_media && same_media.langPhrase">
+           <p>{{same_media.langPhrase.title}}</p>
          </div>
          <div class="line-dn"></div>
          <div class="media-page-pagination-footer">
-           <div class="flex">
+           <NuxtLink :to="localePath('/media')" tag="div" class="flex cursor-pointer">
              <img class="mr-1" src="../../assets/image/(.svg" alt="">
-             <span>все материалы</span>
+             <span>{{langPhrase.allMedia}}</span>
              <img class="ml-2" src="../../assets/image/).svg" alt="">
-           </div>
+           </NuxtLink>
          </div>
        </div>
-       <div class="media-page-block">
-         <div class="media-page-block-item">
+       <div class="media-page-block" v-if="same_media && same_media.listItems">
+         <NuxtLink :to="item.url" tag="div" class="media-page-block-item" v-for="(item ,i) in same_media.listItems" :key="i">
            <div class="media-page-block-item-text">
              <div class="media-page-block-item-text-date">
-               <p>18–31 ДЕК</p>
+               <p>{{item.date}}</p>
              </div>
              <div class="flex">
                <div class="flex mr-3">
                  <img class="mra-8" src="../../assets/image/gallery.svg" alt="">
                  <p>
-                   <span>40</span>
-                   <span>фото</span>
+                   <span>{{item.pictureCount}}</span>
+                   <span v-if="langPhrase">{{langPhrase.photo}}</span>
                  </p>
                </div>
                <div class="flex">
                  <img class="mra-8" src="../../assets/image/video.svg" alt="">
                  <p>
-                   <span>2</span>
-                   <span>видео</span>
+                   <span>{{item.videoCount}}</span>
+                   <span v-if="langPhrase">{{langPhrase.video}}</span>
                  </p>
                </div>
              </div>
            </div>
            <div class="media-page-block-item-img">
-             <img src="../../assets/image/Pic-fit3.jpg" alt="">
+             <img :src="item.picture" alt="">
            </div>
            <div class="media-page-block-item-title">
-             <p>Вильямс П.В. <span class="william">история одной работы</span></p>
+             <p>{{item.name}}</p>
            </div>
-         </div>
-         <div class="media-page-block-item">
-           <div class="media-page-block-item-text">
-             <div class="media-page-block-item-text-date">
-               <p>18–31 ДЕК</p>
-             </div>
-             <div class="flex">
-               <div class="flex mr-3">
-                 <img class="mra-8" src="../../assets/image/gallery.svg" alt="">
-                 <p>
-                   <span>40</span>
-                   <span>фото</span>
-                 </p>
-               </div>
-               <div class="flex">
-                 <img class="mra-8" src="../../assets/image/video.svg" alt="">
-                 <p>
-                   <span>2</span>
-                   <span>видео</span>
-                 </p>
-               </div>
-             </div>
-           </div>
-           <div class="media-page-block-item-img">
-             <img src="../../assets/image/Pic-fit3.jpg" alt="">
-           </div>
-           <div class="media-page-block-item-title">
-             <p>«Маленький человек» Кабакова <span class="william">и русская живопись XIX века</span></p>
-           </div>
-         </div>
-         <div class="media-page-block-item">
-           <div class="media-page-block-item-text">
-             <div class="media-page-block-item-text-date">
-               <p>18–31 ДЕК</p>
-             </div>
-             <div class="flex">
-               <div class="flex mr-3">
-                 <img class="mra-8" src="../../assets/image/gallery.svg" alt="">
-                 <p>
-                   <span>40</span>
-                   <span>фото</span>
-                 </p>
-               </div>
-               <div class="flex">
-                 <img class="mra-8" src="../../assets/image/video.svg" alt="">
-                 <p>
-                   <span>2</span>
-                   <span>видео</span>
-                 </p>
-               </div>
-             </div>
-           </div>
-           <div class="media-page-block-item-img">
-             <img src="../../assets/image/Pic-fit3.jpg" alt="">
-           </div>
-           <div class="media-page-block-item-title">
-             <p>фотография во времена <span class="william">самоизоляции</span></p>
-           </div>
-         </div>
+         </NuxtLink>
        </div>
      </div>
     <Footer/>
@@ -232,7 +174,9 @@
     },
     computed: {
       ...mapState({
-        media: (state) => state.media.media
+        media: (state) => state.media.media,
+        langPhrase: (state) => state.media.langPhrase,
+        same_media: (state) => state.media.same_media,
       })
     },
     created() {
@@ -259,8 +203,8 @@
       }),
       async share () {
         const shareData = {
-          title: this.head.h1,
-          text: this.head.text,
+          title: this.media.name,
+          text: this.media.detailText,
           url: window.location.href
         }
         try {

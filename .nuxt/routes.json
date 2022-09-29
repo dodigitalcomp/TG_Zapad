@@ -3,192 +3,224 @@
     "name": "index___en",
     "path": "/en",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_3e742f73"
   },
   {
     "name": "index___ru",
     "path": "/ru",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_3e742f73"
   },
   {
     "name": "about___en",
     "path": "/en/about",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\about.vue",
-    "chunkName": "pages/about"
+    "chunkName": "pages/about",
+    "_name": "_1ebc54ae"
   },
   {
     "name": "contacts___en",
     "path": "/en/contacts",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\contacts.vue",
-    "chunkName": "pages/contacts"
+    "chunkName": "pages/contacts",
+    "_name": "_0f0b9bc2"
   },
   {
     "name": "education___en",
     "path": "/en/education",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\education.vue",
-    "chunkName": "pages/education"
+    "chunkName": "pages/education",
+    "_name": "_5e65326e"
   },
   {
     "name": "errors___en",
     "path": "/en/errors",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\errors.vue",
-    "chunkName": "pages/errors"
+    "chunkName": "pages/errors",
+    "_name": "_6e89eecc"
   },
   {
     "name": "eventPage2___en",
     "path": "/en/eventPage2",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage2.vue",
-    "chunkName": "pages/eventPage2"
+    "chunkName": "pages/eventPage2",
+    "_name": "_4b23d3b8"
   },
   {
     "name": "eventPage3___en",
     "path": "/en/eventPage3",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage3.vue",
-    "chunkName": "pages/eventPage3"
+    "chunkName": "pages/eventPage3",
+    "_name": "_4b31eb39"
   },
   {
     "name": "eventPage4___en",
     "path": "/en/eventPage4",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage4.vue",
-    "chunkName": "pages/eventPage4"
+    "chunkName": "pages/eventPage4",
+    "_name": "_4b4002ba"
   },
   {
     "name": "events___en",
     "path": "/en/events",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\events\\\\index.vue",
-    "chunkName": "pages/events/index"
+    "chunkName": "pages/events/index",
+    "_name": "_795ea03a"
   },
   {
     "name": "loyalty___en",
     "path": "/en/loyalty",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\loyalty.vue",
-    "chunkName": "pages/loyalty"
+    "chunkName": "pages/loyalty",
+    "_name": "_a82e5ab2"
   },
   {
     "name": "media___en",
     "path": "/en/media",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\media\\\\index.vue",
-    "chunkName": "pages/media/index"
+    "chunkName": "pages/media/index",
+    "_name": "_7d2d3146"
   },
   {
     "name": "news___en",
     "path": "/en/news",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\news\\\\index.vue",
-    "chunkName": "pages/news/index"
+    "chunkName": "pages/news/index",
+    "_name": "_4b60ec80"
   },
   {
     "name": "search___en",
     "path": "/en/search",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\search.vue",
-    "chunkName": "pages/search"
+    "chunkName": "pages/search",
+    "_name": "_3bd09857"
   },
   {
     "name": "about___ru",
     "path": "/ru/about",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\about.vue",
-    "chunkName": "pages/about"
+    "chunkName": "pages/about",
+    "_name": "_1ebc54ae"
   },
   {
     "name": "contacts___ru",
     "path": "/ru/contacts",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\contacts.vue",
-    "chunkName": "pages/contacts"
+    "chunkName": "pages/contacts",
+    "_name": "_0f0b9bc2"
   },
   {
     "name": "education___ru",
     "path": "/ru/education",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\education.vue",
-    "chunkName": "pages/education"
+    "chunkName": "pages/education",
+    "_name": "_5e65326e"
   },
   {
     "name": "errors___ru",
     "path": "/ru/errors",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\errors.vue",
-    "chunkName": "pages/errors"
+    "chunkName": "pages/errors",
+    "_name": "_6e89eecc"
   },
   {
     "name": "eventPage2___ru",
     "path": "/ru/eventPage2",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage2.vue",
-    "chunkName": "pages/eventPage2"
+    "chunkName": "pages/eventPage2",
+    "_name": "_4b23d3b8"
   },
   {
     "name": "eventPage3___ru",
     "path": "/ru/eventPage3",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage3.vue",
-    "chunkName": "pages/eventPage3"
+    "chunkName": "pages/eventPage3",
+    "_name": "_4b31eb39"
   },
   {
     "name": "eventPage4___ru",
     "path": "/ru/eventPage4",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\eventPage4.vue",
-    "chunkName": "pages/eventPage4"
+    "chunkName": "pages/eventPage4",
+    "_name": "_4b4002ba"
   },
   {
     "name": "events___ru",
     "path": "/ru/events",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\events\\\\index.vue",
-    "chunkName": "pages/events/index"
+    "chunkName": "pages/events/index",
+    "_name": "_795ea03a"
   },
   {
     "name": "loyalty___ru",
     "path": "/ru/loyalty",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\loyalty.vue",
-    "chunkName": "pages/loyalty"
+    "chunkName": "pages/loyalty",
+    "_name": "_a82e5ab2"
   },
   {
     "name": "media___ru",
     "path": "/ru/media",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\media\\\\index.vue",
-    "chunkName": "pages/media/index"
+    "chunkName": "pages/media/index",
+    "_name": "_7d2d3146"
   },
   {
     "name": "news___ru",
     "path": "/ru/news",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\news\\\\index.vue",
-    "chunkName": "pages/news/index"
+    "chunkName": "pages/news/index",
+    "_name": "_4b60ec80"
   },
   {
     "name": "search___ru",
     "path": "/ru/search",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\search.vue",
-    "chunkName": "pages/search"
+    "chunkName": "pages/search",
+    "_name": "_3bd09857"
   },
   {
     "name": "events-id___en",
     "path": "/en/events/:id",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\events\\\\_id.vue",
-    "chunkName": "pages/events/_id"
+    "chunkName": "pages/events/_id",
+    "_name": "_46ab6922"
   },
   {
     "name": "media-id___en",
     "path": "/en/media/:id",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\media\\\\_id.vue",
-    "chunkName": "pages/media/_id"
+    "chunkName": "pages/media/_id",
+    "_name": "_8018c5f6"
   },
   {
     "name": "news-id___en",
     "path": "/en/news/:id",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\news\\\\_id.vue",
-    "chunkName": "pages/news/_id"
+    "chunkName": "pages/news/_id",
+    "_name": "_297fe230"
   },
   {
     "name": "events-id___ru",
     "path": "/ru/events/:id",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\events\\\\_id.vue",
-    "chunkName": "pages/events/_id"
+    "chunkName": "pages/events/_id",
+    "_name": "_46ab6922"
   },
   {
     "name": "media-id___ru",
     "path": "/ru/media/:id",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\media\\\\_id.vue",
-    "chunkName": "pages/media/_id"
+    "chunkName": "pages/media/_id",
+    "_name": "_8018c5f6"
   },
   {
     "name": "news-id___ru",
     "path": "/ru/news/:id",
     "component": "D:\\\\project\\\\TG_Zapad\\\\pages\\\\news\\\\_id.vue",
-    "chunkName": "pages/news/_id"
+    "chunkName": "pages/news/_id",
+    "_name": "_297fe230"
   }
 ]

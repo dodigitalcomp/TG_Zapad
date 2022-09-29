@@ -3,6 +3,7 @@ export const state = () => ({
   langPhrase: {},
   pagination: {},
   filter: {},
+  same_media: {},
   sort: {},
   media: {},
   head: {}
@@ -32,6 +33,8 @@ export const actions = {
 export const mutations = {
   setNew (state, data) {
     state.media = data.content.media.item
+    state.langPhrase = data.content.media.langPhrase
+    state.same_media = data.content.same_media
   },
   setNews(state, data) {
     state.head = data.head
