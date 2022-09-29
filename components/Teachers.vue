@@ -15,8 +15,8 @@
         </div>
       </swiper-slide>
     </swiper>
-    <img class="arrows__btn arrows__btn_prev teachers-arrow-left" src="../assets/image/Vector999.svg">
-    <img class="arrows__btn arrows__btn_next teachers-arrow-right" src="../assets/image/Vector199.svg">
+    <img class="arrows__btn arrows__btn_prev-t teachers-arrow-left" src="../assets/image/Vector999.svg">
+    <img class="arrows__btn arrows__btn_next-t teachers-arrow-right" src="../assets/image/Vector199.svg">
   </div>
 </template>
 
@@ -47,8 +47,8 @@ export default {
           clickable: true
         },
         navigation: {
-          nextEl: '.arrows__btn_next',
-          prevEl: '.arrows__btn_prev'
+          nextEl: '.arrows__btn_next-t',
+          prevEl: '.arrows__btn_prev-t'
         }
       }
     }

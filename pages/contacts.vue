@@ -14,7 +14,7 @@
             </div>
           </div>
           <div class="contacts-header-footer" v-if="contactsData && contactsData.langPhrase">
-            <div class="contacts-header-footer-item">
+            <div class="contacts-header-footer-item cursor-pointer" @click="openModal = true">
               <img class="mr-1" src="../assets/image/(.svg" alt="">
               <span>{{contactsData.langPhrase.callback}}</span>
               <img class="ml-1" src="../assets/image/).svg" alt="">
@@ -132,6 +132,7 @@
         </div>
       </div>
     <Footer/>
+    <Modal v-if="openModal"/>
   </div>
 </template>
 
@@ -139,9 +140,10 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { mapActions, mapState} from 'vuex'
+import Modal from "../components/Modal";
 export default {
     name: "contacts",
-    components: {Footer, Header},
+    components: {Modal, Footer, Header},
   data () {
       return {
         activeTab: 'map',
@@ -161,6 +163,9 @@ export default {
     })
   },
   mounted() {
+    this.$nuxt.$on('close', () => {
+      this.openModal = false;
+    });
     this.getData().then(() => {
       if (this.faq.listItem && this.faq.listItem.length) {
         const arr = JSON.parse(JSON.stringify(this.faq.listItem))

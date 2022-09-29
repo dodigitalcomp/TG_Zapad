@@ -11,6 +11,9 @@
   "Main": {
     "description": "Auto imported from components/Main.vue"
   },
+  "Modal": {
+    "description": "Auto imported from components/Modal.vue"
+  },
   "Partniors": {
     "description": "Auto imported from components/Partniors.vue"
   },

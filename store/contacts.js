@@ -10,6 +10,11 @@ export const actions = {
             commit('setData', res.data)
             return res.data
         })
+    },
+    saveForm ({ commit }, params) {
+        return this.$axios.post('local/ajax/saveFormData.php', params).then((res) => {
+            return res.data
+        })
     }
 }
 

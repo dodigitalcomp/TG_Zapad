@@ -61,7 +61,7 @@
        <div class="media-page-text">
          <p>{{media.detailText}}</p>
        </div>
-       <div class="media-page-images">
+       <div class="media-page-images" v-if="items && items.length">
          <div class="media-page-images-title">
            <p>{{langPhrase.photo}}</p>
          </div>
@@ -74,7 +74,7 @@
            </div>
          </div>
        </div>
-       <div class="media-page-video">
+       <div class="media-page-video" v-if="media && media.videoList && media.videoList.length">
          <div class="media-page-video-title">
            <p>{{langPhrase.video}}</p>
          </div>

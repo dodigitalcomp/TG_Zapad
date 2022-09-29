@@ -105,7 +105,7 @@
            <div class="event-page-content-info-text">
              <p class="event-page-content-info-text-description" v-html="eventData.previewText"> </p>
            </div>
-           <div class="event-page-content-info-virtual-tour iframe-height-100" v-if="eventData" v-html="eventData.video">
+           <div class="event-page-content-info-virtual-tour " :class="eventData.video ? 'iframe-height-100' : ''" v-if="eventData" v-html="eventData.video">
 <!--             <div></div>-->
 <!--             <div class="event-page-content-info-virtual-tour-content">-->
 <!--               <div class="img">-->

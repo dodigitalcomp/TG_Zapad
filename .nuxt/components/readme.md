@@ -10,6 +10,7 @@ You can directly use them in pages and other components without the need to impo
 - `<Galleria>` | `<galleria>` (components/Galleria.vue)
 - `<Header>` | `<header>` (components/Header.vue)
 - `<Main>` | `<main>` (components/Main.vue)
+- `<Modal>` | `<modal>` (components/Modal.vue)
 - `<Partniors>` | `<partniors>` (components/Partniors.vue)
 - `<Teachers>` | `<teachers>` (components/Teachers.vue)
 - `<VueGalleria>` | `<vue-galleria>` (components/VueGalleria.vue)
