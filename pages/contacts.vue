@@ -122,7 +122,7 @@
               </div>
             </div>
             <div class="contacts-faq-content-right">
-              <div class="contacts-faq-content-right-block" v-if="contactsData && contactsData.langPhrase">
+              <div class="contacts-faq-content-right-block cursor-pointer" @click="openModal = true" v-if="contactsData && contactsData.langPhrase">
                 <img class="mr-1" src="../assets/image/(.svg" alt="">
                 <span>{{contactsData.langPhrase.makeQuestion}}</span>
                 <img class="ml-1" src="../assets/image/).svg" alt="">

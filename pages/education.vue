@@ -36,7 +36,7 @@
          <div class="education-page-content-buy-ticket">
              <div class="fixed-info" id="fixed-info">
                <div class="education-page-content-buy-ticket-date" v-if="education && education.anchor && education.anchor.title">
-                 <p class="item" v-for="(item, i) in education.anchor.title" :key="i">{{item}}</p>
+                 <p class="item cursor-pointer" @click="scrollTab(i)" v-for="(item, i) in education.anchor.title" :key="i">{{item}}</p>
                </div>
              </div>
          </div>
@@ -59,10 +59,10 @@
                <p class="education-page-content-info-type-item-title" v-if="education">{{education.opportunities}}</p>
              </div>
            </div>
-           <div class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[0]"></div>
-           <div class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[1]"></div>
-           <div class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[2]"></div>
-           <div class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[3]"></div>
+           <div id="masters" class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[0]"></div>
+           <div id="programObjective" class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[1]"></div>
+           <div id="learnMore" class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[2]"></div>
+           <div id="howProceed" class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[3]"></div>
            <div class="education-page-content-info-services">
              <div class="education-page-content-info-services-left" v-if="education && education.specializations">
                 <p class="education-page-content-info-services-left-title" v-if="langPhrase">
@@ -119,7 +119,7 @@
                  <p >{{item.answer}}</p>
                </div>
              </div>
-             <div class="education-page-content-info-block-button" v-if="langPhrase">
+             <div class="education-page-content-info-block-button cursor-pointer" @click="openModal = true" v-if="langPhrase">
                <img class="mr-1" src="../assets/image/(.svg" alt="">
                <span>{{langPhrase.makeQuestion}}</span>
                <img class="ml-1" src="../assets/image/).svg" alt="">
@@ -442,6 +442,7 @@
 <!--       </div>-->
      </div>
     <Footer/>
+    <Modal v-if="openModal"/>
   </div>
 </template>
 
@@ -451,15 +452,21 @@ import Footer from "../components/Footer";
 import VueSwiper from "../components/VueSwiper";
 import Teachers from "../components/Teachers";
 import { mapActions, mapState} from 'vuex'
+import Modal from "../components/Modal";
 
 export default {
   name: "education",
-  components: {Teachers, VueSwiper, Footer, Header},
+  components: {Modal, Teachers, VueSwiper, Footer, Header},
   data() {
     return {
       activeTab: 'info',
       faqList: [],
-      openText: false
+      openText: false,
+      openModal: false,
+      masters: 0,
+      programObjective: 0,
+      learnMore: 0,
+      howProceed: 0,
     }
   },
   computed: {
@@ -481,6 +488,16 @@ export default {
       }
 
     })
+    this.$nuxt.$on('close', () => {
+      this.openModal = false;
+    });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    setTimeout(() => {
+      this.scroll()
+    }, 2000)
     const info = document.getElementById('fixed-info')
     addEventListener('scroll', function () {
       let scroll = 648
@@ -493,18 +510,20 @@ export default {
         scrollEnd2 = 5200
         top = '94%'
       }
-      if (window.scrollY > scroll && window.scrollY < scrollEnd) {
-        info.style.position = 'fixed'
-        info.style.top = '120px'
-        info.style.left = '20px'
-      } else if (window.scrollY >= scrollEnd && window.scrollY < scrollEnd2) {
-        info.style.position = 'absolute'
-        info.style.top = top
-        info.style.left = '0'
-      } else {
-        info.style.position = 'relative'
-        info.style.top = '0'
-        info.style.left = '0'
+      if (info) {
+        if (window.scrollY > scroll && window.scrollY < scrollEnd) {
+          info.style.position = 'fixed'
+          info.style.top = '120px'
+          info.style.left = '20px'
+        } else if (window.scrollY >= scrollEnd && window.scrollY < scrollEnd2) {
+          info.style.position = 'absolute'
+          info.style.top = top
+          info.style.left = '0'
+        } else {
+          info.style.position = 'relative'
+          info.style.top = '0'
+          info.style.left = '0'
+        }
       }
     })
   },
@@ -514,7 +533,40 @@ export default {
     }),
     toggleFaq (i) {
       this.faqList[i].active = !this.faqList[i].active
-    }
+    },
+    scroll () {
+      this.masters = document.getElementById('masters').offsetTop
+      this.programObjective = document.getElementById('programObjective').offsetTop
+      this.learnMore = document.getElementById('learnMore').offsetTop
+      this.howProceed = document.getElementById('howProceed').offsetTop
+    },
+    scrollTab(i) {
+      let top = 0
+      switch (i) {
+        case 0:
+          top = this.masters
+          break;
+        case 1:
+          top = this.programObjective
+          break;
+        case 2:
+          top = this.learnMore
+          break;
+        case 3:
+          top = this.howProceed
+          break;
+        default:
+          top = 0;
+      }
+
+      if (top > 200) {
+        top = top - 200
+      }
+      window.scrollTo({
+        top: top,
+        behavior: "smooth"
+      });
+    },
   }
 }
 </script>

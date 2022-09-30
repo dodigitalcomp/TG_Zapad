@@ -159,7 +159,7 @@
           </div>
         </div>
       </div>
-      <div class="search-pagination line-block" v-if="pagination && pagination.current_page">
+      <div class="search-pagination line-block" v-if="pagination && pagination.current_page && pagination.max_page > 1">
         <div class="search-pagination-page">
           <vs-pagination
               :total-pages="pagination.max_page"

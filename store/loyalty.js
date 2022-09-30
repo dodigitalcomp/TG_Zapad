@@ -1,10 +1,9 @@
 export const state = () => ({
-  mediaData: [],
+  adressList: [],
   langPhrase: {},
-  pagination: {},
-  filter: {},
-  sort: {},
-  media: {},
+  levelCards: {},
+  loyalty: {},
+  faqData: {},
   head: {}
 })
 export const actions = {
@@ -14,19 +13,6 @@ export const actions = {
       return res.data
     })
   },
-  getMediaByLink ({ commit },link) {
-    return this.$axios.get(link).then((res) => {
-      commit('setNews', res.data)
-      return res.data
-    })
-  },
-  getMediaData ({ commit }, id) {
-    return this.$axios.get(this.$i18n.locale +'/media/' + id).then((res) => {
-      console.log(222, res)
-      commit('setNew', res.data)
-      return res.data
-    })
-  }
 }
 
 export const mutations = {
@@ -35,14 +21,12 @@ export const mutations = {
   },
   setNews(state, data) {
     state.head = data.head
-    if (data.content && data.content.media && data.content.media.listItems) {
-      state.mediaData = data.content.media.listItems
-      state.langPhrase = data.content.media.langPhrase
-      state.pagination = data.content.media.NAVIGATION
-    }
-    if (data.content && data.content.sort_panel) {
-      state.filter = data.content.sort_panel.filterByType[0]
-      state.sort = data.content.sort_panel.sort.sortByDate
+    state.faqData = data.content.faq
+    if (data.content && data.content.loyalty) {
+      state.adressList = data.content.loyalty.adressList
+      state.langPhrase = data.content.loyalty.langPhrase
+      state.levelCards = data.content.loyalty.levelCards
+      state.loyalty = data.content.loyalty
     }
   }
 }

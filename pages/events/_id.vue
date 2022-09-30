@@ -16,7 +16,7 @@
              <div class="event-page-header-content-block-text">
                <div class="event-page-header-content-block-text-date">
                  <p>{{eventData.dateTime}}</p>
-                 <p>лекция</p>
+<!--                 <p>лекция</p>-->
                </div>
                <div class="event-page-header-content-block-text-author">
                  <img src="../../assets/image/pin1.svg" alt="">
@@ -70,14 +70,14 @@
            <div class="fixed-info" id="fixed-info">
              <div class="event-page-content-buy-ticket-date" v-if="eventData && eventData.dateList">
                <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{item}}</span></p>
-               <p class="flex items-center mt-4 cursor-pointer" @click="allData = true">
+               <p class="flex items-center mt-4 cursor-pointer" v-if="eventData.dateList.length > 2" @click="allData = true">
                  <img class="mr-1" src="../../assets/image/(.svg" alt="">
                  <span v-if="langPhrase">{{langPhrase.allDate}}</span>
                  <img class="ml-1" src="../../assets/image/).svg" alt="">
                </p>
              </div>
              <div class="event-page-content-buy-ticket-author">
-               <p class="normal-case mb-4">Из цикла:</p>
+               <p class="normal-case mb-4">{{langPhrase.fromCycle}}</p>
                <p class="mb-4">Крупнейшие мастера русского авангарда</p>
                <p class="flex items-center">
                  <img class="mr-1" src="../../assets/image/(.svg" alt="">
@@ -170,7 +170,7 @@
          </div>
          <div class="line-dn"></div>
          <div class="event-page-pagination-footer">
-           <NuxtLink tag="p" :to="localePath('/events')" class="flex">
+           <NuxtLink tag="p" :to="localePath('/events')" class="flex cursor-pointer">
              <img class="mr-1" src="../../assets/image/(.svg" alt="">
              <span>все события</span>
              <img class="ml-2" src="../../assets/image/).svg" alt="">

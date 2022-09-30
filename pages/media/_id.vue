@@ -102,7 +102,7 @@
                  </div>
                </div>
              </div>
-             <div class="media-page-author-body">
+             <div class="media-page-author-body cursor-pointer" @click="openModal = true">
                <img class="mr-1" src="../../assets/image/(.svg" alt="">
                <span>сообщить об ошибке</span>
                <img class="ml-1" src="../../assets/image/).svg" alt="">
@@ -156,6 +156,7 @@
        </div>
      </div>
     <Footer/>
+    <Modal v-if="openModal"/>
   </div>
 </template>
 
@@ -164,12 +165,14 @@
   import Footer from "../../components/Footer";
   import VueSwiper from "../../components/VueSwiper";
   import { mapActions, mapState} from 'vuex'
+  import Modal from "../../components/Modal";
   export default {
     name: "mediaPage",
-    components: {VueSwiper, Footer, Header},
+    components: {Modal, VueSwiper, Footer, Header},
     data() {
       return {
-        items: []
+        items: [],
+        openModal: false,
       };
     },
     computed: {
@@ -180,6 +183,9 @@
       })
     },
     created() {
+      this.$nuxt.$on('close', () => {
+        this.openModal = false;
+      });
       if (this.$route.params.id) {
         this.getMediaData(this.$route.params.id + '/').then(() => {
           if (this.media.photoList && this.media.photoList.length) {

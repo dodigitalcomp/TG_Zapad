@@ -48,7 +48,7 @@
         </NuxtLink>
       </div>
       <div class="news-pagination line-block">
-        <div class="news-pagination-page" v-if="pagination && pagination.current_page">
+        <div class="news-pagination-page" v-if="pagination && pagination.current_page && pagination.max_page > 1">
           <vs-pagination
                   :total-pages="pagination.max_page"
                   :current-page="+pagination.current_page ? +pagination.current_page : 1"

@@ -3,17 +3,22 @@
     <div v-if="!susses" class="modal-block" @click.stop="">
       <div class="modal-block-header">
         <p class="modal-block-header-text">ОБРАТНАЯ СВЯЗЬ</p>
-        <p class="modal-block-header-close" @click="close"><img src="../assets/image/close.svg"></p>
+        <p class="modal-block-header-close" @click="close"><img src="../assets/image/close.svg" alt="close"></p>
       </div>
       <div class="modal-block-body">
         <div class="row">
           <label>
-            <p class="j-required">имя <sapn class="j-required-icon">*</sapn></p>
+            <p class="j-required">имя <span class="j-required-icon">*</span></p>
             <input type="text" @input="isRequired = false" :style="isRequired ? 'border-color: red' : ''" v-model="formData.name">
           </label>
           <label>
             <p>предмет</p>
-            <input type="text" v-model="formData.subject">
+            <select v-model="formData.subject">
+              <option value="ОБРАТНАЯ СВЯЗЬ">ОБРАТНАЯ СВЯЗЬ</option>
+              <option value="ЗАДАТЬ ВОПРОС">ЗАДАТЬ ВОПРОС</option>
+              <option value="СТОИМОСТЬ">СТОИМОСТЬ</option>
+              <option value="СООБЩИТЬ ОБ ОШИБКЕ">СООБЩИТЬ ОБ ОШИБКЕ</option>
+            </select>
           </label>
         </div>
         <div class="row">
@@ -28,7 +33,9 @@
         </div>
         <div class="message">
           <p>сообщение</p>
-          <textarea v-model="formData.message"></textarea>
+          <label>
+            <textarea v-model="formData.message"></textarea>
+          </label>
         </div>
       </div>
       <div class="modal-block-footer">
@@ -42,7 +49,7 @@
     <div v-else class="modal-block" @click.stop="">
       <div class="modal-block-header">
         <p class="modal-block-header-text"></p>
-        <p class="modal-block-header-close" @click="close"><img src="../assets/image/close.svg"></p>
+        <p class="modal-block-header-close" @click="close"><img src="../assets/image/close.svg" alt="close"></p>
       </div>
       <div class="modal-block-body flex-body">
         <div class="susses">
@@ -74,6 +81,7 @@
     },
     mounted () {
       document.body.style.overflow = 'hidden'
+      // window.scrollTo( 0, 0 );
     },
     destroyed () {
       document.body.style.overflow = 'auto'
@@ -100,7 +108,7 @@
 
 <style scoped lang="scss">
 .modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -151,6 +159,9 @@
         width: 100%;
         margin-top: 20px;
 
+        label {
+          width: 100%;
+        }
         textarea {
           border: 1px solid black;
           width: 100%;
@@ -195,11 +206,24 @@
           }
         }
 
-        input {
+        input, select {
           border: 1px solid black;
           padding-left: 5px;
           height: 50px;
         }
+
+        select {
+          option {
+            max-width: 639px;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #221F1A;
+          }
+        }
+
       }
 
 
