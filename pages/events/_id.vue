@@ -105,7 +105,7 @@
            <div class="event-page-content-info-text">
              <p class="event-page-content-info-text-description" v-html="eventData.previewText"> </p>
            </div>
-           <div class="event-page-content-info-virtual-tour " :class="eventData.video ? 'iframe-height-100' : ''" v-if="eventData" v-html="eventData.video">
+           <div class="event-page-content-info-virtual-tour " :class="eventData.video ? 'iframe-height-100' : ''" v-if="eventData && eventData.video" v-html="eventData.video">
 <!--             <div></div>-->
 <!--             <div class="event-page-content-info-virtual-tour-content">-->
 <!--               <div class="img">-->
@@ -239,15 +239,17 @@
             getEvent: 'events/getEvent'
         }),
       async share () {
-        const shareData = {
-          title: this.eventData.name,
-          text: this.eventData.nameCursive,
-          url: window.location.href
-        }
-        try {
-          await navigator.share(shareData);
-        } catch (err) {
-          console.log(err)
+        if (window.navigator.share) {
+          const shareData = {
+            title: this.eventData.name,
+            text: this.eventData.nameCursive,
+            url: window.location.href
+          }
+          try {
+            await window.navigator.share(shareData);
+          } catch (err) {
+            console.log(err)
+          }
         }
       }
     },

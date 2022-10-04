@@ -39,6 +39,12 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+     [
+       'nuxt-sweetalert2',
+       {
+         confirmButtonColor: '#FFDD7C'
+       }
+     ],
     '@nuxtjs/axios'
     // https://go.nuxtjs.dev/bootstrap
       ,

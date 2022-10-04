@@ -18,6 +18,7 @@ import nuxt_plugin_pluginutils_4bf2430e from 'nuxt_plugin_pluginutils_4bf2430e' 
 import nuxt_plugin_pluginrouting_29c9b184 from 'nuxt_plugin_pluginrouting_29c9b184' // Source: .\\nuxt-i18n\\plugin.routing.js (mode: 'all')
 import nuxt_plugin_pluginmain_26a4486b from 'nuxt_plugin_pluginmain_26a4486b' // Source: .\\nuxt-i18n\\plugin.main.js (mode: 'all')
 import nuxt_plugin_axios_4a59ac95 from 'nuxt_plugin_axios_4a59ac95' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_srcplugin67c3a475_fb01c750 from 'nuxt_plugin_srcplugin67c3a475_fb01c750' // Source: .\\src.plugin.67c3a475.js (mode: 'client')
 import nuxt_plugin_vuedatepicker_19e66559 from 'nuxt_plugin_vuedatepicker_19e66559' // Source: ..\\plugins\\vue-datepicker (mode: 'client')
 import nuxt_plugin_vueswiper_0a7132d6 from 'nuxt_plugin_vueswiper_0a7132d6' // Source: ..\\plugins\\vue-swiper (mode: 'client')
 import nuxt_plugin_vuepictureswipe_684510ee from 'nuxt_plugin_vuepictureswipe_684510ee' // Source: ..\\plugins\\vue-picture-swipe (mode: 'client')
@@ -235,6 +236,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_axios_4a59ac95 === 'function') {
     await nuxt_plugin_axios_4a59ac95(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_srcplugin67c3a475_fb01c750 === 'function') {
+    await nuxt_plugin_srcplugin67c3a475_fb01c750(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_vuedatepicker_19e66559 === 'function') {

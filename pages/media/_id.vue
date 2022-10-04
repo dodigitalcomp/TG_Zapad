@@ -102,7 +102,7 @@
                  </div>
                </div>
              </div>
-             <div class="media-page-author-body cursor-pointer" @click="openModal = true">
+             <div class="media-page-author-body cursor-pointer" @click="openModal = true, isSelected = 4">
                <img class="mr-1" src="../../assets/image/(.svg" alt="">
                <span>сообщить об ошибке</span>
                <img class="ml-1" src="../../assets/image/).svg" alt="">
@@ -156,7 +156,7 @@
        </div>
      </div>
     <Footer/>
-    <Modal v-if="openModal"/>
+    <Modal :isSelected="isSelected" v-if="openModal"/>
   </div>
 </template>
 
@@ -173,6 +173,7 @@
       return {
         items: [],
         openModal: false,
+        isSelected: null,
       };
     },
     computed: {
@@ -208,15 +209,17 @@
         getMediaData: 'media/getMediaData'
       }),
       async share () {
-        const shareData = {
-          title: this.media.name,
-          text: this.media.detailText,
-          url: window.location.href
-        }
-        try {
-          await navigator.share(shareData);
-        } catch (err) {
-          console.log(err)
+        if (window.navigator.share) {
+          const shareData = {
+            title: this.media.name,
+            text: this.media.detailText,
+            url: window.location.href
+          }
+          try {
+            await window.navigator.share(shareData);
+          } catch (err) {
+            console.log(err)
+          }
         }
       }
     }

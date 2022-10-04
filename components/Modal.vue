@@ -12,7 +12,7 @@
             <input type="text" @input="isRequired = false" :style="isRequired ? 'border-color: red' : ''" v-model="formData.name">
           </label>
           <label>
-            <p>предмет</p>
+            <p>предмет {{isSelected}}</p>
             <select v-model="formData.subject">
               <option value="ОБРАТНАЯ СВЯЗЬ">ОБРАТНАЯ СВЯЗЬ</option>
               <option value="ЗАДАТЬ ВОПРОС">ЗАДАТЬ ВОПРОС</option>
@@ -64,8 +64,10 @@
 
 <script>
   import { mapActions } from 'vuex'
+  import swal from 'sweetalert2';
   export default {
     name: "Modal",
+    props: ['isSelected'],
     data () {
       return {
         isRequired: false,
@@ -81,6 +83,22 @@
     },
     mounted () {
       document.body.style.overflow = 'hidden'
+      console.log(this.isSelected)
+      switch (this.isSelected) {
+        case 1:
+          this.formData.subject = 'ОБРАТНАЯ СВЯЗЬ'
+          break
+        case 2:
+          this.formData.subject = 'ЗАДАТЬ ВОПРОС'
+          break
+        case 3:
+          this.formData.subject = 'СТОИМОСТЬ'
+          break
+        case 4:
+          this.formData.subject = 'СООБЩИТЬ ОБ ОШИБКЕ'
+          break
+      }
+      console.log(this.formData.subject)
       // window.scrollTo( 0, 0 );
     },
     destroyed () {
@@ -96,7 +114,19 @@
       save () {
         if (this.formData.name) {
           this.saveForm(this.formData).then(() => {
-            this.susses = true
+            this.$nuxt.$emit('close')
+            this.formData.email = ''
+            swal.fire(
+            'Ваше сообщение отправлено!',
+            'Ответы на ваши вопросв придут на указанный e-mail',
+            'success'
+            )
+          }).catch(() => {
+            swal.fire(
+            'Ваше сообщение не отправлено',
+            'Произошла ошибка попробовать еще',
+            'error'
+            )
           })
         } else {
           this.isRequired = true

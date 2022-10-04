@@ -66,6 +66,7 @@
 <script>
   import { mapActions, mapState} from 'vuex'
   import VsPagination from '@vuesimple/vs-pagination';
+  import swal from 'sweetalert2';
   export default {
     name: "news",
     data() {
@@ -73,6 +74,11 @@
         currentIndex: false,
         openFilter: false,
         openSort: false,
+        formData: {
+          email: '',
+          name: 'email',
+          subject: 'Подписаться',
+        }
       }
     },
     components: {
@@ -93,10 +99,49 @@
         console.log(this.pagination)
       })
     },
+    mounted () {
+      const vm = this
+      setTimeout(() => {
+        const email = document.getElementById('form-email')
+        const button = document.getElementById('form-button')
+        if(email) {
+          email.addEventListener('input', function () {
+            vm.formData.email = email.value
+          })
+        }
+        if (button) {
+          button.addEventListener('click', function () {
+            if (vm.formData.email) {
+              vm.saveForm(vm.formData).then(() => {
+                vm.formData.email = ''
+                swal.fire(
+                'Ваше сообщение отправлено!',
+                'Ответы на ваши вопросв придут на указанный e-mail',
+                'success'
+                )
+              }).catch(() => {
+                swal.fire(
+                'Ваше сообщение не отправлено',
+                'Произошла ошибка попробовать еще',
+                'error'
+                )
+              })
+            } else  {
+              swal.fire(
+              'Эл. адрес' ,
+              'обязательно',
+              'error'
+              )
+            }
+          })
+        }
+      }, 2000)
+    },
     methods: {
       ...mapActions({
         getNews: 'news/getNews',
         getNewsByLink: 'news/getNewsByLink',
+        saveForm: 'contacts/saveForm',
       }),
       getData(link) {
         this.getNewsByLink(link)
@@ -116,8 +161,8 @@
                       '            </div>\n' +
                       '            <div class="news-content-item-input">\n' +
                       '              <div class="news-content-item-input-block">\n' +
-                      '                <input type="text" value="ваш email" placeholder="ваш email">\n' +
-                      '                <button class="text">\n' +
+                      '                <input type="text" id="form-email" value="ваш email" placeholder="ваш email">\n' +
+                      '                <button id="form-button" class="text">\n' +
                       '                  <img class="mr-1" src="../../assets/image/(.svg" alt="">\n' +
                       '                  <span>подписаться</span>\n' +
                       '                  <img class="ml-1" src="../../assets/image/).svg" alt="">\n' +

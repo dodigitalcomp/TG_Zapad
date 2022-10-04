@@ -47,7 +47,7 @@
        <div class="news-page-content">
          <div class="news-page-content-buy-ticket"></div>
          <div class="news-page-content-info">
-           <p v-html="newData.text"></p>
+           <div style="margin-bottom: 50px;" v-html="newData.text"></div>
 <!--           <div class="news-page-content-info-title">-->
 <!--             <p>Заголовок 1 уровня. состоится встреча-->
 <!--               с губернатором Калининградской области Антоном Алихановым по вопросам формирования повестки</p>-->
@@ -60,7 +60,7 @@
 <!--             <p class="news-page-content-info-text-title">Заголовок 2 уровня</p>-->
 <!--             <p class="news-page-content-info-text-description">По-разному бывает: иногда приходит в голову идея одной буквы, иногда желание передать ощущение от текста, которое ты подсмотрел, например, в каких-то исторических источниках. Но ключевое при создании шрифта — это ответы на вопросы, зачем нужен ещё один шрифт, почему именно такой, какие задачи этот шрифт будет решать.</p>-->
 <!--           </div>-->
-           <VueSwiper v-if="newData" :images="newData.photos" simvol="/" text="Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств. "/>
+           <VueSwiper v-if="newData && newData.photos && newData.photos.length" :images="newData.photos" simvol="/" text="Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств. "/>
 <!--           <div class="news-page-content-info-description">-->
 <!--             <p>В Санкт-Петербурге основана Императорская Академия художеств.-->
 <!--               На русской почве неповторимое своеобразие приобретают барокко, рококо, классицизм, сентиментализм. Искусство классицизма воплотило идеалы эпохи Просвещения, стремившейся к познанию мира силами просвещенного разума и чувства. В иерархии академических жанров главная роль принадлежала исторической картине. Неоспоримы художественные достоинства портретов, созданных Фёдором Рокотовым, Дмитрием Левицким, Владимиром Боровиковским.  </p>-->
@@ -313,15 +313,17 @@
         getNew: 'news/getNew'
       }),
       async share () {
-        const shareData = {
-          title: this.head.h1,
-          text: this.head.text,
-          url: window.location.href
-        }
-        try {
-          await navigator.share(shareData);
-        } catch (err) {
-          console.log(err)
+        if (window.navigator.share) {
+          const shareData = {
+            title: this.head.h1,
+            text: this.head.text,
+            url: window.location.href
+          }
+          try {
+            await window.navigator.share(shareData);
+          } catch (err) {
+            console.log(err)
+          }
         }
       }
     }

@@ -14,7 +14,7 @@
             </div>
           </div>
           <div class="contacts-header-footer" v-if="contactsData && contactsData.langPhrase">
-            <div class="contacts-header-footer-item cursor-pointer" @click="openModal = true">
+            <div class="contacts-header-footer-item cursor-pointer" @click="openModal = true, isSelected = 1">
               <img class="mr-1" src="../assets/image/(.svg" alt="">
               <span>{{contactsData.langPhrase.callback}}</span>
               <img class="ml-1" src="../assets/image/).svg" alt="">
@@ -122,7 +122,7 @@
               </div>
             </div>
             <div class="contacts-faq-content-right">
-              <div class="contacts-faq-content-right-block cursor-pointer" @click="openModal = true" v-if="contactsData && contactsData.langPhrase">
+              <div class="contacts-faq-content-right-block cursor-pointer" @click="openModal = true, isSelected = 2" v-if="contactsData && contactsData.langPhrase">
                 <img class="mr-1" src="../assets/image/(.svg" alt="">
                 <span>{{contactsData.langPhrase.makeQuestion}}</span>
                 <img class="ml-1" src="../assets/image/).svg" alt="">
@@ -132,7 +132,7 @@
         </div>
       </div>
     <Footer/>
-    <Modal v-if="openModal"/>
+    <Modal :isSelected="isSelected" v-if="openModal"/>
   </div>
 </template>
 
@@ -151,6 +151,7 @@ export default {
         placesList: [],
         openModal: false,
         activeIndex: null,
+        isSelected: null,
         openText: false
       }
   },

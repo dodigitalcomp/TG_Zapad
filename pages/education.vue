@@ -119,7 +119,7 @@
                  <p >{{item.answer}}</p>
                </div>
              </div>
-             <div class="education-page-content-info-block-button cursor-pointer" @click="openModal = true" v-if="langPhrase">
+             <div class="education-page-content-info-block-button cursor-pointer" @click="openModal = true, isSelected = 2" v-if="langPhrase">
                <img class="mr-1" src="../assets/image/(.svg" alt="">
                <span>{{langPhrase.makeQuestion}}</span>
                <img class="ml-1" src="../assets/image/).svg" alt="">
@@ -442,7 +442,7 @@
 <!--       </div>-->
      </div>
     <Footer/>
-    <Modal v-if="openModal"/>
+    <Modal :isSelected="isSelected" v-if="openModal"/>
   </div>
 </template>
 
@@ -461,6 +461,7 @@ export default {
     return {
       activeTab: 'info',
       faqList: [],
+      isSelected: null,
       openText: false,
       openModal: false,
       masters: 0,

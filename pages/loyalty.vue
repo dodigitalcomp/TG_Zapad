@@ -225,7 +225,7 @@
                </div>
              </div>
            </div>
-           <div class="flex items-center title-text cursor-pointer" @click="openModal = true">
+           <div class="flex items-center title-text cursor-pointer" @click="openModal = true, isSelected = 2">
              <img class="mr-1" src="../assets/image/(.svg" alt="">
              <span>задать вопрос</span>
              <img class="ml-1" src="../assets/image/).svg" alt="">
@@ -270,7 +270,7 @@
        </div>
      </div>
     <Footer/>
-    <Modal v-if="openModal" />
+    <Modal :isSelected="isSelected" v-if="openModal" />
   </div>
 </template>
 
@@ -284,6 +284,7 @@
     components: {Modal, Footer, Header},
     data () {
       return {
+        isSelected: null,
         faqActiveIndex: null,
         activeTab: 'about',
         activeIndex: 0,

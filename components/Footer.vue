@@ -38,8 +38,8 @@
         <div class="footer-block-about-input">
           <p>Узнавайте больше об искусстве с нашей рассылкой</p>
           <label>
-            <input type="text" placeholder="ваш email">
-            <button class="flex items-center">
+            <input v-model="formData.email" type="text" placeholder="ваш email">
+            <button @click="saveData" class="flex items-center">
               <img class="mr-1" src="../assets/image/(w.svg" alt="">
               <span>отправить</span>
               <img class="ml-1" src="../assets/image/)w.svg" alt="">
@@ -79,13 +79,13 @@
         <div class="mini-block">
           <img class="img-min" src="../assets/image/logo_sign.svg"  alt="">
           <div class="footer-block-info-title">
-            <a href="">Афиша</a>
-            <a href="">образование</a>
-            <a href="">о музее</a>
-            <a href="">медиа</a>
-            <a href="">новости</a>
-            <a href="">программа лояльности</a>
-            <a href="">контакты</a>
+            <NuxtLink tag="a" :to="localePath('/events')" class="uppercase nav-title-menu">Афиша</NuxtLink>
+            <NuxtLink tag="a" :to="localePath('/education')" class="uppercase nav-title-menu">образование</NuxtLink>
+            <NuxtLink tag="a" :to="localePath('/about')" class="uppercase nav-title-menu">о музее</NuxtLink>
+            <NuxtLink tag="a" :to="localePath('/media')" class="uppercase nav-title-menu">МЕДИА</NuxtLink>
+            <NuxtLink tag="a" :to="localePath('/news')" class="uppercase nav-title-menu">новости</NuxtLink>
+            <NuxtLink tag="a" :to="localePath('/friend')" class="uppercase nav-title-menu">ПРОГРАММА ЛОЯЛЬНОСТИ</NuxtLink>
+            <NuxtLink tag="a" :to="localePath('/contacts')" class="uppercase nav-title-menu">контакты</NuxtLink>
           </div>
         </div>
         <div class="canvas">
@@ -94,8 +94,8 @@
         <div class="footer-block-about-input">
           <p>Узнавайте больше об искусстве с нашей рассылкой</p>
           <label>
-            <input type="text" placeholder="ваш email">
-            <button class="flex items-center">
+            <input v-model="formData.email" type="text" placeholder="ваш email">
+            <button @click="saveData" class="flex items-center">
                 <img class="mr-1" src="../assets/image/(w.svg" alt="">
                 <span>отправить</span>
                 <img class="ml-1" src="../assets/image/)w.svg" alt="">
@@ -163,9 +163,49 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
+  import swal from 'sweetalert2';
   export default {
     name: "Footer",
+      data () {
+        return {
+          formData: {
+            email: '',
+            name: 'email',
+            subject: 'Подписаться',
+          }
+        }
+      },
+      methods: {
+        ...mapActions({
+          saveForm: 'contacts/saveForm',
+        }),
+        saveData() {
+          if (this.formData.email) {
+            this.saveForm(this.formData).then(() => {
+              this.formData.email = ''
+              swal.fire(
+              'Ваше сообщение отправлено!',
+              'Ответы на ваши вопросв придут на указанный e-mail',
+              'success'
+              )
+            }).catch(() => {
+              swal.fire(
+              'Ваше сообщение не отправлено',
+              'Произошла ошибка попробовать еще',
+              'error'
+              )
+            })
+          }  else  {
+            swal.fire(
+            'Эл. адрес',
+            'обязательно',
+            'error'
+            )
+          }
+
+        },
+      },
       computed: {
         ...mapState({
           menuData: (state) => state.language.menuData
