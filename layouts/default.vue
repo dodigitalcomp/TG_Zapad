@@ -6,6 +6,9 @@
 
 <script>
 import { mapActions } from 'vuex'
+import Vue from 'vue'
+import global from "../Mixins/global";
+Vue.mixin(global)
 export default {
   name: 'Default',
   data () {

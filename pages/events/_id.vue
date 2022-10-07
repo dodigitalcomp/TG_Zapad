@@ -10,6 +10,13 @@
              <span>все события</span>
              <img class="ml-1" src="../../assets/image/).svg" alt="">
            </NuxtLink>
+           <navigator-share
+               v-bind:on-error="onError"
+               v-bind:on-success="onSuccess"
+               v-bind:url="url"
+               v-bind:title="title"
+               v-bind:text="text"
+           ></navigator-share>
          </div>
          <div class="event-page-header-content" v-if="eventData">
            <div class="event-page-header-content-block">
@@ -18,7 +25,7 @@
                  <p>{{eventData.dateTime}}</p>
 <!--                 <p>лекция</p>-->
                </div>
-               <div class="event-page-header-content-block-text-author">
+               <div class="event-page-header-content-block-text-author" v-if="eventData.type">
                  <img src="../../assets/image/pin1.svg" alt="">
                  <div>
                    <p>{{eventData.type}}</p>
@@ -45,7 +52,7 @@
            </div>
          </div>
          <div class="event-page-header-footer">
-           <div class="event-page-header-footer-item">
+           <div class="event-page-header-footer-item" v-if="eventData.price">
              <p v-if="eventData">{{langPhrase.price}}: {{eventData.price}}</p>
            </div>
            <div class="event-page-header-footer-item">
@@ -55,7 +62,7 @@
                <img class="ml-1" src="../../assets/image/).svg" alt="">
              </p>
            </div>
-           <div class="event-page-header-footer-item">
+           <div class="event-page-header-footer-item" :style="!eventData.price ? 'border-right: 0;' : ''">
              <div class="event-page-header-footer-item-block cursor-pointer">
                <img class="mr-1" src="../../assets/image/(.svg" alt="">
                <span>{{langPhrase.price}}</span>
@@ -69,7 +76,7 @@
          <div class="event-page-content-buy-ticket">
            <div class="fixed-info" id="fixed-info">
              <div class="event-page-content-buy-ticket-date" v-if="eventData && eventData.dateList">
-               <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{item}}</span></p>
+               <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{ dateFormat(item)}}</span></p>
                <p class="flex items-center mt-4 cursor-pointer" v-if="eventData.dateList.length > 2" @click="allData = true">
                  <img class="mr-1" src="../../assets/image/(.svg" alt="">
                  <span v-if="langPhrase">{{langPhrase.allDate}}</span>
@@ -85,7 +92,7 @@
                  <img class="ml-1" src="../../assets/image/).svg" alt="">
                </p>
              </div>
-             <div class="event-page-content-buy-ticket-price">
+             <div class="event-page-content-buy-ticket-price" v-if="eventData.price">
                <p v-if="eventData">{{langPhrase.price}}: {{eventData.price}}</p>
                <a target="_blank" :href="eventData.buy" class="button">
                  <img class="mr-1" src="../../assets/image/(.svg" alt="">
@@ -514,6 +521,7 @@
               line-height: 20px;
               text-transform: uppercase;
               color: #221F1A;
+              text-align: center;
 
               @media (max-width: 650px) {
                 font-size: 13px;

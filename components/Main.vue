@@ -105,9 +105,9 @@
                  <p>{{item.time}}</p>
                  <p>{{item.type}}</p>
                </div>
-               <div class="poster-room-content-block-title-authnr flex">
+               <div class="poster-room-content-block-title-authnr flex" v-if="item.place">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>{{item.name}}</p>
+                 <p >{{item.place}}</p>
                </div>
              </div>
              <div class="poster-room-content-block-body">
@@ -115,7 +115,7 @@
                  <img :src="item.picture" alt="">
                </div>
                <div class="poster-room-content-block-description">
-                 <p>{{item.place}}</p>
+                 <p>{{item.name}}</p>
                </div>
                <div class="poster-room-content-block-title-authnrMini">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
@@ -123,54 +123,6 @@
                </div>
              </div>
            </a>
-<!--           <div class="poster-room-content-block pr-5 pl-5 poster-room-content-border-right">-->
-<!--             <div class="poster-room-content-block-title">-->
-<!--               <div class="poster-room-content-block-title-text">-->
-<!--                 <p>1–31 ЯНВ 2021</p>-->
-<!--                 <p>Лекции</p>-->
-<!--               </div>-->
-<!--               <div class="poster-room-content-block-title-authnr flex">-->
-<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
-<!--                 <p>Инженерный корпус</p>-->
-<!--               </div>-->
-<!--             </div>-->
-<!--             <div class="poster-room-content-block-body">-->
-<!--               <div class="poster-room-content-block-img">-->
-<!--                 <img src="../assets/image/image30.jpg" alt="">-->
-<!--               </div>-->
-<!--               <div class="poster-room-content-block-description">-->
-<!--                 <p>«Маленький человек» Кабакова<span class="william"> и русская живопись XIX века</span></p>-->
-<!--               </div>-->
-<!--               <div class="poster-room-content-block-title-authnrMini">-->
-<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
-<!--                 <p>Инженерный корпус</p>-->
-<!--               </div>-->
-<!--             </div>-->
-<!--           </div>-->
-<!--           <div class="poster-room-content-block pr-5 pl-5">-->
-<!--             <div class="poster-room-content-block-title">-->
-<!--               <div class="poster-room-content-block-title-text">-->
-<!--                 <p>1 ЯНВ–31 ФЕВ 2021 </p>-->
-<!--                 <p>выставка</p>-->
-<!--               </div>-->
-<!--               <div class="poster-room-content-block-title-authnr flex">-->
-<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
-<!--                 <p>Музей Янтаря, Калининград</p>-->
-<!--               </div>-->
-<!--             </div>-->
-<!--             <div class="poster-room-content-block-body">-->
-<!--               <div class="poster-room-content-block-img">-->
-<!--                 <img src="../assets/image/Pic-fit1.jpg" alt="">-->
-<!--               </div>-->
-<!--               <div class="poster-room-content-block-description">-->
-<!--                 <p>фотография во времена <span class="william">самоизоляции</span></p>-->
-<!--               </div>-->
-<!--               <div class="poster-room-content-block-title-authnrMini">-->
-<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
-<!--                 <p>Музей Янтаря, Калининград</p>-->
-<!--               </div>-->
-<!--             </div>-->
-<!--           </div>-->
            <div class="all-events">
              <NuxtLink tag="p" :to="localePath('/events')" class="flex cursor-pointer">
                <img class="mr-1" src="../assets/image/(.svg" alt="">
@@ -631,7 +583,8 @@ export default {
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
-          margin-bottom: 88px;
+          margin-bottom: 40px;
+          height: 60px;
 
           &-authnrMini {
             display: none;
@@ -662,6 +615,18 @@ export default {
             line-height: 20px;
             text-transform: uppercase;
             color: #221F1A;
+            width: 50%;
+            justify-content: end;
+
+
+            p {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+            }
+
 
             img {
               width: 7px;
@@ -681,6 +646,11 @@ export default {
             line-height: 20px;
             text-transform: uppercase;
             color: #221F1A;
+            width: 50%;
+
+            p {
+              white-space: nowrap;
+            }
 
             @media (max-width: 800px) {
               display: flex;

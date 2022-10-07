@@ -14,7 +14,7 @@
        </div>
     </div>
     <div class="galleria-image">
-      <img class="galleria-image-img" :src="images[index].src" alt="">
+      <img class="galleria-image-img" :src="isMedia ? images[index].imgSrc :  images[index].src" alt="">
       <img @click="browseLeft" class="galleria-arrow-left" src="../assets/image/icon/arrow-l-w.svg" alt="">
       <img @click="browseRight" class="galleria-arrow-right" src="../assets/image/icon/arrow-r-w.svg" alt="">
     </div>
@@ -24,7 +24,7 @@
 <script>
   export default {
     name: "VueGalleria",
-    props: ['images', 'index'],
+    props: ['images', 'index', 'isMedia'],
     methods: {
       browseLeft () {
         if (this.index > 0) {

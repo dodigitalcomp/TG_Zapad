@@ -61,11 +61,18 @@
        <div class="media-page-text">
          <p>{{media.detailText}}</p>
        </div>
-       <div class="media-page-images" v-if="items && items.length">
+       <div class="media-page-images" v-if="media && media.photoList && media.photoList.length">
          <div class="media-page-images-title">
            <p>{{langPhrase.photo}}</p>
          </div>
-         <vue-picture-swipe  ref="pictureSwipe" :items="items"></vue-picture-swipe>
+         <div class="media-page-images-blog">
+           <div class="cursor-pointer media-page-images-blog-item"  @click="zoomImage(i)" v-for="(item, i) in media.photoList" :key="i">
+             <img class="image" :src="item.imgSrc" :alt="item.description">
+             <img class="icon-l" @click.stop="shareImageUrl(item.imgSrc, item.description)" src="../../assets/image/Group359.svg" alt="">
+             <img class="icon-r" @click.stop="downloadItem({url: item.imgSrc, label: 'image'})" src="../../assets/image/dl.svg" alt="">
+           </div>
+         </div>
+<!--         <vue-picture-swipe  ref="pictureSwipe" :items="items"></vue-picture-swipe>-->
          <div class="media-page-images-allButton" v-if="items.length > 10">
            <div class="media-page-images-allButton-text">
              <img class="mr-1" src="../../assets/image/(.svg" alt="">
@@ -82,7 +89,7 @@
            <div class="media-page-video-items-virtual-tour iframe-height-100" v-for="(item, i) in media.videoList" :key="i" v-html="item.iframe"></div>
          </div>
        </div>
-       <div class="media-page-author">
+       <div class="media-page-author" v-if="media && media.people && media.people.length">
          <div class="media-page-author-left"></div>
          <div class="media-page-author-content">
            <div class="media-page-author-image">
@@ -157,6 +164,7 @@
      </div>
     <Footer/>
     <Modal :isSelected="isSelected" v-if="openModal"/>
+    <VueGalleria :isMedia="true" v-if="zoom" :index="zoomIndex" :images="media.photoList" />
   </div>
 </template>
 
@@ -166,14 +174,18 @@
   import VueSwiper from "../../components/VueSwiper";
   import { mapActions, mapState} from 'vuex'
   import Modal from "../../components/Modal";
+  import VueGalleria from "../../components/VueGalleria";
   export default {
     name: "mediaPage",
-    components: {Modal, VueSwiper, Footer, Header},
+    components: {VueGalleria, Modal, VueSwiper, Footer, Header},
     data() {
       return {
+        zoomIndex: null,
+        zoom: false,
         items: [],
         openModal: false,
         isSelected: null,
+        index: null,
       };
     },
     computed: {
@@ -184,30 +196,61 @@
       })
     },
     created() {
+      this.$nuxt.$on('closeGalleria', () => {
+        document.getElementsByTagName('body')[0].style.overflow = 'auto'
+        this.zoomIndex = null
+        this.zoom = false
+      })
       this.$nuxt.$on('close', () => {
         this.openModal = false;
       });
       if (this.$route.params.id) {
-        this.getMediaData(this.$route.params.id + '/').then(() => {
-          if (this.media.photoList && this.media.photoList.length) {
-            this.media.photoList.map((item) => {
-              const obj = {
-                src: item.imgSrc,
-                thumbnail: item.imgSrc,
-                w: 1100,
-                h: 820,
-                pid: 'image-two'
-              }
-              this.items.push(obj)
-            })
-          }
-        })
+        this.getMediaData(this.$route.params.id + '/').then(() => {})
       }
     },
     methods: {
       ...mapActions({
         getMediaData: 'media/getMediaData'
       }),
+      zoomImage (index) {
+        document.getElementsByTagName('body')[0].style.overflow = 'hidden'
+        this.zoomIndex = index
+        this.zoom = true
+      },
+      downloadItem ({ url, label }) {
+        this.$axios.get(url, { responseType: 'blob' })
+        .then(response => {
+          const blob = new Blob([response.data], { type: 'image/jpeg' })
+          const link = document.createElement('a')
+          link.href = URL.createObjectURL(blob)
+          link.download = label
+          link.click()
+          URL.revokeObjectURL(link.href)
+        }).catch(console.error)
+      },
+      async shareImageUrl(url, text) {
+         const blob = await fetch(url).then(r=>r.blob())
+         this.shareImage('image', text, blob)
+      },
+      async shareImage(title, text, blob) {
+          const data = {
+            files: [
+              new File([blob], 'file.png', {
+                type: blob.type,
+              }),
+            ],
+            title: title,
+            text: text,
+          };
+          try {
+            if (!(navigator.canShare(data))) {
+              throw new Error("Can't share data.", data);
+            }
+            await navigator.share(data);
+          } catch (err) {
+            console.error(err.name, err.message);
+          }
+      },
       async share () {
         if (window.navigator.share) {
           const shareData = {
@@ -448,10 +491,47 @@
       margin-left: 20px;
       margin-right: 20px;
       padding-top: 20px;
-      height: 545px;
+      /*height: 545px;*/
       padding-bottom: 20px;
       border-bottom: 1px solid;
       position: relative;
+
+      &-blog {
+        display: flex;
+
+        &-item {
+          margin: 5px;
+          position: relative;
+          height: max-content;
+
+          &:hover {
+            .icon-l, .icon-r {
+              display: block;
+            }
+          }
+
+
+          .icon-l, .icon-r {
+            display: none;
+            position: absolute;
+            bottom: 10px;
+          }
+
+          .icon-l {
+            right: 50px;
+          }
+
+          .icon-r {
+            right: 10px;
+            padding: 4px;
+            border: 1px solid white;
+            width: 30px;
+            height: 30px;
+          }
+
+
+        }
+      }
 
       @media (max-width: 850px) {
         margin-right: 0;

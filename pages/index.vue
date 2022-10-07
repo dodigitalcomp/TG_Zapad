@@ -11,6 +11,6 @@ import Main from "../components/Main";
 import Footer from "../components/Footer";
 export default {
   name: 'IndexPage',
-    components: {Footer, Main},
+    components: {Footer, Main}
 }
 </script>
