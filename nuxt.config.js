@@ -24,7 +24,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/vue-datepicker', ssr: false },
+    { src: '~/plugins/progress-bar', ssr: false },
     { src: '~/plugins/vue-swiper', ssr: false },
     { src: '~/plugins/vue-picture-swipe', ssr: false }
   ],
@@ -36,10 +36,6 @@ export default {
   buildModules: [
     '@nuxtjs/tailwindcss',
     // Simple usage
-    '@nuxtjs/moment',
-
-    // With options
-    ['@nuxtjs/moment', { /* module options */ }]
   ],
 
 

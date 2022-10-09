@@ -463,6 +463,7 @@ export default {
                         background: white;
                         border: 1px solid #221F1A;
                         box-sizing: border-box;
+                        z-index: 1;
 
                         top: 35px;
 

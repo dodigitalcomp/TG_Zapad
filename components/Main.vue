@@ -24,19 +24,18 @@
             </div>
           </div>
           <div class="museum-block-content-img">
-            <div></div>
             <div v-if="homeData.slider && homeData.slider.listItems">
-              <Galleria :index="selectPage" :images="homeData.slider.listItems"/>
+              <Galleria :index="selectPage" :images="homeData.slider.listItems" :isMain="true"/>
             </div>
-            <div class="flex items-center justify-between w-full pb-3">
-              <p class="pagination-max">
-                <span class="page " :class="selectPage === i ? 'active' : ''" v-for="(item, i) in homeData.slider.listItems" @click="selectPage = i" :key="i">{{i + 1}}</span>
-              </p>
-              <p class="pagination-min">
-                <span class="page " :class="selectPage === i ? 'active' : ''" v-for="(item, i) in homeData.slider.listItems" @click="selectPage = i" :key="i">{{i + 1}}</span>
-              </p>
-              <img class="icon" src="../assets/image/Ellipse.svg" alt="">
-            </div>
+<!--            <div class="flex items-center justify-between w-full pb-3">-->
+<!--              <p class="pagination-max">-->
+<!--                <span class="page " :class="selectPage === i ? 'active' : ''" v-for="(item, i) in homeData.slider.listItems" @click="selectPage = i" :key="i">{{i + 1}}</span>-->
+<!--              </p>-->
+<!--              <p class="pagination-min">-->
+<!--                <span class="page " :class="selectPage === i ? 'active' : ''" v-for="(item, i) in homeData.slider.listItems" @click="selectPage = i" :key="i">{{i + 1}}</span>-->
+<!--              </p>-->
+<!--              <img class="icon" src="../assets/image/Ellipse.svg" alt="">-->
+<!--            </div>-->
           </div>
         </div>
       </div>

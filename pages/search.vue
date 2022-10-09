@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-      <div class="search-body">
+      <div class="search-body" v-if="listItem && listItem.length">
         <div class="search-body-title">
           <p>результаты</p>
           <div class="search-body-title-right">
@@ -36,7 +36,7 @@
         </div>
         <div class="search-body-content" >
           <div class="search-body-content-left" v-if="blocks">
-            <label class="search-body-content-left-item cursor-pointer" @click="searchData()">
+            <label class="search-body-content-left-item cursor-pointer"  @click="searchData()">
               <input class="search-body-content-left-item-radio" checked="true" name="filter" type="radio">
               <p  class="search-body-content-left-item-type">Все</p>
               <div class="search-body-content-left-item-count">

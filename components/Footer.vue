@@ -57,7 +57,7 @@
             <p>{{ menuData.langPhrase.politica }}</p>
           </div>
           <div>
-            <a target="_blank" href="https://www.dodigital.ru/" class="made flex items-center justify-end">
+            <a target="_blank" href="https://ony.ru/" class="made flex items-center justify-end">
               <img class="mr-1" src="../assets/image/(w.svg" alt="">
               <span>Made by ONY</span>
               <img class="ml-1" src="../assets/image/)w.svg" alt="">
@@ -84,7 +84,7 @@
             <NuxtLink tag="a" :to="localePath('/about')" class="uppercase nav-title-menu">о музее</NuxtLink>
             <NuxtLink tag="a" :to="localePath('/media')" class="uppercase nav-title-menu">МЕДИА</NuxtLink>
             <NuxtLink tag="a" :to="localePath('/news')" class="uppercase nav-title-menu">новости</NuxtLink>
-            <NuxtLink tag="a" :to="localePath('/friend')" class="uppercase nav-title-menu">ПРОГРАММА ЛОЯЛЬНОСТИ</NuxtLink>
+            <NuxtLink tag="a" :to="localePath('/loyalty')" class="uppercase nav-title-menu">ПРОГРАММА ЛОЯЛЬНОСТИ</NuxtLink>
             <NuxtLink tag="a" :to="localePath('/contacts')" class="uppercase nav-title-menu">контакты</NuxtLink>
           </div>
         </div>

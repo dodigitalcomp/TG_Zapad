@@ -10,13 +10,6 @@
              <span>все события</span>
              <img class="ml-1" src="../../assets/image/).svg" alt="">
            </NuxtLink>
-           <navigator-share
-               v-bind:on-error="onError"
-               v-bind:on-success="onSuccess"
-               v-bind:url="url"
-               v-bind:title="title"
-               v-bind:text="text"
-           ></navigator-share>
          </div>
          <div class="event-page-header-content" v-if="eventData">
            <div class="event-page-header-content-block">
@@ -103,7 +96,7 @@
            </div>
 
          </div>
-         <div class="event-page-content-info">
+         <div class="event-page-content-info" id="info-block">
 <!--           <div class="event-page-content-info-title">-->
 <!--             <p>{{eventData.detailText}}</p>-->
 <!--           </div>-->
@@ -128,9 +121,9 @@
 <!--             </div>-->
            </div>
            <div class="event-page-content-info-buy-ticket">
-             <div class="event-page-content-info-buy-ticket-date">
-               <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{item}}</span></p>
-               <p class="flex items-center mt-4 cursor-pointer" @click="allData = true">
+             <div class="event-page-content-info-buy-ticket-date" v-if="eventData && eventData.dateList">
+               <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{dateFormat(item)}}</span></p>
+               <p class="flex items-center mt-4 cursor-pointer" v-if="eventData.dateList.length > 2" @click="allData = true">
                  <img class="mr-1" src="../../assets/image/(.svg" alt="">
                  <span v-if="langPhrase">{{langPhrase.allDate}}</span>
                  <img class="ml-1" src="../../assets/image/).svg" alt="">
@@ -185,7 +178,7 @@
          </div>
        </div>
        <div class="event-page-block" v-if="sameEvents.listItems && sameEvents.listItems.length">
-         <NuxtLink tag="div" :to="item.url" class="event-page-block-item" v-for="(item, i) in sameEvents.listItems" :key="i">
+         <NuxtLink tag="div" :to="item.url" class="event-page-block-item cursor-pointer" v-for="(item, i) in sameEvents.listItems" :key="i">
            <div class="event-page-block-item-text">
              <div class="event-page-block-item-text-date">
                <p>{{item.time}}</p>
@@ -262,30 +255,36 @@
     },
     mounted() {
       const info = document.getElementById('fixed-info')
-      addEventListener('scroll', function () {
-        let scroll = 700
-        let scrollEnd = 2356
-        let top = '78%'
-        if (window.innerWidth < 850) {
-          scroll = 960
-          scrollEnd = 2192
-          top = '73%'
-        }
-        console.log(window.scrollY)
-        if (window.scrollY > scroll && window.scrollY < scrollEnd) {
-          info.style.position = 'fixed'
-          info.style.top = '180px'
-          info.style.left = '20px'
-        }  else if (window.scrollY >= scrollEnd && window.scrollY < 3000) {
-          info.style.position = 'absolute'
-          info.style.top = top
-          info.style.left = '0'
-        } else {
-          info.style.position = 'relative'
-          info.style.top = '0'
-          info.style.left = '0'
-        }
-      })
+      if (info) {
+        addEventListener('scroll', function () {
+          const block = document.getElementById('info-block')
+          const blockScrollY = (block.offsetTop + block.offsetHeight) - 550
+          let scroll = 700
+          let scrollEnd = 2356
+          let top = '90%'
+          if (window.innerWidth < 850) {
+            scroll = 960
+            scrollEnd = 2192
+            top = '73%'
+          }
+          console.log(window.scrollY)
+          console.log(blockScrollY)
+
+          if (window.scrollY > scroll && window.scrollY < blockScrollY) {
+            info.style.position = 'fixed'
+            info.style.top = '180px'
+            info.style.left = '20px'
+          }  else if (window.scrollY >= blockScrollY) {
+            info.style.position = 'absolute'
+            info.style.top = (blockScrollY - 750) + 'px'
+            info.style.left = '0'
+          } else {
+            info.style.position = 'relative'
+            info.style.top = '0'
+            info.style.left = '0'
+          }
+        })
+      }
     }
   }
 </script>

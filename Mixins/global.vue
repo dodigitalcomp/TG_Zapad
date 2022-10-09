@@ -7,10 +7,13 @@
   export default {
     name: "global",
     methods : {
-      dateFormat(date) {
-        moment.locale('fr');
-        const today  = moment().format("LLL");;
-        console.log(today)
+      dateFormat(date, type) {
+        let today = null
+        if (type === 1) {
+          today  = moment(date, 'DD.MM.YYYY').lang("ru").format("LL");
+        } else {
+          today  = moment(date, 'DD.MM.YYYY hh:mm').lang("ru").format("LLL");
+        }
         return today
       }
     }

@@ -9,7 +9,7 @@
           <div class="contacts-header-content">
             <div class="contacts-header-content-item" v-if="contactsData">
               <p>{{contactsData.phone}}</p>
-              <p>{{contactsData.address}}</p>
+              <p v-html="contactsData.address"></p>
               <p><span>●</span>{{contactsData.status}}</p>
             </div>
           </div>
@@ -37,19 +37,19 @@
                   <p>{{item.name}}</p>
                 </div>
                   <div v-if="openText" class="contacts-maps-block-modal">
-                    <div class="contacts-maps-block-modal-text">
-                      <p>{{item.text}}</p>
+                    <div class="contacts-maps-block-modal-text" v-if="item.text">
+                      <p v-html="item.text"></p>
                     </div>
 <!--                    <div class="contacts-maps-block-modal-text">-->
 <!--                      <p>Вход со стороны Малого Толмачевского пер., 9</p>-->
 <!--                    </div>-->
-                    <div  class="contacts-maps-block-modal-date">
+                    <div  class="contacts-maps-block-modal-date" v-if="item.mapCenter">
                       <p>{{item.mapCenter}}</p>
                     </div>
-                    <div class="contacts-maps-block-modal-phone">
+                    <div class="contacts-maps-block-modal-phone" v-if="item.phone">
                       <p>{{item.phone}}</p>
                     </div>
-                    <div class="contacts-maps-block-modal-email">
+                    <div class="contacts-maps-block-modal-email" v-if="item.email">
                       <img class="mr-1" src="../assets/image/(.svg" alt="">
                       <span>{{item.email}}</span>
                       <img class="ml-1" src="../assets/image/).svg" alt="">
@@ -71,16 +71,16 @@
                <div class="contacts-maps-block-modal-close" @click="activeIndex = null">
                  <img src="../assets/image/x.svg" alt="">
                </div>
-                <div class="contacts-maps-block-modal-text">
-                  <p>{{placesList[activeIndex].text}}</p>
+                <div class="contacts-maps-block-modal-text" v-if="placesList[activeIndex].text">
+                  <p v-html="placesList[activeIndex].text"></p>
                 </div>
-                <div  class="contacts-maps-block-modal-date">
+                <div  class="contacts-maps-block-modal-date" v-if="placesList[activeIndex].mapCenter">
                   <p>{{placesList[activeIndex].mapCenter}}</p>
                 </div>
-                <div class="contacts-maps-block-modal-phone">
+                <div class="contacts-maps-block-modal-phone" v-if="placesList[activeIndex].phone">
                   <p>{{placesList[activeIndex].phone}}</p>
                 </div>
-                <div class="contacts-maps-block-modal-email">
+                <div class="contacts-maps-block-modal-email" v-if="placesList[activeIndex].email">
                   <img class="mr-1" src="../assets/image/(.svg" alt="">
                   <span>{{placesList[activeIndex].email}}</span>
                   <img class="ml-1" src="../assets/image/).svg" alt="">

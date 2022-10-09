@@ -33,7 +33,7 @@
         <NuxtLink tag="div" :to="item.url" class="news-content-item" :id="'news-item-' + index" v-for="(item, index) in newsList" :key="index">
           {{currentI(index)}}
           <div class="news-content-item-text">
-            <div class="news-content-item-text-date">{{item.date}}</div>
+            <div class="news-content-item-text-date">{{dateFormat(item.date, 1)}}</div>
             <div class="news-content-item-text-author">{{item.rubric}}</div>
           </div>
           <div class="news-content-item-img">
@@ -161,7 +161,7 @@
                       '            </div>\n' +
                       '            <div class="news-content-item-input">\n' +
                       '              <div class="news-content-item-input-block">\n' +
-                      '                <input type="text" id="form-email" value="ваш email" placeholder="ваш email">\n' +
+                      '                <input type="text" id="form-email" value="" placeholder="ваш email">\n' +
                       '                <button id="form-button" class="text">\n' +
                       '                  <img class="mr-1" src="../../assets/image/(.svg" alt="">\n' +
                       '                  <span>подписаться</span>\n' +

@@ -38,27 +38,27 @@
          <div class="friend-page-content-buy-ticket">
            <div class="fixed-info" id="fixed-info">
              <div class="friend-page-content-buy-ticket-date">
-               <div @click="scrollTab('about')" class="flex items-center item">
+               <div @click="scrollTab('about')" class="flex items-center item cursor-pointer">
                  <img v-if="activeTab === 'about'" src="../assets/image/Rectangle1108.svg" alt="">
                  <p>{{langPhrase.about}}</p>
                </div>
-               <div @click="scrollTab('levelCard')" class="flex items-center item">
+               <div @click="scrollTab('levelCard')" class="flex items-center item cursor-pointer">
                  <img v-if="activeTab === 'levelCard'" src="../assets/image/Rectangle1108.svg" alt="">
                  <p>{{langPhrase.levelCard}}</p>
                </div>
-               <div @click="scrollTab('whereBuy')" class="flex items-center item">
+               <div @click="scrollTab('whereBuy')" class="flex items-center item cursor-pointer">
                  <img v-if="activeTab === 'whereBuy'" src="../assets/image/Rectangle1108.svg" alt="">
                  <p>{{langPhrase.whereBuy}}</p>
                </div>
-               <div @click="scrollTab('corpProgram')" class="flex items-center item">
+               <div @click="scrollTab('corpProgram')" class="flex items-center item cursor-pointer">
                  <img v-if="activeTab === 'corpProgram'" src="../assets/image/Rectangle1108.svg" alt="">
                  <p>{{langPhrase.corpProgram}}</p>
                </div>
-               <div @click="scrollTab('faq')" class="flex items-center item">
+               <div @click="scrollTab('faq')" class="flex items-center item cursor-pointer">
                  <img v-if="activeTab === 'faq'" src="../assets/image/Rectangle1108.svg" alt="">
                  <p>{{langPhrase.faq}}</p>
                </div>
-               <div @click="scrollTab('importantInfo')" class="flex items-center item">
+               <div @click="scrollTab('importantInfo')" class="flex items-center item cursor-pointer">
                  <img src="../assets/image/infoOutline.svg" alt="">
                  <p>{{langPhrase.importantInfo}}</p>
                </div>
@@ -285,6 +285,7 @@
     data () {
       return {
         isSelected: null,
+        time: null,
         faqActiveIndex: null,
         activeTab: 'about',
         activeIndex: 0,
@@ -374,10 +375,9 @@
       });
       setTimeout(() => {
         this.scroll()
-      }, 2000)
-      const info = document.getElementById('fixed-info')
-      const vm = this
-      addEventListener('scroll', function () {
+        const info = document.getElementById('fixed-info')
+        const vm = this
+        addEventListener('scroll', function () {
         let scroll = 648
         let scrollEnd = 4700
         let scrollEnd2 = 5100
@@ -416,13 +416,23 @@
           vm.activeTab = 'corpProgram'
         } else if (vm.faq <= y && vm.importantInfo > y) {
           vm.activeTab = 'faq'
-        } else if (vm.importantInfo <= y) {
+        } else if (vm.faq < y && vm.importantInfo <= y) {
           vm.activeTab = 'importantInfo'
-        } else {
-          vm.activeTab = 'about'
         }
       })
-    }
+      }, 2000)
+    },
+    watch: {
+      activeTab(newVal, oldQuestion) {
+        if (this.time) {
+          clearInterval(this.time)
+        }
+        this.time = setTimeout(() => {
+          history.replaceState(undefined, undefined, '#' + newVal)
+          // window.location.hash = '#' + newVal;
+        }, 600)
+      }
+    },
   }
 </script>
 

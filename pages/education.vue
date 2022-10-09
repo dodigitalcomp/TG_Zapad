@@ -14,7 +14,7 @@
              <div class="education-page-header-content-block-description">
                <p v-if="education">{{education.previewText}}</p>
              </div>
-             <div class="education-page-header-content-block-info">
+             <div class="education-page-header-content-block-info cursor-pointer" @click="scrollTab(3)">
                <img src="../assets/image/infoOutline.svg" alt="">
                <p v-if="langPhrase">{{langPhrase.how}}</p>
              </div>
@@ -24,7 +24,7 @@
            </div>
          </div>
          <div class="education-page-header-footer">
-           <div @click="activeTab = 'info'" :class="activeTab === 'info1' ? 'active' : ''" class="education-page-header-footer-item ">
+           <div @click="scrollTab(2)" class="education-page-header-footer-item " >
              <p v-if="langPhrase">{{langPhrase.about}}</p>
            </div>
 <!--           <div @click="activeTab = 'block'" :class="activeTab === 'block' ? 'active' : ''" class="education-page-header-footer-item">-->
@@ -36,7 +36,10 @@
          <div class="education-page-content-buy-ticket">
              <div class="fixed-info" id="fixed-info">
                <div class="education-page-content-buy-ticket-date" v-if="education && education.anchor && education.anchor.title">
-                 <p class="item cursor-pointer" @click="scrollTab(i)" v-for="(item, i) in education.anchor.title" :key="i">{{item}}</p>
+                 <div v-for="(item, i) in education.anchor.title" :key="i" @click="scrollTab(i)" class="item cursor-pointer">
+                   <img v-if="activeTabIndex === i" src="../assets/image/Rectangle1108.svg" alt="">
+                   <p>{{item}}</p>
+                 </div>
                </div>
              </div>
          </div>
@@ -59,10 +62,10 @@
                <p class="education-page-content-info-type-item-title" v-if="education">{{education.opportunities}}</p>
              </div>
            </div>
-           <div id="masters" class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[0]"></div>
-           <div id="programObjective" class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[1]"></div>
-           <div id="learnMore" class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[2]"></div>
-           <div id="howProceed" class="education-page-content-info-description" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[3]"></div>
+           <div id="masters" class="education-page-content-info-text-block" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[0]"></div>
+           <div id="programObjective" class="education-page-content-info-text-block" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[1]"></div>
+           <div id="learnMore" class="education-page-content-info-text-block" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[2]"></div>
+           <div id="howProceed" class="education-page-content-info-text-block" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[3]"></div>
            <div class="education-page-content-info-services">
              <div class="education-page-content-info-services-left" v-if="education && education.specializations">
                 <p class="education-page-content-info-services-left-title" v-if="langPhrase">
@@ -100,7 +103,7 @@
                </div>
              </div>
            </div>
-           <VueSwiper :images="education.photos" v-if="education" :text="education.sliderName"/>
+           <VueSwiper :images="education.photos" v-if="education"/>
            <div class="education-page-content-info-title" v-if="langPhrase">
              <p>{{langPhrase.teacher}}</p>
            </div>
@@ -460,8 +463,10 @@ export default {
   data() {
     return {
       activeTab: 'info',
+      activeTabIndex: 0,
       faqList: [],
       isSelected: null,
+      activeTabName: null,
       openText: false,
       openModal: false,
       masters: 0,
@@ -498,9 +503,9 @@ export default {
     });
     setTimeout(() => {
       this.scroll()
-    }, 2000)
-    const info = document.getElementById('fixed-info')
-    addEventListener('scroll', function () {
+      const info = document.getElementById('fixed-info')
+      const vm = this
+      addEventListener('scroll', function () {
       let scroll = 648
       let scrollEnd = 4746
       let scrollEnd2 = 5100
@@ -526,7 +531,41 @@ export default {
           info.style.left = '0'
         }
       }
+
+      let y = window.scrollY
+        y = y + 200
+      console.log('y', y)
+      console.log('111' ,vm.programObjective)
+      console.log('222' ,vm.learnMore)
+      if (vm.masters <= y && vm.programObjective > y) {
+        vm.activeTabIndex = 0
+        vm.activeTabName = 'masters'
+      } else if (vm.programObjective <= y && y < vm.learnMore ) {
+        vm.activeTabIndex = 1
+        vm.activeTabName = 'programObjective'
+      } else if (vm.learnMore <= y && vm.howProceed > y) {
+        vm.activeTabIndex = 2
+        vm.activeTabName = 'learnMore'
+      } else if (vm.learnMore < y && vm.howProceed <= y) {
+        vm.activeTabIndex = 3
+        vm.activeTabName = 'howProceed'
+      }
     })
+    }, 2000)
+  },
+  watch: {
+    activeTabName(newVal, oldVal) {
+      if (newVal !== oldVal) {
+        if (this.time) {
+          clearInterval(this.time)
+        }
+        this.time = setTimeout(() => {
+          history.replaceState(undefined, undefined, '#' + newVal)
+          // window.location.hash = '#' + newVal;
+        }, 600)
+      }
+
+    }
   },
   methods: {
     ...mapActions({
@@ -561,7 +600,7 @@ export default {
       }
 
       if (top > 200) {
-        top = top - 200
+        top = top - 190
       }
       window.scrollTo({
         top: top,
@@ -915,8 +954,19 @@ export default {
           text-transform: uppercase;
           color: #221F1A;
 
+
           .item {
             margin-top: 20px;
+            position: relative;
+            p {
+              margin-left: 20px;
+            }
+
+            img {
+              position: absolute;
+              top: 10px;
+              left: 0px;
+            }
           }
         }
 
@@ -1236,6 +1286,8 @@ export default {
           }
         }
 
+
+
         &-title {
           font-style: normal;
           font-weight: normal;
@@ -1269,6 +1321,10 @@ export default {
           line-height: 26px;
           color: #221F1A;
           margin-bottom: 25px;
+
+          p {
+            margin-bottom: 20px;
+          }
 
           .link {
             color: blue;

@@ -269,7 +269,7 @@
          <NuxtLink :to="item.url" tag="div" class="news-page-block-item" v-for="(item, i) in same_news.listItems" :key="i">
            <div class="news-page-block-item-text">
              <div class="news-page-block-item-text-date">
-               <p>{{item.date}}</p>
+               <p>{{dateFormat(item.date, 1)}}</p>
                <p>{{item.rubric}}</p>
              </div>
            </div>

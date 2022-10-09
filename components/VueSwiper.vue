@@ -4,7 +4,7 @@
       <swiper-slide v-for="(slide, i) in images" :key="i" class="swiper-slide" :index="i">
         <div>
           <img class="image" @click="zoomImage(i)" :src="slide.src" alt="">
-          <div v-if="text"><p class="text">{{slide.description}}</p></div>
+          <div v-if="slide.description"><p class="text">{{slide.description}}</p></div>
         </div>
       </swiper-slide>
     </swiper>
@@ -28,33 +28,6 @@ export default {
     return {
       zoomIndex: null,
       zoom: false,
-      // images: [
-      //   {
-      //     'name': 'image1',
-      //     'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
-      //     'src': require('../assets/image/image32.jpg'),
-      //   },
-      //   {
-      //     'name': 'image1',
-      //     'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
-      //     'src': require('../assets/image/photos/pic5.png'),
-      //   },
-      //   {
-      //     'name': 'image1',
-      //     'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
-      //     'src': require('../assets/image/photos/pic4.png'),
-      //   },
-      //   {
-      //     'name': 'image1',
-      //     'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
-      //     'src': require('../assets/image/photos/pic3.png'),
-      //   },
-      //   {
-      //     'name': 'image1',
-      //     'text': 'Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств.',
-      //     'src': require('../assets/image/photos/pic1.png'),
-      //   },
-      // ],
       selected: 'Technologies',
       loader: false,
       openSelect: false,

@@ -94,24 +94,17 @@
          <div class="media-page-author-content">
            <div class="media-page-author-image">
              <div class="media-page-content-info-held-items media-page-author-image-flex">
-               <div class="flex items-center mr-20">
-                 <img src="../../assets/image/image300.jpg" alt="">
+               <div class="flex items-center mr-20" v-for="(item, i) in media.people">
+                 <img :src="item.img" alt="">
                  <div class="ml-3">
-                   <p>Любовь Головина</p>
-                   <p class="city">ректор БФУ им. И. Канта</p>
-                 </div>
-               </div>
-               <div class="flex items-center">
-                 <img src="../../assets/image/image300.jpg" alt="">
-                 <div class="ml-3">
-                   <p>Любовь Головина</p>
-                   <p class="city">ректор БФУ им. И. Канта</p>
+                   <p>{{item.name}}</p>
+                   <p class="city">{{item.staffPost}}</p>
                  </div>
                </div>
              </div>
              <div class="media-page-author-body cursor-pointer" @click="openModal = true, isSelected = 4">
                <img class="mr-1" src="../../assets/image/(.svg" alt="">
-               <span>сообщить об ошибке</span>
+               <span style="white-space: nowrap">сообщить об ошибке</span>
                <img class="ml-1" src="../../assets/image/).svg" alt="">
              </div>
            </div>
@@ -590,7 +583,7 @@
         line-height: 32px;
         text-transform: uppercase;
         color: #221F1A;
-        margin-right: 144px;
+        margin-right: 250px;
 
         @media (max-width: 1250px) {
           font-size: 22px;
@@ -641,7 +634,7 @@
       }
 
       &-title {
-        margin-right: 250px;
+        margin-right: 240px;
 
         @media (max-width: 1250px) {
           margin-right: 110px;
@@ -679,7 +672,7 @@
           height: 480px;
           width: 100%;
           padding-top: 30px;
-          padding-left: 20px;
+          /*padding-left: 20px;*/
           padding-bottom: 20px;
           display: flex;
           flex-direction: column;
@@ -798,6 +791,10 @@
           img {
             width: 60px;
             height: 60px;
+          }
+
+          .city {
+            max-width: 400px;
           }
 
           @media (max-width: 650px) {
