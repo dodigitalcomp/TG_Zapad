@@ -16,12 +16,12 @@
              <div class="event-page-header-content-block-text">
                <div class="event-page-header-content-block-text-date">
                  <p>{{eventData.dateTime}}</p>
-<!--                 <p>лекция</p>-->
+                 <p>{{eventData.type}}</p>
                </div>
                <div class="event-page-header-content-block-text-author" v-if="eventData.type">
                  <img src="../../assets/image/pin1.svg" alt="">
                  <div>
-                   <p>{{eventData.type}}</p>
+                   <p>{{eventData.place}}</p>
                  </div>
                </div>
              </div>
@@ -76,14 +76,14 @@
                  <img class="ml-1" src="../../assets/image/).svg" alt="">
                </p>
              </div>
-             <div class="event-page-content-buy-ticket-author">
+             <div class="event-page-content-buy-ticket-author" v-if="eventData.cycle">
                <p class="normal-case mb-4">{{langPhrase.fromCycle}}</p>
-               <p class="mb-4">Крупнейшие мастера русского авангарда</p>
-               <p class="flex items-center">
+               <p class="mb-4">{{eventData.cycle}}</p>
+               <NuxtLink v-if="eventData.cycleLink" tag="p" :to="eventData.cycleLink" class="flex items-center cursor-pointer">
                  <img class="mr-1" src="../../assets/image/(.svg" alt="">
                  <span>Подробнее</span>
                  <img class="ml-1" src="../../assets/image/).svg" alt="">
-               </p>
+               </NuxtLink>
              </div>
              <div class="event-page-content-buy-ticket-price" v-if="eventData.price">
                <p v-if="eventData">{{langPhrase.price}}: {{eventData.price}}</p>
@@ -100,10 +100,13 @@
 <!--           <div class="event-page-content-info-title">-->
 <!--             <p>{{eventData.detailText}}</p>-->
 <!--           </div>-->
-           <div class="event-page-content-info-description" v-html="eventData.detailText"></div>
-           <VueSwiper :images="eventData.photos" text="Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств. "/>
            <div class="event-page-content-info-text">
              <p class="event-page-content-info-text-description" v-html="eventData.previewText"> </p>
+           </div>
+<!--           <div class="event-page-content-info-description" v-html="eventData.previewText"></div>-->
+           <VueSwiper :images="eventData.photos" text="Подпись к фото. В Санкт-Петербурге основана. Императорская Академия художеств. "/>
+           <div class="event-page-content-info-text">
+             <p class="event-page-content-info-text-description" v-html="eventData.detailText"> </p>
            </div>
            <div class="event-page-content-info-virtual-tour " :class="eventData.video ? 'iframe-height-100' : ''" v-if="eventData && eventData.video" v-html="eventData.video">
 <!--             <div></div>-->
@@ -129,14 +132,14 @@
                  <img class="ml-1" src="../../assets/image/).svg" alt="">
                </p>
              </div>
-             <div class="event-page-content-info-buy-ticket-author">
+             <div class="event-page-content-info-buy-ticket-author" v-if="eventData.cycle">
                <p class="normal-case mb-4">{{langPhrase.fromCycle}}</p>
-               <p class="mb-4">Крупнейшие мастера русского авангарда</p>
-               <p class="flex items-center">
+               <p class="mb-4">{{eventData.cycle}}</p>
+               <NuxtLink v-if="eventData.cycleLink" tag="p" :to="eventData.cycleLink" class="flex items-center cursor-pointer">
                  <img class="mr-1" src="../../assets/image/(.svg" alt="">
                  <span>Подробнее</span>
                  <img class="ml-1" src="../../assets/image/).svg" alt="">
-               </p>
+               </NuxtLink>
              </div>
              <div class="event-page-content-info-buy-ticket-price">
                <p v-if="eventData">{{langPhrase.price}}: {{eventData.price}}</p>
@@ -147,7 +150,7 @@
                </a>
              </div>
            </div>
-           <div class="event-page-content-info-held" v-if="eventData && eventData.people">
+           <div class="event-page-content-info-held" v-if="eventData && eventData.people && eventData.people.length">
              <div class="event-page-content-info-held-title">
                <p>{{langPhrase.eventConducted}}</p>
              </div>
@@ -218,6 +221,7 @@
     components: {Partners, VueSwiper, Footer, Header},
     data () {
       return {
+        info: null,
         allData: false
       }
     },
@@ -251,39 +255,43 @@
             console.log(err)
           }
         }
+      },
+     scrollHandler () {
+       const block = document.getElementById('info-block')
+       if (block) {
+         const blockScrollY = (block.offsetTop + block.offsetHeight) - 550
+         let scroll = 700
+         let scrollEnd = 2356
+         let top = '90%'
+         if (window.innerWidth < 850) {
+           scroll = 960
+           scrollEnd = 2192
+           top = '73%'
+         }
+
+         if (window.scrollY > scroll && window.scrollY < blockScrollY) {
+           this.info.style.position = 'fixed'
+           this.info.style.top = '180px'
+           this.info.style.left = '20px'
+         }  else if (window.scrollY >= blockScrollY) {
+           this.info.style.position = 'absolute'
+           this.info.style.top = (blockScrollY - 750) + 'px'
+           this.info.style.left = '0'
+         } else {
+           this.info.style.position = 'relative'
+           this.info.style.top = '0'
+           this.info.style.left = '0'
+         }
+       }
       }
     },
+    beforeDestroy () {
+      removeEventListener('scroll', this.scrollHandler)
+    },
     mounted() {
-      const info = document.getElementById('fixed-info')
-      if (info) {
-        addEventListener('scroll', function () {
-          const block = document.getElementById('info-block')
-          const blockScrollY = (block.offsetTop + block.offsetHeight) - 550
-          let scroll = 700
-          let scrollEnd = 2356
-          let top = '90%'
-          if (window.innerWidth < 850) {
-            scroll = 960
-            scrollEnd = 2192
-            top = '73%'
-          }
-          console.log(window.scrollY)
-          console.log(blockScrollY)
-
-          if (window.scrollY > scroll && window.scrollY < blockScrollY) {
-            info.style.position = 'fixed'
-            info.style.top = '180px'
-            info.style.left = '20px'
-          }  else if (window.scrollY >= blockScrollY) {
-            info.style.position = 'absolute'
-            info.style.top = (blockScrollY - 750) + 'px'
-            info.style.left = '0'
-          } else {
-            info.style.position = 'relative'
-            info.style.top = '0'
-            info.style.left = '0'
-          }
-        })
+      this.info = document.getElementById('fixed-info')
+      if (this.info) {
+        addEventListener('scroll', this.scrollHandler)
       }
     }
   }

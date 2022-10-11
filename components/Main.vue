@@ -131,21 +131,21 @@
            </div>
          </div>
       </div>
-      <div class="virtual-tour" v-if="homeData && homeData.property" v-html="homeData.property.video">
-<!--        <div class="virtual-tour-title">-->
-<!--          <p>виртуальный тур по музею</p>-->
-<!--        </div>-->
-<!--        <div class="virtual-tour-content">-->
-<!--          <div class="img">-->
-<!--            <p class="flex elem">-->
-<!--              <img class="mr-1" src="../assets/image/(w.svg" alt="">-->
-<!--              <span>прогуляться</span>-->
-<!--              <img class="ml-1" src="../assets/image/)w.svg" alt="">-->
-<!--            </p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div></div>-->
-      </div>
+<!--      <div class="virtual-tour" v-if="homeData && homeData.property" v-html="homeData.property.video">-->
+<!--&lt;!&ndash;        <div class="virtual-tour-title">&ndash;&gt;-->
+<!--&lt;!&ndash;          <p>виртуальный тур по музею</p>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="virtual-tour-content">&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="img">&ndash;&gt;-->
+<!--&lt;!&ndash;            <p class="flex elem">&ndash;&gt;-->
+<!--&lt;!&ndash;              <img class="mr-1" src="../assets/image/(w.svg" alt="">&ndash;&gt;-->
+<!--&lt;!&ndash;              <span>прогуляться</span>&ndash;&gt;-->
+<!--&lt;!&ndash;              <img class="ml-1" src="../assets/image/)w.svg" alt="">&ndash;&gt;-->
+<!--&lt;!&ndash;            </p>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div></div>&ndash;&gt;-->
+<!--      </div>-->
       <div class="education" v-if="homeData && homeData.education && homeData.education.educationBlock">
          <div class="education-title">
            <p>{{homeData.education.educationBlock.name}}</p>

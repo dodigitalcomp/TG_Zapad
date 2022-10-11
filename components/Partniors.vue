@@ -1,7 +1,7 @@
 <template>
   <div class="event-page-partners">
     <div  class="event-page-partners-title">
-      <p>Партнёры</p>
+      <p>{{title ? title : 'Партнёры'}}</p>
     </div>
     <div class="event-page-partners-block">
       <a target="_blank" :href="item.link"  class="event-page-partners-block-item" v-for="(item, i) in items" :key="i">
@@ -14,7 +14,7 @@
 <script>
   export default {
     name: "Partners",
-    props: ['items']
+    props: ['items', 'title']
   }
 </script>
 
@@ -62,6 +62,11 @@
      display: flex;
      justify-content: center;
      align-items: center;
+
+    img {
+      max-width: 200px;
+      max-height: 150px;
+    }
 
   @media (max-width: 850px) {
     height: 98px;

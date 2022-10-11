@@ -347,7 +347,12 @@ export default {
             })
         },
         changePage(page) {
-            this.getEvents(page)
+            this.getEvents(page).then(() => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            })
         },
     }
 }

@@ -102,10 +102,20 @@
         getMedia: 'media/getMedia'
       }),
       changePage(page) {
-        this.getMedia(page)
+        this.getMedia(page).then(() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        })
       },
       getData(link) {
-        this.getMediaByLink(link)
+        this.getMediaByLink(link).then(() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        })
       },
     }
   }

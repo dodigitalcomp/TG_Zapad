@@ -2,6 +2,7 @@ export const state = () => ({
     newsList: [],
     newData: {},
     pagination: {},
+    same_news: {},
     filter: {},
     sort: {},
     head: {}

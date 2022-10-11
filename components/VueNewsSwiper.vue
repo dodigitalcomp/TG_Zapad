@@ -4,7 +4,7 @@
       <swiper-slide v-for="(item, i) in items" :key="i" class="swiper-slide"  :index="i">
          <NuxtLink tag="div" :to="item.url" class="news-content-swiper news-content-swiper-border-r pr-5 cursor-pointer">
            <div class="news-content-swiper-title">
-             <p>{{item.date}}</p>
+             <p>{{dateFormat(item.date, 1)}}</p>
              <p>{{item.rubric}}</p>
            </div>
            <div  class="news-content-swiper-content">

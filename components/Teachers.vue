@@ -125,6 +125,11 @@ export default {
        display: flex;
        justify-content: center;
        margin-top: 80px;
+
+       img {
+         width: 218px;
+         height: 218px;
+       }
      }
 
      &-name ,&-specialization {

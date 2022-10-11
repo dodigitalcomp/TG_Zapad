@@ -3255,6 +3255,9 @@ br {
         justify-content: center;
         align-items: center;
         border-right: 1px solid;
+        img {
+          max-width: 350px;
+        }
 
         @media (max-width: 650px) {
           width: 100%;
@@ -3775,4 +3778,8 @@ br {
       }
     }
   }
+}
+
+b {
+  font-weight: 500 !important;
 }

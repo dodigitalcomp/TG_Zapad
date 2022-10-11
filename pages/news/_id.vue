@@ -266,7 +266,7 @@
          </div>
        </div>
        <div class="news-page-block" v-if="same_news && same_news.listItems">
-         <NuxtLink :to="item.url" tag="div" class="news-page-block-item" v-for="(item, i) in same_news.listItems" :key="i">
+         <NuxtLink :to="item.url" tag="div" class="news-page-block-item cursor-pointer" v-for="(item, i) in same_news.listItems" :key="i">
            <div class="news-page-block-item-text">
              <div class="news-page-block-item-text-date">
                <p>{{dateFormat(item.date, 1)}}</p>

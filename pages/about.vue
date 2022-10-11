@@ -39,7 +39,7 @@
             <div class="about-block-item-info-description">
               <p>{{item.text}}</p>
             </div>
-            <NuxtLink tag="div" :to="item.link" class="about-block-item-info-button">
+            <NuxtLink v-if="item.link" tag="div" :to="item.link" class="about-block-item-info-button">
               <img class="mr-1" src="../assets/image/(.svg" alt="">
               <span>{{item.link_name}}</span>
               <img class="ml-1" src="../assets/image/).svg" alt="">
@@ -53,54 +53,7 @@
       <div class="p-left-20" v-if="people && people.listItems">
         <Teachers :data="people.listItems"/>
       </div>
-      <div class="about-partners">
-        <div  class="about-partners-title" v-if="partners && partners.langPhrase">
-          <p>{{partners.langPhrase.title}}</p>
-        </div>
-        <div class="about-partners-block" v-if="partners && partners.listItem">
-          <a :href="item.link" class="about-partners-block-item" v-for="(item, i) in partners.listItem" :key="i">
-            <img :src="item.logo" :alt="item.name">
-          </a>
-        </div>
-<!--        <div class="about-partners-footer">-->
-<!--          <div class="about-partners-footer-content">-->
-<!--            <div class="about-partners-footer-content-block">-->
-<!--              <div class="about-partners-footer-content-block-title">-->
-<!--              </div>-->
-<!--              <div class="about-partners-footer-content-block-description">-->
-<!--                <p>Музей русского искусства в европейском регионе с кросс-культурной выставочной программой, который участвует в создании новых культурных связей между странами и формирует идентичность Калининграда как неотъемлемой части России. </p>-->
-<!--              </div>-->
-<!--              <div class="about-partners-footer-content-block-button">-->
-<!--                <img class="mr-1" src="../assets/image/(.svg" alt="">-->
-<!--                <span>Афиша событий</span>-->
-<!--                <img class="ml-1" src="../assets/image/).svg" alt="">-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="about-partners-footer-content-right">-->
-<!--              <div class="about-partners-footer-content-right-line">-->
-<!--                <div class="about-partners-footer-content-right-line-block"></div>-->
-<!--              </div>-->
-<!--              <div class="about-partners-footer-content-right-img">-->
-<!--                <img class="image" src="../assets/image/card1.jpg" alt="">-->
-<!--                <div class="phone-text">-->
-<!--                  <p>По вопросам участия в программе обращайтесь по адресу </p>-->
-<!--                </div>-->
-<!--                <div class="flex items-center email-text">-->
-<!--                  <img class="mr-1" src="../assets/image/(.svg" alt="">-->
-<!--                  <span>membership@tretyakov.ru</span>-->
-<!--                  <img class="ml-1" src="../assets/image/).svg" alt="">-->
-<!--                </div>-->
-<!--                <div class="phone-text">-->
-<!--                  <p>или по телефону</p>-->
-<!--                </div>-->
-<!--                <div class="phone-text">-->
-<!--                  <p>+7 495 957-07-27</p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-      </div>
+      <Partners  :title="partners.langPhrase.title" v-if="partners && partners.langPhrase" :items="partners.listItem"/>
     </div>
     <Footer/>
   </div>
@@ -112,9 +65,10 @@
   import Galleria from "../components/Galleria";
   import Teachers from "../components/Teachers";
   import { mapActions, mapState} from 'vuex'
+  import Partners from "../components/Partniors";
   export default {
     name: "about",
-    components: {Teachers, Galleria, Footer, Header},
+    components: {Partners, Teachers, Galleria, Footer, Header},
     data () {
       return {
         selectPage: 0

@@ -95,8 +95,6 @@
     },
     created() {
       this.getNews(1).then(() => {
-        console.log(this.newsList)
-        console.log(this.pagination)
       })
     },
     mounted () {
@@ -181,7 +179,12 @@
         }
       },
       changePage(page) {
-        this.getNews(page)
+        this.getNews(page).then(() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        })
         const item = document.getElementById('news-item-input')
         if (item) {
           item.remove()

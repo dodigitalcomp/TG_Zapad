@@ -11,8 +11,7 @@
              <div class="education-page-header-content-block-title">
                <p v-if="education">{{education.name}}</p>
              </div>
-             <div class="education-page-header-content-block-description">
-               <p v-if="education">{{education.previewText}}</p>
+             <div class="education-page-header-content-block-description" v-if="education" v-html="education.previewText">
              </div>
              <div class="education-page-header-content-block-info cursor-pointer" @click="scrollTab(3)">
                <img src="../assets/image/infoOutline.svg" alt="">
@@ -484,6 +483,27 @@ export default {
     })
   },
   mounted() {
+    setTimeout(() => {
+      if(this.$route.hash) {
+        const hash = this.$route.hash
+        switch (hash) {
+          case '#masters':
+            this.scrollTab(0)
+            break;
+          case '#programObjective':
+            this.scrollTab(1)
+            break;
+          case '#learnMore':
+            this.scrollTab(2)
+            break;
+          case '#howProceed':
+            this.scrollTab(3)
+            break;
+          default:
+            this.scrollTab(0)
+        }
+      }
+    }, 2100)
     this.getData().then((res) => {
       if (res.content.faq.listItem && res.content.faq.listItem.length) {
         const arr = JSON.parse(JSON.stringify(res.content.faq.listItem))
@@ -534,9 +554,6 @@ export default {
 
       let y = window.scrollY
         y = y + 200
-      console.log('y', y)
-      console.log('111' ,vm.programObjective)
-      console.log('222' ,vm.learnMore)
       if (vm.masters <= y && vm.programObjective > y) {
         vm.activeTabIndex = 0
         vm.activeTabName = 'masters'
