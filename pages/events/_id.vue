@@ -156,7 +156,7 @@
              </div>
              <div class="event-page-content-info-held-items">
                <div class="flex items-center mt-4" v-for="(item, i) in eventData.people" :key="i">
-                 <img :src="item.img" alt="">
+                 <img class="image" :src="item.img" alt="">
                  <div class="m-4">
                    <p>{{item.name}}</p>
                    <p class="city">{{item.staffPost}}</p>
@@ -992,6 +992,12 @@
             font-size: 18px;
             line-height: 26px;
             color: #221F1A;
+
+            .image {
+              min-width: 120px;
+              width: 120px;
+              height: 120px;
+            }
 
             .city {
               font-style: normal;

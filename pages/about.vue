@@ -44,6 +44,7 @@
               <span>{{item.link_name}}</span>
               <img class="ml-1" src="../assets/image/).svg" alt="">
             </NuxtLink>
+            <div v-else class="about-block-item-info-button"></div>
           </div>
         </div>
       </div>
