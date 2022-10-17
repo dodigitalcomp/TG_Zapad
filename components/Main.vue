@@ -45,59 +45,7 @@
            <div class="line-dn"></div>
            <NuxtLink :to="localePath('/events')" tag="p" class="poster-room-header-more cursor-pointer"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.events.langPhrase.all}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></NuxtLink>
          </div>
-<!--         <div class="poster-room-content">-->
-<!--           <div class="poster-room-content-block pr-5 poster-room-content-border-right min-block" v-for="(item, i) in homeData.events.listItemsByDate">-->
-<!--             <div class="poster-room-content-block-title">-->
-<!--               <div class="poster-room-content-block-title-text">-->
-<!--                 <p>1–21 ДЕК</p>-->
-<!--                 <p>Кинопоказ</p>-->
-<!--               </div>-->
-<!--               <div class="poster-room-content-block-title-authnr flex">-->
-<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
-<!--                 <p>Кинотеатр «Киносфера»</p>-->
-<!--                 <p>Калининград</p>-->
-<!--               </div>-->
-<!--             </div>-->
-<!--             <div class="poster-room-content-block-body">-->
-<!--               <div class="poster-room-content-block-img">-->
-<!--                 <img src="../assets/image/image24.jpg" alt="">-->
-<!--               </div>-->
-<!--               <div class="poster-room-content-block-title-authnrMini">-->
-<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
-<!--                 <p>Кинотеатр «Киносфера» </p>-->
-<!--                 <p>Калининград</p>-->
-<!--               </div>-->
-<!--               <div class="poster-room-content-block-description">-->
-<!--                 <p>Замки <span class="william">ЛуАры</span></p>-->
-<!--               </div>-->
-<!--             </div>-->
-<!--           </div>-->
-<!--           <div class="poster-room-content-block pl-5">-->
-<!--             <div class="poster-room-content-block-title">-->
-<!--               <div class="poster-room-content-block-title-text">-->
-<!--                 <p>14–28 ДЕК</p>-->
-<!--                 <p>Лекции</p>-->
-<!--               </div>-->
-<!--               <div class="poster-room-content-block-title-authnr flex">-->
-<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
-<!--                 <p>Инженерный корпус</p>-->
-<!--               </div>-->
-<!--             </div>-->
-<!--             <div class="poster-room-content-block-body">-->
-<!--               <div class="poster-room-content-block-img">-->
-<!--                 <img src="../assets/image/image31.jpg" alt="">-->
-<!--               </div>-->
-<!--               <div class="poster-room-content-block-description">-->
-<!--                 <p>Мифы и легенды в произведениях <span class="william">русских художников</span></p>-->
-<!--               </div>-->
-<!--               <div class="poster-room-content-block-title-authnrMini">-->
-<!--                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">-->
-<!--                 <p>Инженерный корпус</p>-->
-<!--               </div>-->
-<!--             </div>-->
-<!--           </div>-->
-<!--         </div>-->
-         <div class="poster-room-content">
+         <div class="poster-room-content" v-if="homeData.events && homeData.events.length">
            <a :href="item.url" class="poster-room-content-block pr-5  min-block" v-for="(item, i) in homeData.events.listItems">
              <div class="poster-room-content-block-title">
                <div class="poster-room-content-block-title-text">
@@ -160,12 +108,12 @@
            <div>
              <a :href="homeData.education.educationBlock.program" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.about}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>
            </div>
-           <div class="education-footer-border">
+           <div>
              <a :href="homeData.education.educationBlock.schedule" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.schedule}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>
            </div>
-           <div>
-             <a :href="homeData.education.educationBlock.materials" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.material}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>
-           </div>
+<!--           <div>-->
+<!--             <a :href="homeData.education.educationBlock.materials" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.material}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>-->
+<!--           </div>-->
          </div>
       </div>
       <div class="news" v-if="homeData && homeData.news">
@@ -783,10 +731,8 @@ export default {
       flex-wrap: wrap;
     }
 
-    div:nth-child(2) {
-      @media (max-width: 600px) {
-        border-right: 0;
-      }
+    div:nth-child(1) {
+      border-right: 1px solid;
     }
 
     div:nth-child(3) {
@@ -803,6 +749,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      text-transform: uppercase;
 
       @media (max-width: 850px) {
         height: 70px;

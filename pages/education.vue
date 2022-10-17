@@ -66,16 +66,16 @@
            <div id="learnMore" class="education-page-content-info-text-block" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[2]"></div>
            <div id="howProceed" class="education-page-content-info-text-block" v-if="education && education.anchor && education.anchor.text" v-html="education.anchor.text[3]"></div>
            <div class="education-page-content-info-services">
-             <div class="education-page-content-info-services-left" v-if="education && education.specializations">
-                <p class="education-page-content-info-services-left-title" v-if="langPhrase">
-                  {{langPhrase.specializations}}
-                </p>
-                <div class="education-page-content-info-services-left-item" v-for="(item, i) in education.specializations">
-                  <img src="../assets/image/Rectangle1108.svg" alt="">
-                  <p>{{item}}</p>
-                </div>
-             </div>
-             <div class="education-page-content-info-services-left">
+<!--             <div class="education-page-content-info-services-left" v-if="education && education.specializations">-->
+<!--                <p class="education-page-content-info-services-left-title" v-if="langPhrase">-->
+<!--                  {{langPhrase.specializations}}-->
+<!--                </p>-->
+<!--                <div class="education-page-content-info-services-left-item" v-for="(item, i) in education.specializations">-->
+<!--                  <img src="../assets/image/Rectangle1108.svg" alt="">-->
+<!--                  <p>{{item}}</p>-->
+<!--                </div>-->
+<!--             </div>-->
+             <a style="margin-top: 20px;" :download="education.courseProgram.originalName" v-if="education && education.courseProgram" :href="education.courseProgram.src" class="education-page-content-info-services-left">
                <p class="education-page-content-info-services-left-title" v-if="langPhrase">
                  {{langPhrase.courseProgram}}
                </p>
@@ -83,50 +83,50 @@
                  <img src="../assets/image/Group591.svg" alt="">
                  <div v-if="langPhrase">
                    <p>{{langPhrase.courseProgram}}</p>
-                   <p>PDF, 390 КБ</p>
+                   <p>{{education.courseProgram.contentType}}, {{education.courseProgram.fileSize}} КБ</p>
                  </div>
                </div>
-             </div>
+             </a>
            </div>
-           <div class="education-page-content-info-title title-border">
-             <p v-if="education && education.quote">{{education.quote}}</p>
-           </div>
-           <div class="education-page-content-info-held">
-             <div class="education-page-content-info-held-items">
-               <div class="flex items-center" v-if="education.quoteAuthor">
-                 <img :src="education.quoteAuthor.img" alt="">
-                 <div class="m-4">
-                   <p>{{education.quoteAuthor.name}}</p>
-                   <p class="city">{{education.quoteAuthor.staffPost}}</p>
-                 </div>
-               </div>
-             </div>
-           </div>
+<!--           <div class="education-page-content-info-title title-border">-->
+<!--             <p v-if="education && education.quote">{{education.quote}}</p>-->
+<!--           </div>-->
+<!--           <div class="education-page-content-info-held">-->
+<!--             <div class="education-page-content-info-held-items">-->
+<!--               <div class="flex items-center" v-if="education.quoteAuthor">-->
+<!--                 <img :src="education.quoteAuthor.img" alt="">-->
+<!--                 <div class="m-4">-->
+<!--                   <p>{{education.quoteAuthor.name}}</p>-->
+<!--                   <p class="city">{{education.quoteAuthor.staffPost}}</p>-->
+<!--                 </div>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--           </div>-->
            <VueSwiper :images="education.photos" v-if="education"/>
            <div class="education-page-content-info-title" v-if="langPhrase">
              <p>{{langPhrase.teacher}}</p>
            </div>
            <Teachers v-if="education && education.teachers" :data="education.teachers"/>
-           <div class="education-page-content-info-title" v-if="langPhrase">
-             <p>{{langPhrase.faq}}</p>
-           </div>
-           <div class="education-page-content-info-block" v-if="faqList">
-             <div class="education-page-content-info-block-item" v-for="(item, i) in faqList" :key="i">
-               <div class="education-page-content-info-block-item-title" :data-active="faqList[i].active" @click="toggleFaq(i)">
-                 <img v-if="item.active" class="line" src="../assets/image/minus.svg" alt="">
-                 <img v-else class="line" src="../assets/image/plus.svg" alt="">
-                 <p>{{item.question}}</p>
-               </div>
-               <div v-if="item.active" class="education-page-content-info-block-item-description">
-                 <p >{{item.answer}}</p>
-               </div>
-             </div>
-             <div class="education-page-content-info-block-button cursor-pointer" @click="openModal = true, isSelected = 2" v-if="langPhrase">
-               <img class="mr-1" src="../assets/image/(.svg" alt="">
-               <span>{{langPhrase.makeQuestion}}</span>
-               <img class="ml-1" src="../assets/image/).svg" alt="">
-             </div>
-           </div>
+<!--           <div class="education-page-content-info-title" v-if="langPhrase">-->
+<!--             <p>{{langPhrase.faq}}</p>-->
+<!--           </div>-->
+<!--           <div class="education-page-content-info-block" v-if="faqList">-->
+<!--             <div class="education-page-content-info-block-item" v-for="(item, i) in faqList" :key="i">-->
+<!--               <div class="education-page-content-info-block-item-title" :data-active="faqList[i].active" @click="toggleFaq(i)">-->
+<!--                 <img v-if="item.active" class="line" src="../assets/image/minus.svg" alt="">-->
+<!--                 <img v-else class="line" src="../assets/image/plus.svg" alt="">-->
+<!--                 <p>{{item.question}}</p>-->
+<!--               </div>-->
+<!--               <div v-if="item.active" class="education-page-content-info-block-item-description">-->
+<!--                 <p >{{item.answer}}</p>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-content-info-block-button cursor-pointer" @click="openModal = true, isSelected = 2" v-if="langPhrase">-->
+<!--               <img class="mr-1" src="../assets/image/(.svg" alt="">-->
+<!--               <span>{{langPhrase.makeQuestion}}</span>-->
+<!--               <img class="ml-1" src="../assets/image/).svg" alt="">-->
+<!--             </div>-->
+<!--           </div>-->
            <div class="education-page-content-info-title" v-if="langPhrase">
              <p>{{langPhrase.partner}}</p>
            </div>

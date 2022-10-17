@@ -48,12 +48,12 @@
           </div>
         </div>
       </div>
-      <div class="about-title" v-if="people && people.langPhrase">
-        <p>{{people.langPhrase.title}}</p>
-      </div>
-      <div class="p-left-20" v-if="people && people.listItems">
-        <Teachers :data="people.listItems"/>
-      </div>
+<!--      <div class="about-title" v-if="people && people.langPhrase">-->
+<!--        <p>{{people.langPhrase.title}}</p>-->
+<!--      </div>-->
+<!--      <div class="p-left-20" v-if="people && people.listItems">-->
+<!--        <Teachers :data="people.listItems"/>-->
+<!--      </div>-->
       <Partners  :title="partners.langPhrase.title" v-if="partners && partners.langPhrase" :items="partners.listItem"/>
     </div>
     <Footer/>

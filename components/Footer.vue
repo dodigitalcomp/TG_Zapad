@@ -103,18 +103,9 @@
           </label>
         </div>
         <div>
-          <div class="footer-block-info-social">
-            <!--          <a href="">-->
-            <!--            <img src="../assets/image/fb.svg" alt="">-->
-            <!--          </a>-->
-            <!--          <a href="">-->
-            <!--            <img src="../assets/image/insta.svg" alt="">-->
-            <!--          </a>-->
-            <a href="">
-              <img src="../assets/image/ok.svg" alt="">
-            </a>
-            <a href="">
-              <img src="../assets/image/vk.svg" alt="">
+          <div class="footer-block-info-social" v-if="menuData && menuData.iconLinks && menuData.iconLinks.social_link">
+            <a :href="item.link" v-for="(item ,index) in menuData.iconLinks.social_link" :key="index">
+              <img :src="item.img" alt="">
             </a>
           </div>
           <div class="footer-block-info-partnior">
@@ -144,7 +135,7 @@
             </div>
             <p class="info-text-mini">2020 © Третьяковская галерея Запад</p>
             <div>
-              <a target="_blank" href="https://www.dodigital.ru/" class="made flex items-center">
+              <a target="_blank" href="https://ony.ru/" class="made flex items-center">
                 <img class="mr-1" src="../assets/image/(w.svg" alt="">
                 <span>Made by ONY</span>
                 <img class="ml-1" src="../assets/image/)w.svg" alt="">

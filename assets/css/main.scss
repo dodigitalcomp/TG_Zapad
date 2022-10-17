@@ -954,6 +954,10 @@
 
   .swiper-slide {
     width: 50% !important;
+
+    @media (max-width: 500px) {
+      width: 100% !important;
+    }
   }
 }
 
