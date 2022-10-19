@@ -73,7 +73,7 @@
             <div class="events-content" v-if="pageType === 1">
                 <div class="events-content-block" v-for="(item, i) in events" :key="i">
                     <div class="events-content-block-text">
-                        <p class="events-content-block-text-day">{{item.dateFrom}}</p>
+                        <p class="events-content-block-text-day">{{dateFormat(item.dateName, 1) }}</p>
 <!--                        <p class="events-content-block-text-date">7 октября</p>-->
                     </div>
                     <div class="events-content-block-items">
@@ -310,9 +310,10 @@
 import Footer from "../../components/Footer";
 import { mapActions, mapState} from 'vuex'
 import VsPagination from '@vuesimple/vs-pagination';
+import Header from "../../components/Header";
 export default {
     name: 'IndexPage',
-    components: {Footer, VsPagination},
+    components: {Header, Footer, VsPagination},
     data () {
         return {
             date_today:new Date(),

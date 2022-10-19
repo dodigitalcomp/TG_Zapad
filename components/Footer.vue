@@ -46,9 +46,9 @@
             </button>
           </label>
           <div class="footer-block-info-partnior partnior-item">
-            <a href="">
-              <img src="../assets/image/partniors/T__MT_logo_white.svg" alt="">
-            </a>
+<!--            <a href="">-->
+<!--              <img src="../assets/image/partniors/T__MT_logo_white.svg" alt="">-->
+<!--            </a>-->
           </div>
         </div>
         <div class="footer-block-about-conditions">
@@ -108,15 +108,9 @@
               <img :src="item.img" alt="">
             </a>
           </div>
-          <div class="footer-block-info-partnior">
-            <a href="">
-              <img src="../assets/image/partniors/T__logo_white_RU.svg" alt="">
-            </a>
-            <a href="">
-              <img src="../assets/image/partniors/T__lavrus_white.svg" alt="">
-            </a>
-            <a href="">
-              <img src="../assets/image/partniors/T__MT_logo_white.svg" alt="">
+          <div class="footer-block-info-partnior" v-if="menuData && menuData.iconLinks && menuData.iconLinks.partners">
+            <a :href="item.link" v-for="(item ,index) in menuData.iconLinks.partners" :key="index">
+              <img :src="item.img" alt="">
             </a>
           </div>
         </div>
@@ -589,7 +583,7 @@
 
           img {
             width: 100%;
-            height: 50px;
+            /*height: 50px;*/
           }
         }
         @media (max-width: 800px) {

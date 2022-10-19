@@ -1,13 +1,13 @@
-export { default as Footer } from '../..\\components\\Footer.vue'
-export { default as Galleria } from '../..\\components\\Galleria.vue'
-export { default as Header } from '../..\\components\\Header.vue'
-export { default as Main } from '../..\\components\\Main.vue'
-export { default as Modal } from '../..\\components\\Modal.vue'
-export { default as Partniors } from '../..\\components\\Partniors.vue'
-export { default as Teachers } from '../..\\components\\Teachers.vue'
-export { default as VueGalleria } from '../..\\components\\VueGalleria.vue'
-export { default as VueNewsSwiper } from '../..\\components\\VueNewsSwiper.vue'
-export { default as VueSwiper } from '../..\\components\\VueSwiper.vue'
+export const Footer = () => import('../..\\components\\Footer.vue' /* webpackChunkName: "components/footer" */).then(c => wrapFunctional(c.default || c))
+export const Galleria = () => import('../..\\components\\Galleria.vue' /* webpackChunkName: "components/galleria" */).then(c => wrapFunctional(c.default || c))
+export const Header = () => import('../..\\components\\Header.vue' /* webpackChunkName: "components/header" */).then(c => wrapFunctional(c.default || c))
+export const Main = () => import('../..\\components\\Main.vue' /* webpackChunkName: "components/main" */).then(c => wrapFunctional(c.default || c))
+export const Modal = () => import('../..\\components\\Modal.vue' /* webpackChunkName: "components/modal" */).then(c => wrapFunctional(c.default || c))
+export const Partniors = () => import('../..\\components\\Partniors.vue' /* webpackChunkName: "components/partniors" */).then(c => wrapFunctional(c.default || c))
+export const Teachers = () => import('../..\\components\\Teachers.vue' /* webpackChunkName: "components/teachers" */).then(c => wrapFunctional(c.default || c))
+export const VueGalleria = () => import('../..\\components\\VueGalleria.vue' /* webpackChunkName: "components/vue-galleria" */).then(c => wrapFunctional(c.default || c))
+export const VueNewsSwiper = () => import('../..\\components\\VueNewsSwiper.vue' /* webpackChunkName: "components/vue-news-swiper" */).then(c => wrapFunctional(c.default || c))
+export const VueSwiper = () => import('../..\\components\\VueSwiper.vue' /* webpackChunkName: "components/vue-swiper" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

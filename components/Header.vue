@@ -4,7 +4,7 @@
       <div class="max-w-7lg mx-auto p-5">
         <div class="relative flex items-center justify-between h-16">
           <div class="flex-1 flex items-center justify-between">
-            <NuxtLink :to="localePath('/')" class="flex-shrink-0 flex items-center nav-logo">
+            <NuxtLink tag="a" :to="localePath('/')" class="flex-shrink-0 flex items-center nav-logo">
               <svg width="50" height="55" viewBox="0 0 50 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M16 0H0V55H16V0Z" :fill="openMenu ? '#FFDD7C' : logoColor === 'black' ? '#221F1A' : '#FFDD7C' "/>
                   <path d="M32 18L50 0H32V18Z" :fill="openMenu ? '#FFDD7C' : logoColor === 'black' ? '#221F1A' : '#FFDD7C' "/>
@@ -23,7 +23,7 @@
             </NuxtLink>
             <div class="hidden sm:block sm:ml-6">
               <div class="flex space-x-4" v-if="menuData && menuData.topMenu">
-                <NuxtLink v-for="(item, index) in menuData.topMenu" :key="index" :to="item.link" class="uppercase nav-title-menu whitespace-nowrap">{{item.name}}</NuxtLink>
+                <NuxtLink tag="a" v-for="(item, index) in menuData.topMenu" :key="index" :to="item.link" class="uppercase nav-title-menu whitespace-nowrap">{{item.name}}</NuxtLink>
               </div>
             </div>
             <div class="inset-y-0 right-0 flex items-center pr-2sm:ml-6 sm:pr-0">
@@ -34,7 +34,7 @@
               </div>
               <div class="ml-3 hidden">
                 <div>
-                  <NuxtLink v-if="menuData && menuData.media" :to="menuData.media.link" class="nav-title">{{menuData.media.name}}</NuxtLink>
+                  <NuxtLink tag="a" v-if="menuData && menuData.media" :to="menuData.media.link" class="nav-title">{{menuData.media.name}}</NuxtLink>
                 </div>
               </div>
               <div class="ml-3 relative flex nav-title hidden">

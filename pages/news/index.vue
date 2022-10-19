@@ -67,6 +67,8 @@
   import { mapActions, mapState} from 'vuex'
   import VsPagination from '@vuesimple/vs-pagination';
   import swal from 'sweetalert2';
+  import Header from "../../components/Header";
+  import Footer from "../../components/Footer";
   export default {
     name: "news",
     data() {
@@ -82,6 +84,8 @@
       }
     },
     components: {
+      Footer,
+      Header,
       VsPagination,
     },
     computed: {
