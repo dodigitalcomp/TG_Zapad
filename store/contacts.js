@@ -5,7 +5,7 @@ export const state = () => ({
     head: {}
 })
 export const actions = {
-    getData ({ commit }) {
+    getData ({ commit }, params) {
         return this.$axios.get(this.$i18n.locale +'/contacts/').then((res) => {
             commit('setData', res.data)
             return res.data

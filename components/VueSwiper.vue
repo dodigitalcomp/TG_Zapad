@@ -2,9 +2,9 @@
   <div class="event-page-content-info-image" v-if="loader">
     <swiper v-if="images && images.length" ref="swiperThumbs" class="swiper" :options="swiperOption">
       <swiper-slide v-for="(slide, i) in images" :key="i" class="swiper-slide" :index="i">
-        <div>
+        <div class="block">
           <img class="image" @click="zoomImage(i)" :src="slide.src" alt="">
-          <div v-if="slide.description"><p class="text">{{slide.description}}</p></div>
+          <p class="text">{{slide.description}}</p>
         </div>
       </swiper-slide>
     </swiper>
@@ -92,9 +92,33 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+  .block {
+    width: 100%;
+    position: relative;
+    padding-bottom: 50px;
+
+    .text {
+      position: absolute;
+      left: 0;
+    }
+  }
+
   .image {
     height: 558px;
     cursor: pointer;
+    width: 100%;
+
+
+    @media (max-width: 1200px) {
+      height: 450px;
+    }
+    @media (max-width: 911px) {
+      height: 350px;
+    }
+    @media (max-width: 780px) {
+      height: 250px;
+    }
   }
 
   .event-page-content-info {
@@ -102,6 +126,7 @@ export default {
     overflow: hidden;
 
     .text {
+      text-align: left;
       font-style: normal;
       font-weight: normal;
       font-size: 15px;

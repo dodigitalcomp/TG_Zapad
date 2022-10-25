@@ -106,7 +106,7 @@
            <div class="education-page-content-info-title" v-if="langPhrase">
              <p>{{langPhrase.teacher}}</p>
            </div>
-           <Teachers v-if="education && education.teachers" :data="education.teachers"/>
+           <Teachers v-if="education && education.teachers && education.teachers.length" :data="education.teachers"/>
 <!--           <div class="education-page-content-info-title" v-if="langPhrase">-->
 <!--             <p>{{langPhrase.faq}}</p>-->
 <!--           </div>-->

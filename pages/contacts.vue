@@ -92,7 +92,7 @@
             <div class="contacts-maps-block-map">
               <div class="mapouter">
                 <div class="gmap_canvas">
-                  <iframe style="width: 100%" id="gmap_canvas" src="https://maps.google.com/maps?q=kaliningrad&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                  <iframe style="width: 100%" id="gmap_canvas" :src="`https://maps.google.com/maps?q=${placesList[activeIndex].mapCenter}&t=&z=11&ie=UTF8&iwloc=&output=embed`" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                   </iframe>
                 </div>
               </div>
@@ -164,6 +164,7 @@ export default {
     })
   },
   mounted() {
+    const activeId = this.$route.query.place
     this.$nuxt.$on('close', () => {
       this.openModal = false;
     });
@@ -177,7 +178,10 @@ export default {
       }
       if (this.places.listItems && this.places.listItems.length) {
         const arr = JSON.parse(JSON.stringify(this.places.listItems))
-        this.placesList = arr.map((item) => {
+        this.placesList = arr.map((item, i) => {
+          if (activeId === item.id) {
+            this.activeIndex = i
+          }
           item.active = false
           return item
         })
