@@ -6,7 +6,7 @@ export const state = () => ({
 })
 export const actions = {
     getData ({ commit }) {
-        return this.$axios.get(this.$i18n.locale +'/education/').then((res) => {
+        return this.$axios.get('api/' + this.$i18n.locale +'/education/').then((res) => {
             commit('setData', res.data)
             return res.data
         })

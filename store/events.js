@@ -10,7 +10,7 @@ export const state = () => ({
 })
 export const actions = {
     getEvents ({ commit },page) {
-        return this.$axios.get(this.$i18n.locale +'/events?PAGEN_1=' + page).then((res) => {
+        return this.$axios.get('api/' + this.$i18n.locale +'/events?PAGEN_1=' + page).then((res) => {
             commit('setEvents', res.data)
             return res.data
         })
@@ -22,7 +22,7 @@ export const actions = {
         })
     },
     getEvent ({ commit }, slog) {
-        return this.$axios.get(this.$i18n.locale +'/events/' + slog).then((res) => {
+        return this.$axios.get('api/' + this.$i18n.locale +'/events/' + slog).then((res) => {
             console.log(222, res)
             commit('setEvent', res.data)
             return res.data
