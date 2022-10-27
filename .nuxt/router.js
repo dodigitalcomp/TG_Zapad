@@ -4,10 +4,10 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _3e742f73 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 const _1ebc54ae = () => interopDefault(import('..\\pages\\about.vue' /* webpackChunkName: "pages/about" */))
 const _0f0b9bc2 = () => interopDefault(import('..\\pages\\contacts.vue' /* webpackChunkName: "pages/contacts" */))
 const _5e65326e = () => interopDefault(import('..\\pages\\education.vue' /* webpackChunkName: "pages/education" */))
-const _3e742f73 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 const _6e89eecc = () => interopDefault(import('..\\pages\\errors.vue' /* webpackChunkName: "pages/errors" */))
 const _4b23d3b8 = () => interopDefault(import('..\\pages\\eventPage2.vue' /* webpackChunkName: "pages/eventPage2" */))
 const _4b31eb39 = () => interopDefault(import('..\\pages\\eventPage3.vue' /* webpackChunkName: "pages/eventPage3" */))
@@ -33,61 +33,13 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
-    path: "/about",
-    component: _1ebc54ae,
-    name: "about"
-  }, {
-    path: "/contacts",
-    component: _0f0b9bc2,
-    name: "contacts"
-  }, {
-    path: "/education",
-    component: _5e65326e,
-    name: "education"
-  }, {
     path: "/en",
     component: _3e742f73,
     name: "index___en"
   }, {
-    path: "/errors",
-    component: _6e89eecc,
-    name: "errors"
-  }, {
-    path: "/eventPage2",
-    component: _4b23d3b8,
-    name: "eventPage2"
-  }, {
-    path: "/eventPage3",
-    component: _4b31eb39,
-    name: "eventPage3"
-  }, {
-    path: "/eventPage4",
-    component: _4b4002ba,
-    name: "eventPage4"
-  }, {
-    path: "/events",
-    component: _795ea03a,
-    name: "events"
-  }, {
-    path: "/loyalty",
-    component: _a82e5ab2,
-    name: "loyalty"
-  }, {
-    path: "/media",
-    component: _7d2d3146,
-    name: "media"
-  }, {
-    path: "/news",
-    component: _4b60ec80,
-    name: "news"
-  }, {
     path: "/ru",
     component: _3e742f73,
     name: "index___ru"
-  }, {
-    path: "/search",
-    component: _3bd09857,
-    name: "search"
   }, {
     path: "/en/about",
     component: _1ebc54ae,
@@ -208,22 +160,6 @@ export const routerOptions = {
     path: "/ru/news/:id",
     component: _297fe230,
     name: "news-id___ru"
-  }, {
-    path: "/events/:id",
-    component: _46ab6922,
-    name: "events-id"
-  }, {
-    path: "/media/:id",
-    component: _8018c5f6,
-    name: "media-id"
-  }, {
-    path: "/news/:id",
-    component: _297fe230,
-    name: "news-id"
-  }, {
-    path: "/",
-    component: _3e742f73,
-    name: "index"
   }],
 
   fallback: false

@@ -18,12 +18,12 @@
                  <p>{{eventData.dateTime}}</p>
                  <p>{{eventData.type}}</p>
                </div>
-               <div class="event-page-header-content-block-text-author" v-if="eventData.type">
+               <NuxtLink :to="eventData.placeLink" tag="a" class="event-page-header-content-block-text-author" v-if="eventData.type">
                  <img src="../../assets/image/pin1.svg" alt="">
                  <div>
                    <p>{{eventData.place}}</p>
                  </div>
-               </div>
+               </NuxtLink>
              </div>
              <div class="event-page-header-content-block-imgMini">
                <img :src="eventData.picture" alt="">
@@ -187,10 +187,10 @@
                <p>{{item.time}}</p>
                <p>{{item.type}}</p>
              </div>
-             <div class="event-page-block-item-text-author">
+             <NuxtLink :to="item.placeLink" tag="a" class="event-page-block-item-text-author">
                <img src="../../assets/image/pin1.svg" alt="">
-               <p>{{item.name}}</p>
-             </div>
+               <p>{{item.city}}</p>
+             </NuxtLink>
            </div>
            <div class="event-page-block-item-img">
              <img :src="item.picture" alt="">

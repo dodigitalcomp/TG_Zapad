@@ -212,16 +212,16 @@
   align-items: center;
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.swiper-slide {
-  width: 60% !important;
-}
+//.swiper-slide img {
+//  display: block;
+//  width: 100%;
+//  height: 100%;
+//  object-fit: cover;
+//}
+//
+//.swiper-slide {
+//  width: 60% !important;
+//}
 
 .swiper-slide-page {
   width: 30% !important;
@@ -957,6 +957,19 @@
 
     @media (max-width: 500px) {
       width: 100% !important;
+    }
+  }
+}
+
+
+.teachers-swiper {
+  margin-right: 0 !important;
+
+  .teachers-slide {
+    width: 50% !important;
+
+    @media (max-width: 850px) {
+      width: 98% !important;
     }
   }
 }
@@ -3679,6 +3692,7 @@ br {
 }
 
 .education-page-content-info-text-block {
+  padding-right: 20px;
   h2 {
     font-style: normal;
     font-weight: normal;

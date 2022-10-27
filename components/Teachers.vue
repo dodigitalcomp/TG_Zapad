@@ -1,6 +1,6 @@
 <template>
   <div class="teachers" v-if="loader">
-    <swiper v-if="data && data.length" ref="swiperThumbs" class="swiper news-swiper" :options="swiperOption">
+    <swiper v-if="data && data.length" ref="swiperThumbs" class="swiper teachers-swiper" :options="swiperOption">
       <swiper-slide v-for="(item, i) in data" :key="i" class="swiper-slide" :index="i">
         <div class="teachers-item">
           <div class="teachers-item-image">
@@ -105,14 +105,14 @@ export default {
      right: 0;
    }
 
-   &-item:first-child {
-     border-right: 1px solid;
+   /*&-item:first-child {*/
+   /*  border-right: 1px solid;*/
 
-     @media (max-width: 850px) {
-       display: none;
-     }
+   /*  @media (max-width: 850px) {*/
+   /*    display: none;*/
+   /*  }*/
 
-   }
+   /*}*/
 
    &-item {
      display: flex;
@@ -120,6 +120,10 @@ export default {
      align-items: center;
      flex: 1;
      height: 100%;
+
+       @media (max-width: 850px) {
+         width: 100%;
+       }
 
      &-image {
        display: flex;

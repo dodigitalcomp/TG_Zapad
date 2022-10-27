@@ -87,12 +87,12 @@
                                         <p>{{event.time}}</p>
                                         <p>{{event.type}}</p>
                                     </div>
-                                    <div class="events-content-block-item-body-text-author">
+                                    <NuxtLink tag="a" :to="event.placeLink"  class="events-content-block-item-body-text-author">
                                         <img src="../../assets/image/pin1.svg" alt="">
                                         <div>
                                             <p>{{event.place}}</p>
                                         </div>
-                                    </div>
+                                    </NuxtLink>
                                 </div>
                                 <div class="events-content-block-item-imageMini">
                                     <img :src="event.picture" alt="">
