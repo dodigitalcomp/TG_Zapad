@@ -14,13 +14,13 @@ export const mutations = {
 
 export const actions = {
   getLanguage ({ commit }) {
-    return this.$axios.get(this.$i18n.locale +'/menu/').then((res) => {
+    return this.$axios.get('api/' + this.$i18n.locale +'/menu/').then((res) => {
       commit('setLanguage', res.data)
       return res.data
     })
   },
   getHomeData ({ commit }) {
-    return this.$axios.get(this.$i18n.locale +'/').then((res) => {
+    return this.$axios.get('api/' + this.$i18n.locale +'/').then((res) => {
       commit('setHomeData', res.data)
       return res.data
     })

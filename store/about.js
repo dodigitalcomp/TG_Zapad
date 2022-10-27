@@ -8,7 +8,7 @@ export const state = () => ({
 })
 export const actions = {
     getAbout ({ commit }) {
-        return this.$axios.get(this.$i18n.locale +'/about/').then((res) => {
+        return this.$axios.get('api/' + this.$i18n.locale +'/about/').then((res) => {
             commit('setAbout', res.data)
             return res.data
         })

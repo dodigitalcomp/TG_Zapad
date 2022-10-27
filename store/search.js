@@ -7,7 +7,7 @@ export const state = () => ({
 export const actions = {
     search ({ commit }, text) {
         const q = text ? text : ''
-        return this.$axios.get(this.$i18n.locale +'/search/?q=' + q).then((res) => {
+        return this.$axios.get('api/' + this.$i18n.locale +'/search/?q=' + q).then((res) => {
             commit('setData', res.data)
             return res.data
         })

@@ -9,7 +9,7 @@ export const state = () => ({
 })
 export const actions = {
     getNews ({ commit },page) {
-        return this.$axios.get(this.$i18n.locale +'/news?PAGEN_1=' + page).then((res) => {
+        return this.$axios.get('api/' + this.$i18n.locale +'/news?PAGEN_1=' + page).then((res) => {
             commit('setNews', res.data)
             return res.data
         })
@@ -21,7 +21,7 @@ export const actions = {
         })
     },
     getNew ({ commit }, id) {
-        return this.$axios.get(this.$i18n.locale +'/news/' + id).then((res) => {
+        return this.$axios.get('api/' + this.$i18n.locale +'/news/' + id).then((res) => {
             console.log(222, res)
             commit('setNew', res.data)
             return res.data

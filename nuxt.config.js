@@ -63,19 +63,15 @@ export default {
                   fallbackLocale: 'en'
               }
           }
-      ]
+      ],
+    '@nuxtjs/proxy',
   ],
 
-    axios: {
-        baseURL: process.env.NUXT_ENV_API_URL_LIVE
-    },
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    postcss: {
-      plugins: {
-        "postcss-custom-properties": false
-      },
-    },
+  axios: {
+    proxy: true
+  },
+  
+  proxy: {
+    '/api/': { target: process.env.NUXT_ENV_API_URL_LIVE, pathRewrite: {'^/api/': ''}, changeOrigin: true }
   }
 }
