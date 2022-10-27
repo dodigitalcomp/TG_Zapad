@@ -63,7 +63,7 @@
           <div class="contacts-maps-block" v-if="activeTab === 'map' && placesList && placesList.length">
             <div class="contacts-maps-block-info">
               <div class="contacts-maps-block-info-item" v-for="(item, i) in placesList" :key="i">
-                <img v-if="item.active" class="icon" src="../assets/image/Rectangle1108.svg" alt="">
+                <img v-if="activeIndex === i" class="icon" src="../assets/image/Rectangle1108.svg" alt="">
                 <p @click="activeIndex = i">{{item.name}}</p>
               </div>
             </div>

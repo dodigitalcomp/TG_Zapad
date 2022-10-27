@@ -107,7 +107,7 @@ export default {
   .image {
     height: 558px;
     cursor: pointer;
-    width: 100%;
+    /*width: 100%;*/
 
 
     @media (max-width: 1200px) {

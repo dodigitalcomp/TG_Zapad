@@ -160,6 +160,7 @@ export default {
        text-align: center;
        text-transform: uppercase;
        color: #221F1A;
+       max-width: 250px;
      }
 
    }

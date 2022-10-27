@@ -73,7 +73,7 @@
             <div class="events-content" v-if="pageType === 1">
                 <div class="events-content-block" v-for="(item, i) in events" :key="i">
                     <div class="events-content-block-text">
-                        <p class="events-content-block-text-day">{{dateFormat(item.dateName, 1) }}</p>
+                        <p class="events-content-block-text-day">{{dateFormat(item.dateCalendar, 1) }}</p>
 <!--                        <p class="events-content-block-text-date">7 октября</p>-->
                     </div>
                     <div class="events-content-block-items">

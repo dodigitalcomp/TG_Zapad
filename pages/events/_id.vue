@@ -187,7 +187,7 @@
                <p>{{item.time}}</p>
                <p>{{item.type}}</p>
              </div>
-             <NuxtLink :to="item.placeLink" tag="a" class="event-page-block-item-text-author">
+             <NuxtLink :to="item.placeLink ? item.placeLink : ''" tag="a" class="event-page-block-item-text-author">
                <img src="../../assets/image/pin1.svg" alt="">
                <p>{{item.city}}</p>
              </NuxtLink>
