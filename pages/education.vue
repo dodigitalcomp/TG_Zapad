@@ -143,36 +143,37 @@
              <p>контакты</p>
            </div>
            <div class="education-page-content-info-contacts">
-             <div class="education-page-content-info-contacts-item">
-               <p class="education-page-content-info-contacts-item-title">Балтийский федеральный университет им. И. Канта</p>
-               <p class="education-page-content-info-contacts-item-name">Цвигун Татьяна Валентиновна </p>
-               <p class="education-page-content-info-contacts-item-description">канд. филол. наук, доцент, директор Института гуманитарных наук Балтийского федерального университета им. И. Канта (Калининград)</p>
-               <div class="education-page-content-info-contacts-item-email">
-                 <img class="mr-1" src="../assets/image/(.svg" alt="">
-                 <span>TTSvigun@kantiana.ru</span>
-                 <img class="ml-1" src="../assets/image/).svg" alt="">
-               </div>
-               <div class="education-page-content-info-contacts-item-email">
-                 <img class="mr-1" src="../assets/image/(.svg" alt="">
-                 <span>www.kantiana.ru</span>
-                 <img class="ml-1" src="../assets/image/).svg" alt="">
-               </div>
-             </div>
-             <div class="education-page-content-info-contacts-item">
-               <p class="education-page-content-info-contacts-item-title">Государственная Третьяковская галерея филиал в г. Калининград</p>
-               <p class="education-page-content-info-contacts-item-name">Михайлова Юлия Григорьевна</p>
-               <p class="education-page-content-info-contacts-item-description">главный специалист филиала ГТГ в городе Калининград</p>
-               <div class="education-page-content-info-contacts-item-email">
-                 <img class="mr-1" src="../assets/image/(.svg" alt="">
-                 <span>MikhailovaIG@tretyakov.ru</span>
-                 <img class="ml-1" src="../assets/image/).svg" alt="">
-               </div>
-               <div class="education-page-content-info-contacts-item-email">
-                 <img class="mr-1" src="../assets/image/(.svg" alt="">
-                 <span>www.tretyakovgallery.ru</span>
-                 <img class="ml-1" src="../assets/image/).svg" alt="">
-               </div>
-             </div>
+             <div class="education-page-content-info-contacts-item" v-for="(item, i) in education.contacts" :key="i" v-html="item"></div>
+<!--             <div class="education-page-content-info-contacts-item">-->
+<!--               <p class="education-page-content-info-contacts-item-title">Балтийский федеральный университет им. И. Канта</p>-->
+<!--               <p class="education-page-content-info-contacts-item-name">Цвигун Татьяна Валентиновна </p>-->
+<!--               <p class="education-page-content-info-contacts-item-description">канд. филол. наук, доцент, директор Института гуманитарных наук Балтийского федерального университета им. И. Канта (Калининград)</p>-->
+<!--               <div class="education-page-content-info-contacts-item-email">-->
+<!--                 <img class="mr-1" src="../assets/image/(.svg" alt="">-->
+<!--                 <span>TTSvigun@kantiana.ru</span>-->
+<!--                 <img class="ml-1" src="../assets/image/).svg" alt="">-->
+<!--               </div>-->
+<!--               <div class="education-page-content-info-contacts-item-email">-->
+<!--                 <img class="mr-1" src="../assets/image/(.svg" alt="">-->
+<!--                 <span>www.kantiana.ru</span>-->
+<!--                 <img class="ml-1" src="../assets/image/).svg" alt="">-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="education-page-content-info-contacts-item">-->
+<!--               <p class="education-page-content-info-contacts-item-title">Государственная Третьяковская галерея филиал в г. Калининград</p>-->
+<!--               <p class="education-page-content-info-contacts-item-name">Михайлова Юлия Григорьевна</p>-->
+<!--               <p class="education-page-content-info-contacts-item-description">главный специалист филиала ГТГ в городе Калининград</p>-->
+<!--               <div class="education-page-content-info-contacts-item-email">-->
+<!--                 <img class="mr-1" src="../assets/image/(.svg" alt="">-->
+<!--                 <span>MikhailovaIG@tretyakov.ru</span>-->
+<!--                 <img class="ml-1" src="../assets/image/).svg" alt="">-->
+<!--               </div>-->
+<!--               <div class="education-page-content-info-contacts-item-email">-->
+<!--                 <img class="mr-1" src="../assets/image/(.svg" alt="">-->
+<!--                 <span>www.tretyakovgallery.ru</span>-->
+<!--                 <img class="ml-1" src="../assets/image/).svg" alt="">-->
+<!--               </div>-->
+<!--             </div>-->
            </div>
          </div>
        </div>

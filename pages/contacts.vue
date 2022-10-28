@@ -10,7 +10,7 @@
             <div class="contacts-header-content-item" v-if="contactsData">
               <p>{{contactsData.phone}}</p>
               <p v-html="contactsData.address"></p>
-              <p><span>●</span>{{contactsData.status}}</p>
+              <p><span class="mr-2">●</span>{{contactsData.status}}</p>
             </div>
           </div>
           <div class="contacts-header-footer" v-if="contactsData && contactsData.langPhrase">
@@ -92,7 +92,7 @@
             <div class="contacts-maps-block-map">
               <div class="mapouter">
                 <div class="gmap_canvas">
-                  <iframe style="width: 100%" id="gmap_canvas" :src="`https://maps.google.com/maps?q=${placesList[activeIndex].mapCenter}&t=&z=11&ie=UTF8&iwloc=&output=embed`" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                  <iframe style="width: 100%" id="gmap_canvas" :src="`https://maps.google.com/maps?q=${placesList[activeIndex] ? placesList[activeIndex].mapCenter : ''}&t=&z=11&ie=UTF8&iwloc=&output=embed`" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                   </iframe>
                 </div>
               </div>

@@ -294,7 +294,7 @@
               <div class="events-pagination-page" v-if="pagination && pagination.max_page > 1">
                   <vs-pagination
                           :total-pages="pagination.max_page"
-                          :current-page="pagination.current_page ? pagination.current_page : 1"
+                          :current-page="pagination.current_page ? +pagination.current_page : 1"
                           @change="changePage"
                   ></vs-pagination>
               </div>

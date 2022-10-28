@@ -31,9 +31,9 @@
              <div class="event-page-header-content-block-title">
                <p>{{eventData.name}}</p>
              </div>
-<!--             <div class="event-page-header-content-block-description">-->
-<!--               <p>{{eventData.nameCursive}}</p>-->
-<!--             </div>-->
+             <div class="event-page-header-content-block-description">
+               <p>{{eventData.nameCursive}}</p>
+             </div>
              <div></div>
              <div class="event-page-header-content-block-authorMini">
                <img src="../../assets/image/pin1.svg" alt="">
@@ -196,7 +196,7 @@
              <img :src="item.picture" alt="">
            </div>
            <div class="event-page-block-item-title">
-             <p>{{item.name_cursive}}</p>
+             <p>{{item.name}}</p>
            </div>
            <div class="event-page-block-item-authorMini">
              <img src="../../assets/image/pin1.svg" alt="">
