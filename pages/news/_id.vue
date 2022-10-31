@@ -23,10 +23,10 @@
                <img :src="newData.picture" alt="">
              </div>
              <div class="news-page-header-content-block-title">
-               <p>{{head.h1}}</p>
+               <p>{{newData.name}}</p>
              </div>
              <div class="news-page-header-content-block-description">
-               <p>{{head.description}}</p>
+               <p>{{newData.nameCursive}}</p>
              </div>
            </div>
            <div class="news-page-header-content-img">
@@ -47,7 +47,7 @@
        <div class="news-page-content">
          <div class="news-page-content-buy-ticket"></div>
          <div class="news-page-content-info">
-           <div style="margin-bottom: 50px;" v-html="newData.text"></div>
+           <div style="margin-bottom: 50px; max-width: 78%" v-html="newData.text"></div>
 <!--           <div class="news-page-content-info-title">-->
 <!--             <p>Заголовок 1 уровня. состоится встреча-->
 <!--               с губернатором Калининградской области Антоном Алихановым по вопросам формирования повестки</p>-->
