@@ -1,29 +1,35 @@
 <template>
   <div>
     <Header ref="header"/>
-    <div class="news">
+    <div class="news" @click="openFilter('')">
       <div class="news-header">
         <div class="news-header-title">
           <p v-if="head">{{head.h1}}</p>
         </div>
         <div class="news-header-filter">
           <div class="news-header-filter-left ">
-            <div class="item" @click="openFilter = !openFilter" v-if="filter">
+            <div class="item" @click.stop="openFilter('filter')" v-if="filter">
               <img class="mr-1" src="../../assets/image/(.svg" alt="">
               <p>{{filter.name}}</p>
               <img src="../../assets/image/arrow.svg" alt="">
               <img class="ml-1" src="../../assets/image/).svg" alt="">
-              <div class="item-nav" v-if="openFilter">
-                <p class="item-nav-text" @click="getData(item.link)" v-for="(item, i) in filter.variants" :key="i">{{item.name}}</p>
+              <div class="item-nav" v-if="activeFilter === 'filter'">
+                <p class="item-nav-text" @click="getData(item.link)" v-for="(item, i) in filter.variants" :key="i">
+                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                  <span>{{item.name}}</span>
+                </p>
               </div>
             </div>
-            <div class="item" @click="openSort = !openSort" v-if="sort">
+            <div class="item" @click.stop="openFilter('sort')" v-if="sort">
               <img class="mr-1" src="../../assets/image/(.svg" alt="">
               <p>{{sort.name}}</p>
               <img src="../../assets/image/arrow.svg" alt="">
               <img class="ml-1" src="../../assets/image/).svg" alt="">
-              <div class="item-nav" v-if="openSort">
-                <p class="item-nav-text" @click="getData(item.link)" v-for="(item, i) in sort.variants" :key="i">{{item.name}}</p>
+              <div class="item-nav" v-if="activeFilter === 'sort'">
+                <p class="item-nav-text" @click="getData(item.link)" v-for="(item, i) in sort.variants" :key="i">
+                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                  <span>{{item.name}}</span>
+                </p>
               </div>
             </div>
           </div>
@@ -60,6 +66,7 @@
       </div>
     </div>
     <Footer/>
+    <Meta :head-data="this.head" />
   </div>
 </template>
 
@@ -69,13 +76,13 @@
   import swal from 'sweetalert2';
   import Header from "../../components/Header";
   import Footer from "../../components/Footer";
+  import Meta from "../../components/Meta";
   export default {
     name: "news",
     data() {
       return {
         currentIndex: false,
-        openFilter: false,
-        openSort: false,
+        activeFilter: '',
         formData: {
           email: '',
           name: 'email',
@@ -84,6 +91,7 @@
       }
     },
     components: {
+      Meta,
       Footer,
       Header,
       VsPagination,
@@ -145,6 +153,13 @@
         getNewsByLink: 'news/getNewsByLink',
         saveForm: 'contacts/saveForm',
       }),
+      openFilter(filter) {
+        if (this.activeFilter === filter) {
+          this.activeFilter = null
+        }  else {
+          this.activeFilter = filter
+        }
+      },
       getData(link) {
         this.getNewsByLink(link)
       },

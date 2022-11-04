@@ -16,14 +16,13 @@ export const actions = {
     })
   },
   getMediaByLink ({ commit },link) {
-    return this.$axios.get(link).then((res) => {
+    return this.$axios.get('api/' + link).then((res) => {
       commit('setNews', res.data)
       return res.data
     })
   },
   getMediaData ({ commit }, id) {
     return this.$axios.get('api/' + this.$i18n.locale +'/media/' + id).then((res) => {
-      console.log(222, res)
       commit('setNew', res.data)
       return res.data
     })

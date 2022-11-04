@@ -1,61 +1,150 @@
 <template>
     <div>
         <Header bgcolor="yellow" logoColor="black" ref="header"/>
-        <div class="events">
+        <div class="events" @click="openFilter('')">
             <div class="events-header">
               <div class="events-header-title">
                   <p>Афиша событий</p>
               </div>
               <div class="events-header-filter">
-                  <div class="events-header-filter-left mini ">
-                      <div class="item">
+                  <div class="events-header-filter-left mini " v-if="sortPanelData">
+                      <div class="item" @click.stop="openFilter('filterArchive')" v-if="sortPanelData.filterArchive">
                           <img class="mr-1" src="../../assets/image/(.svg" alt="">
-                          <p>Фильтр</p>
+                          <p class="whitespace-nowrap">{{sortPanelData.filterArchive.activeName}}</p>
                           <img src="../../assets/image/arrow.svg" alt="">
                           <img class="ml-1" src="../../assets/image/).svg" alt="">
-                          <div class="item-nav hidden">
-                              <p class="item-nav-text">Все события</p>
-                              <p class="item-nav-text">Выставки</p>
-                              <p class="item-nav-text">Экскурсии</p>
-                              <p class="item-nav-text">Лекции</p>
-                              <p class="item-nav-text">Творческие мастерские</p>
-                              <p class="item-nav-text">Концерты</p>
-                              <p class="item-nav-text">Кино</p>
-                              <p class="item-nav-text">ДискусCии</p>
-                              <p class="item-nav-text">Конференции</p>
+                          <div class="item-nav" v-if="activeFilter === 'filterArchive'">
+                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterArchive.variants" :key="i">
+                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                                  <span>{{item.name}}</span>
+                              </p>
                           </div>
                       </div>
-                  </div>
-                  <div class="events-header-filter-left max " v-if="sortPanelData">
-                      <div class="item" @click="sortPanelData.filterByAuditoria[0].isActive = !sortPanelData.filterByAuditoria[0].isActive" v-if="sortPanelData.filterByAuditoria && sortPanelData.filterByAuditoria[0]">
+                      <div class="item" @click.stop="openFilter('filterByAuditoria')" v-if="sortPanelData.filterByAuditoria && sortPanelData.filterByAuditoria[0]">
                           <img class="mr-1" src="../../assets/image/(.svg" alt="">
                           <p class="whitespace-nowrap">{{sortPanelData.filterByAuditoria[0].name}}</p>
                           <img src="../../assets/image/arrow.svg" alt="">
                           <img class="ml-1" src="../../assets/image/).svg" alt="">
-                          <div class="item-nav" v-if="sortPanelData.filterByAuditoria[0].isActive">
-                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterByAuditoria[0].variants" :key="i">{{item.name}}</p>
+                          <div class="item-nav" v-if="activeFilter === 'filterByAuditoria'">
+                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterByAuditoria[0].variants" :key="i">
+                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                                  <span>{{item.name}}</span>
+                              </p>
                           </div>
                       </div>
-                      <div class="item" @click="sortPanelData.filterByType[0].isActive = !sortPanelData.filterByType[0].isActive" v-if="sortPanelData.filterByType && sortPanelData.filterByType[0]">
+                      <div class="item" @click.stop="openFilter('filterByCycle')" v-if="sortPanelData.filterByCycle && sortPanelData.filterByCycle[0]">
+                          <img class="mr-1" src="../../assets/image/(.svg" alt="">
+                          <p class="whitespace-nowrap">{{sortPanelData.filterByCycle[0].name}}</p>
+                          <img src="../../assets/image/arrow.svg" alt="">
+                          <img class="ml-1" src="../../assets/image/).svg" alt="">
+                          <div class="item-nav" v-if="activeFilter === 'filterByCycle'">
+                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterByCycle[0].variants" :key="i">
+                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                                  <span>{{item.name}}</span>
+                              </p>
+                          </div>
+                      </div>
+                      <div class="item" @click.stop="openFilter('filterByType')" v-if="sortPanelData.filterByType && sortPanelData.filterByType[0]">
                           <img class="mr-1" src="../../assets/image/(.svg" alt="">
                           <p class="whitespace-nowrap">{{sortPanelData.filterByType[0].name}}</p>
                           <img src="../../assets/image/arrow.svg" alt="">
                           <img class="ml-1" src="../../assets/image/).svg" alt="">
-                          <div class="item-nav" v-if="sortPanelData.filterByType[0].isActive">
-                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterByType[0].variants" :key="i">{{item.name}}</p>
+                          <div class="item-nav" v-if="activeFilter === 'filterByType'">
+                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterByType[0].variants" :key="i">
+                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                                  <span>{{item.name}}</span>
+                              </p>
                           </div>
                       </div>
-                      <div class="item" @click="sortPanelData.sort['sortByDate'].isActive = !sortPanelData.sort['sortByDate'].isActive" v-if="sortPanelData.sort && sortPanelData.sort['sortByDate']">
+                      <div class="item" @click.stop="openFilter('sortPanelData')" v-if="sortPanelData.sort && sortPanelData.sort['sortByDate']">
                           <img class="mr-1" src="../../assets/image/(.svg" alt="">
                           <p class="whitespace-nowrap">{{sortPanelData.sort['sortByDate'].name}}</p>
                           <img src="../../assets/image/arrow.svg" alt="">
                           <img class="ml-1" src="../../assets/image/).svg" alt="">
-                          <div class="item-nav" v-if="sortPanelData.sort['sortByDate'].isActive">
-                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.sort['sortByDate'].variants" :key="i">{{item.name}}</p>
+                          <div class="item-nav" v-if="activeFilter === 'sortPanelData'">
+                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.sort['sortByDate'].variants" :key="i">
+                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                                  <span>{{item.name}}</span>
+                              </p>
+                          </div>
+                      </div>
+                      <div class="events-header-filter-right">
+                          <img class="mr-1" src="../../assets/image/(.svg" alt="">
+                          <div class="item" @click="pageType = 1" :class="pageType === 1 ? 'active' : ''" >
+                              <img src="../../assets/image/календарь.svg" alt="">
+                              <p>{{langPhrase.grid_v1}}</p>
+                          </div>
+                          <span class="slesh">/</span>
+                          <div class="item" :class="pageType === 2 ? 'active' : ''" @click="pageType = 2">
+                              <img src="../../assets/image/события.svg" alt="">
+                              <p>{{langPhrase.grid_v2}}</p>
+                          </div>
+                          <img class="ml-1" src="../../assets/image/).svg" alt="">
+                      </div>
+                  </div>
+                  <div class="events-header-filter-left max " v-if="sortPanelData">
+                      <div class="item" @click.stop="openFilter('filterArchive')" v-if="sortPanelData.filterArchive">
+                          <img class="mr-1" src="../../assets/image/(.svg" alt="">
+                          <p class="whitespace-nowrap">{{sortPanelData.filterArchive.activeName}}</p>
+                          <img src="../../assets/image/arrow.svg" alt="">
+                          <img class="ml-1" src="../../assets/image/).svg" alt="">
+                          <div class="item-nav" v-if="activeFilter === 'filterArchive'">
+                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterArchive.variants" :key="i">
+                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                                  <span>{{item.name}}</span>
+                              </p>
+                          </div>
+                      </div>
+                      <div class="item" @click.stop="openFilter('filterByAuditoria')" v-if="sortPanelData.filterByAuditoria && sortPanelData.filterByAuditoria[0]">
+                          <img class="mr-1" src="../../assets/image/(.svg" alt="">
+                          <p class="whitespace-nowrap">{{sortPanelData.filterByAuditoria[0].name}}</p>
+                          <img src="../../assets/image/arrow.svg" alt="">
+                          <img class="ml-1" src="../../assets/image/).svg" alt="">
+                          <div class="item-nav" v-if="activeFilter === 'filterByAuditoria'">
+                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterByAuditoria[0].variants" :key="i">
+                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                                  <span>{{item.name}}</span>
+                              </p>
+                          </div>
+                      </div>
+                      <div class="item" @click.stop="openFilter('filterByCycle')" v-if="sortPanelData.filterByCycle && sortPanelData.filterByCycle[0]">
+                          <img class="mr-1" src="../../assets/image/(.svg" alt="">
+                          <p class="whitespace-nowrap">{{sortPanelData.filterByCycle[0].name}}</p>
+                          <img src="../../assets/image/arrow.svg" alt="">
+                          <img class="ml-1" src="../../assets/image/).svg" alt="">
+                          <div class="item-nav" v-if="activeFilter === 'filterByCycle'">
+                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterByCycle[0].variants" :key="i">
+                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                                  <span>{{item.name}}</span>
+                              </p>
+                          </div>
+                      </div>
+                      <div class="item" @click.stop="openFilter('filterByType')" v-if="sortPanelData.filterByType && sortPanelData.filterByType[0]">
+                          <img class="mr-1" src="../../assets/image/(.svg" alt="">
+                          <p class="whitespace-nowrap">{{sortPanelData.filterByType[0].name}}</p>
+                          <img src="../../assets/image/arrow.svg" alt="">
+                          <img class="ml-1" src="../../assets/image/).svg" alt="">
+                          <div class="item-nav" v-if="activeFilter === 'filterByType'">
+                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterByType[0].variants" :key="i">
+                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                                  <span>{{item.name}}</span>
+                              </p>
+                          </div>
+                      </div>
+                      <div class="item" @click.stop="openFilter('sortPanelData')" v-if="sortPanelData.sort && sortPanelData.sort['sortByDate']">
+                          <img class="mr-1" src="../../assets/image/(.svg" alt="">
+                          <p class="whitespace-nowrap">{{sortPanelData.sort['sortByDate'].name}}</p>
+                          <img src="../../assets/image/arrow.svg" alt="">
+                          <img class="ml-1" src="../../assets/image/).svg" alt="">
+                          <div class="item-nav" v-if="activeFilter === 'sortPanelData'">
+                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.sort['sortByDate'].variants" :key="i">
+                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                                  <span>{{item.name}}</span>
+                              </p>
                           </div>
                       </div>
                   </div>
-                  <div class="events-header-filter-right">
+                  <div class="events-header-filter-right max">
                       <img class="mr-1" src="../../assets/image/(.svg" alt="">
                       <div class="item" @click="pageType = 1" :class="pageType === 1 ? 'active' : ''" >
                           <img src="../../assets/image/календарь.svg" alt="">
@@ -89,9 +178,7 @@
                                     </div>
                                     <NuxtLink tag="a" :to="event.placeLink"  class="events-content-block-item-body-text-author">
                                         <img src="../../assets/image/pin1.svg" alt="">
-                                        <div>
-                                            <p>{{event.place}}</p>
-                                        </div>
+                                        <p style="width: min-content;">{{event.place}}</p>
                                     </NuxtLink>
                                 </div>
                                 <div class="events-content-block-item-imageMini">
@@ -303,6 +390,7 @@
             </div>
         </div>
         <Footer/>
+        <Meta :head-data="this.head"/>
     </div>
 </template>
 
@@ -311,18 +399,21 @@ import Footer from "../../components/Footer";
 import { mapActions, mapState} from 'vuex'
 import VsPagination from '@vuesimple/vs-pagination';
 import Header from "../../components/Header";
+import Meta from "../../components/Meta";
 export default {
     name: 'IndexPage',
-    components: {Header, Footer, VsPagination},
+    components: {Meta, Header, Footer, VsPagination},
     data () {
         return {
             date_today:new Date(),
             pageType: 1,
+            activeFilter: '',
             sortPanelData: 1,
         }
     },
     computed: {
         ...mapState({
+            head: (state) => state.events.head,
             events: (state) => state.events.events,
             listItems: (state) => state.events.listItems,
             langPhrase: (state) => state.events.langPhrase,
@@ -341,6 +432,13 @@ export default {
             getEvents: 'events/getEvents',
             getByUrlEvents: 'events/getByUrlEvents',
         }),
+        openFilter(filter) {
+            if (this.activeFilter === filter) {
+                this.activeFilter = null
+            }  else {
+                this.activeFilter = filter
+            }
+        },
         getByUrl (url) {
             this.getByUrlEvents(url).then(() => {
                 const arr = JSON.parse(JSON.stringify(this.sortPanel))
@@ -372,6 +470,7 @@ export default {
 
         @media (max-width: 920px) {
             display: flex;
+            flex-wrap: wrap;
         }
     }
 
@@ -469,11 +568,14 @@ export default {
                         background: white;
                         border: 1px solid #221F1A;
                         box-sizing: border-box;
-                        z-index: 1;
+                        z-index: 99;
 
                         top: 35px;
 
                         &-text{
+                            display: flex;
+                            align-items: center;
+                            justify-content: start;
                             margin-bottom: 15px;
                             white-space: nowrap;
 

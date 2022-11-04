@@ -133,6 +133,7 @@
       </div>
     <Footer/>
     <Modal :isSelected="isSelected" v-if="openModal"/>
+    <Meta :head-data="this.head" />
   </div>
 </template>
 
@@ -141,9 +142,10 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { mapActions, mapState} from 'vuex'
 import Modal from "../components/Modal";
+import Meta from "../components/Meta";
 export default {
     name: "contacts",
-    components: {Modal, Footer, Header},
+    components: {Meta, Modal, Footer, Header},
   data () {
       return {
         activeTab: 'map',

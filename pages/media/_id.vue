@@ -158,6 +158,7 @@
     <Footer/>
     <Modal :isSelected="isSelected" v-if="openModal"/>
     <VueGalleria :isMedia="true" v-if="zoom" :index="zoomIndex" :images="media.photoList" />
+    <Meta :head-data="this.head" />
   </div>
 </template>
 
@@ -168,9 +169,10 @@
   import { mapActions, mapState} from 'vuex'
   import Modal from "../../components/Modal";
   import VueGalleria from "../../components/VueGalleria";
+  import Meta from "../../components/Meta";
   export default {
     name: "mediaPage",
-    components: {VueGalleria, Modal, VueSwiper, Footer, Header},
+    components: {Meta, VueGalleria, Modal, VueSwiper, Footer, Header},
     data() {
       return {
         zoomIndex: null,
@@ -183,6 +185,7 @@
     },
     computed: {
       ...mapState({
+        head: (state) => state.media.head,
         media: (state) => state.media.media,
         langPhrase: (state) => state.media.langPhrase,
         same_media: (state) => state.media.same_media,

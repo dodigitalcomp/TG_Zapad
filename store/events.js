@@ -7,6 +7,7 @@ export const state = () => ({
     sameEvents: {},
     event: {},
     langPhrase: {},
+    head: {},
 })
 export const actions = {
     getEvents ({ commit },page) {
@@ -16,7 +17,7 @@ export const actions = {
         })
     },
     getByUrlEvents ({ commit },link) {
-        return this.$axios.get(link).then((res) => {
+        return this.$axios.get('api/' + link).then((res) => {
             commit('setEvents', res.data)
             return res.data
         })

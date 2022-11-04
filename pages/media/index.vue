@@ -1,29 +1,35 @@
 <template>
   <div>
     <Header ref="header"/>
-    <div class="media">
+    <div class="media" @click="openFilter('')">
       <div class="media-header">
         <div class="media-header-title">
           <p>медиа материалы</p>
         </div>
         <div class="media-header-filter">
           <div class="media-header-filter-left " >
-            <div class="item" @click="openFilter = !openFilter" v-if="filter">
+            <div class="item" @click.stop="openFilter('filter')" v-if="filter">
               <img class="mr-1" src="../../assets/image/(.svg" alt="">
               <p>{{filter.name}}</p>
               <img src="../../assets/image/arrow.svg" alt="">
               <img class="ml-1" src="../../assets/image/).svg" alt="">
-              <div class="item-nav" v-if="openFilter">
-                <p class="item-nav-text" @click="getData(item.link)" v-for="(item, i) in filter.variants" :key="i">{{item.name}}</p>
+              <div class="item-nav" v-if="activeFilter === 'filter'">
+                <p class="item-nav-text" @click="getData(item.link)" v-for="(item, i) in filter.variants" :key="i">
+                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                  <span>{{item.name}}</span>
+                </p>
               </div>
             </div>
-            <div class="item" @click="openSort = !openSort" v-if="sort">
+            <div class="item" @click.stop="openFilter('sort')" v-if="sort">
               <img class="mr-1" src="../../assets/image/(.svg" alt="">
               <p>{{sort.name}}</p>
               <img src="../../assets/image/arrow.svg" alt="">
               <img class="ml-1" src="../../assets/image/).svg" alt="">
-              <div class="item-nav" v-if="openSort">
-                <p class="item-nav-text" @click="getData(item.link)" v-for="(item, i) in sort.variants" :key="i">{{item.name}}</p>
+              <div class="item-nav" v-if="activeFilter === 'sort'">
+                <p class="item-nav-text" @click="getData(item.link)" v-for="(item, i) in sort.variants" :key="i">
+                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
+                  <span>{{item.name}}</span>
+                </p>
               </div>
             </div>
           </div>
@@ -72,17 +78,21 @@
       </div>
     </div>
     <Footer/>
+    <Meta :head-data="this.head" />
   </div>
 </template>
 
 <script>
   import { mapActions, mapState} from 'vuex'
+  import Meta from "../../components/Meta";
   export default {
     name: "media",
+    components: {Meta},
     data () {
       return {
         openFilter: false,
         openSort: false,
+        activeFilter: '',
       }
     },
     computed: {
@@ -101,6 +111,13 @@
       ...mapActions({
         getMedia: 'media/getMedia'
       }),
+      openFilter(filter) {
+        if (this.activeFilter === filter) {
+          this.activeFilter = null
+        }  else {
+          this.activeFilter = filter
+        }
+      },
       changePage(page) {
         this.getMedia(page).then(() => {
           window.scrollTo({
@@ -200,6 +217,9 @@
             top: 35px;
 
             &-text{
+              display: flex;
+              align-items: center;
+              justify-content: start;
               margin-bottom: 15px;
               white-space: nowrap;
 

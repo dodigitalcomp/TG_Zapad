@@ -271,6 +271,7 @@
      </div>
     <Footer/>
     <Modal :isSelected="isSelected" v-if="openModal" />
+    <Meta :head-data="this.head" />
   </div>
 </template>
 
@@ -279,9 +280,10 @@
   import Footer from "../components/Footer";
   import { mapActions, mapState} from 'vuex'
   import Modal from "../components/Modal";
+  import Meta from "../components/Meta";
   export default {
     name: "loyalty",
-    components: {Modal, Footer, Header},
+    components: {Meta, Modal, Footer, Header},
     data () {
       return {
         isSelected: null,

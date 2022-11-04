@@ -172,6 +172,7 @@
       </div>
     </div>
     <Footer/>
+    <Meta :head-data="this.head" />
   </div>
 </template>
 
@@ -180,9 +181,10 @@
   import Footer from "../components/Footer";
   import { mapActions, mapState} from 'vuex'
   import VsPagination from '@vuesimple/vs-pagination';
+  import Meta from "../components/Meta";
   export default {
     name: "search",
-    components: {Footer, Header, VsPagination},
+    components: {Meta, Footer, Header, VsPagination},
     data() {
       return {
         searchContent: false,

@@ -57,6 +57,7 @@
       <Partners  :title="partners.langPhrase.title" v-if="partners && partners.langPhrase" :items="partners.listItem"/>
     </div>
     <Footer/>
+    <Meta :head-data="this.head" />
   </div>
 </template>
 
@@ -67,9 +68,10 @@
   import Teachers from "../components/Teachers";
   import { mapActions, mapState} from 'vuex'
   import Partners from "../components/Partniors";
+  import Meta from "../components/Meta";
   export default {
     name: "about",
-    components: {Partners, Teachers, Galleria, Footer, Header},
+    components: {Meta, Partners, Teachers, Galleria, Footer, Header},
     data () {
       return {
         selectPage: 0

@@ -372,6 +372,9 @@
             top: 35px;
 
             &-text{
+              display: flex;
+              align-items: center;
+              justify-content: start;
               margin-bottom: 15px;
               white-space: nowrap;
 
@@ -3802,4 +3805,8 @@ br {
 
 b {
   font-weight: 500 !important;
+}
+
+.active-filter {
+
 }

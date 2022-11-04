@@ -285,6 +285,7 @@
        </div>
      </div>
     <Footer/>
+    <Meta :head-data="this.head" />
   </div>
 </template>
 
@@ -293,9 +294,10 @@
   import Footer from "../../components/Footer";
   import VueSwiper from "../../components/VueSwiper";
   import { mapActions, mapState} from 'vuex'
+  import Meta from "../../components/Meta";
   export default {
     name: "newsPage",
-    components: {VueSwiper, Footer, Header},
+    components: {Meta, VueSwiper, Footer, Header},
     computed: {
       ...mapState({
         newData: (state) => state.news.newData,

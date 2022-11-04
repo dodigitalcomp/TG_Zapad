@@ -20,9 +20,7 @@
                </div>
                <NuxtLink :to="eventData.placeLink" tag="a" class="event-page-header-content-block-text-author" v-if="eventData.type">
                  <img src="../../assets/image/pin1.svg" alt="">
-                 <div>
-                   <p>{{eventData.place}}</p>
-                 </div>
+                 <p style="width: min-content;">{{eventData.place}}</p>
                </NuxtLink>
              </div>
              <div class="event-page-header-content-block-imgMini">
@@ -32,7 +30,7 @@
                <p>{{eventData.name}}</p>
              </div>
              <div class="event-page-header-content-block-description">
-               <p>{{eventData.nameCursive}}</p>
+               <p>{{eventData.subtitle}}</p>
              </div>
              <div></div>
              <div class="event-page-header-content-block-authorMini">
@@ -207,6 +205,7 @@
        </div>
      </div>
     <Footer/>
+    <Meta :head-data="this.head" />
   </div>
 </template>
 
@@ -216,9 +215,10 @@
   import VueSwiper from "../../components/VueSwiper";
   import Partners from "../../components/Partniors";
   import { mapActions, mapState} from 'vuex'
+  import Meta from "../../components/Meta";
   export default {
     name: "eventPage",
-    components: {Partners, VueSwiper, Footer, Header},
+    components: {Meta, Partners, VueSwiper, Footer, Header},
     data () {
       return {
         info: null,
@@ -227,6 +227,7 @@
     },
     computed: {
         ...mapState({
+            head: (state) => state.events.head,
             langPhrase: (state) => state.events.langPhrase,
             eventData: (state) => state.events.event,
             sameEvents: (state) => state.events.sameEvents,
@@ -469,7 +470,6 @@
             &-author {
               display: flex;
               align-items: flex-start;
-              text-align: right;
 
               @media (max-width: 850px) {
                 display: none;

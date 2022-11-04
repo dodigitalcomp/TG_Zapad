@@ -15,7 +15,7 @@ export const actions = {
         })
     },
     getNewsByLink ({ commit },link) {
-        return this.$axios.get(link).then((res) => {
+        return this.$axios.get('api/' + link).then((res) => {
             commit('setNews', res.data)
             return res.data
         })

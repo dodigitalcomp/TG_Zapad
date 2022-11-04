@@ -135,6 +135,7 @@
           </NuxtLink>
         </div>
       </div>
+      <Meta :head-data="this.head" />
     </div>
 </template>
 
@@ -142,9 +143,10 @@
 import Galleria from "./Galleria";
 import { mapActions, mapState} from 'vuex'
 import VueNewsSwiper from "./VueNewsSwiper";
+import Meta from "./Meta";
 export default {
   name: "Main",
-  components: {VueNewsSwiper, Galleria},
+  components: {Meta, VueNewsSwiper, Galleria},
   data () {
     return {
       selectPage: 0

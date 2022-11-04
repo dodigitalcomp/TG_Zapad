@@ -13,7 +13,7 @@ export const actions = {
         })
     },
     searchByUrl ({ commit }, url) {
-        return this.$axios.get(url).then((res) => {
+        return this.$axios.get('api/' + url).then((res) => {
             commit('setData', res.data)
             return res.data
         })

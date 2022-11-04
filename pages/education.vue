@@ -446,6 +446,7 @@
      </div>
     <Footer/>
     <Modal :isSelected="isSelected" v-if="openModal"/>
+    <Meta :head-data="this.head" />
   </div>
 </template>
 
@@ -456,10 +457,11 @@ import VueSwiper from "../components/VueSwiper";
 import Teachers from "../components/Teachers";
 import { mapActions, mapState} from 'vuex'
 import Modal from "../components/Modal";
+import Meta from "../components/Meta";
 
 export default {
   name: "education",
-  components: {Modal, Teachers, VueSwiper, Footer, Header},
+  components: {Meta, Modal, Teachers, VueSwiper, Footer, Header},
   data() {
     return {
       activeTab: 'info',
