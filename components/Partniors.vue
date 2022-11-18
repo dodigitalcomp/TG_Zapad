@@ -57,15 +57,15 @@
   }
 
   &-item {
-     width: calc(100% / 4);
+     width: calc(100% / 3);
      height: 175px;
      display: flex;
      justify-content: center;
      align-items: center;
 
     img {
-      max-width: 200px;
-      max-height: 150px;
+      max-width: 150px;
+      max-height: 100px;
     }
 
   @media (max-width: 850px) {

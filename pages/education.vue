@@ -784,6 +784,7 @@ export default {
             display: flex;
             justify-content: center;
             margin-bottom: 40px;
+            max-width: 80%;
             p {
               max-width: 640px;
               font-style: normal;

@@ -15,12 +15,12 @@
                 <p class="nav-title-logo">{{menuData.langPhrase.logoSecond}}</p>
                 <p class="nav-title-logo-mini">{{menuData.langPhrase.logoThird}}</p>
               </div>
-              <div class="flex-shrink-0 flex items-center t-logo">
-                <img v-if="openMenu" src="../assets/image/partniors/T__T_gold.svg" alt="">
-                <img v-else-if="logoColor === 'black'" src="../assets/image/partniors/T__T_black.svg" alt="">
-                <img v-else src="../assets/image/partniors/T__T_gold.svg" alt="">
-              </div>
             </NuxtLink>
+            <a href="https://www.tretyakovgallery.ru/" target="_blank" class="flex-shrink-0 flex items-center t-logo">
+              <img v-if="openMenu" src="../assets/image/partniors/T__T_gold.svg" alt="">
+              <img v-else-if="logoColor === 'black'" src="../assets/image/partniors/T__T_black.svg" alt="">
+              <img v-else src="../assets/image/partniors/T__T_gold.svg" alt="">
+            </a>
             <div class="hidden sm:block sm:ml-6">
               <div class="flex space-x-4" v-if="menuData && menuData.topMenu">
                 <NuxtLink tag="a" v-for="(item, index) in menuData.topMenu" :key="index" :to="item.link" class="uppercase nav-title-menu whitespace-nowrap">{{item.name}}</NuxtLink>
@@ -55,14 +55,8 @@
         </div>
       </div>
       <div :class="!openMenu ? 'd-none' : ''">
-        <div class="px-5 pt-2 pb-3 space-y-1 min-menu">
-        <NuxtLink tag="a" :to="localePath('/events')" class="uppercase nav-title-menu">Афиша</NuxtLink>
-        <NuxtLink tag="a" :to="localePath('/education')" class="uppercase nav-title-menu">образование</NuxtLink>
-        <NuxtLink tag="a" :to="localePath('/about')" class="uppercase nav-title-menu">о музее</NuxtLink>
-        <NuxtLink tag="a" :to="localePath('/media')" class="uppercase nav-title-menu">МЕДИА</NuxtLink>
-        <NuxtLink tag="a" :to="localePath('/news')" class="uppercase nav-title-menu">новости</NuxtLink>
-        <NuxtLink tag="a" :to="localePath('/friend')" class="uppercase nav-title-menu">ПРОГРАММА ЛОЯЛЬНОСТИ</NuxtLink>
-        <NuxtLink tag="a" :to="localePath('/contacts')" class="uppercase nav-title-menu">контакты</NuxtLink>
+        <div class="px-5 pt-2 pb-3 space-y-1 min-menu" v-if="menuData && menuData.topMenu">
+          <NuxtLink tag="a" v-for="(item, index) in menuData.topMenu" :key="index" :to="item.link" class="uppercase nav-title-menu whitespace-nowrap">{{item.name}}</NuxtLink>
           <canvas id="header-arrow"></canvas>
           <p class="uppercase nav-title-menu flex items-center">
             <img class="mr-1 nav-title-menu-img" src="../assets/image/(w.svg" alt="">
@@ -277,7 +271,7 @@
   }
 
   .t-logo {
-    margin-left: 50px;
+    margin-left: -20px;
     img {
       width: 92px;
       height: 92px;

@@ -1,6 +1,6 @@
 <template>
   <div class="news-content" v-if="loader">
-    <swiper v-if="items && items.length" ref="swiperThumbs" class="swiper news-swiper" :options="swiperOption" >
+    <swiper v-if="items && items.length" :class="items.length === 1 ? 'center' : ''" ref="swiperThumbs" class="swiper news-swiper" :options="swiperOption" >
       <swiper-slide v-for="(item, i) in items" :key="i" class="swiper-slide"  :index="i">
          <NuxtLink tag="div" :to="item.url" class="news-content-swiper news-content-swiper-border-r pr-5 cursor-pointer">
            <div class="news-content-swiper-title">
@@ -71,6 +71,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
   .swiper-slide:last-child {
     .news-content-swiper {
       border-right: none !important;
@@ -146,6 +147,7 @@ export default {
         &-title{
           display: flex;
           justify-content: space-between;
+          margin-top: 35px;
 
           p {
             font-style: normal;

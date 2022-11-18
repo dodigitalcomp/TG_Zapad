@@ -11,12 +11,12 @@
         </div>
         <div>
           <div class="footer-block-info-social" v-if="menuData && menuData.iconLinks && menuData.iconLinks.social_link">
-            <a :href="item.link" v-for="(item ,index) in menuData.iconLinks.social_link" :key="index">
+            <a :href="item.link" target="_blank" v-for="(item ,index) in menuData.iconLinks.social_link" :key="index">
               <img :src="item.img" alt="">
             </a>
           </div>
           <div class="footer-block-info-partnior" v-if="menuData && menuData.iconLinks && menuData.iconLinks.partners">
-            <a :href="item.link" v-for="(item ,index) in menuData.iconLinks.partners" :key="index">
+            <a :href="item.link" target="_blank" v-for="(item ,index) in menuData.iconLinks.partners" :key="index">
               <img :src="item.img" alt="">
             </a>
 <!--            <a href="">-->
@@ -78,14 +78,8 @@
       <div class="footer-block-info">
         <div class="mini-block">
           <img class="img-min" src="../assets/image/logo_sign.svg"  alt="">
-          <div class="footer-block-info-title">
-            <NuxtLink tag="a" :to="localePath('/events')" class="uppercase nav-title-menu">Афиша</NuxtLink>
-            <NuxtLink tag="a" :to="localePath('/education')" class="uppercase nav-title-menu">образование</NuxtLink>
-            <NuxtLink tag="a" :to="localePath('/about')" class="uppercase nav-title-menu">о музее</NuxtLink>
-            <NuxtLink tag="a" :to="localePath('/media')" class="uppercase nav-title-menu">МЕДИА</NuxtLink>
-            <NuxtLink tag="a" :to="localePath('/news')" class="uppercase nav-title-menu">новости</NuxtLink>
-            <NuxtLink tag="a" :to="localePath('/loyalty')" class="uppercase nav-title-menu">ПРОГРАММА ЛОЯЛЬНОСТИ</NuxtLink>
-            <NuxtLink tag="a" :to="localePath('/contacts')" class="uppercase nav-title-menu">контакты</NuxtLink>
+          <div class="footer-block-info-title" v-if="menuData && menuData.footerLeft">
+            <NuxtLink v-for="(item, index) in menuData.footerLeft" :key="index" :to="item.link" tag="a">{{item.name}}</NuxtLink>
           </div>
         </div>
         <div class="canvas">
@@ -104,12 +98,12 @@
         </div>
         <div>
           <div class="footer-block-info-social" v-if="menuData && menuData.iconLinks && menuData.iconLinks.social_link">
-            <a :href="item.link" v-for="(item ,index) in menuData.iconLinks.social_link" :key="index">
+            <a :href="item.link" target="_blank" v-for="(item ,index) in menuData.iconLinks.social_link" :key="index">
               <img :src="item.img" alt="">
             </a>
           </div>
           <div class="footer-block-info-partnior" v-if="menuData && menuData.iconLinks && menuData.iconLinks.partners">
-            <a :href="item.link" v-for="(item ,index) in menuData.iconLinks.partners" :key="index">
+            <a :href="item.link" target="_blank" v-for="(item ,index) in menuData.iconLinks.partners" :key="index">
               <img :src="item.img" alt="">
             </a>
           </div>
@@ -580,9 +574,9 @@
         }
 
         a {
-
           img {
             width: 100%;
+            min-width: 98px;
             /*height: 50px;*/
           }
         }

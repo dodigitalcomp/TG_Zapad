@@ -74,20 +74,20 @@
                 <div class="contacts-maps-block-modal-text" v-if="placesList[activeIndex].text">
                   <p v-html="placesList[activeIndex].text"></p>
                 </div>
-                <div  class="contacts-maps-block-modal-date" v-if="placesList[activeIndex].mapCenter">
-                  <p>{{placesList[activeIndex].mapCenter}}</p>
-                </div>
-                <div class="contacts-maps-block-modal-phone" v-if="placesList[activeIndex].phone">
-                  <p>{{placesList[activeIndex].phone}}</p>
-                </div>
-                <div class="contacts-maps-block-modal-email" v-if="placesList[activeIndex].email">
-                  <img class="mr-1" src="../assets/image/(.svg" alt="">
-                  <span>{{placesList[activeIndex].email}}</span>
-                  <img class="ml-1" src="../assets/image/).svg" alt="">
-                </div>
-                <div>
-                  <img :src="placesList[activeIndex].picture" alt="">
-                </div>
+<!--                <div  class="contacts-maps-block-modal-date" v-if="placesList[activeIndex].mapCenter">-->
+<!--                  <p>{{placesList[activeIndex].mapCenter}}</p>-->
+<!--                </div>-->
+<!--                <div class="contacts-maps-block-modal-phone" v-if="placesList[activeIndex].phone">-->
+<!--                  <p>{{placesList[activeIndex].phone}}</p>-->
+<!--                </div>-->
+<!--                <div class="contacts-maps-block-modal-email" v-if="placesList[activeIndex].email">-->
+<!--                  <img class="mr-1" src="../assets/image/(.svg" alt="">-->
+<!--                  <span>{{placesList[activeIndex].email}}</span>-->
+<!--                  <img class="ml-1" src="../assets/image/).svg" alt="">-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                  <img :src="placesList[activeIndex].picture" alt="">-->
+<!--                </div>-->
               </div>
             <div class="contacts-maps-block-map">
               <div class="mapouter">
@@ -244,6 +244,10 @@ export default {
       &-content {
         display: flex;
         justify-content: flex-start;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        padding-top: 20px;
+        padding-bottom: 20px;
 
         &-item {
           margin-left: 20px;

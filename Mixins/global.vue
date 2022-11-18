@@ -17,11 +17,53 @@
           }
           let today = null
           if (type === 1) {
-            today  = moment(date, 'DD.MM.YYYY').lang("ru").format("LL");
+            // today  = moment(date, 'DD.MM.YYYY').startOf('isoWeek').lang("ru").day(1);
+            today  = moment(date, 'DD.MM.YYYY').locale('ru').calendar(null, {
+              sameElse: 'DD MMMM'
+            })
           } else {
-            today  = moment(date, 'DD.MM.YYYY hh:mm').lang("ru").format("LLL");
+            today  = moment(date, 'DD.MM.YYYY hh:mm').locale("ru").format("LLL");
           }
           return today
+        }
+      },
+      dateFormatDay(date) {
+        if (date) {
+          const day = moment(date, 'DD.MM.YYYY').locale('ru').calendar({
+            sameDay: function (now) {
+              if (this._locale._abbr === 'en') {
+                return '[Today]'
+              } else {
+                return '[Сегодня]'
+              }
+            },
+            nextDay: function (now) {
+              if (this._locale._abbr === 'en') {
+                return '[Tomorrow]'
+              } else {
+                return '[Завтра]'
+              }
+            },
+            lastDay: function (now) {
+              if (this._locale._abbr === 'en') {
+                return '[Yesterday]'
+              } else {
+                return '[Вчера]'
+              }
+            }
+          })
+          const myArray = day.split(".");
+          if (myArray.length > 1) {
+            return ''
+          } else {
+            return day + ' ,'
+          }
+
+        }
+      },
+      dateFormatWeek(date) {
+        if (date) {
+          return moment(date, 'DD.MM.YYYY hh:mm').locale("ru").format("dddd")
         }
       }
     }

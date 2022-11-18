@@ -20,7 +20,7 @@
                </div>
                <NuxtLink :to="eventData.placeLink" tag="a" class="event-page-header-content-block-text-author" v-if="eventData.type">
                  <img src="../../assets/image/pin1.svg" alt="">
-                 <p style="width: min-content;">{{eventData.place}}</p>
+                 <p style="width: min-content; white-space: nowrap">{{eventData.place}}</p>
                </NuxtLink>
              </div>
              <div class="event-page-header-content-block-imgMini">
@@ -46,34 +46,34 @@
            <div class="event-page-header-footer-item" v-if="eventData.price">
              <p v-if="eventData">{{langPhrase.price}}: {{eventData.price}}</p>
            </div>
+           <div class="event-page-header-footer-item" >
+             <a href="http://kaliningrad-yuznyiy.dzvr.ru/" target="_blank" class="event-page-header-footer-item-block cursor-pointer">
+               <img class="mr-1" src="../../assets/image/(.svg" alt="">
+               <span>купить билет</span>
+               <img class="ml-2" src="../../assets/image/).svg" alt="">
+             </a>
+           </div>
            <div class="event-page-header-footer-item">
-             <p class="event-page-header-footer-item-block cursor-pointer" @click="share">
+             <p class="event-page-header-footer-item-block cursor-pointer" :style="!eventData.price ? 'border-right: 0;' : ''" @click="share">
                <img class="mr-1" src="../../assets/image/(.svg" alt="">
                <span>{{langPhrase.share}}</span>
+               <img class="ml-2" src="../../assets/image/shareArrowIcon.svg" alt="">
                <img class="ml-1" src="../../assets/image/).svg" alt="">
              </p>
-           </div>
-           <div class="event-page-header-footer-item" :style="!eventData.price ? 'border-right: 0;' : ''">
-             <div class="event-page-header-footer-item-block cursor-pointer">
-               <img class="mr-1" src="../../assets/image/(.svg" alt="">
-               <span>{{langPhrase.price}}</span>
-               <img class="ml-2" src="../../assets/image/shareArrowIcon.svg" alt="">
-               <img class="ml-2" src="../../assets/image/).svg" alt="">
-             </div>
            </div>
          </div>
        </div>
        <div class="event-page-content">
          <div class="event-page-content-buy-ticket">
            <div class="fixed-info" id="fixed-info">
-             <div class="event-page-content-buy-ticket-date" v-if="eventData && eventData.dateList">
-               <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{ dateFormat(item)}}</span></p>
-               <p class="flex items-center mt-4 cursor-pointer" v-if="eventData.dateList.length > 2" @click="allData = true">
-                 <img class="mr-1" src="../../assets/image/(.svg" alt="">
-                 <span v-if="langPhrase">{{langPhrase.allDate}}</span>
-                 <img class="ml-1" src="../../assets/image/).svg" alt="">
-               </p>
-             </div>
+<!--             <div class="event-page-content-buy-ticket-date" v-if="eventData && eventData.dateList">-->
+<!--               <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{ dateFormat(item)}}</span></p>-->
+<!--               <p class="flex items-center mt-4 cursor-pointer" v-if="eventData.dateList.length > 2" @click="allData = true">-->
+<!--                 <img class="mr-1" src="../../assets/image/(.svg" alt="">-->
+<!--                 <span v-if="langPhrase">{{langPhrase.allDate}}</span>-->
+<!--                 <img class="ml-1" src="../../assets/image/).svg" alt="">-->
+<!--               </p>-->
+<!--             </div>-->
 <!--             <div class="event-page-content-buy-ticket-author" v-if="eventData.cycle">-->
 <!--               <p class="normal-case mb-4">{{langPhrase.fromCycle}}</p>-->
 <!--               <p class="mb-4">{{eventData.cycle}}</p>-->
@@ -122,23 +122,23 @@
 <!--             </div>-->
            </div>
            <div class="event-page-content-info-buy-ticket">
-             <div class="event-page-content-info-buy-ticket-date" v-if="eventData && eventData.dateList">
-               <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{dateFormat(item)}}</span></p>
-               <p class="flex items-center mt-4 cursor-pointer" v-if="eventData.dateList.length > 2" @click="allData = true">
-                 <img class="mr-1" src="../../assets/image/(.svg" alt="">
-                 <span v-if="langPhrase">{{langPhrase.allDate}}</span>
-                 <img class="ml-1" src="../../assets/image/).svg" alt="">
-               </p>
-             </div>
-             <div class="event-page-content-info-buy-ticket-author" v-if="eventData.cycle">
-               <p class="normal-case mb-4">{{langPhrase.fromCycle}}</p>
-               <p class="mb-4">{{eventData.cycle}}</p>
-               <NuxtLink v-if="eventData.cycleLink" tag="p" :to="eventData.cycleLink" class="flex items-center cursor-pointer">
-                 <img class="mr-1" src="../../assets/image/(.svg" alt="">
-                 <span>Подробнее</span>
-                 <img class="ml-1" src="../../assets/image/).svg" alt="">
-               </NuxtLink>
-             </div>
+<!--             <div class="event-page-content-info-buy-ticket-date" v-if="eventData && eventData.dateList">-->
+<!--               <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{dateFormat(item)}}</span></p>-->
+<!--               <p class="flex items-center mt-4 cursor-pointer" v-if="eventData.dateList.length > 2" @click="allData = true">-->
+<!--                 <img class="mr-1" src="../../assets/image/(.svg" alt="">-->
+<!--                 <span v-if="langPhrase">{{langPhrase.allDate}}</span>-->
+<!--                 <img class="ml-1" src="../../assets/image/).svg" alt="">-->
+<!--               </p>-->
+<!--             </div>-->
+<!--             <div class="event-page-content-info-buy-ticket-author" v-if="eventData.cycle">-->
+<!--               <p class="normal-case mb-4">{{langPhrase.fromCycle}}</p>-->
+<!--               <p class="mb-4">{{eventData.cycle}}</p>-->
+<!--               <NuxtLink v-if="eventData.cycleLink" tag="p" :to="eventData.cycleLink" class="flex items-center cursor-pointer">-->
+<!--                 <img class="mr-1" src="../../assets/image/(.svg" alt="">-->
+<!--                 <span>Подробнее</span>-->
+<!--                 <img class="ml-1" src="../../assets/image/).svg" alt="">-->
+<!--               </NuxtLink>-->
+<!--             </div>-->
              <div class="event-page-content-info-buy-ticket-price">
                <p v-if="eventData">{{langPhrase.price}}: {{eventData.price}}</p>
                <a target="_blank" :href="eventData.buy" class="button">
@@ -203,6 +203,7 @@
            <div class="event-page-block-item-description"></div>
          </NuxtLink>
        </div>
+       <div v-else style="border-bottom: 1px solid; margin: 20px;"></div>
      </div>
     <Footer/>
     <Meta :head-data="this.head" />
@@ -446,7 +447,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 120px;
+            margin-bottom: 100px;
             font-style: normal;
             font-weight: normal;
             font-size: 15px;
@@ -1110,7 +1111,7 @@
       &-item {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: start;
         flex: 1;
         height: 430px;
 

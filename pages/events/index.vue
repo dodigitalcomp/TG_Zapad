@@ -8,18 +8,18 @@
               </div>
               <div class="events-header-filter">
                   <div class="events-header-filter-left mini " v-if="sortPanelData">
-                      <div class="item" @click.stop="openFilter('filterArchive')" v-if="sortPanelData.filterArchive">
-                          <img class="mr-1" src="../../assets/image/(.svg" alt="">
-                          <p class="whitespace-nowrap">{{sortPanelData.filterArchive.activeName}}</p>
-                          <img src="../../assets/image/arrow.svg" alt="">
-                          <img class="ml-1" src="../../assets/image/).svg" alt="">
-                          <div class="item-nav" v-if="activeFilter === 'filterArchive'">
-                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterArchive.variants" :key="i">
-                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
-                                  <span>{{item.name}}</span>
-                              </p>
-                          </div>
-                      </div>
+<!--                      <div class="item" @click.stop="openFilter('filterArchive')" v-if="sortPanelData.filterArchive">-->
+<!--                          <img class="mr-1" src="../../assets/image/(.svg" alt="">-->
+<!--                          <p class="whitespace-nowrap">{{sortPanelData.filterArchive.activeName}}</p>-->
+<!--                          <img src="../../assets/image/arrow.svg" alt="">-->
+<!--                          <img class="ml-1" src="../../assets/image/).svg" alt="">-->
+<!--                          <div class="item-nav" v-if="activeFilter === 'filterArchive'">-->
+<!--                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterArchive.variants" :key="i">-->
+<!--                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">-->
+<!--                                  <span>{{item.name}}</span>-->
+<!--                              </p>-->
+<!--                          </div>-->
+<!--                      </div>-->
                       <div class="item" @click.stop="openFilter('filterByAuditoria')" v-if="sortPanelData.filterByAuditoria && sortPanelData.filterByAuditoria[0]">
                           <img class="mr-1" src="../../assets/image/(.svg" alt="">
                           <p class="whitespace-nowrap">{{sortPanelData.filterByAuditoria[0].name}}</p>
@@ -32,18 +32,18 @@
                               </p>
                           </div>
                       </div>
-                      <div class="item" @click.stop="openFilter('filterByCycle')" v-if="sortPanelData.filterByCycle && sortPanelData.filterByCycle[0]">
-                          <img class="mr-1" src="../../assets/image/(.svg" alt="">
-                          <p class="whitespace-nowrap">{{sortPanelData.filterByCycle[0].name}}</p>
-                          <img src="../../assets/image/arrow.svg" alt="">
-                          <img class="ml-1" src="../../assets/image/).svg" alt="">
-                          <div class="item-nav" v-if="activeFilter === 'filterByCycle'">
-                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterByCycle[0].variants" :key="i">
-                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
-                                  <span>{{item.name}}</span>
-                              </p>
-                          </div>
-                      </div>
+<!--                      <div class="item" @click.stop="openFilter('filterByCycle')" v-if="sortPanelData.filterByCycle && sortPanelData.filterByCycle[0]">-->
+<!--                          <img class="mr-1" src="../../assets/image/(.svg" alt="">-->
+<!--                          <p class="whitespace-nowrap">{{sortPanelData.filterByCycle[0].name}}</p>-->
+<!--                          <img src="../../assets/image/arrow.svg" alt="">-->
+<!--                          <img class="ml-1" src="../../assets/image/).svg" alt="">-->
+<!--                          <div class="item-nav" v-if="activeFilter === 'filterByCycle'">-->
+<!--                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterByCycle[0].variants" :key="i">-->
+<!--                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">-->
+<!--                                  <span>{{item.name}}</span>-->
+<!--                              </p>-->
+<!--                          </div>-->
+<!--                      </div>-->
                       <div class="item" @click.stop="openFilter('filterByType')" v-if="sortPanelData.filterByType && sortPanelData.filterByType[0]">
                           <img class="mr-1" src="../../assets/image/(.svg" alt="">
                           <p class="whitespace-nowrap">{{sortPanelData.filterByType[0].name}}</p>
@@ -83,18 +83,18 @@
                       </div>
                   </div>
                   <div class="events-header-filter-left max " v-if="sortPanelData">
-                      <div class="item" @click.stop="openFilter('filterArchive')" v-if="sortPanelData.filterArchive">
-                          <img class="mr-1" src="../../assets/image/(.svg" alt="">
-                          <p class="whitespace-nowrap">{{sortPanelData.filterArchive.activeName}}</p>
-                          <img src="../../assets/image/arrow.svg" alt="">
-                          <img class="ml-1" src="../../assets/image/).svg" alt="">
-                          <div class="item-nav" v-if="activeFilter === 'filterArchive'">
-                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterArchive.variants" :key="i">
-                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
-                                  <span>{{item.name}}</span>
-                              </p>
-                          </div>
-                      </div>
+<!--                      <div class="item" @click.stop="openFilter('filterArchive')" v-if="sortPanelData.filterArchive">-->
+<!--                          <img class="mr-1" src="../../assets/image/(.svg" alt="">-->
+<!--                          <p class="whitespace-nowrap">{{sortPanelData.filterArchive.activeName}}</p>-->
+<!--                          <img src="../../assets/image/arrow.svg" alt="">-->
+<!--                          <img class="ml-1" src="../../assets/image/).svg" alt="">-->
+<!--                          <div class="item-nav" v-if="activeFilter === 'filterArchive'">-->
+<!--                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterArchive.variants" :key="i">-->
+<!--                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">-->
+<!--                                  <span>{{item.name}}</span>-->
+<!--                              </p>-->
+<!--                          </div>-->
+<!--                      </div>-->
                       <div class="item" @click.stop="openFilter('filterByAuditoria')" v-if="sortPanelData.filterByAuditoria && sortPanelData.filterByAuditoria[0]">
                           <img class="mr-1" src="../../assets/image/(.svg" alt="">
                           <p class="whitespace-nowrap">{{sortPanelData.filterByAuditoria[0].name}}</p>
@@ -107,18 +107,18 @@
                               </p>
                           </div>
                       </div>
-                      <div class="item" @click.stop="openFilter('filterByCycle')" v-if="sortPanelData.filterByCycle && sortPanelData.filterByCycle[0]">
-                          <img class="mr-1" src="../../assets/image/(.svg" alt="">
-                          <p class="whitespace-nowrap">{{sortPanelData.filterByCycle[0].name}}</p>
-                          <img src="../../assets/image/arrow.svg" alt="">
-                          <img class="ml-1" src="../../assets/image/).svg" alt="">
-                          <div class="item-nav" v-if="activeFilter === 'filterByCycle'">
-                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterByCycle[0].variants" :key="i">
-                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">
-                                  <span>{{item.name}}</span>
-                              </p>
-                          </div>
-                      </div>
+<!--                      <div class="item" @click.stop="openFilter('filterByCycle')" v-if="sortPanelData.filterByCycle && sortPanelData.filterByCycle[0]">-->
+<!--                          <img class="mr-1" src="../../assets/image/(.svg" alt="">-->
+<!--                          <p class="whitespace-nowrap">{{sortPanelData.filterByCycle[0].name}}</p>-->
+<!--                          <img src="../../assets/image/arrow.svg" alt="">-->
+<!--                          <img class="ml-1" src="../../assets/image/).svg" alt="">-->
+<!--                          <div class="item-nav" v-if="activeFilter === 'filterByCycle'">-->
+<!--                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterByCycle[0].variants" :key="i">-->
+<!--                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">-->
+<!--                                  <span>{{item.name}}</span>-->
+<!--                              </p>-->
+<!--                          </div>-->
+<!--                      </div>-->
                       <div class="item" @click.stop="openFilter('filterByType')" v-if="sortPanelData.filterByType && sortPanelData.filterByType[0]">
                           <img class="mr-1" src="../../assets/image/(.svg" alt="">
                           <p class="whitespace-nowrap">{{sortPanelData.filterByType[0].name}}</p>
@@ -146,12 +146,12 @@
                   </div>
                   <div class="events-header-filter-right max">
                       <img class="mr-1" src="../../assets/image/(.svg" alt="">
-                      <div class="item" @click="pageType = 1" :class="pageType === 1 ? 'active' : ''" >
+                      <div class="item" @click="pageType = 1" :class="pageType === 2 ? 'active' : ''" >
                           <img src="../../assets/image/календарь.svg" alt="">
                           <p>{{langPhrase.grid_v1}}</p>
                       </div>
                       <span class="slesh">/</span>
-                      <div class="item" :class="pageType === 2 ? 'active' : ''" @click="pageType = 2">
+                      <div class="item" :class="pageType === 1 ? 'active' : ''" @click="pageType = 2">
                           <img src="../../assets/image/события.svg" alt="">
                           <p>{{langPhrase.grid_v2}}</p>
                       </div>
@@ -162,7 +162,11 @@
             <div class="events-content" v-if="pageType === 1">
                 <div class="events-content-block" v-for="(item, i) in events" :key="i">
                     <div class="events-content-block-text">
-                        <p class="events-content-block-text-day">{{dateFormat(item.dateCalendar, 1) }}</p>
+                        <div class="events-content-block-text-day">
+                          <span> {{dateFormatDay(item.dateCalendar) }}</span>
+                          <span> {{dateFormatWeek(item.dateCalendar) }}</span>
+                          <p>{{dateFormat(item.dateCalendar, 1) }}</p>
+                        </div>
 <!--                        <p class="events-content-block-text-date">7 октября</p>-->
                     </div>
                     <div class="events-content-block-items">
@@ -738,12 +742,23 @@ export default {
                 }
 
                &-day {
+                 p {
                    font-style: normal;
-                   font-weight: normal;
+                   font-weight: 400;
+                   font-size: 30px;
+                   line-height: 32px;
+                   text-transform: uppercase;
+                   color: #221F1A;
+                 }
+
+                 span {
+                   font-style: normal;
+                   font-weight: 400;
                    font-size: 15px;
                    line-height: 20px;
                    text-transform: uppercase;
                    color: #221F1A;
+                 }
                }
 
                 &-date {
@@ -763,9 +778,10 @@ export default {
             &-item {
                 padding-bottom: 20px;
                 padding-top: 20px;
-                height: 270px;
+                height: auto;
                 display: flex;
                 flex: 6;
+
 
                 @media (max-width: 700px) {
                     height: auto;
@@ -800,10 +816,11 @@ export default {
                     display: flex;
                     flex-direction: column;
                     align-content: space-between;
-                    justify-content: space-between;
+                    justify-content: start;
 
                     @media (max-width: 700px) {
                         padding-left: 0;
+                        justify-content: space-between;
                     }
                     &-text {
                         display: flex;
@@ -852,6 +869,7 @@ export default {
                             display: flex;
                             justify-content: center;
                             align-items: flex-start;
+                          white-space: nowrap;
                             img {
                                 margin-top: 5px;
                                 margin-right: 15px;
@@ -876,6 +894,11 @@ export default {
                         text-transform: uppercase;
                         color: #221F1A;
                         justify-content: center;
+                        margin-bottom: 50px;
+
+                        @media (min-width: 701px) {
+                            margin-top: 65px;
+                        }
 
                         p {
                             max-width: 480px;
@@ -951,7 +974,8 @@ export default {
             padding-top: 20px;
             flex-direction: column;
             justify-content: space-between;
-            width: 47%;
+            flex: 1;
+            min-width: 47%;
 
             @media (max-width: 920px) {
                 height: 420px;
@@ -1033,6 +1057,7 @@ export default {
                 text-transform: uppercase;
                 color: #221F1A;
                 justify-content: center;
+                text-align: center;
 
                 @media (max-width: 700px) {
                     font-size: 22px;

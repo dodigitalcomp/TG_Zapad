@@ -45,8 +45,8 @@
            <div class="line-dn"></div>
            <NuxtLink :to="localePath('/events')" tag="p" class="poster-room-header-more cursor-pointer"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.events.langPhrase.all}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></NuxtLink>
          </div>
-         <div class="poster-room-content" v-if="homeData.events && homeData.events.length">
-           <a :href="item.url" class="poster-room-content-block pr-5  min-block" v-for="(item, i) in homeData.events.listItems">
+         <div class="poster-room-content" v-if="homeData.events && homeData.events.listItems">
+           <a :href="item.url" class="poster-room-content-block pr-5  min-block" v-for="(item, i) in homeData.events.listItems" :key="i">
              <div class="poster-room-content-block-title">
                <div class="poster-room-content-block-title-text">
                  <p>{{item.time}}</p>
@@ -108,9 +108,9 @@
            <div>
              <a :href="homeData.education.educationBlock.program" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.about}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>
            </div>
-           <div>
-             <a :href="homeData.education.educationBlock.schedule" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.schedule}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>
-           </div>
+<!--           <div>-->
+<!--             <a :href="homeData.education.educationBlock.schedule" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.schedule}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>-->
+<!--           </div>-->
 <!--           <div>-->
 <!--             <a :href="homeData.education.educationBlock.materials" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.material}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>-->
 <!--           </div>-->
@@ -733,17 +733,17 @@ export default {
       flex-wrap: wrap;
     }
 
-    div:nth-child(1) {
-      border-right: 1px solid;
-    }
+    /*div:nth-child(1) {*/
+    /*  border-right: 1px solid;*/
+    /*}*/
 
-    div:nth-child(3) {
-      @media (max-width: 600px) {
-        width: 100%;
-        margin-top: 20px;
-        border-top: 1px solid;
-      }
-    }
+    /*div:nth-child(3) {*/
+    /*  @media (max-width: 600px) {*/
+    /*    width: 100%;*/
+    /*    margin-top: 20px;*/
+    /*    border-top: 1px solid;*/
+    /*  }*/
+    /*}*/
 
     div {
       height: 110px;

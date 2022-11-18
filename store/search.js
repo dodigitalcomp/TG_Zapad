@@ -26,6 +26,10 @@ export const mutations = {
             state.listItem = data.content.search.listItem
             state.pagination = data.content.search.NAVIGATION
             state.blocks = data.content.search.blocks
+        } else {
+            state.listItem = []
+            state.pagination = {}
+            state.blocks = []
         }
         state.head = data.head
     }

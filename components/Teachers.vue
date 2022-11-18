@@ -6,12 +6,12 @@
           <div class="teachers-item-image">
             <img :src="item.img" alt="">
           </div>
-          <div class="teachers-item-name">
-            <p>{{item.name}}</p>
-          </div>
-          <div class="teachers-item-specialization">
-            <p>{{item.staffPost}}</p>
-          </div>
+          <p class="teachers-item-name">
+            {{item.name}}
+          </p>
+          <p class="teachers-item-specialization">
+            {{item.staffPost}}
+          </p>
         </div>
       </swiper-slide>
     </swiper>
@@ -161,6 +161,10 @@ export default {
        text-transform: uppercase;
        color: #221F1A;
        max-width: 250px;
+
+       @media (max-width: 500px) {
+         max-width: 90px;
+       }
      }
 
    }

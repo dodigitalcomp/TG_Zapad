@@ -260,7 +260,8 @@
          <div class="news-page-pagination-footer">
            <NuxtLink tag="div" :to="localePath('/news')" class="flex cursor-pointer">
              <img class="mr-1" src="../../assets/image/(.svg" alt="">
-             <span>все события</span>
+             <span v-if="$i18n.locale === 'ru'">ВСЕ НОВОСТИ</span>
+             <span v-else>All News</span>
              <img class="ml-2" src="../../assets/image/).svg" alt="">
            </NuxtLink>
          </div>

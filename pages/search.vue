@@ -4,15 +4,18 @@
     <div class="search">
       <div class="search-header">
         <div class="search-header-input">
-          <div class="search-header-input-block">
+          <form @submit.prevent="searchData" class="search-header-input-block">
             <img src="../assets/image/search.svg" alt="">
             <input v-model="searchText" type="text">
-            <button @click="searchData">
+            <button type="submit" >
               <img class="mr-1" src="../assets/image/(.svg" alt="">
               <span>найти</span>
               <img class="ml-1" src="../assets/image/).svg" alt="">
             </button>
-          </div>
+          </form>
+          <button @click="hideText"  v-if="searchText" class="close">
+            <img src="../assets/image/x.svg" alt="">
+          </button>
           <div v-if="searchContent" class="search-header-input-content">
             <div class="search-header-input-content-block">
               <p>Мероприятия</p>
@@ -39,24 +42,24 @@
             <label class="search-body-content-left-item cursor-pointer"  @click="searchData()">
               <input class="search-body-content-left-item-radio" checked="true" name="filter" type="radio">
               <p  class="search-body-content-left-item-type">Все</p>
-              <div class="search-body-content-left-item-count">
-                <img class="mr-1" src="../assets/image/(.svg" alt="">
-                <span>30</span>
-                <img class="ml-1" src="../assets/image/).svg" alt="">
-              </div>
+<!--              <div class="search-body-content-left-item-count">-->
+<!--                <img class="mr-1" src="../assets/image/(.svg" alt="">-->
+<!--                <span>30</span>-->
+<!--                <img class="ml-1" src="../assets/image/).svg" alt="">-->
+<!--              </div>-->
             </label>
             <label class="search-body-content-left-item cursor-pointer" @click="filter(item.url)" v-for="(item, i) in blocks" :key="i">
               <input class="search-body-content-left-item-radio" name="filter" type="radio">
               <p  class="search-body-content-left-item-type">{{item.name}}</p>
-              <div class="search-body-content-left-item-count">
-                <img class="mr-1" src="../assets/image/(.svg" alt="">
-                <span>30</span>
-                <img class="ml-1" src="../assets/image/).svg" alt="">
-              </div>
+<!--              <div class="search-body-content-left-item-count">-->
+<!--                <img class="mr-1" src="../assets/image/(.svg" alt="">-->
+<!--                <span>30</span>-->
+<!--                <img class="ml-1" src="../assets/image/).svg" alt="">-->
+<!--              </div>-->
             </label>
           </div>
           <div class="search-body-content-right" v-if="listItem && listItem.length">
-            <NuxtLink tag="div" :to="item.url" class="search-body-content-right-item" v-for="(item, i) in listItem" :key="i">
+            <NuxtLink tag="div" :to="item.url ? item.url : '/'" class="search-body-content-right-item" v-for="(item, i) in listItem" :key="i">
               <div class="search-body-content-right-item-info">
                  <div class="search-body-content-right-item-info-date">
                    <p>{{item.type}}</p>
@@ -68,94 +71,14 @@
                 <div class="search-body-content-right-item-info-title search-text">
                   <p v-html="item.name"></p>
                 </div>
-                <div class="search-body-content-right-item-info-description">
-                  <p>{{item.text}}</p>
+                <div class="search-body-content-right-item-info-description search-text">
+                  <p v-html="item.text"></p>
                 </div>
               </div>
               <div class="search-body-content-right-item-image">
                 <img :src="item.picture" alt="">
               </div>
             </NuxtLink>
-<!--            <div class="search-body-content-right-item">-->
-<!--              <div class="search-body-content-right-item-info">-->
-<!--                <div class="search-body-content-right-item-info-date">-->
-<!--                  <p>выставка</p>-->
-<!--                  <p>12 окт — 24 отк</p>-->
-<!--                </div>-->
-<!--                <div class="search-body-content-right-item-info-imageMini">-->
-<!--                  <img src="../assets/image/pic111.jpg" alt="">-->
-<!--                </div>-->
-<!--                <div class="search-body-content-right-item-info-title">-->
-<!--                  <p><span>Мифы</span> и легенды в произведениях русских художников</p>-->
-<!--                </div>-->
-<!--                <div class="search-body-content-right-item-info-description">-->
-<!--                  <p>В артефактах нашли свое отражение <span>мифы</span>  и легенды, характерные для эпохи того времени.</p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="search-body-content-right-item-image">-->
-<!--                <img src="../assets/image/pic111.jpg" alt="">-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="search-body-content-right-item">-->
-<!--              <div class="search-body-content-right-item-info">-->
-<!--                <div class="search-body-content-right-item-info-date">-->
-<!--                  <p>выставка</p>-->
-<!--                  <p>12 окт — 24 отк</p>-->
-<!--                </div>-->
-<!--                <div class="search-body-content-right-item-info-imageMini">-->
-<!--                  <img src="../assets/image/pic111.jpg" alt="">-->
-<!--                </div>-->
-<!--                <div class="search-body-content-right-item-info-title">-->
-<!--                  <p><span>Мифы</span> и легенды в произведениях русских художников</p>-->
-<!--                </div>-->
-<!--                <div class="search-body-content-right-item-info-description">-->
-<!--                  <p>В артефактах нашли свое отражение <span>мифы</span>  и легенды, характерные для эпохи того времени.</p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="search-body-content-right-item-image">-->
-<!--                <img src="../assets/image/pic111.jpg" alt="">-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="search-body-content-right-item">-->
-<!--              <div class="search-body-content-right-item-info">-->
-<!--                <div class="search-body-content-right-item-info-date">-->
-<!--                  <p>выставка</p>-->
-<!--                  <p>12 окт — 24 отк</p>-->
-<!--                </div>-->
-<!--                <div class="search-body-content-right-item-info-imageMini">-->
-<!--                  <img src="../assets/image/pic111.jpg" alt="">-->
-<!--                </div>-->
-<!--                <div class="search-body-content-right-item-info-title">-->
-<!--                  <p><span>Мифы</span> и легенды в произведениях русских художников</p>-->
-<!--                </div>-->
-<!--                <div class="search-body-content-right-item-info-description">-->
-<!--                  <p>В артефактах нашли свое отражение <span>мифы</span>  и легенды, характерные для эпохи того времени.</p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="search-body-content-right-item-image">-->
-<!--                <img src="../assets/image/pic111.jpg" alt="">-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="search-body-content-right-item">-->
-<!--              <div class="search-body-content-right-item-info">-->
-<!--                <div class="search-body-content-right-item-info-date">-->
-<!--                  <p>выставка</p>-->
-<!--                  <p>12 окт — 24 отк</p>-->
-<!--                </div>-->
-<!--                <div class="search-body-content-right-item-info-imageMini">-->
-<!--                  <img src="../assets/image/pic111.jpg" alt="">-->
-<!--                </div>-->
-<!--                <div class="search-body-content-right-item-info-title">-->
-<!--                  <p><span>Мифы</span> и легенды в произведениях русских художников</p>-->
-<!--                </div>-->
-<!--                <div class="search-body-content-right-item-info-description">-->
-<!--                  <p>В артефактах нашли свое отражение <span>мифы</span>  и легенды, характерные для эпохи того времени.</p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="search-body-content-right-item-image">-->
-<!--                <img src="../assets/image/pic111.jpg" alt="">-->
-<!--              </div>-->
-<!--            </div>-->
           </div>
         </div>
       </div>
@@ -210,7 +133,12 @@
         search: 'search/search',
         searchByUrl: 'search/searchByUrl',
       }),
+      hideText () {
+        this.searchText = ''
+        this.searchData()
+      },
       changePage(page) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         let text = this.searchText + '&PAGEN_1=' + page
         this.search(text)
       },
@@ -240,6 +168,14 @@
         background: #FFDD7C;
         position: relative;
 
+        .close {
+          position: absolute;
+          right: 10px;
+          width: 18px;
+          height: 18px;
+          top: calc(50% - 9px);
+        }
+
 
         @media (max-width: 650px) {
           width: 100%;
@@ -267,7 +203,7 @@
             line-height: 20px;
             text-transform: uppercase;
             color: #221F1A;
-            margin-right: 34px;
+            margin-right: 54px;
           }
 
         }
