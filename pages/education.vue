@@ -995,6 +995,7 @@ export default {
 
       &-info {
 
+        overflow: auto;
         &-type {
           display: flex;
           flex-wrap: wrap;

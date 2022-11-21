@@ -79,6 +79,7 @@ export default {
      height: 454px;
      position: relative;
      margin-bottom: 100px;
+     max-width: 100%;
 
 
    @media (max-width: 850px) {

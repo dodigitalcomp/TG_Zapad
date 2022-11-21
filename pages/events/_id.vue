@@ -20,7 +20,7 @@
                </div>
                <NuxtLink :to="eventData.placeLink" tag="a" class="event-page-header-content-block-text-author" v-if="eventData.type">
                  <img src="../../assets/image/pin1.svg" alt="">
-                 <p style="width: min-content; white-space: nowrap">{{eventData.place}}</p>
+                 <p>{{eventData.place}}</p>
                </NuxtLink>
              </div>
              <div class="event-page-header-content-block-imgMini">
@@ -66,14 +66,14 @@
        <div class="event-page-content">
          <div class="event-page-content-buy-ticket">
            <div class="fixed-info" id="fixed-info">
-<!--             <div class="event-page-content-buy-ticket-date" v-if="eventData && eventData.dateList">-->
-<!--               <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{ dateFormat(item)}}</span></p>-->
-<!--               <p class="flex items-center mt-4 cursor-pointer" v-if="eventData.dateList.length > 2" @click="allData = true">-->
-<!--                 <img class="mr-1" src="../../assets/image/(.svg" alt="">-->
-<!--                 <span v-if="langPhrase">{{langPhrase.allDate}}</span>-->
-<!--                 <img class="ml-1" src="../../assets/image/).svg" alt="">-->
-<!--               </p>-->
-<!--             </div>-->
+             <div class="event-page-content-buy-ticket-date" v-if="eventData && eventData.dateList">
+               <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{ dateFormat(item)}}</span></p>
+               <p class="flex items-center mt-4 cursor-pointer" v-if="eventData.dateList.length > 2" @click="allData = true">
+                 <img class="mr-1" src="../../assets/image/(.svg" alt="">
+                 <span v-if="langPhrase">{{langPhrase.allDate}}</span>
+                 <img class="ml-1" src="../../assets/image/).svg" alt="">
+               </p>
+             </div>
 <!--             <div class="event-page-content-buy-ticket-author" v-if="eventData.cycle">-->
 <!--               <p class="normal-case mb-4">{{langPhrase.fromCycle}}</p>-->
 <!--               <p class="mb-4">{{eventData.cycle}}</p>-->
@@ -185,9 +185,9 @@
                <p>{{item.time}}</p>
                <p>{{item.type}}</p>
              </div>
-             <NuxtLink :to="item.placeLink ? item.placeLink : ''" tag="a" class="event-page-block-item-text-author">
+             <NuxtLink :to="item.placeLink ? item.placeLink : ''" :data-title="item.place" tag="a" class="event-page-block-item-text-author">
                <img src="../../assets/image/pin1.svg" alt="">
-               <p>{{item.city}}</p>
+               <p>{{item.place}}</p>
              </NuxtLink>
            </div>
            <div class="event-page-block-item-img">
@@ -479,6 +479,10 @@
               img {
                 margin-top: 5px;
                 margin-right: 15px;
+              }
+
+              p {
+                max-width: 200px;
               }
             }
 
@@ -1190,14 +1194,37 @@
           &-author {
             display: flex;
             align-items: flex-start;
+            position: relative;
+
+
+
+
 
             img {
               margin-top: 5px;
               margin-right: 15px;
+              display: inline;
             }
 
             p {
-              max-width: 120px;
+              text-align: left;
+              max-width: min-content;
+              display: inline;
+              min-width: 200px;
+              /*white-space: nowrap;*/
+              /*text-overflow: ellipsis;*/
+              /*overflow: hidden;*/
+              /*white-space: nowrap;*/
+
+
+              /*@supports (-webkit-line-clamp: 2) {*/
+              /*  !*overflow: hidden;*!*/
+              /*  !*text-overflow: ellipsis;*!*/
+              /*  white-space: initial;*/
+              /*  display: -webkit-box;*/
+              /*  -webkit-line-clamp: 2;*/
+              /*  -webkit-box-orient: vertical;*/
+              /*}*/
             }
 
             @media (max-width: 850px) {

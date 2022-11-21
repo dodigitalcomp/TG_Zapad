@@ -897,7 +897,7 @@ export default {
                         margin-bottom: 50px;
 
                         @media (min-width: 701px) {
-                            margin-top: 65px;
+                            margin-top: 50px;
                         }
 
                         p {
