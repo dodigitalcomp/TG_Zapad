@@ -495,6 +495,7 @@
                 @media (max-width: 700px) {
                   font-size: 13px;
                   line-height: 15px;
+                  max-width: 100px;
                 }
               }
 
