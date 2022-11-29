@@ -9,7 +9,7 @@ export const actions = {
         const q = text ? text : ''
         return this.$axios.get('api/' + this.$i18n.locale +'/search/?q=' + q).then((res) => {
             commit('setData', res.data)
-            return res.data
+            return res.data.content.search
         })
     },
     searchByUrl ({ commit }, url) {

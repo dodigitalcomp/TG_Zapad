@@ -8,7 +8,7 @@
         </div>
       </swiper-slide>
     </swiper>
-    <div class="pagination" v-if="images.length > 1">
+    <div class="pagination" v-if="images && images.length > 1">
       <div class="swiper-pagination" slot="pagination"></div>
       <div class="event-page-content-info-image-pag-img">
          <img class="arrows__btn arrows__btn_prev" src="../assets/image/Vector999.svg" alt="">

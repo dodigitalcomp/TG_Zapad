@@ -8,18 +8,6 @@
               </div>
               <div class="events-header-filter">
                   <div class="events-header-filter-left mini " v-if="sortPanelData">
-<!--                      <div class="item" @click.stop="openFilter('filterArchive')" v-if="sortPanelData.filterArchive">-->
-<!--                          <img class="mr-1" src="../../assets/image/(.svg" alt="">-->
-<!--                          <p class="whitespace-nowrap">{{sortPanelData.filterArchive.activeName}}</p>-->
-<!--                          <img src="../../assets/image/arrow.svg" alt="">-->
-<!--                          <img class="ml-1" src="../../assets/image/).svg" alt="">-->
-<!--                          <div class="item-nav" v-if="activeFilter === 'filterArchive'">-->
-<!--                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterArchive.variants" :key="i">-->
-<!--                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">-->
-<!--                                  <span>{{item.name}}</span>-->
-<!--                              </p>-->
-<!--                          </div>-->
-<!--                      </div>-->
                       <div class="item" @click.stop="openFilter('filterByAuditoria')" v-if="sortPanelData.filterByAuditoria && sortPanelData.filterByAuditoria[0]">
                           <img class="mr-1" src="../../assets/image/(.svg" alt="">
                           <p class="whitespace-nowrap">{{sortPanelData.filterByAuditoria[0].name}}</p>
@@ -32,18 +20,6 @@
                               </p>
                           </div>
                       </div>
-<!--                      <div class="item" @click.stop="openFilter('filterByCycle')" v-if="sortPanelData.filterByCycle && sortPanelData.filterByCycle[0]">-->
-<!--                          <img class="mr-1" src="../../assets/image/(.svg" alt="">-->
-<!--                          <p class="whitespace-nowrap">{{sortPanelData.filterByCycle[0].name}}</p>-->
-<!--                          <img src="../../assets/image/arrow.svg" alt="">-->
-<!--                          <img class="ml-1" src="../../assets/image/).svg" alt="">-->
-<!--                          <div class="item-nav" v-if="activeFilter === 'filterByCycle'">-->
-<!--                              <p class="item-nav-text" @click="getByUrl(item.link)" v-for="(item, i) in sortPanelData.filterByCycle[0].variants" :key="i">-->
-<!--                                  <img v-if="item.isActive" class="icon" src="../../assets/image/Rectangle1108.svg" alt="">-->
-<!--                                  <span>{{item.name}}</span>-->
-<!--                              </p>-->
-<!--                          </div>-->
-<!--                      </div>-->
                       <div class="item" @click.stop="openFilter('filterByType')" v-if="sortPanelData.filterByType && sortPanelData.filterByType[0]">
                           <img class="mr-1" src="../../assets/image/(.svg" alt="">
                           <p class="whitespace-nowrap">{{sortPanelData.filterByType[0].name}}</p>
@@ -180,24 +156,24 @@
                                         <p>{{event.time}}</p>
                                         <p>{{event.type}}</p>
                                     </div>
-                                    <NuxtLink tag="a" :to="event.placeLink"  class="events-content-block-item-body-text-author">
+                                    <NuxtLink tag="a" :to="event.placeLink" v-if="event.place"  class="events-content-block-item-body-text-author">
                                         <img src="../../assets/image/pin1.svg" alt="">
-                                        <p style="width: min-content;">{{event.place}}</p>
+                                        <p>{{event.place}}</p>
                                     </NuxtLink>
                                 </div>
                                 <div class="events-content-block-item-imageMini">
                                     <img :src="event.picture" alt="">
                                 </div>
                                 <div class="events-content-block-item-body-description">
-                                    <p>{{event.name}}</p>
+                                    <p>{{event.name}} <span class="william">{{event.name_cursive}}</span></p>
                                 </div>
                                 <div>
-                                    <div class="events-content-block-item-body-text-authorMini">
+                                    <NuxtLink tag="a" :to="event.placeLink" v-if="event.place"   class="events-content-block-item-body-text-authorMini">
                                         <img src="../../assets/image/pin1.svg" alt="">
                                         <div>
                                             <p>{{event.place}}</p>
                                         </div>
-                                    </div>
+                                    </NuxtLink>
                                 </div>
                             </div>
                         </NuxtLink>
@@ -211,26 +187,26 @@
                            <p>{{item.time}}</p>
                            <p>{{item.type}}</p>
                        </div>
-                       <div class="events-calendar-item-text-author">
+                       <nuxt-link tag="a" :to="item.placeLink ? item.placeLink : ''" v-if="item.place"  class="events-calendar-item-text-author">
                            <img src="../../assets/image/pin1.svg" alt="">
                            <div>
-                               <p>{{item.name}}</p>
+                               <p>{{item.place}}</p>
                            </div>
-                       </div>
+                       </nuxt-link>
                     </div>
                     <div class="events-calendar-item-image">
                         <img :src="item.picture" alt="">
                     </div>
                     <div class="events-calendar-item-description">
-                        <p>{{item.name_cursive}}</p>
+                        <p>{{item.name}} <span class="william">{{item.name_cursive}}</span></p>
                     </div>
                     <div>
-                        <div class="events-calendar-item-text-mini">
+                        <nuxt-link tag="a" :to="item.placeLink ? item.placeLink : ''" v-if="item.place" class="events-calendar-item-text-mini">
                             <img src="../../assets/image/pin1.svg" alt="">
                             <div>
-                                <p>{{item.name}}</p>
+                                <p>{{item.place}}</p>
                             </div>
-                        </div>
+                        </nuxt-link>
                     </div>
                 </NuxtLink>
 <!--                <div class="events-calendar-item">-->
@@ -412,6 +388,7 @@ export default {
             date_today:new Date(),
             pageType: 1,
             activeFilter: '',
+            activeFilterUrl: '',
             sortPanelData: 1,
         }
     },
@@ -447,15 +424,27 @@ export default {
             this.getByUrlEvents(url).then(() => {
                 const arr = JSON.parse(JSON.stringify(this.sortPanel))
                 this.sortPanelData = arr
-            })
-        },
-        changePage(page) {
-            this.getEvents(page).then(() => {
+                this.activeFilterUrl = url
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth"
                 });
             })
+        },
+        changePage(page) {
+            if (this.activeFilterUrl) {
+              const url = this.activeFilterUrl.split('PAGEN_1')
+                url[1] = 'PAGEN_1=' + page
+                this.getByUrl(url.join(''))
+            } else {
+                this.getByUrl('PAGEN_1=' + page)
+            }
+            // this.getEvents(page).then(() => {
+            //     window.scrollTo({
+            //         top: 0,
+            //         behavior: "smooth"
+            //     });
+            // })
         },
     }
 }
@@ -793,6 +782,7 @@ export default {
                     align-items: center;
                     width: 269px;
                     border-right: 1px solid;
+                    padding: 20px;
 
                     @media (max-width: 700px) {
                         display: none;
@@ -869,10 +859,14 @@ export default {
                             display: flex;
                             justify-content: center;
                             align-items: flex-start;
-                          white-space: nowrap;
+                            /*white-space: nowrap;*/
                             img {
                                 margin-top: 5px;
                                 margin-right: 15px;
+                            }
+
+                            p {
+                                max-width: 200px;
                             }
 
                             @media (max-width: 700px) {
@@ -894,7 +888,7 @@ export default {
                         text-transform: uppercase;
                         color: #221F1A;
                         justify-content: center;
-                        margin-bottom: 50px;
+                        margin-bottom: 90px;
 
                         @media (min-width: 701px) {
                             margin-top: 50px;
@@ -973,7 +967,7 @@ export default {
             display: flex;
             padding-top: 20px;
             flex-direction: column;
-            justify-content: space-between;
+            /*justify-content: space-between;*/
             flex: 1;
             min-width: 47%;
 
@@ -1043,6 +1037,7 @@ export default {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                margin-top: 87px;
                 /*flex: auto;*/
             }
 
@@ -1058,6 +1053,7 @@ export default {
                 color: #221F1A;
                 justify-content: center;
                 text-align: center;
+                margin-top: 47px;
 
                 @media (max-width: 700px) {
                     font-size: 22px;

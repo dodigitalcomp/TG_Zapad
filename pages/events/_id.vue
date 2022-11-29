@@ -18,7 +18,7 @@
                  <p>{{eventData.dateTime}}</p>
                  <p>{{eventData.type}}</p>
                </div>
-               <NuxtLink :to="eventData.placeLink" tag="a" class="event-page-header-content-block-text-author" v-if="eventData.type">
+               <NuxtLink :to="eventData.placeLink ? eventData.placeLink : ''"  tag="a" class="event-page-header-content-block-text-author" v-if="eventData.place">
                  <img src="../../assets/image/pin1.svg" alt="">
                  <p>{{eventData.place}}</p>
                </NuxtLink>
@@ -27,16 +27,18 @@
                <img :src="eventData.picture" alt="">
              </div>
              <div class="event-page-header-content-block-title">
-               <p>{{eventData.name}}</p>
+               <p>{{eventData.name}} <span class="william">{{eventData.nameCursive}}</span></p>
              </div>
              <div class="event-page-header-content-block-description">
                <p>{{eventData.subtitle}}</p>
              </div>
-             <div></div>
-             <div class="event-page-header-content-block-authorMini">
-               <img src="../../assets/image/pin1.svg" alt="">
-               <p>{{eventData.name}}</p>
+             <div class="event-page-header-content-block-title">
+               <p v-if="eventData.audience">{{eventData.audience}}</p>
              </div>
+             <NuxtLink tag="a" :to="eventData.placeLink ? eventData.placeLink : ''"  v-if="eventData.place" class="event-page-header-content-block-authorMini">
+               <img src="../../assets/image/pin1.svg" alt="">
+               <p>{{eventData.place}}</p>
+             </NuxtLink>
            </div>
            <div class="event-page-header-content-img">
              <img :src="eventData.picture" alt="">
@@ -46,8 +48,8 @@
            <div class="event-page-header-footer-item" v-if="eventData.price">
              <p v-if="eventData">{{langPhrase.price}}: {{eventData.price}}</p>
            </div>
-           <div class="event-page-header-footer-item" >
-             <a href="http://kaliningrad-yuznyiy.dzvr.ru/" target="_blank" class="event-page-header-footer-item-block cursor-pointer">
+           <div class="event-page-header-footer-item" v-if="eventData.buy">
+             <a :target="eventData.buy ? '_blank' : ''" :href="eventData.buy ? eventData.buy : null" class="event-page-header-footer-item-block cursor-pointer">
                <img class="mr-1" src="../../assets/image/(.svg" alt="">
                <span>купить билет</span>
                <img class="ml-2" src="../../assets/image/).svg" alt="">
@@ -85,7 +87,7 @@
 <!--             </div>-->
              <div class="event-page-content-buy-ticket-price" v-if="eventData.price">
                <p v-if="eventData">{{langPhrase.price}}: {{eventData.price}}</p>
-               <a target="_blank" :href="eventData.buy" class="button">
+               <a :target="eventData.buy ? '_blank' : ''" :href="eventData.buy ? eventData.buy : null" class="button">
                  <img class="mr-1" src="../../assets/image/(.svg" alt="">
                  <span>{{langPhrase.buyTicket}}</span>
                  <img class="ml-1" src="../../assets/image/).svg" alt="">
@@ -141,7 +143,7 @@
 <!--             </div>-->
              <div class="event-page-content-info-buy-ticket-price">
                <p v-if="eventData">{{langPhrase.price}}: {{eventData.price}}</p>
-               <a target="_blank" :href="eventData.buy" class="button">
+               <a :target="eventData.buy ? '_blank' : ''" :href="eventData.buy" class="button">
                  <img class="mr-1" src="../../assets/image/(.svg" alt="">
                  <span>{{langPhrase.buyTicket}}</span>
                  <img class="ml-1" src="../../assets/image/).svg" alt="">
@@ -164,7 +166,54 @@
 <!--           </div>-->
          </div>
        </div>
-       <Partners v-if="partners" :items="partners.listItem"/>
+
+       <div class="events-content" v-if="eventData && eventData.shedule && Object.keys(eventData.shedule).length">
+         <p class="events-content-title">Расписание</p>
+         <div class="events-content-block" v-for="(items, key) in eventData.shedule" :key="key">
+           <div class="events-content-block-text">
+             <p class="events-content-block-text-day">{{dateFormatDay(key) }}  {{ dateFormatWeek(key) }}</p>
+             <p class="events-content-block-text-date">{{dateFormat(key, 1) }}</p>
+           </div>
+           <div class="events-content-block-items">
+             <nuxt-link tag="a" :to="item.link ? item.link : ''" class="events-content-block-item" v-for="(item, i) in items" :key="i">
+               <div class="events-content-block-item-image">
+                 <img :src="item.image" alt="">
+               </div>
+               <div class="events-content-block-item-body">
+                 <div class="events-content-block-item-body-text">
+                   <div class="events-content-block-item-body-text-date">
+                     <p>{{item.dateTime}}</p>
+                     <p>{{item.type}}</p>
+                     <p>{{item.audience}}</p>
+                   </div>
+                   <NuxtLink tag="a" :to="item.placeLink ? item.placeLink : '#'"  v-if="item.place" class="events-content-block-item-body-text-author">
+                     <img src="../../assets/image/pin1.svg" alt="">
+                     <p>{{item.place}}</p>
+                   </NuxtLink>
+                 </div>
+                 <div class="events-content-block-item-imageMini">
+                   <img src="../../assets/image/Pic-fit3.jpg" alt="">
+                 </div>
+                 <div class="events-content-block-item-body-description">
+                   <p>{{item.name}} <span class="william"> {{item.nameCursive}}</span></p>
+                 </div>
+                 <div>
+                   <NuxtLink tag="a" :to="item.placeLink ? item.placeLink : '#'" v-if="item.place" class="events-content-block-item-body-text-authorMini">
+                     <img src="../../assets/image/pin1.svg" alt="">
+                     <p>{{item.place}}</p>
+                   </NuxtLink>
+                 </div>
+                 <div class="events-content-block-item-body-authorImg">
+                   <div class="flex">
+                     <img :src="peo.img" :title="peo.name" alt="" v-for="(peo, index) in item.people" :key="index">
+                   </div>
+                 </div>
+               </div>
+             </nuxt-link>
+           </div>
+         </div>
+       </div>
+       <Partners v-if="partners && partners.listItem && partners.listItem.length" :items="partners.listItem"/>
        <div class="event-page-pagination line-block mt-20" v-if="sameEvents">
          <div class="event-page-pagination-title" v-if="sameEvents.langPhrase">
            <p>{{sameEvents.langPhrase.title}}</p>
@@ -185,7 +234,7 @@
                <p>{{item.time}}</p>
                <p>{{item.type}}</p>
              </div>
-             <NuxtLink :to="item.placeLink ? item.placeLink : ''" :data-title="item.place" tag="a" class="event-page-block-item-text-author">
+             <NuxtLink :to="item.placeLink ? item.placeLink : ''" :data-title="item.place" v-if="item.place" tag="a" class="event-page-block-item-text-author">
                <img src="../../assets/image/pin1.svg" alt="">
                <p>{{item.place}}</p>
              </NuxtLink>
@@ -194,12 +243,12 @@
              <img :src="item.picture" alt="">
            </div>
            <div class="event-page-block-item-title">
-             <p>{{item.name}}</p>
+             <p>{{item.name}} <span class="william">{{item.name_cursive}}</span></p>
            </div>
-           <div class="event-page-block-item-authorMini">
+           <NuxtLink :to="item.placeLink ? item.placeLink : ''" tag="a" v-if="item.place"  class="event-page-block-item-authorMini">
              <img src="../../assets/image/pin1.svg" alt="">
-             <p>{{item.name}}</p>
-           </div>
+             <p>{{item.place}}</p>
+           </NuxtLink>
            <div class="event-page-block-item-description"></div>
          </NuxtLink>
        </div>
@@ -304,6 +353,245 @@
 
   .mt-20 {
     margin-top: 40px;
+  }
+
+  .events-content {
+    margin-bottom: 20px;
+    &-title {
+      margin-bottom: 20px;
+      margin-left: 20px;
+      margin-top: 40px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 40px;
+      line-height: 40px;
+      /* identical to box height, or 107% */
+
+      text-transform: uppercase;
+
+      /* Black brown */
+
+      color: #221F1A;
+
+      @media (max-width: 850px) {
+        font-size: 30px;
+        line-height: 32px;
+      }
+    }
+
+    &-block {
+      border-top: 1px solid;
+      margin-left: 20px;
+      margin-right: 20px;
+      display: flex;
+
+      &:last-child {
+        border-bottom: 1px solid;
+      }
+
+
+      @media (max-width: 920px) {
+        flex-direction: column;
+      }
+      &-text {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        flex: 2;
+        border-right: 1px solid;
+
+        @media (max-width: 920px) {
+          border-right: 0;
+          border-bottom: 1px solid;
+          padding-bottom: 20px;
+          margin-bottom: 0;
+        }
+
+        &-day {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 15px;
+          line-height: 20px;
+          text-transform: uppercase;
+          color: #221F1A;
+        }
+
+        &-date {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 30px;
+          line-height: 32px;
+          text-transform: uppercase;
+          color: #221F1A;
+        }
+      }
+
+      &-items {
+        flex: 6;
+      }
+
+      &-item {
+        padding-bottom: 20px;
+        padding-top: 20px;
+        min-height: 270px;
+        display: flex;
+        flex: 6;
+        border-top: 1px solid;
+
+        &:first-child {
+          border-top: 0;
+        }
+
+        @media (max-width: 700px) {
+          height: auto;
+        }
+
+        &-image {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 269px;
+          border-right: 1px solid;
+          padding: 20px;
+
+          @media (max-width: 700px) {
+            display: none;
+          }
+        }
+
+        &-imageMini {
+          display: none;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 30px;
+          margin-top: 30px;
+          @media (max-width: 700px) {
+            display: flex;
+          }
+        }
+
+        &-body {
+          padding-left: 20px;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-content: space-between;
+          justify-content: space-between;
+
+          @media (max-width: 700px) {
+            padding-left: 0;
+          }
+          &-text {
+            display: flex;
+            justify-content:  space-between;
+            &-date, &-authorMini, &-author {
+              p {
+                font-style: normal;
+                font-weight: normal;
+                font-size: 15px;
+                line-height: 20px;
+                text-transform: uppercase;
+                color: #221F1A;
+
+                @media (max-width: 700px) {
+                  font-size: 13px;
+                  line-height: 15px;
+                }
+              }
+
+            }
+
+            &-date {
+              @media (max-width: 700px) {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+              }
+            }
+
+            &-authorMini {
+              display: none;
+              @media (max-width: 700px) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 20px;
+                margin-top: 30px;
+
+                img {
+                  margin-bottom: 9px;
+                }
+              }
+            }
+
+            &-author {
+              display: flex;
+              justify-content: center;
+              align-items: flex-start;
+              img {
+                margin-top: 5px;
+                margin-right: 15px;
+              }
+
+              @media (max-width: 700px) {
+                display: none;
+              }
+            }
+
+
+          }
+
+          &-authorImg {
+            display: flex;
+            justify-content: flex-end;
+
+            @media (max-width: 650px) {
+              justify-content: center;
+            }
+
+            img {
+              width: 50px;
+              height: 50px;
+              margin-left: 20px;
+              cursor: pointer;
+
+              @media (max-width: 650px) {
+                margin-left: 10px;
+                margin-right: 10px;
+              }
+            }
+          }
+
+          &-description {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 27px;
+            line-height: 30px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            text-transform: uppercase;
+            color: #221F1A;
+            justify-content: center;
+            margin-top: 20px;
+            padding-left: 10%;
+            padding-right: 10%;
+
+            /*p {*/
+            /*  max-width: 480px;*/
+            /*}*/
+
+            @media (max-width: 700px) {
+              font-size: 22px;
+              line-height: 25px;
+            }
+
+            span{
+              font-style: italic;
+            }
+          }
+        }
+      }
+    }
   }
 
 
@@ -1119,6 +1407,10 @@
         flex: 1;
         height: 430px;
 
+        &:last-child {
+          border-right: 0;
+        }
+
         @media (max-width: 650px) {
           height: auto;
         }
@@ -1250,6 +1542,8 @@
           text-align: center;
           text-transform: uppercase;
           color: #221F1A;
+          padding-left: 10%;
+          padding-right: 10%;
 
           @media (max-width: 850px) {
             font-size: 22px;
@@ -1257,7 +1551,7 @@
           }
 
           p {
-            max-width: 360px;
+            /*max-width: 360px;*/
 
             span {
               font-style: italic;

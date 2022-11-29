@@ -11,12 +11,12 @@
         </div>
         <div>
           <div class="footer-block-info-social" v-if="menuData && menuData.iconLinks && menuData.iconLinks.social_link">
-            <a :href="item.link" target="_blank" v-for="(item ,index) in menuData.iconLinks.social_link" :key="index">
+            <a :href="item.link ? item.link : null" :target=" item.link ? '_blank' : ''" v-for="(item ,index) in menuData.iconLinks.social_link" :key="index">
               <img :src="item.img" alt="">
             </a>
           </div>
           <div class="footer-block-info-partnior" v-if="menuData && menuData.iconLinks && menuData.iconLinks.partners">
-            <a :href="item.link" target="_blank" v-for="(item ,index) in menuData.iconLinks.partners" :key="index">
+            <a :href="item.link ? item.link : null" :target=" item.link ? '_blank' : ''" v-for="(item ,index) in menuData.iconLinks.partners" :key="index">
               <img :src="item.img" alt="">
             </a>
 <!--            <a href="">-->
@@ -98,12 +98,12 @@
         </div>
         <div>
           <div class="footer-block-info-social" v-if="menuData && menuData.iconLinks && menuData.iconLinks.social_link">
-            <a :href="item.link" target="_blank" v-for="(item ,index) in menuData.iconLinks.social_link" :key="index">
+            <a :href="item.link ? item.link : null" :target=" item.link ? '_blank' : ''" v-for="(item ,index) in menuData.iconLinks.social_link" :key="index">
               <img :src="item.img" alt="">
             </a>
           </div>
           <div class="footer-block-info-partnior" v-if="menuData && menuData.iconLinks && menuData.iconLinks.partners">
-            <a :href="item.link" target="_blank" v-for="(item ,index) in menuData.iconLinks.partners" :key="index">
+            <a :href="item.link ? item.link : null" :target=" item.link ? '_blank' : ''" v-for="(item ,index) in menuData.iconLinks.partners" :key="index">
               <img :src="item.img" alt="">
             </a>
           </div>

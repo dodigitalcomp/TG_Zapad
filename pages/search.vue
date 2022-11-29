@@ -82,6 +82,15 @@
           </div>
         </div>
       </div>
+      <div v-else-if="errorMessage">
+        <div class="search-body-content-right-item" >
+          <div class="search-body-content-right-item-info" style="border-right: 0;">
+            <div class="search-body-content-right-item-info-description search-text">
+              <p>{{errorMessage}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="search-pagination line-block" v-if="pagination && pagination.current_page && pagination.max_page > 1">
         <div class="search-pagination-page">
           <vs-pagination
@@ -111,7 +120,9 @@
     data() {
       return {
         searchContent: false,
+        notData: false,
         loading: false,
+        errorMessage: '',
         searchText: '',
       }
     },
@@ -143,7 +154,13 @@
         this.search(text)
       },
       searchData() {
-        this.search(this.searchText).then(() => {})
+        this.search(this.searchText).then((res) => {
+          if (res.listItem) {
+            this.errorMessage = ''
+          } else if (res.not_found) {
+            this.errorMessage = res.not_found
+          }
+        })
       },
       filter(url) {
         this.searchByUrl(url)

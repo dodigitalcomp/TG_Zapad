@@ -62,11 +62,11 @@
                  <img :src="item.picture" alt="">
                </div>
                <div class="poster-room-content-block-description">
-                 <p>{{item.name}}</p>
+                 <p>{{item.name}} <span class="william">{{item.name_cursive}}</span></p>
                </div>
                <div class="poster-room-content-block-title-authnrMini">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>{{item.name_cursive}}</p>
+                 <p>{{item.name}} <span class="william">{{item.name_cursive}}</span></p>
                </div>
              </div>
            </a>

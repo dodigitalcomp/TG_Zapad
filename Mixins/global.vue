@@ -17,9 +17,10 @@
           }
           let today = null
           if (type === 1) {
-            // today  = moment(date, 'DD.MM.YYYY').startOf('isoWeek').lang("ru").day(1);
             today  = moment(date, 'DD.MM.YYYY').locale('ru').calendar(null, {
-              sameElse: 'DD MMMM'
+              sameElse: 'DD MMMM',
+              lastWeek: 'DD MMMM',
+              nextWeek: 'DD MMMM',
             })
           } else {
             today  = moment(date, 'DD.MM.YYYY hh:mm').locale("ru").format("LLL");
@@ -30,6 +31,8 @@
       dateFormatDay(date) {
         if (date) {
           const day = moment(date, 'DD.MM.YYYY').locale('ru').calendar({
+            lastWeek: 'DD.MM.YYYY',
+            nextWeek: 'DD.MM.YYYY',
             sameDay: function (now) {
               if (this._locale._abbr === 'en') {
                 return '[Today]'

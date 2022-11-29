@@ -4,7 +4,7 @@
       <p>{{title ? title : 'Партнёры'}}</p>
     </div>
     <div class="event-page-partners-block">
-      <a target="_blank" :href="item.link"  class="event-page-partners-block-item" v-for="(item, i) in items" :key="i">
+      <a :target="item.link ? '_blank' : ''" :href="item.link ? item.link : null"  class="event-page-partners-block-item" v-for="(item, i) in items" :key="i">
         <img :src="item.logo" :alt="item.name">
       </a>
     </div>
