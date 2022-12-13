@@ -141,7 +141,7 @@
                         <div class="events-content-block-text-day">
                           <span> {{dateFormatDay(item.dateCalendar) }}</span>
                           <span> {{dateFormatWeek(item.dateCalendar) }}</span>
-                          <p>{{dateFormat(item.dateCalendar, 1) }}</p>
+                          <p>{{dateFormat(item.dateCalendar, 0) }}</p>
                         </div>
 <!--                        <p class="events-content-block-text-date">7 октября</p>-->
                     </div>
@@ -153,8 +153,9 @@
                             <div class="events-content-block-item-body">
                                 <div class="events-content-block-item-body-text">
                                     <div class="events-content-block-item-body-text-date">
-                                        <p>{{event.time}}</p>
-                                        <p>{{event.type}}</p>
+                                        <p v-if="event.time">{{event.time}}</p>
+                                        <p v-if="event.type">{{event.type}}</p>
+<!--                                        <p v-if="event.age">{{event.age}}</p>-->
                                     </div>
                                     <NuxtLink tag="a" :to="event.placeLink" v-if="event.place"  class="events-content-block-item-body-text-author">
                                         <img src="../../assets/image/pin1.svg" alt="">
@@ -184,8 +185,9 @@
                 <NuxtLink tag="div" :to="item.url" class="events-calendar-item" v-for="(item, i) in listItems" :key="i">
                     <div  class="events-calendar-item-text">
                        <div class="events-calendar-item-text-date">
-                           <p>{{item.time}}</p>
-                           <p>{{item.type}}</p>
+                           <p v-if="item.time">{{item.time}}</p>
+                           <p v-if="item.type">{{item.type}}</p>
+<!--                           <p v-if="item.age">{{item.age}}</p>-->
                        </div>
                        <nuxt-link tag="a" :to="item.placeLink ? item.placeLink : ''" v-if="item.place"  class="events-calendar-item-text-author">
                            <img src="../../assets/image/pin1.svg" alt="">
@@ -848,6 +850,7 @@ export default {
                                 align-items: center;
                                 margin-bottom: 20px;
                                 margin-top: 30px;
+                                text-align: center;
 
                                 img {
                                     margin-bottom: 9px;
@@ -901,6 +904,7 @@ export default {
                         @media (max-width: 700px) {
                             font-size: 22px;
                             line-height: 25px;
+                            margin-bottom: 40px;
                         }
 
                         span{
@@ -972,7 +976,7 @@ export default {
             min-width: 47%;
 
             @media (max-width: 920px) {
-                height: 420px;
+                height: auto;
             }
 
             @media (max-width: 680px) {
@@ -1016,6 +1020,11 @@ export default {
                         flex-direction: column;
                         align-items: center;
                         margin-bottom: 20px;
+                        text-align: center;
+
+                        img {
+                            margin-bottom: 10px;
+                        }
                     }
                 }
 
@@ -1039,6 +1048,10 @@ export default {
                 align-items: center;
                 margin-top: 87px;
                 /*flex: auto;*/
+
+                @media (max-width: 680px) {
+                    margin-top: 20px;
+                }
             }
 
             &-description {
@@ -1058,6 +1071,7 @@ export default {
                 @media (max-width: 700px) {
                     font-size: 22px;
                     line-height: 25px;
+                    margin-bottom: 20px;
                 }
 
                 span{

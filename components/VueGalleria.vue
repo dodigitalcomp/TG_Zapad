@@ -114,6 +114,10 @@
       align-items: center;
       &-img {
         height: 600px;
+
+        @media (max-width: 768px) {
+          height: auto;
+        }
       }
     }
 

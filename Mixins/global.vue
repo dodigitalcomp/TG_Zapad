@@ -18,6 +18,9 @@
           let today = null
           if (type === 1) {
             today  = moment(date, 'DD.MM.YYYY').locale('ru').calendar(null, {
+              lastDay: 'DD MMMM',
+              nextDay: 'DD MMMM',
+              sameDay: 'DD MMMM',
               sameElse: 'DD MMMM',
               lastWeek: 'DD MMMM',
               nextWeek: 'DD MMMM',

@@ -15,8 +15,9 @@
            <div class="event-page-header-content-block">
              <div class="event-page-header-content-block-text">
                <div class="event-page-header-content-block-text-date">
-                 <p>{{eventData.dateTime}}</p>
-                 <p>{{eventData.type}}</p>
+                 <p v-if="eventData.dateTime">{{eventData.dateTime}}</p>
+                 <p v-if="eventData.type">{{eventData.type}}</p>
+<!--                 <p v-if="eventData.age">{{eventData.age}}</p>-->
                </div>
                <NuxtLink :to="eventData.placeLink ? eventData.placeLink : ''"  tag="a" class="event-page-header-content-block-text-author" v-if="eventData.place">
                  <img src="../../assets/image/pin1.svg" alt="">
@@ -27,14 +28,12 @@
                <img :src="eventData.picture" alt="">
              </div>
              <div class="event-page-header-content-block-title">
-               <p>{{eventData.name}} <span class="william">{{eventData.nameCursive}}</span></p>
+               <div>
+                 <p>{{eventData.name}} <span class="william">{{eventData.nameCursive}}</span></p>
+               </div>
+               <p class="event-page-header-content-block-description">{{eventData.subtitle}}</p>
              </div>
-             <div class="event-page-header-content-block-description">
-               <p>{{eventData.subtitle}}</p>
-             </div>
-             <div class="event-page-header-content-block-title">
-               <p v-if="eventData.audience">{{eventData.audience}}</p>
-             </div>
+             <div ></div>
              <NuxtLink tag="a" :to="eventData.placeLink ? eventData.placeLink : ''"  v-if="eventData.place" class="event-page-header-content-block-authorMini">
                <img src="../../assets/image/pin1.svg" alt="">
                <p>{{eventData.place}}</p>
@@ -69,7 +68,9 @@
          <div class="event-page-content-buy-ticket">
            <div class="fixed-info" id="fixed-info">
              <div class="event-page-content-buy-ticket-date" v-if="eventData && eventData.dateList">
-               <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{ dateFormat(item)}}</span></p>
+               <p v-for="(item, i) in eventData.dateList" :key="i">
+                 <span v-if="i < 2 || allData">{{ dateFormat(item)}}</span>
+               </p>
                <p class="flex items-center mt-4 cursor-pointer" v-if="eventData.dateList.length > 2" @click="allData = true">
                  <img class="mr-1" src="../../assets/image/(.svg" alt="">
                  <span v-if="langPhrase">{{langPhrase.allDate}}</span>
@@ -85,7 +86,7 @@
 <!--                 <img class="ml-1" src="../../assets/image/).svg" alt="">-->
 <!--               </NuxtLink>-->
 <!--             </div>-->
-             <div class="event-page-content-buy-ticket-price" v-if="eventData.price">
+             <div class="event-page-content-buy-ticket-price" v-if="eventData.price && eventData.buy">
                <p v-if="eventData">{{langPhrase.price}}: {{eventData.price}}</p>
                <a :target="eventData.buy ? '_blank' : ''" :href="eventData.buy ? eventData.buy : null" class="button">
                  <img class="mr-1" src="../../assets/image/(.svg" alt="">
@@ -96,7 +97,7 @@
            </div>
 
          </div>
-         <div class="event-page-content-info" id="info-block">
+         <div class="event-page-content-info" id="info-block" v-if="eventData.previewText || eventData.detailText || eventData.video || eventData.photos">
 <!--           <div class="event-page-content-info-title">-->
 <!--             <p>{{eventData.detailText}}</p>-->
 <!--           </div>-->
@@ -124,14 +125,14 @@
 <!--             </div>-->
            </div>
            <div class="event-page-content-info-buy-ticket">
-<!--             <div class="event-page-content-info-buy-ticket-date" v-if="eventData && eventData.dateList">-->
-<!--               <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{dateFormat(item)}}</span></p>-->
-<!--               <p class="flex items-center mt-4 cursor-pointer" v-if="eventData.dateList.length > 2" @click="allData = true">-->
-<!--                 <img class="mr-1" src="../../assets/image/(.svg" alt="">-->
-<!--                 <span v-if="langPhrase">{{langPhrase.allDate}}</span>-->
-<!--                 <img class="ml-1" src="../../assets/image/).svg" alt="">-->
-<!--               </p>-->
-<!--             </div>-->
+             <div class="event-page-content-info-buy-ticket-date" v-if="eventData && eventData.dateList">
+               <p v-for="(item, i) in eventData.dateList" :key="i"><span v-if="i < 2 || allData">{{dateFormat(item)}}</span></p>
+               <p class="flex items-center mt-4 cursor-pointer" v-if="eventData.dateList.length > 2" @click="allData = true">
+                 <img class="mr-1" src="../../assets/image/(.svg" alt="">
+                 <span v-if="langPhrase">{{langPhrase.allDate}}</span>
+                 <img class="ml-1" src="../../assets/image/).svg" alt="">
+               </p>
+             </div>
 <!--             <div class="event-page-content-info-buy-ticket-author" v-if="eventData.cycle">-->
 <!--               <p class="normal-case mb-4">{{langPhrase.fromCycle}}</p>-->
 <!--               <p class="mb-4">{{eventData.cycle}}</p>-->
@@ -182,9 +183,9 @@
                <div class="events-content-block-item-body">
                  <div class="events-content-block-item-body-text">
                    <div class="events-content-block-item-body-text-date">
-                     <p>{{item.dateTime}}</p>
-                     <p>{{item.type}}</p>
-                     <p>{{item.audience}}</p>
+                     <p v-if="item.dateTime">{{item.dateTime}}</p>
+                     <p v-if="item.type">{{item.type}}</p>
+                     <p v-if="item.audience">{{item.audience}}</p>
                    </div>
                    <NuxtLink tag="a" :to="item.placeLink ? item.placeLink : '#'"  v-if="item.place" class="events-content-block-item-body-text-author">
                      <img src="../../assets/image/pin1.svg" alt="">
@@ -192,7 +193,7 @@
                    </NuxtLink>
                  </div>
                  <div class="events-content-block-item-imageMini">
-                   <img src="../../assets/image/Pic-fit3.jpg" alt="">
+                   <img :src="item.image" alt="">
                  </div>
                  <div class="events-content-block-item-body-description">
                    <p>{{item.name}} <span class="william"> {{item.nameCursive}}</span></p>
@@ -231,8 +232,9 @@
          <NuxtLink tag="div" :to="item.url" class="event-page-block-item cursor-pointer" v-for="(item, i) in sameEvents.listItems" :key="i">
            <div class="event-page-block-item-text">
              <div class="event-page-block-item-text-date">
-               <p>{{item.time}}</p>
-               <p>{{item.type}}</p>
+               <p v-if="item.time">{{item.time}}</p>
+               <p v-if="item.type">{{item.type}}</p>
+<!--               <p v-if="item.audience">{{item.audience}}</p>-->
              </div>
              <NuxtLink :to="item.placeLink ? item.placeLink : ''" :data-title="item.place" v-if="item.place" tag="a" class="event-page-block-item-text-author">
                <img src="../../assets/image/pin1.svg" alt="">
@@ -483,7 +485,7 @@
           &-text {
             display: flex;
             justify-content:  space-between;
-            &-date, &-authorMini, &-author {
+            &-date, &-author {
               p {
                 font-style: normal;
                 font-weight: normal;
@@ -517,11 +519,27 @@
                 align-items: center;
                 margin-bottom: 20px;
                 margin-top: 30px;
+                text-align: center;
 
                 img {
                   margin-bottom: 9px;
                 }
               }
+
+              p {
+                font-style: normal;
+                font-weight: normal;
+                font-size: 15px;
+                line-height: 20px;
+                text-transform: uppercase;
+                color: #221F1A;
+
+                @media (max-width: 700px) {
+                  font-size: 13px;
+                  line-height: 15px;
+                }
+              }
+
             }
 
             &-author {
@@ -631,19 +649,20 @@
         }
 
         @media (max-width: 650px) {
-          height: 549px;
+          height: auto;
         }
 
         &-block {
           display: flex;
           flex-direction: column;
+          justify-content: space-between;
           flex: 1;
           padding-right: 20px;
           border-right: 1px solid;
 
           div:nth-child(3) {
             @media (max-width: 850px) {
-              order: 4;
+              /*order: 4;*/
               margin-top: 30px;
             }
 
@@ -722,6 +741,7 @@
 
               p {
                 max-width: 199px;
+                margin-top: 10px;
               }
             }
 
@@ -736,7 +756,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 100px;
+            /*margin-bottom: 100px;*/
             font-style: normal;
             font-weight: normal;
             font-size: 15px;
@@ -781,7 +801,9 @@
           &-title {
             display: flex;
             justify-content: center;
-            margin-bottom: 20px;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 40px;
             p {
               font-style: normal;
               font-weight: normal;
@@ -815,21 +837,20 @@
           &-description {
             display: flex;
             justify-content: center;
-            p {
-              font-style: normal;
-              font-weight: normal;
-              font-size: 15px;
-              line-height: 20px;
-              text-transform: uppercase;
-              color: #221F1A;
-              text-align: center;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px !important;
+            line-height: 20px !important;
+            text-transform: uppercase;
+            color: #221F1A;
+            text-align: center;
+            margin-top: 20px;
 
-              @media (max-width: 650px) {
-                font-size: 13px;
-                line-height: 15px;
-              }
+            @media (max-width: 650px) {
+              font-size: 13px !important;
+              line-height: 15px !important;
             }
-           }
+          }
         }
 
         &-img {
@@ -871,6 +892,10 @@
             padding-top: 30px;
             padding-bottom: 0;
           }
+        }
+
+        &-item:last-child {
+          border-right: 0;
         }
 
         &-item {

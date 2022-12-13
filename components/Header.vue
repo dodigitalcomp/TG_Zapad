@@ -4,24 +4,26 @@
       <div class="max-w-7lg mx-auto p-5">
         <div class="relative flex items-center justify-between h-16">
           <div class="flex-1 flex items-center justify-between">
-            <NuxtLink tag="a" :to="localePath('/')" class="flex-shrink-0 flex items-center nav-logo">
-              <svg width="50" height="55" viewBox="0 0 50 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="flex items-center">
+              <NuxtLink tag="a" :to="localePath('/')" class="flex-shrink-0 flex items-center nav-logo">
+                <svg width="50" height="55" viewBox="0 0 50 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M16 0H0V55H16V0Z" :fill="openMenu ? '#FFDD7C' : logoColor === 'black' ? '#221F1A' : '#FFDD7C' "/>
                   <path d="M32 18L50 0H32V18Z" :fill="openMenu ? '#FFDD7C' : logoColor === 'black' ? '#221F1A' : '#FFDD7C' "/>
                   <path d="M50 55L32 37V55H50Z" :fill="openMenu ? '#FFDD7C' : logoColor === 'black' ? '#221F1A' : '#FFDD7C' "/>
-              </svg>
-              <div class="ml-2 min-menu-text" v-if="menuData && menuData.langPhrase">
-                <p class="nav-title-logo">{{menuData.langPhrase.logoFirst}}</p>
-                <p class="nav-title-logo">{{menuData.langPhrase.logoSecond}}</p>
-                <p class="nav-title-logo-mini">{{menuData.langPhrase.logoThird}}</p>
-              </div>
-            </NuxtLink>
-            <a href="https://www.tretyakovgallery.ru/" target="_blank" class="flex-shrink-0 flex items-center t-logo">
-              <img v-if="openMenu" src="../assets/image/partniors/T__T_gold.svg" alt="">
-              <img v-else-if="logoColor === 'black'" src="../assets/image/partniors/T__T_black.svg" alt="">
-              <img v-else src="../assets/image/partniors/T__T_gold.svg" alt="">
-            </a>
-            <div class="hidden sm:block sm:ml-6">
+                </svg>
+                <div class="ml-2 min-menu-text" v-if="menuData && menuData.langPhrase">
+                  <p class="nav-title-logo">{{menuData.langPhrase.logoFirst}}</p>
+                  <p class="nav-title-logo">{{menuData.langPhrase.logoSecond}}</p>
+                  <p class="nav-title-logo-mini">{{menuData.langPhrase.logoThird}}</p>
+                </div>
+              </NuxtLink>
+              <a href="https://www.tretyakovgallery.ru/" target="_blank" class="flex-shrink-0 ml-3 flex items-center t-logo">
+                <img v-if="openMenu" src="../assets/image/partniors/T__T_gold.svg" alt="">
+                <img v-else-if="logoColor === 'black'" src="../assets/image/partniors/T__T_black.svg" alt="">
+                <img v-else src="../assets/image/partniors/T__T_gold.svg" alt="">
+              </a>
+            </div>
+            <div class="mlm-20 hidden sm:block sm:ml-6">
               <div class="flex space-x-4" v-if="menuData && menuData.topMenu">
                 <NuxtLink tag="a" v-for="(item, index) in menuData.topMenu" :key="index" :to="item.link" class="uppercase nav-title-menu whitespace-nowrap">{{item.name}}</NuxtLink>
               </div>
@@ -271,10 +273,14 @@
   }
 
   .t-logo {
-    margin-left: -20px;
+    margin-left: 20px;
     img {
       width: 92px;
       height: 92px;
     }
+  }
+
+  .mlm-20 {
+    margin-left: -105px;
   }
 </style>

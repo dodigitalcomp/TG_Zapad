@@ -46,11 +46,12 @@
            <NuxtLink :to="localePath('/events')" tag="p" class="poster-room-header-more cursor-pointer"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.events.langPhrase.all}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></NuxtLink>
          </div>
          <div class="poster-room-content" v-if="homeData.events && homeData.events.listItems">
-           <a :href="item.url" class="poster-room-content-block pr-5  min-block" v-for="(item, i) in homeData.events.listItems" :key="i">
+           <a :href="item.url" class="poster-room-content-block pr-5" v-for="(item, i) in homeData.events.listItems" :style="homeData.events.listItems.length === 2 && i === 1 ? 'border-right: 0; ': ''" :key="i">
              <div class="poster-room-content-block-title">
                <div class="poster-room-content-block-title-text">
-                 <p>{{item.time}}</p>
-                 <p>{{item.type}}</p>
+                 <p v-if="item.time">{{item.time}}</p>
+                 <p v-if="item.type">{{item.type}}</p>
+<!--                 <p v-if="item.age">{{item.age}}</p>-->
                </div>
                <div class="poster-room-content-block-title-authnr flex" v-if="item.place">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
@@ -58,15 +59,15 @@
                </div>
              </div>
              <div class="poster-room-content-block-body">
-               <div class="poster-room-content-block-img">
+               <div class="poster-room-content-block-body-img">
                  <img :src="item.picture" alt="">
                </div>
                <div class="poster-room-content-block-description">
                  <p>{{item.name}} <span class="william">{{item.name_cursive}}</span></p>
                </div>
-               <div class="poster-room-content-block-title-authnrMini">
+               <div class="poster-room-content-block-title-authnrMini" v-if="item.place">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>{{item.name}} <span class="william">{{item.name_cursive}}</span></p>
+                 <p>{{item.place}}</p>
                </div>
              </div>
            </a>
@@ -79,21 +80,6 @@
            </div>
          </div>
       </div>
-<!--      <div class="virtual-tour" v-if="homeData && homeData.property" v-html="homeData.property.video">-->
-<!--&lt;!&ndash;        <div class="virtual-tour-title">&ndash;&gt;-->
-<!--&lt;!&ndash;          <p>виртуальный тур по музею</p>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        <div class="virtual-tour-content">&ndash;&gt;-->
-<!--&lt;!&ndash;          <div class="img">&ndash;&gt;-->
-<!--&lt;!&ndash;            <p class="flex elem">&ndash;&gt;-->
-<!--&lt;!&ndash;              <img class="mr-1" src="../assets/image/(w.svg" alt="">&ndash;&gt;-->
-<!--&lt;!&ndash;              <span>прогуляться</span>&ndash;&gt;-->
-<!--&lt;!&ndash;              <img class="ml-1" src="../assets/image/)w.svg" alt="">&ndash;&gt;-->
-<!--&lt;!&ndash;            </p>&ndash;&gt;-->
-<!--&lt;!&ndash;          </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        <div></div>&ndash;&gt;-->
-<!--      </div>-->
       <div class="education" v-if="homeData && homeData.education && homeData.education.educationBlock">
          <div class="education-title">
            <p>{{homeData.education.educationBlock.name}}</p>
@@ -484,6 +470,10 @@ export default {
         border-right: 1px solid #000000;
       }
 
+      &:last-child {
+        border-right: 0 !important;
+      }
+
       &-block:nth-child(2){
         border-right: 1px solid #000000;
         border-left: 1px solid #000000;
@@ -509,6 +499,7 @@ export default {
         }
       }
 
+
       &-block {
         display: flex;
         flex-direction: column;
@@ -516,6 +507,8 @@ export default {
         min-width: 33.3%;
         border-bottom: 1px solid;
         padding: 20px;
+
+
 
         @media (max-width: 800px) {
           justify-content: space-between;
@@ -526,6 +519,9 @@ export default {
           border-bottom: 1px solid;
           padding-left: 0;
           padding-right: 0;
+          border-right: 0 !important;
+          border-left: 0 !important;
+          width: 100%;
         }
 
         &-title {
@@ -534,6 +530,11 @@ export default {
           align-items: flex-start;
           margin-bottom: 40px;
           height: 60px;
+
+          @media (max-width: 650px) {
+            margin-bottom: 0;
+          }
+
 
           &-authnrMini {
             display: none;
@@ -564,21 +565,23 @@ export default {
             line-height: 20px;
             text-transform: uppercase;
             color: #221F1A;
-            width: 50%;
-            justify-content: end;
 
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            /*white-space: nowrap;*/
+            img {
+              width: 7px;
+              margin-top: 5px;
+              margin-right: 15px;
+            }
 
             p {
-              overflow: hidden;
-              text-overflow: ellipsis;
-              display: -webkit-box;
-              -webkit-line-clamp: 1;
-              -webkit-box-orient: vertical;
+              max-width: 200px;
             }
 
 
             img {
-              width: 7px;
               margin-left: 10px;
             }
 
@@ -616,6 +619,10 @@ export default {
           align-items: center;
           flex-direction: column;
 
+
+          &-img {
+             min-height: 300px;
+          }
 
         }
 
@@ -681,6 +688,7 @@ export default {
 
     @media (max-width: 650px) {
       flex-direction: column-reverse;
+      margin-top: 20px;
     }
 
     p{
