@@ -11,7 +11,7 @@ export const state = () => ({
 })
 export const actions = {
     getEvents ({ commit },page) {
-        return this.$axios.get('api/' + this.$i18n.locale +'/events?PAGEN_1=' + page).then((res) => {
+        return this.$axios.get('api/' + this.$i18n.locale +'/events/?PAGEN_1=' + page).then((res) => {
             commit('setEvents', res.data)
             return res.data
         })

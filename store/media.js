@@ -10,7 +10,7 @@ export const state = () => ({
 })
 export const actions = {
   getMedia ({ commit },page) {
-    return this.$axios.get('api/' + this.$i18n.locale +'/media?PAGEN_1=' + page).then((res) => {
+    return this.$axios.get('api/' + this.$i18n.locale +'/media/?PAGEN_1=' + page).then((res) => {
       commit('setNews', res.data)
       return res.data
     })
