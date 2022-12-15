@@ -298,8 +298,8 @@
       async share () {
         if (window.navigator.share) {
           const shareData = {
-            title: this.eventData.name,
-            text: this.eventData.nameCursive,
+            title: this.eventData.name +  ' ' + this.eventData.nameCursive,
+            text: this.eventData.name +  ' ' + this.eventData.nameCursive,
             url: window.location.href
           }
           try {
