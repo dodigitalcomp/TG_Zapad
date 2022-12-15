@@ -12,7 +12,7 @@ export const actions = {
         })
     },
     saveForm ({ commit }, params) {
-        return this.$axios.post('local/ajax/saveFormData.php', params).then((res) => {
+        return this.$axios.post('api/local/ajax/saveFormData.php', params).then((res) => {
             return res.data
         })
     }
