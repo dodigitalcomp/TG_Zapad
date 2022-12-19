@@ -18,10 +18,15 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/css/main.scss',
+    '@/assets/css/fonts.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/progress-bar', ssr: false },
+    { src: '~/plugins/vue-swiper', ssr: false },
+    { src: '~/plugins/vue-picture-swipe', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -30,14 +35,43 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/tailwindcss',
+    // Simple usage
   ],
+
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+     [
+       'nuxt-sweetalert2',
+       {
+         confirmButtonColor: '#FFDD7C'
+       }
+     ],
+    '@nuxtjs/axios'
     // https://go.nuxtjs.dev/bootstrap
+      ,
+      [
+          'nuxt-i18n',
+          {
+              strategy: 'prefix',
+              locales: [
+                  'ru',
+                  'en'
+              ],
+              defaultLocale: 'en',
+              vueI18n: {
+                  fallbackLocale: 'en'
+              }
+          }
+      ],
+    '@nuxtjs/proxy',
   ],
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
+  axios: {
+    proxy: true
+  },
+  
+  proxy: {
+    '/api/': { target: process.env.NUXT_ENV_API_URL_LIVE, pathRewrite: {'^/api/': ''}, changeOrigin: true }
   }
 }

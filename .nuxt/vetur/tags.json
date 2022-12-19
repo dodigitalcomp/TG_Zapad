@@ -1,0 +1,35 @@
+{
+  "Footer": {
+    "description": "Auto imported from components/Footer.vue"
+  },
+  "Galleria": {
+    "description": "Auto imported from components/Galleria.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/Header.vue"
+  },
+  "Main": {
+    "description": "Auto imported from components/Main.vue"
+  },
+  "Meta": {
+    "description": "Auto imported from components/Meta.vue"
+  },
+  "Modal": {
+    "description": "Auto imported from components/Modal.vue"
+  },
+  "Partniors": {
+    "description": "Auto imported from components/Partniors.vue"
+  },
+  "Teachers": {
+    "description": "Auto imported from components/Teachers.vue"
+  },
+  "VueGalleria": {
+    "description": "Auto imported from components/VueGalleria.vue"
+  },
+  "VueNewsSwiper": {
+    "description": "Auto imported from components/VueNewsSwiper.vue"
+  },
+  "VueSwiper": {
+    "description": "Auto imported from components/VueSwiper.vue"
+  }
+}

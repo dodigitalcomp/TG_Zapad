@@ -1,68 +1,70 @@
 <template>
-  <header class="w-full header-block" :class="openMenu ? 'bg-dark' : 'bg-white'">
+  <header class="w-full header-block" :class="openMenu ? 'bg-dark menu' : bgcolor === 'yellow' ? 'bg-yellow': 'bg-white'">
     <nav class="">
-      <div class="max-w-7lg mx-auto p-2 sm:p-4 lg:p-5">
+      <div class="max-w-7lg mx-auto p-5">
         <div class="relative flex items-center justify-between h-16">
           <div class="flex-1 flex items-center justify-between">
-            <div class="flex-shrink-0 flex items-center nav-logo">
-              <img class="block lg:hidden h-8 w-auto" src="../assets/image/logo_sign.svg" alt="Workflow">
-              <img class="hidden lg:block h-8 w-auto" src="../assets/image/logo_sign.svg" alt="Workflow">
-              <div class="ml-2">
-                <p class="nav-title-logo">Третьяковская</p>
-                <p class="nav-title-logo">галерея</p>
-                <p class="nav-title-logo-mini">Запад</p>
-              </div>
+            <div class="flex items-center">
+              <NuxtLink tag="a" :to="localePath('/')" class="flex-shrink-0 flex items-center nav-logo">
+                <svg width="50" height="55" viewBox="0 0 50 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 0H0V55H16V0Z" :fill="openMenu ? '#FFDD7C' : logoColor === 'black' ? '#221F1A' : '#FFDD7C' "/>
+                  <path d="M32 18L50 0H32V18Z" :fill="openMenu ? '#FFDD7C' : logoColor === 'black' ? '#221F1A' : '#FFDD7C' "/>
+                  <path d="M50 55L32 37V55H50Z" :fill="openMenu ? '#FFDD7C' : logoColor === 'black' ? '#221F1A' : '#FFDD7C' "/>
+                </svg>
+                <div class="ml-2 min-menu-text" v-if="menuData && menuData.langPhrase">
+                  <p class="nav-title-logo">{{menuData.langPhrase.logoFirst}}</p>
+                  <p class="nav-title-logo">{{menuData.langPhrase.logoSecond}}</p>
+                  <p class="nav-title-logo-mini">{{menuData.langPhrase.logoThird}}</p>
+                </div>
+              </NuxtLink>
+              <a href="https://www.tretyakovgallery.ru/" target="_blank" class="flex-shrink-0 ml-3 flex items-center t-logo">
+                <img v-if="openMenu" src="../assets/image/partniors/T__T_gold.svg" alt="">
+                <img v-else-if="logoColor === 'black'" src="../assets/image/partniors/T__T_black.svg" alt="">
+                <img v-else src="../assets/image/partniors/T__T_gold.svg" alt="">
+              </a>
             </div>
-            <div class="hidden sm:block sm:ml-6">
-              <div class="flex space-x-4">
-                <a href="#" class="uppercase nav-title-menu">Афиша</a>
-                <a href="#" class="uppercase nav-title-menu">образование</a>
-                <a href="#" class="uppercase nav-title-menu">о музее</a>
-                <a href="#" class="uppercase nav-title-menu">новости</a>
-                <a href="#" class="uppercase nav-title-menu">контакты</a>
+            <div class="mlm-20 hidden sm:block sm:ml-6">
+              <div class="flex space-x-4" v-if="menuData && menuData.topMenu">
+                <NuxtLink tag="a" v-for="(item, index) in menuData.topMenu" :key="index" :to="item.link" class="uppercase nav-title-menu whitespace-nowrap">{{item.name}}</NuxtLink>
               </div>
             </div>
             <div class="inset-y-0 right-0 flex items-center pr-2sm:ml-6 sm:pr-0">
               <div class="ml-3" v-if="!openMenu">
-                <a class="flex cursor-pointer">
+                <NuxtLink tag="a" :to="localePath('/search')" class="flex cursor-pointer mr-5">
                   <img class="" src="../assets/image/search.svg" alt="">
-                </a>
+                </NuxtLink>
               </div>
               <div class="ml-3 hidden">
                 <div>
-                  <a href="#" class="nav-title">медиа</a>
+                  <NuxtLink tag="a" v-if="menuData && menuData.media" :to="menuData.media.link" class="nav-title">{{menuData.media.name}}</NuxtLink>
                 </div>
               </div>
               <div class="ml-3 relative flex nav-title hidden">
-                <img src="../assets/image/(.svg" alt="">
+                <img class="mr-1" src="../assets/image/(.svg" alt="">
                 <div>
-                  <a href="#">EN</a>
+                  <p v-for="(item, index) in language" :key="index" style="cursor: pointer" :style="item.code === $i18n.locale ? 'display: none' : ''" @click="getLang(item.code, true)">{{item.name}}</p>
                 </div>
-                <img src="../assets/image/).svg" alt="">
+                <img class="ml-1" src="../assets/image/).svg" alt="">
               </div>
             </div>
           </div>
           <div class="flex items-center min ml-2">
-            <button type="button" class="nav-button" @click="openMenu = !openMenu">
+            <button type="button" class="nav-button" @click="showMenu">
               <img v-if="!openMenu" src="../assets/image/burger.svg" alt="">
               <img v-else src="../assets/image/Vector.svg" alt="">
             </button>
           </div>
         </div>
       </div>
-      <div v-if="openMenu">
-        <div class="px-2 pt-2 pb-3 space-y-1 min-menu">
-          <a href="#" class="uppercase nav-title-menu">Афиша11</a>
-          <a href="#" class="uppercase nav-title-menu">образование</a>
-          <a href="#" class="uppercase nav-title-menu">о музее</a>
-          <a href="#" class="uppercase nav-title-menu">МЕДИА</a>
-          <a href="#" class="uppercase nav-title-menu">новости</a>
-          <a href="#" class="uppercase nav-title-menu">ПРОГРАММА ЛОЯЛЬНОСТИ</a>
-          <a href="#" class="uppercase nav-title-menu">контакты</a>
-          <hr class="line-up">
-          <div class="min-menu-block"></div>
-          <hr class="line-dn">
-          <a href="#" class="uppercase nav-title-menu">EN</a>
+      <div :class="!openMenu ? 'd-none' : ''">
+        <div class="px-5 pt-2 pb-3 space-y-1 min-menu" v-if="menuData && menuData.topMenu">
+          <NuxtLink tag="a" v-for="(item, index) in menuData.topMenu" :key="index" :to="item.link" class="uppercase nav-title-menu whitespace-nowrap">{{item.name}}</NuxtLink>
+          <canvas id="header-arrow"></canvas>
+          <p class="uppercase nav-title-menu flex items-center">
+            <img class="mr-1 nav-title-menu-img" src="../assets/image/(w.svg" alt="">
+            <span v-for="(item, index) in language" :key="index" style="cursor: pointer" :style="item.code === $i18n.locale ? 'display: none' : ''" @click="getLang(item.code, true)">{{item.name}}</span>
+            <img class="ml-1 nav-title-menu-img" src="../assets/image/)w.svg" alt="">
+          </p>
         </div>
       </div>
     </nav>
@@ -70,23 +72,109 @@
 </template>
 
 <script>
-
+  import { mapActions, mapState } from 'vuex'
   export default {
     name: "Header",
+      props:['bgcolor', 'logoColor'],
       data() {
         return {
-            openMenu: false
+            openMenu: false,
+            selectCode: 'en',
+            language: [
+              {
+                name: 'EN',
+                code: 'en'
+              },
+              {
+                name: 'RU',
+                code: 'ru'
+              }
+            ]
+        }
+      },
+    computed: {
+      ...mapState({
+          menuData: (state) => state.language.menuData
+      })
+    },
+    mounted() {
+      this.addCanvas()
+      this.bodyHidden()
+    },
+    methods: {
+      ...mapActions({
+        getCurrencyData: 'currency/getCurrencyData'
+      }),
+      getLang (code) {
+        this.$i18n.locale = code
+        window.location.href = this.switchLocalePath(code)
+        localStorage.setItem('locale', code)
+      },
+      showMenu () {
+        this.openMenu = !this.openMenu
+        this.bodyHidden()
+      },
+      bodyHidden () {
+        const body = document.getElementsByTagName('body')
+        if (this.openMenu) {
+          body[0].style.overflow = 'hidden'
+        } else {
+          body[0].style.overflow = 'auto'
+        }
+      },
+      addCanvas () {
+        let canvas = document.getElementById('header-arrow');
+        if (canvas) {
+          if (canvas.getContext) {
+            let ctx = canvas.getContext('2d');
+            ctx.beginPath();
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.moveTo(canvas.width + 1, 0);
+            ctx.lineTo(1, canvas.height / 2);
+            ctx.lineTo(canvas.height * 2 + 1, canvas.height);
+            ctx.closePath();
+            ctx.stroke();
+          }
         }
       }
+    }
   }
 </script>
 <style scoped lang="scss">
+
+  .menu {
+    overflow-y: scroll;
+    height: 100%;
+  }
+
+  .min-menu-text {
+    display: block;
+
+    @media (max-width: 650px) {
+      display: none;
+    }
+  }
+  .d-none {
+    display: none;
+  }
+  #header-arrow {
+    width: 100%;
+    height: 360px;
+
+    @media (max-width: 650px) {
+      height: 182px;
+    }
+  }
+  .bg-yellow {
+    background: #FFDD7C;
+  }
   .bg-white {
     background: white;
   }
   .header-block {
     position: fixed;
-    z-index: 9999;
+    z-index: 99;
+
   }
   .min {
     display: none;
@@ -98,40 +186,15 @@
     display: flex;
     flex-direction: column;
     color: #FFFFFF;
+    overflow-y: auto;
 
     .nav-title-menu {
       color: #FFFFFF;
       margin-bottom: 40px;
-    }
-
-    .min-menu-block {
-      height: 151px;
-
-      @media (max-width: 860px) {
-        height: 120px;
-      }
 
       @media (max-width: 650px) {
-        height: 100px;
+        margin-bottom: 20px;
       }
-
-      @media (max-width: 540px) {
-        height: 70px;
-      }
-
-      @media (max-width: 440px) {
-        height: 50px;
-      }
-
-    }
-
-    .line-up {
-      background: wheat;
-      transform: rotate(-10deg);
-    }
-    .line-dn {
-      background: wheat;
-      transform: rotate(10deg);
     }
 
   }
@@ -163,12 +226,22 @@
     line-height: 25px;
     color: #221F1A;
 
-    @media (max-width: 1220px) {
-      font-size: 18px;
+    @media (max-width: 850px) {
+      font-size: 30px;
+      line-height: 32px;
     }
 
-    @media (max-width: 990px) {
-      font-size: 16px;
+    @media (max-width: 650px) {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    &-img {
+      height: 32px;
+
+      @media (max-width: 650px) {
+        height: 22px;
+      }
     }
 
   }
@@ -177,7 +250,7 @@
       display: none;
     }
     .min {
-      display: block;
+      display: flex;
     }
   }
 
@@ -188,17 +261,30 @@
     }
   }
   .nav-title-logo {
-    font-weight: bold;
+    font-weight: 500;
+    font-style: normal;
     font-size: 18px;
-    line-height: 15px;
+    line-height: 18px;
     color: #221F1A;
+    max-width: 135px;
   }
   .nav-title-logo-mini {
-    margin: 0;
     padding: 0;
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 15px;
     line-height: 20px;
     color: #221F1A;
+  }
+
+  .t-logo {
+    margin-left: 20px;
+    img {
+      width: 92px;
+      height: 92px;
+    }
+  }
+
+  .mlm-20 {
+    margin-left: -105px;
   }
 </style>

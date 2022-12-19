@@ -1,253 +1,194 @@
 <template>
     <div class="main pt-30">
-      <div class="image-bock flex items-center justify-center flex-col ">
+      <div class="image-bock flex items-center justify-center flex-col " v-if="homeData && homeData.property">
         <div class="image-bock-img">
-          <img src="../assets/image/pic.jpg" alt="">
+          <img :src="homeData.property.main_img" alt="">
         </div>
         <div class="image-bock-title">
-          <p class="title">новое культурное</p>
-          <p class="title-p">пространство для горожан</p>
+          <p class="title">{{homeData.property.firstScreenTitle}}</p>
+          <p class="title william" >{{homeData.property.cursiveTitle}}</p>
         </div>
       </div>
-      <div class="museum-block">
+      <div class="museum-block" v-if="homeData && homeData.property">
         <div class="museum-block-title">
-          <p>о музее</p>
+          <p>{{homeData.property.h2}}</p>
         </div>
         <div class="museum-block-content">
           <div class="museum-block-content-text">
             <div></div>
             <div class="description">
-              <p>Новый музейный комплекс—филиал Третьяковской галереи. Первый художественный музей такого масштаба в Калининградской области. </p>
+              <p>{{homeData.property.text}}</p>
             </div>
             <div class="more">
-              <p>(подробнее)</p>
+              <NuxtLink tag="p" :to="homeData.property.show_more_link" class="flex pb-4 cursor-pointer"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.property.show_more}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></NuxtLink>
             </div>
           </div>
           <div class="museum-block-content-img">
-            <div></div>
-            <div>
-              <Swiper/>
+            <div v-if="homeData.slider && homeData.slider.listItems">
+              <Galleria :index="selectPage" :images="homeData.slider.listItems" :isMain="true"/>
             </div>
-            <div class="flex items-center justify-between w-full">
-              <p class="flex ml-20 pagination">
-                <span class="page active">1</span>
-                <span class="page">2</span>
-                <span class="page">3</span>
-              </p>
-              <img class="icon" src="../assets/image/Ellipse.svg" alt="">
-            </div>
+<!--            <div class="flex items-center justify-between w-full pb-3">-->
+<!--              <p class="pagination-max">-->
+<!--                <span class="page " :class="selectPage === i ? 'active' : ''" v-for="(item, i) in homeData.slider.listItems" @click="selectPage = i" :key="i">{{i + 1}}</span>-->
+<!--              </p>-->
+<!--              <p class="pagination-min">-->
+<!--                <span class="page " :class="selectPage === i ? 'active' : ''" v-for="(item, i) in homeData.slider.listItems" @click="selectPage = i" :key="i">{{i + 1}}</span>-->
+<!--              </p>-->
+<!--              <img class="icon" src="../assets/image/Ellipse.svg" alt="">-->
+<!--            </div>-->
           </div>
         </div>
       </div>
-      <div class="poster-room">
-         <div class="poster-room-header">
-           <p class="poster-room-header-title">афиша событий</p>
-           <hr class="line-dn">
-           <p class="poster-room-header-more">(все события)</p>
+      <div class="poster-room" v-if="homeData && homeData.events">
+         <div class="poster-room-header line-block" v-if="homeData.events.langPhrase">
+           <p class="poster-room-header-title">{{homeData.events.langPhrase.title_block}}</p>
+           <div class="line-dn"></div>
+           <NuxtLink :to="localePath('/events')" tag="p" class="poster-room-header-more cursor-pointer"><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.events.langPhrase.all}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></NuxtLink>
          </div>
-         <div class="poster-room-content">
-           <div class="poster-room-content-block pr-5 poster-room-content-border-right min-block">
+         <div class="poster-room-content" v-if="homeData.events && homeData.events.listItems">
+           <a :href="item.url" class="poster-room-content-block pr-5" v-for="(item, i) in homeData.events.listItems" :style="homeData.events.listItems.length === 2 && i === 1 ? 'border-right: 0; ': ''" :key="i">
              <div class="poster-room-content-block-title">
                <div class="poster-room-content-block-title-text">
-                 <p>1–21 ДЕК</p>
-                 <p>Кинопоказ</p>
+                 <p v-if="item.time">{{item.time}}</p>
+                 <p v-if="item.type">{{item.type}}</p>
+<!--                 <p v-if="item.age">{{item.age}}</p>-->
                </div>
-               <div class="poster-room-content-block-title-text flex">
+               <div class="poster-room-content-block-title-authnr flex" v-if="item.place">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Кинотеатр «Киносфера»
-                   Калининград</p>
+                 <p >{{item.place}}</p>
                </div>
              </div>
              <div class="poster-room-content-block-body">
-               <div class="poster-room-content-block-img">
-                 <img src="../assets/image/image24.jpg" alt="">
+               <div class="poster-room-content-block-body-img">
+                 <img :src="item.picture" alt="">
                </div>
                <div class="poster-room-content-block-description">
-                 <p>Замки <span>ЛуАры</span></p>
+                 <p>{{item.name}} <span class="william">{{item.name_cursive}}</span></p>
                </div>
-             </div>
-           </div>
-           <div class="poster-room-content-block pl-5">
-             <div class="poster-room-content-block-title">
-               <div class="poster-room-content-block-title-text">
-                 <p>14–28 ДЕК</p>
-                 <p>Лекции</p>
-               </div>
-               <div class="poster-room-content-block-title-text flex">
+               <div class="poster-room-content-block-title-authnrMini" v-if="item.place">
                  <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Инженерный корпус</p>
+                 <p>{{item.place}}</p>
                </div>
              </div>
-             <div class="poster-room-content-block-body">
-               <div class="poster-room-content-block-img">
-                 <img src="../assets/image/image31.jpg" alt="">
-               </div>
-               <div class="poster-room-content-block-description">
-                 <p>Мифы и легенды в произведениях <span>русских художников</span></p>
-               </div>
-             </div>
-           </div>
-         </div>
-         <div class="poster-room-content">
-           <div class="poster-room-content-block pr-5 poster-room-content-border-right min-block">
-             <div class="poster-room-content-block-title">
-               <div class="poster-room-content-block-title-text">
-                 <p>1 ДЕК 2020–14 ЯНВ 2021 </p>
-                 <p>выставка</p>
-               </div>
-               <div class="poster-room-content-block-title-text flex">
-                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>галерея A1–one каунас</p>
-               </div>
-             </div>
-             <div class="poster-room-content-block-body">
-               <div class="poster-room-content-block-img">
-                 <img src="../assets/image/Pic-fit.jpg" alt="">
-               </div>
-               <div class="poster-room-content-block-description">
-                 <p>Вильямс П.В. <span>история одной работы</span></p>
-               </div>
-             </div>
-           </div>
-           <div class="poster-room-content-block pr-5 pl-5 poster-room-content-border-right">
-             <div class="poster-room-content-block-title">
-               <div class="poster-room-content-block-title-text">
-                 <p>1–31 ЯНВ 2021</p>
-                 <p>Лекции</p>
-               </div>
-               <div class="poster-room-content-block-title-text flex">
-                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Инженерный корпус</p>
-               </div>
-             </div>
-             <div class="poster-room-content-block-body">
-               <div class="poster-room-content-block-img">
-                 <img src="../assets/image/image30.jpg" alt="">
-               </div>
-               <div class="poster-room-content-block-description">
-                 <p>«Маленький человек» Кабакова<span> и русская живопись XIX века</span></p>
-               </div>
-             </div>
-           </div>
-           <div class="poster-room-content-block pr-5 pl-5">
-             <div class="poster-room-content-block-title">
-               <div class="poster-room-content-block-title-text">
-                 <p>1 ЯНВ–31 ФЕВ 2021 </p>
-                 <p>выставка</p>
-               </div>
-               <div class="poster-room-content-block-title-text flex">
-                 <img class="mr-2" src="../assets/image/pin1.svg" alt="">
-                 <p>Музей Янтаря, Калининград</p>
-               </div>
-             </div>
-             <div class="poster-room-content-block-body">
-               <div class="poster-room-content-block-img">
-                 <img src="../assets/image/Pic-fit1.jpg" alt="">
-               </div>
-               <div class="poster-room-content-block-description">
-                 <p>фотография во времена <span>самоизоляции</span></p>
-               </div>
-             </div>
+           </a>
+           <div class="all-events">
+             <NuxtLink tag="p" :to="localePath('/events')" class="flex cursor-pointer">
+               <img class="mr-1" src="../assets/image/(.svg" alt="">
+               <span>{{homeData.events.langPhrase.all}}</span>
+               <img class="ml-1" src="../assets/image/).svg" alt="">
+             </NuxtLink>
            </div>
          </div>
       </div>
-      <div class="virtual-tour">
-        <div class="virtual-tour-title">
-          <p>виртуальный тур по музею</p>
-        </div>
-        <div class="virtual-tour-content">
-          <canvas height="300" id="virtual-tour-play"></canvas>
-        </div>
-        <div></div>
-      </div>
-      <div class="education">
+      <div class="education" v-if="homeData && homeData.education && homeData.education.educationBlock">
          <div class="education-title">
-           <p>Обучение</p>
+           <p>{{homeData.education.educationBlock.name}}</p>
          </div>
          <div class="education-content">
-           <p>Мы готовим специалистов в области искусства и музейного дела для работы в качестве кураторов и арт-менеджеров. Выпускники программы будут свободно ориентироваться в мире актуального искусства и современных музейных практик, обладать широкой теоретической подготовкой в сфере искусства и музейной деятельности.</p>
-           <img src="../assets/image/Rectangle976.jpg" alt="">
+           <div>
+             <p>{{homeData.education.educationBlock.previewText}}</p>
+           </div>
+           <img :src="homeData.education.educationBlock.previewPicture" alt="">
          </div>
-         <div class="education-footer">
+         <div class="education-footer" v-if="homeData.education.langPhrase">
            <div>
-             <p>(о программе)</p>
+             <a :href="homeData.education.educationBlock.program" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.about}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>
            </div>
-           <div class="education-footer-border">
-             <p>(расписание)</p>
-           </div>
-           <div>
-             <p>(материалы)</p>
-           </div>
+<!--           <div>-->
+<!--             <a :href="homeData.education.educationBlock.schedule" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.schedule}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>-->
+<!--           </div>-->
+<!--           <div>-->
+<!--             <a :href="homeData.education.educationBlock.materials" class="flex "><img class="mr-1" src="../assets/image/(.svg" alt=""><span>{{homeData.education.langPhrase.material}}</span><img class="ml-1" src="../assets/image/).svg" alt=""></a>-->
+<!--           </div>-->
          </div>
       </div>
-      <div class="news">
-        <div class="poster-room-header">
-          <p class="poster-room-header-title">Новости</p>
-          <hr class="line-dn">
-          <p class="poster-room-header-more">(все новости)</p>
+      <div class="news" v-if="homeData && homeData.news">
+        <div class="poster-room-header line-block" v-if="homeData.news.langPhrase">
+          <p class="poster-room-header-title">{{homeData.news.langPhrase.title_block}}</p>
+          <div class="line-dn"></div>
+          <NuxtLink :to="localePath('/news')" tag="a" class="poster-room-header-more">
+            <img class="mr-1" src="../assets/image/(.svg" alt="">
+            <span>{{homeData.news.langPhrase.all}}</span>
+            <img class="ml-1" src="../assets/image/).svg" alt="">
+          </NuxtLink>
         </div>
-        <div class="news-content">
-          <span class="left">&#10094;</span>
-          <span class="right">&#10095;</span>
-          <div class="news-content-swiper news-content-swiper-border-r">
-            <div class="news-content-swiper-title">
-              <p>17 окт</p>
-              <p>музей</p>
-            </div>
-            <div  class="news-content-swiper-content">
-              <img src="../assets/image/Pic-fit3.jpg" alt="">
-            </div>
-            <div class="title">
-              <p>ДОМ-МУЗЕЙ ВИКТОРА ВАСНЕЦОВА</p>
-            </div>
-            <div class="text">
-              <p>Это многообразие связано и с особенностями каждой отдельной исторической эпохи, и с процессами.</p>
-            </div>
-          </div>
-          <div class="news-content-swiper">
-            <div class="news-content-swiper-title">
-              <p>17 окт</p>
-              <p>ход строительства</p>
-            </div>
-            <div class="news-content-swiper-content">
-              <img src="../assets/image/image-museum.jpg" alt="">
-            </div>
-            <div class="title">
-              <p>ЗАЛОЖЕН ФУНДАМЕНТ ЗДАНИЯ МУЗЕЯ</p>
-            </div>
-            <div class="text">
-              <p>Лекция посвящена эволюции понимания задач цвета в живописи и многообразию подходов к колориту.</p>
-            </div>
-          </div>
+        <VueNewsSwiper :items="homeData.news.listItems"/>
+        <div class="all-events">
+          <NuxtLink :to="localePath('/news')" tag="p" class="flex cursor-pointer">
+            <img class="mr-1" src="../assets/image/(.svg" alt="">
+            <span>{{homeData.news.langPhrase.all}}</span>
+            <img class="ml-1" src="../assets/image/).svg" alt="">
+          </NuxtLink>
         </div>
       </div>
+      <Meta :head-data="this.head" />
     </div>
 </template>
 
 <script>
-    import Swiper from "./Swiper";
-    export default {
-        name: "Main",
-      components: {Swiper},
-      mounted() {
-        let canvas = document.getElementById('virtual-tour-play');
-        if (canvas.getContext){
-          let ctx = canvas.getContext('2d');
-          ctx.beginPath();
-          ctx.fillStyle = "#FFFFFF";
-          ctx.strokeStyle = '#FFFFFF';;
-          ctx.moveTo(270,270);
-          ctx.lineTo(270,10);
-          ctx.lineTo(40,135);
-          ctx.fillText("( прогуляться )",150,140);
-          ctx.closePath();
-          ctx.stroke();
-        }
-      }
+import Galleria from "./Galleria";
+import { mapActions, mapState} from 'vuex'
+import VueNewsSwiper from "./VueNewsSwiper";
+import Meta from "./Meta";
+export default {
+  name: "Main",
+  components: {Meta, VueNewsSwiper, Galleria},
+  data () {
+    return {
+      selectPage: 0
     }
+  },
+  computed: {
+    ...mapState({
+      homeData: (state) => state.language.homeData,
+      head: (state) => state.language.head,
+    })
+  },
+  created() {
+    this.getHomeData().then(() => {
+    })
+  },
+  methods: {
+    ...mapActions({
+      getHomeData: 'language/getHomeData',
+    }),
+  }
+}
 </script>
 
 <style scoped lang="scss">
+
+  #virtual-tour-play {
+    width: 336px;
+    height: 405px;
+  }
+  .all-events {
+    display: none;
+
+    @media (max-width: 650px) {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      margin-top: 20px;
+
+      p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 20px;
+        /* identical to box height, or 154% */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+        text-transform: uppercase;
+
+        /* Black brown */
+
+        color: #221F1A;
+      }
+    }
+  }
   .pt-30 {
     padding-top: 110px;
   }
@@ -257,11 +198,14 @@
     }
   }
   .image-bock-img{
-    max-width: 70%;
+    max-width: 80%;
     margin-bottom: 40px;
   }
 .image-bock-title {
-  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   .title {
     font-style: normal;
     font-weight: normal;
@@ -270,17 +214,20 @@
     text-align: center;
     text-transform: uppercase;
     color: #221F1A;
+    max-width: 80%;
 
     @media (max-width: 1000px) {
       font-size: 40px;
       line-height: 40px;
     }
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
       font-size: 30px;
       line-height: 32px;
     }
   }
+
   .title-p {
+    max-width: 565px;;
     font-style: italic;
     font-weight: normal;
     font-size: 50px;
@@ -293,7 +240,7 @@
       font-size: 40px;
       line-height: 40px;
     }
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
       font-size: 30px;
       line-height: 32px;
     }
@@ -322,7 +269,7 @@
         font-size: 30px;
         line-height: 30px;
       }
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         font-size: 25px;
         line-height: 25px;
       }
@@ -334,7 +281,7 @@
     align-items: center;
     margin-top: 20px;
 
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
       flex-direction: column;
     }
 
@@ -346,7 +293,11 @@
       justify-content: space-between;
       flex: 1;
 
-      @media (max-width: 500px) {
+      @media (max-width: 850px) {
+        height: 407px;
+      }
+
+      @media (max-width: 650px) {
         border: none;
         border-bottom: 1px solid;
         padding-bottom: 20px;
@@ -373,8 +324,22 @@
         display: flex;
         justify-content: flex-end;
         margin-right: 20px;
+        p {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 15px;
+          line-height: 20px;
+          /* identical to box height, or 133% */
 
-        @media (max-width: 500px) {
+          text-align: right;
+          text-transform: uppercase;
+
+          /* Black brown */
+
+          color: #221F1A;
+        }
+
+        @media (max-width: 650px) {
           justify-content: flex-start;
         }
       }
@@ -387,6 +352,10 @@
       align-items: center;
       flex: 1;
 
+      @media (max-width: 850px) {
+        height: 407px;
+      }
+
       .page{
         font-size: 15px;
         line-height: 20px;
@@ -397,13 +366,33 @@
         cursor: pointer;
 
       }
-      @media (max-width: 500px) {
-        .pagination {
+      @media (max-width: 650px) {
+        .pagination-min {
           margin-top: 60px;
           margin-left: 134px;
         }
         .icon{
           margin-top: 60px;
+        }
+      }
+
+      .pagination-min {
+        display: none;
+        margin-left: 53px;
+        @media (max-width: 850px) {
+          display: flex;
+        }
+
+        @media (max-width: 650px) {
+          margin-left: 44%;
+        }
+      }
+
+      .pagination-max {
+        display: flex;
+        margin-left: 120px;
+        @media (max-width: 850px) {
+          display: none;
         }
       }
 
@@ -423,23 +412,9 @@
       flex-direction: column;
 
 
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         padding-bottom: 20px;
         border-bottom: 1px solid;
-      }
-
-      .line-dn {
-        border-top: 1px solid #000000;
-        transform: rotate(-8deg);
-
-        @media (max-width: 1000px) {
-          transform: rotate(-15deg);
-        }
-
-        @media (max-width: 500px) {
-          transform: rotate(-20deg);
-        }
-
       }
 
       &-title{
@@ -455,7 +430,7 @@
           font-size: 30px;
           line-height: 30px;
         }
-        @media (max-width: 500px) {
+        @media (max-width: 650px) {
           font-size: 25px;
           line-height: 25px;
         }
@@ -464,6 +439,8 @@
 
       }
       &-more{
+        display: flex;
+        justify-content: flex-end;
         margin-top: 85px;
         font-style: normal;
         font-weight: normal;
@@ -476,13 +453,15 @@
     }
 
     &-content {
-      margin-top: 40px;
-      padding-top: 20px;
+      margin-top: 20px;
+      /*padding-top: 20px;*/
       border-top: 1px solid;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
 
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
+        margin-top: 0;
         border: none;
         flex-direction: column;
       }
@@ -491,24 +470,74 @@
         border-right: 1px solid #000000;
       }
 
+      &:last-child {
+        border-right: 0 !important;
+      }
+
+      &-block:nth-child(2){
+        border-right: 1px solid #000000;
+        border-left: 1px solid #000000;
+        @media (max-width: 850px) {
+          padding-left: 0 !important;
+        }
+      }
+
+      &-block:nth-child(5){
+        border-right: 1px solid #000000;
+        border-left: 1px solid #000000;
+        @media (max-width: 850px) {
+          padding-left: 0 !important;
+        }
+      }
+
+      &-block:nth-child(3){
+        @media (max-width: 850px) {
+          padding-right: 0 !important;
+        }
+        @media (max-width: 650px) {
+          padding-top: 20px;
+        }
+      }
+
+
       &-block {
         display: flex;
         flex-direction: column;
         flex: 1;
+        min-width: 33.3%;
+        border-bottom: 1px solid;
+        padding: 20px;
 
-        @media (max-width: 500px) {
+
+
+        @media (max-width: 800px) {
+          justify-content: space-between;
+        }
+
+        @media (max-width: 650px) {
           border: none;
           border-bottom: 1px solid;
-          margin-bottom: 40px;
+          padding-left: 0;
+          padding-right: 0;
+          border-right: 0 !important;
+          border-left: 0 !important;
+          width: 100%;
         }
 
         &-title {
           display: flex;
           justify-content: space-between;
-          align-items: center;
-          margin-bottom: 88px;
+          align-items: flex-start;
+          margin-bottom: 40px;
+          height: 60px;
 
-          &-text {
+          @media (max-width: 650px) {
+            margin-bottom: 0;
+          }
+
+
+          &-authnrMini {
+            display: none;
             font-style: normal;
             font-weight: normal;
             font-size: 15px;
@@ -518,8 +547,69 @@
 
             img {
               width: 7px;
+              margin-bottom: 9px;
+            }
+
+            @media (max-width: 800px) {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              margin-bottom: 40px;
+            }
+          }
+
+          &-authnr {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #221F1A;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            /*white-space: nowrap;*/
+            img {
+              width: 7px;
+              margin-top: 5px;
+              margin-right: 15px;
+            }
+
+            p {
+              max-width: 200px;
+            }
+
+
+            img {
               margin-left: 10px;
             }
+
+            @media (max-width: 800px) {
+              display: none;
+            }
+          }
+
+
+          &-text {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #221F1A;
+            width: 50%;
+
+            p {
+              white-space: nowrap;
+            }
+
+            @media (max-width: 800px) {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+            }
+
           }
         }
 
@@ -528,6 +618,12 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
+
+
+          &-img {
+             min-height: 300px;
+          }
+
         }
 
         &-description {
@@ -550,47 +646,15 @@
       }
     }
   }
-.virtual-tour {
-  background-image: url("../assets/image/bg.jpg");
-  height: 700px;
-  padding-top: 40px;
-  padding-left: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  &-title {
-    p {
-      font-style: normal;
-      font-weight: normal;
-      font-size: 40px;
-      line-height: 40px;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      max-width: 365px;
-
-      @media (max-width: 1000px) {
-        font-size: 30px;
-        line-height: 30px;
-      }
-      @media (max-width: 500px) {
-        font-size: 25px;
-        line-height: 25px;
-      }
-    }
-  }
-
-  &-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
 .education {
   background: #FFDD7C;
   display: flex;
   flex-direction: column;
   padding: 40px 20px;
+
+  @media (max-width: 850px) {
+    padding: 30px 20px;
+  }
 
   &-title {
     p{
@@ -605,7 +669,7 @@
         font-size: 30px;
         line-height: 30px;
       }
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         font-size: 25px;
         line-height: 25px;
       }
@@ -618,12 +682,36 @@
     align-items: center;
     margin-bottom: 85px;
 
-    @media (max-width: 500px) {
+    @media (max-width: 850px) {
+      margin-top: 71px;
+    }
+
+    @media (max-width: 650px) {
       flex-direction: column-reverse;
+      margin-top: 20px;
     }
 
     p{
       max-width: 530px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 26px;
+      color: #211F1A;
+
+      @media (max-width: 800px) {
+        font-size: 15px;
+        line-height: 20px;
+      }
+
+      @media (max-width: 650px) {
+        font-size: 18px;
+        line-height: 26px;
+      }
+
+      span {
+        color: red;
+      }
     }
     img {
       width: 529px;
@@ -635,6 +723,11 @@
         height: 213px;
         margin: 20px;
       }
+
+      @media (max-width: 650px) {
+        width: 335px;
+        height: 244px;
+      }
     }
   }
   &-footer {
@@ -644,12 +737,53 @@
     align-items: center;
     padding-top: 20px;
 
+    @media (max-width: 600px) {
+      flex-wrap: wrap;
+    }
+
+    /*div:nth-child(1) {*/
+    /*  border-right: 1px solid;*/
+    /*}*/
+
+    /*div:nth-child(3) {*/
+    /*  @media (max-width: 600px) {*/
+    /*    width: 100%;*/
+    /*    margin-top: 20px;*/
+    /*    border-top: 1px solid;*/
+    /*  }*/
+    /*}*/
+
     div {
-      height: 100px;
+      height: 110px;
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
+      text-transform: uppercase;
+
+      @media (max-width: 850px) {
+        height: 70px;
+      }
+
+      p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 20px;
+        /* identical to box height, or 133% */
+
+        text-align: right;
+        text-transform: uppercase;
+
+        /* Black brown */
+
+        color: #221F1A;
+      }
+
+      @media (max-width: 600px) {
+        width: 50%;
+        flex: none;
+      }
     }
     &-border {
       border-left: 1px solid;
@@ -660,7 +794,7 @@
 .news {
   padding: 40px 20px;
   &-content {
-    margin-top: 40px;
+    margin-top: 20px;
     border-top: 1px solid;
     border-bottom: 1px solid;
     display: flex;
@@ -668,8 +802,9 @@
     margin-bottom: 150px;
     position: relative;
 
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
       border-bottom: none;
+      border-top: none;
       margin-bottom: 20px;
       flex-direction: column;
     }
@@ -679,9 +814,9 @@
       font-size: 50px;
       position: absolute;
       top: 200px;
-      left: 20px;
+      left: 0;
       cursor: pointer;
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         display: none !important;
       }
     }
@@ -690,16 +825,16 @@
       font-size: 50px;
       position: absolute;
       top: 200px;
-      right: 20px;
+      right: 0;
       cursor: pointer;
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         display: none !important;
       }
     }
 
     .news-content-swiper-border-r {
       border-right: 1px solid;
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
         border-right: none;
         }
     }
@@ -711,16 +846,33 @@
       flex-direction: column;
       justify-content: space-around;
       flex: 1;
-      padding-left: 20px;
-      padding-right: 20px;
 
-      @media (max-width: 500px) {
+      @media (max-width: 650px) {
+        margin-top: 0;
+        border-top: none;
         border-bottom: 1px solid;
+        padding-left: 0;
+        padding-right: 0;
       }
 
       &-title{
         display: flex;
         justify-content: space-between;
+
+        p {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 13px;
+          line-height: 15px;
+          /* identical to box height, or 115% */
+
+          text-align: right;
+          text-transform: uppercase;
+
+          /* Black brown */
+
+          color: #221F1A;
+        }
       }
       .title {
         display: flex;

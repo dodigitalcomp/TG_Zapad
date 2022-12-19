@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Gerbera';
+    src: local("Gerbera");
+    src: url('../fonts/FontAwesome.eot');
+    src: url('../fonts/Gerbera.woff2') format('woff2');
+    src: url('../fonts/Gerbera.woff') format('woff');
+    src: url('../fonts/Gerbera.ttf')  format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Gerbera';
+   src: url('../fonts/Gerbera-Light.woff2') format('woff2');
+   src: url('../fonts/Gerbera-Light.woff') format('woff');
+   src: url('../fonts/Gerbera-Light.ttf')  format('truetype');
+font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Gerbera';
+    src: url('../fonts/Gerbera-Medium.woff2') format('woff2');
+    src: url('../fonts/Gerbera-Medium.woff') format('woff');
+    src: url('../fonts/Gerbera-Medium.ttf')  format('truetype');
+font-weight: 500;
+}
+
+
+@font-face {
+    font-family: 'William';
+    src: url('../fonts/William.woff2') format('woff2');
+    src: url('../fonts/William.woff') format('woff');
+    src: url('../fonts/William.ttf')  format('truetype');
+font-weight: 500;
+}
+
+
+body {
+    font-family: 'Gerbera';
+}
+
+.william {
+    font-style: italic !important;
+    font-family: William;
+}
