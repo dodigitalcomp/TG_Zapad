@@ -595,10 +595,18 @@ export default {
       this.faqList[i].active = !this.faqList[i].active
     },
     scroll () {
-      this.masters = document.getElementById('masters').offsetTop
-      this.programObjective = document.getElementById('programObjective').offsetTop
-      this.learnMore = document.getElementById('learnMore').offsetTop
-      this.howProceed = document.getElementById('howProceed').offsetTop
+      if (document.getElementById('masters')) {
+        this.masters = document.getElementById('masters').offsetTop
+      }
+      if (document.getElementById('programObjective')) {
+        this.programObjective = document.getElementById('programObjective').offsetTop
+      }
+      if (document.getElementById('learnMore')) {
+        this.learnMore = document.getElementById('learnMore').offsetTop
+      }
+      if (document.getElementById('howProceed')) {
+        this.howProceed = document.getElementById('howProceed').offsetTop
+      }
     },
     scrollTab(i) {
       let top = 0

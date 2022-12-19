@@ -99,6 +99,7 @@
     },
     mounted() {
       this.addCanvas()
+      this.bodyHidden()
     },
     methods: {
       ...mapActions({
@@ -111,6 +112,9 @@
       },
       showMenu () {
         this.openMenu = !this.openMenu
+        this.bodyHidden()
+      },
+      bodyHidden () {
         const body = document.getElementsByTagName('body')
         if (this.openMenu) {
           body[0].style.overflow = 'hidden'
